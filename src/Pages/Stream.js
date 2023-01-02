@@ -128,6 +128,7 @@ export default function Stream(props) {
                 allowFullScreen="allowfullscreen"
                 webkitallowfullscreen="true"
                 title={animeId}
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               />
             </div>
 
