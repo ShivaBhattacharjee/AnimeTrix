@@ -25,7 +25,7 @@ What does AnimeTrix feature?
  
   <h4>REQUIRMENTS:-<br><br>
   i.&nbsp; Nodejs and GIT installed <br><br>
-  ii.&nbsp; A bit of common sense
+  ii.&nbsp; A bit of common sense<br><br>
   ii. Basic knowledge in REACT and Apis</h4>
  <hr>
  <br>
