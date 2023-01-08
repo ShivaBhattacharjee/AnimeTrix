@@ -1,4 +1,5 @@
 <h1>AnimeTrix is a simple yet elegent minimal anime streaming website which is made using REACT JS and GOGOANIME API</h1> 
+<br>
 
 
 <br>
