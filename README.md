@@ -1,15 +1,25 @@
-# An anime streaming website made using *REACT JS* and *GOGOANIME API* with seemless and easy download 
+AnimeTrix is a simple yet elegent minimal anime streaming website which is made using REACT JS and GOGOANIME API 
 
-React. js, more commonly known as React, is a free, open-source JavaScript library. It works best to build user interfaces by combining sections of code (components) into full websites. Originally built by Facebook, Meta and the open-source community now maintain it.
+What does AnimeTrix feature?
 
-How to install this project ?
+. User friendly UI
 
-Requirments :- node js and git installed
+. Large library of anime
 
-Clone the repo:- git clone https://github.com/ShivaBhattacharjee/betaanime.git
+. Buffer Free streaming
 
-Redirect to the repositry cd betanime
+. Easy download feature
 
-Install dependencies by  npm install or yarn install
+. Genre Filter
 
-Start the project in live-server using npm start 
+. Last watch section which works without signing in 
+
+
+ *Demo: https://anime-site-topaz.vercel.app/*
+ 
+ 
+  _REQUIRMENTS:-
+  a.Nodejs and GIT installed
+  b.A bit of common sense_
+ 
+  Installation:-
