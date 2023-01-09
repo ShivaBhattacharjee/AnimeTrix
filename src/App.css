@@ -34,7 +34,7 @@ h6 {
 
 body {
   background: hsl(225, 25%, 7%);
-  height: 100%;
+  height: auto;
   width: 100%;
   color: hsl(0, 0%, 80%);
 }
@@ -69,7 +69,7 @@ a {
 
 ::-webkit-scrollbar {
   background: transparent;
-  width: 0.7rem;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -85,14 +85,14 @@ nav {
 }
 
 .navbar {
-  padding: 0 20px;
+  padding: 0 100px;
   z-index: 9999;
 }
 
 
 /*main */
 .container {
-  max-width: 1800px;
+  max-width: auto;
   min-width: none;
   margin: auto;
 }
@@ -188,7 +188,7 @@ nav {
   bottom: 0;
   max-width: 300px;
   border-radius: 14px;
-  padding: 0 10px;
+  padding: 0px 10px 50px;
   justify-content: center;
   text-align: center;
   height: 130px;
@@ -221,11 +221,12 @@ nav {
 }
 
 .navbar-nav li:not(:last-child) {
-  margin-right: 60px;
+  margin-right: 30px;
 }
 
 .navbar-brand {
-  margin-right: 100px;
+  position: relative;
+  right: 60px;
   font-size: 30px;
   font-weight: 600;
 }
@@ -257,7 +258,7 @@ nav {
 .navbar-form-search {
   background-color: hsl(218, 39%, 14%);
   width: 100%;
-  padding: 12px 40px;
+  padding: 12px 50px;
   border-radius: 10px;
   color: #fff;
   font-size: 14px;
@@ -339,7 +340,8 @@ nav {
 }
 
 .banner-text h4 {
-  font-size: 50px;
+  max-width: 1000px;
+  font-size: 40px;
   font-weight: 600;
   margin-bottom: 20px;
   max-height: 132px;
@@ -435,10 +437,9 @@ option {
 
 .anime-details {
   background-color: hsl(225, 25%, 7%);
-  height: 100vh;
+  height:100vh;
   width: 100%;
   padding-left: 75px;
-  max-height: 100%;
 }
 
 .details-img {
@@ -455,7 +456,8 @@ option {
   margin-left: 20px;
   object-fit: cover;
 }
-.details-info{
+
+.details-info {
   max-width: 900px;
   display: grid;
   position: relative;
@@ -465,12 +467,6 @@ option {
   overflow: hidden;
 }
 
-.other-info {
-  background-color: #0000FF;
-  position: relative;
-  display: flex;
-  float: right;
-}
 
 .details-text {
   font-size: 40px;
@@ -496,7 +492,6 @@ option {
   font-size: 18px;
   font-weight: 400;
   transition: .1;
-  z-index: 9999;
   padding: 20px 14px;
   border-radius: 14px;
   font-weight: 500;
@@ -512,125 +507,128 @@ option {
 }
 
 /* -----stream section   */
-
-.img-wrap{
-  display: grid;
+.container-stream {
   position: relative;
-}
-.container_all {
-  display: grid;
-  grid-template-columns: 30% 50% 18%;
-  max-width: 1800px;
-  max-height: 100px;
-}
-
-.bg-image {
-  height: 100vh;
-  -webkit-filter: blur(10px);
-  filter: brightness(20%);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  top: 150px;
+  padding: 20px 100px;
   width: 100%;
+  max-height: 100vh;
 }
 
-.ep__list {
+.video-player {
+  height: 400px;
+  width: 750px;
+}
+
+.episode-list {
+  padding: 0px 20px 20px;
+  background-color: rgb(18, 26, 40);
+  min-height: auto;
+  max-height: 400px;
+  max-width: 550px;
+  overflow-y: scroll;
   position: relative;
-  overflow: scroll;
-  margin: 0;
-  padding: 0;
-  top: 0;
-  max-height: 90.25%;
-  overflow-x: hidden;
-  font-size: 16px;
-  background-color: hsl(228, 7%, 10%);
-  -webkit-overflow-scrolling: touch;
-  z-index: inherit;
+  bottom: 260px;
+  left: 900px;
+  border-radius: 13px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.all__ep {
-  width: 80%;
+.episode-list a button {
+  width: 50px;
+  background-color:rgb(51, 51, 154) ;
+  margin-left: 9px;
   margin-top: 20px;
-  padding-left: 60px;
-  display: grid;
-  grid-template-rows: 3rem 30rem;
+  padding: 10px 0px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
 }
 
-.Anime-ep-num {
-  display: flex;
+.stream-detail {
+  position: relative;
+  top: 10px;
+  float: right;
+  right: 310px;
+  background-color: rgb(18, 26, 40);
+  max-width: 1000px;
 }
 
-.Anime-ep {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 95%;
-  overflow: hidden;
-  display: inline-block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin: 10px 0;
+.stream-img-detail {
+  width: 210px;
+  height: 300px;
+  border-radius: 14px;
 }
-
-.video_player {
-  display: flex;
-  align-items: center;
-  padding-bottom: 56.25%;
-  background-color: #000;
-  min-height: 260px;
+.stream-img-detail img{
+  border-radius: 14px;
+}
+.stream-data{
+  min-width: 350px;
+  position: relative;
+  left: 250px;
+  bottom: 320px;
+  font-size: 24px;
+}
+.stream-data p{
+  font-weight: 500;
+  padding-top: 10px;
+}
+/* footer */
+.footer{
+  background-color: rgb(0, 1, 1);
+  height: auto;
   width: 100%;
   position: relative;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
+  top: 150px
 }
-
-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: 5;
-}
-
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  max-width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.reactPlayer {
+.footer-content{
+  max-width: 980px;
   position: relative;
-  height: 100% !important;
-  width: 100% !important;
-  background-color: red;
-  min-height: 260px;
+  left: 80px;
 }
-
-.details {
+.footer-content h3{
+  font-size: 35px;
+  padding: 20px 0;
+}
+.footer-content h3::before{
+  content: "";
+  display: block;
+  background-color: #0000FF;
+  height: 5px;
+  width: 90px;
+  border-radius: 14px;
+  position: relative;
+  top: 59px;
+}
+.footer-content h3 span{
+  color: #0000FF;
+}
+.footer-content p{
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 0 35px;
+}
+.footer-icons{
+  max-width: 500px;
+  position: relative;
+  top: 100px;
+  float: right;
+  left: 350px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  cursor: pointer;
 }
-
-iframe>iframe {
-  display: none !important;
+.footer-icons i{
+  font-size: 50px;
+  margin-left: 40px;
 }
-
+.footer-icons i:hover{
+  color: #0000FF;
+}
 /* responsive for 1500px*/
 
-@media(max-width:1500px){
-  .header{
+@media(max-width:1500px) {
+  .header {
     position: fixed;
     top: 0;
     left: 0;
@@ -638,15 +636,17 @@ iframe>iframe {
     overflow: hidden;
     z-index: 50;
   }
+
   .navbar-menu-btn {
     display: block;
     position: absolute;
     top: 50%;
     left: 100px;
     transform: translateY(-50%);
-    background-color:transparent;
+    background-color: transparent;
   }
-  .navbar-menu-btn span{
+
+  .navbar-menu-btn span {
     display: block;
     width: 40px;
     height: 5px;
@@ -654,100 +654,135 @@ iframe>iframe {
     background: #fff;
     cursor: pointer;
   }
-  .navbar-menu-btn .two{
+
+  .navbar-menu-btn .two {
     width: 30px;
   }
-  .navbar-menu-btn .three{
+
+  .navbar-menu-btn .three {
     width: 20px;
   }
-  .navbar-brand{
+
+  .navbar-brand {
     font-size: 30px;
     display: flex;
     position: absolute;
     left: 200px;
   }
-  .navbar-menu-btn.active .one{
+
+  .navbar-menu-btn.active .one {
     transform: rotate(45deg) translateY(14px);
   }
-  .navbar-menu-btn.active .two{
+
+  .navbar-menu-btn.active .two {
     width: 0;
   }
-  .navbar-menu-btn.active .three{
+
+  .navbar-menu-btn.active .three {
     width: 40px;
     transform: rotate(-45deg) translateY(-17px);
   }
-  .navbar-nav{
+
+  .navbar-nav {
     display: none;
   }
+
   .navbar-nav li a {
     font-size: 30px;
   }
-  .navbar-actions{
+
+  .navbar-actions {
     position: absolute;
     left: 70%;
   }
 }
 
-@media(max-width: 1350px){
-  .navbar-form{
+@media(max-width: 1350px) {
+  .navbar-form {
     display: none;
   }
-  .movies{
+
+  .movies {
     max-width: 1200px;
   }
-  .movies-grid{
+
+  .movies-grid {
     padding-left: 50px;
   }
 }
 
 
-@media(max-width: 1200px){
-  .navbar-menu-btn{
+@media(max-width: 1200px) {
+  .navbar-menu-btn {
     left: 50px;
   }
-  .navbar-brand{
-    left:120px;
+
+  .navbar-brand {
+    left: 120px;
   }
-  .swiper{
+
+  .swiper {
     height: 300px;
   }
-  .banner-text h4{
+
+  .banner-text h4 {
     font-size: 32px;
   }
-  .movies{
+
+  .movies {
     max-width: 1050px;
   }
-  .movies-grid{
+
+  .movies-grid {
     gap: 25px;
   }
 }
-@media(max-width:1050px){
-  .movies{
-    max-width: 900px;
+
+@media(max-width:1050px) {
+  .movies {
+    margin-right: 50px;
   }
-  .movies-grid{
-    padding-left: 50px;
+
+  .card-img {
+    width: 200px;
+    height: 300px;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 40px;
+  }
+
+  .filter-bar {
+    max-width: 920px;
+    margin-left: 40px;
   }
 }
-@media(max-width: 700px){
-  .swiper{
+
+@media(max-width: 700px) {
+  .swiper {
     height: 250px;
   }
-  .banner-text h4{
+
+  .banner-text h4 {
     font-size: 25px;
   }
-  .watch{
+
+  .watch {
     padding: 9px 15px;
   }
 }
-@media(max-width: 550px){
-  .swiper{
+
+@media(max-width: 550px) {
+  .swiper {
     height: 200px;
   }
-  .banner-text h4{
+
+  .banner-text h4 {
     font-size: 20px;
   }
-  .watch{
+
+  .watch {
     padding: 10px 17px;
     font-size: 12px;
     margin-top: 10px;

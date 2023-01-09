@@ -94,7 +94,6 @@ function OptionFetcher() {
               <option value="mecha">Mecha</option>
               <option value="martial-arts">Martial-arts</option>
               <option value="military">Military</option>
-              <option value="Mmusic">Music</option>
               <option value="mystery">Mystery</option>
               <option value="parody">Parody</option>
               <option value="police">Police</option>

@@ -46,13 +46,6 @@ const Header = forwardRef((props, ref) => {
     },
   }));
 
-  // const [btnState , setBtnState] = useState(false);
-
-  // function handelClick(){
-  //   setBtnState(btnState => !btnState)
-  // }
-  // let stateCheck = btnState ? 'active':'';
-  // let headerCheck = btnState ? 'open':'';
   return (
     <div className="container">
       <header>
@@ -62,7 +55,7 @@ const Header = forwardRef((props, ref) => {
             <span className="two"></span>
             <span className="three"></span>
           </button>
-          <a href="/" className="navbar-brand">IDk <span>Name</span></a>
+          <a href="/" className="navbar-brand">Anime<span>Trix</span></a> 
           <nav>
             <ul className="navbar-nav">
               {navList.map((list) => (

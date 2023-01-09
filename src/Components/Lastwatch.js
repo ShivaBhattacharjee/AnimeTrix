@@ -34,7 +34,7 @@ const Lastwatch = (props) => {
                 alignItem: "center",
               }}
             >
-              <p className="d-flex" style={{ fontSize: "15px" }}>
+              <p className="d-flex" style={{ fontSize: "auto",fontWeight:"500",padding:"4px 0 0 0" }}>
                 <i className="bi bi-caret-right-square-fill me-2" />
                 <span>
                   {props.lastwatch?.title} 

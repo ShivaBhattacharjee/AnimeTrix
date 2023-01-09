@@ -58,67 +58,26 @@ export default function Stream(props) {
   }, [lastwatch]);
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content={`Best site to watch Anime English Sub/Dub online Free and download Anime English Sub/Dub anime.`}
+          charSet="utf-8"
+        />
+        <meta
+          name="keywords"
+          content={`${detail.animeTitle} English Sub/Dub, free ${detail.animeTitle} online, watch ${detail.animeTitle} online, watch ${detail.animeTitle} free, download ${detail.animeTitle} anime, download ${detail.animeTitle} free`}
+          charSet="utf-8"
+        />
+        <title>{`Watching ${detail.animeTitle} on AnimeTrix`}</title>
+        <link rel="canonical" href={`//vidcdn/watch/${episodeId}`} />
+      </Helmet>
       {Object.keys(data).length !== 0 ? (
         <>
-          <div className="bg-image"></div>
-          <div className="container_all" style={{
-            backgroundColor: "rgba(0,0,0, 0.4)",
-            position: "absolute",
-            top: "22%",
-            width: "100%",
-            paddingBottom: "40.6px"
-          }}>
-            {/* All Episodes */}
-            <div className="all__ep ">
-              <p
-                className="green"
-              >
-                List Of episodes:
-              </p>
-              <ul className="ep__list">
-                {detail.episodesList &&
-                  detail.episodesList
-                    .slice(0)
-                    .reverse()
-                    .map((ep) => (
-                      <Link
-                        to={`/vidcdn/watch/${ep.episodeId}`}
-                        state={{ animeID: `${animeId}` }}
-                        key={ep.episodeNum}
-                      >
-                        {ep.episodeId === episodeId ? (
-                          <li
-                            className="btn__ep even active"
-                            style={{ color: "white" }}
-                          >
-                            <div className="green Anime-ep-num">
-                              {ep.episodeNum}
-                            </div>
-                            <div className="Anime-ep">{ep.episodeId}</div>
-                          </li>
-                        ) : ep.episodeNum % 2 === 0 ? (
-                          <li className="btn__ep even" style={{ color: "white" }}>
-                            <div className="green Anime-ep-num">
-                              {ep.episodeNum}
-                            </div>
-                            <div className="Anime-ep">{ep.episodeId}</div>
-                          </li>
-                        ) : (
-                          <li className="btn__ep odd" style={{ color: "white" }}>
-                            <div className="green Anime-ep-num">
-                              {ep.episodeNum}
-                            </div>
-                            <div className="Anime-ep">{ep.episodeId}</div>
-                          </li>
-                        )}
-                      </Link>
-                    ))}
-              </ul>
-            </div>
 
-            {/* Video */}
-            <div className="video_player m-auto mt-5">
-              {/* <ReactPlayer url={data} controls className="reactPlayer" /> */}
+          {/* Video */}
+          <div className="container-stream">
+            <div className="video-player">
               <iframe
                 src={data}
                 width="100%"
@@ -128,54 +87,53 @@ export default function Stream(props) {
                 allowFullScreen="allowfullscreen"
                 webkitallowfullscreen="true"
                 title={animeId}
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               />
             </div>
-
-            <div className="details"><div className="img__detail">
-              <div className="item">
-                <div className="img-wrap">
-                  <img
-                    src={detail.animeImg}
-                    className="detail__img col"
-                    style={{ maxWidth: "150px" }}
-                    alt={detail.animeTitle}
-                  />
-                </div>
-              </div>
-              <p className="green fw-bold capSize noMargin" align="center">
-                {detail.animeTitle}
-              </p>
-              <p className="green fw-bold capSize noMargin" align="center">
-                {detail.otherNames}
-              </p>
-
-              <p className="green capSize noMargin" align="center">
-                {detail.type}
-              </p>
-              <p className="green capSize noMargin" align="center">
-                {detail.releasedDate}
-              </p>
-              <div>
-                <p className="capSize noMargin" align="center">
-                  Total Ep: <span className="green">{detail.releasedDate}</span>
-                </p>
-              </div>
-            </div>
-            </div>
+          </div>
+          <div className="episode-list">
+            {detail.episodesList &&
+              detail.episodesList
+                .slice(0)
+                .reverse()
+                .map((ep) => (
+                  <Link
+                    to={`/vidcdn/watch/${ep.episodeId}`}
+                    state={{ animeID: `${animeId}` }}
+                    key={ep.episodeNum}
+                  >
+                    {ep.episodeId === episodeId ? (
+                      <button>{ep.episodeNum}</button>
+                    ) : ep.episodeNum % 2 === 0 ? (
+                      <button>{ep.episodeNum}</button>
+                    ) : (
+                      <button>{ep.episodeNum}</button>
+                    )}
+                  </Link>
+                ))}
           </div>
         </>
       ) : (
         <div class="spinner-box">
-        <div class="configure-border-1">
-          <div class="configure-core"></div>
+          <div class="configure-border-1">
+            <div class="configure-core"></div>
+          </div>
+          <div class="configure-border-2">
+            <div class="configure-core"></div>
+          </div>
         </div>
-        <div class="configure-border-2">
-          <div class="configure-core"></div>
-        </div>
-      </div>
       )
       }
+      <div className="footer">
+        <div className="footer-content">
+          <div className="footer-icons">
+          <i class="fa-brands fa-telegram"></i>
+          <i class="fa-brands fa-discord"></i>
+          <i class="fa-brands fa-github"></i>
+          </div>
+          <h3>Anime <span>Trix</span></h3>
+          <p>AnimeTrix is not affiliated with or endorsed by any of the anime studios behind the creation of the anime presented on this site. This website is only an user interface presenting/linking various self-hosted files across the internet by other third-party providers for easy access . AnimeTrix never downloads the video from any source provider, link will be returned from the response hence it is completely not subjected to DMCA compliant</p>
+        </div>
+      </div>
     </>
   );
 }
