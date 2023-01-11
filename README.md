@@ -35,7 +35,7 @@ What does AnimeTrix feature?
 
     git clone https://github.com/ShivaBhattacharjee/betaanime.git
     
-    cd betanime
+    cd animeTrix
     
     npm install
     
