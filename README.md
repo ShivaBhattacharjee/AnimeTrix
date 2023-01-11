@@ -33,7 +33,7 @@ What does AnimeTrix feature?
   <br><br>
   
 
-    git clone https://github.com/ShivaBhattacharjee/betaanime.git
+    git clone https://github.com/ShivaBhattacharjee/AnimeTrix.git
     
     cd animeTrix
     
