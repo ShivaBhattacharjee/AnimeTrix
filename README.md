@@ -39,6 +39,6 @@ What does AnimeTrix feature?
     
     npm install
     
-    npm run 
+    npm start
 
 
