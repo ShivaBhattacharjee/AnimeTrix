@@ -18,6 +18,7 @@ import Stream from "./Pages/Stream";
 import Popular from "./Pages/Popular";
 import TopAnimeAiring from "./Pages/topAiring";
 import Slider from "./Components/slider";
+import Error404 from "./Components/error404";
 
 function App() {
   const childRef = useRef();
@@ -261,6 +262,7 @@ function App() {
           path="/vidcdn/watch/:episodeId"
           element={<Stream />}
         />
+        <Route path="/*" element={<Error404/>}/>
       </Routes>
     </Router>
   );

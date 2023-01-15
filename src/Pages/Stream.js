@@ -56,6 +56,10 @@ export default function Stream(props) {
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(lastwatch));
   }, [lastwatch]);
+
+  const openInNewTab = url =>{
+    window.open(url,'_blank','noopener,noreferrer')
+  }
   return (
     <>
       <Helmet>
@@ -74,10 +78,13 @@ export default function Stream(props) {
       </Helmet>
       {Object.keys(data).length !== 0 ? (
         <>
-
           {/* Video */}
           <div className="container-stream">
             <div className="video-player">
+              <div className="video-title">
+                <span>{detail.animeTitle}</span>
+                <p>Refresh the page if the player doesnt load (server except Vidstreaming might contain ads use an adblocker to block ads)</p>
+              </div>
               <iframe
                 src={data}
                 width="100%"
@@ -126,9 +133,9 @@ export default function Stream(props) {
       <div className="footer">
         <div className="footer-content">
           <div className="footer-icons">
-          <i class="fa-brands fa-telegram"></i>
-          <i class="fa-brands fa-discord"></i>
-          <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-telegram"></i>
+            <i class="fa-brands fa-discord" onClick={() => openInNewTab("https://discord.gg/rap6A2TYds")}></i>
+            <i class="fa-brands fa-github" onClick={() => openInNewTab("https://github.com/ShivaBhattacharjee/betaanime.git")}></i>
           </div>
           <h3>Anime <span>Trix</span></h3>
           <p>AnimeTrix is not affiliated with or endorsed by any of the anime studios behind the creation of the anime presented on this site. This website is only an user interface presenting/linking various self-hosted files across the internet by other third-party providers for easy access . AnimeTrix never downloads the video from any source provider, link will be returned from the response hence it is completely not subjected to DMCA compliant</p>

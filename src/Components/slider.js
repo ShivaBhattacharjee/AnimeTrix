@@ -25,12 +25,12 @@ export default function Slider() {
   }, []);
   return (
     <>
-      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br></br>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -44,7 +44,7 @@ export default function Slider() {
             return (
               <div className="banner-card" key={uqley}>
                 <SwiperSlide key={swipe}>
-                  <img src={data.animeImg} alt={data.animeId} />
+                  <img src={data.animeImg} alt={data.animeId} className="blur" />
                   <div className="banner-text">
                     <Link to={`/anime-detail/${data.animeId}`}>
                       <h4>{data.animeTitle}</h4>
