@@ -35,7 +35,7 @@ What does AnimeTrix feature?
 
     git clone https://github.com/ShivaBhattacharjee/AnimeTrix.git
     
-    cd animeTrix
+    cd AnimeTrix
     
     npm install
     
