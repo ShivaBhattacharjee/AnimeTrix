@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useLocation, useParams } from "react-router-dom";
-// import ReactPlayer from "react-player";
 
 export default function Stream(props) {
   const { episodeId } = useParams();
@@ -20,8 +19,6 @@ export default function Stream(props) {
         const Video = await axios.get(
           `https://gogoanime.consumet.org/vidcdn/watch/${episodeId}`
         );
-        // const source = Video.data.sources;
-        // const first = source[0];
         setData(Video.data.Referer);
       } catch (err) {
         console.log("Connection Error");
@@ -49,16 +46,12 @@ export default function Stream(props) {
     getVideo();
   }, [animeId, episodeId]);
 
-  // useEffect(() => {
-  //   console.log(document.getElementsByClassName('show'))
-  // }, [])
-
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(lastwatch));
   }, [lastwatch]);
 
-  const openInNewTab = url =>{
-    window.open(url,'_blank','noopener,noreferrer')
+  const openInNewTab = url => {
+    window.open(url, '_blank', 'noopener,noreferrer')
   }
   return (
     <>
@@ -109,7 +102,7 @@ export default function Stream(props) {
                     key={ep.episodeNum}
                   >
                     {ep.episodeId === episodeId ? (
-                      <button>{ep.episodeNum}</button>
+                      <button className="active">{ep.episodeNum}</button>
                     ) : ep.episodeNum % 2 === 0 ? (
                       <button>{ep.episodeNum}</button>
                     ) : (

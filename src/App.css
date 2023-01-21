@@ -573,6 +573,12 @@ option {
   font-weight: 600;
   font-size: 15px;
 }
+.episode-list a button.active{
+  background: transparent;
+  border: 3px solid rgb(51, 51, 154);
+  padding: 8px;
+  color: rgb(51, 51, 154);
+}
 
 .stream-detail {
   position: relative;
@@ -699,4 +705,19 @@ option {
   background: transparent;
   border: 2px solid #284c90;
 }
-/* responsive div*/
+
+
+/* responsive queries */
+
+@media(max-width:1200px){
+  /* to be added */
+}
+@media(max-width:1024px){
+  /* to be addded */
+}
+@media(max-width:868px){
+  /*  to be added */
+}
+@media(max-width:480px){
+  /* to be added */
+}
