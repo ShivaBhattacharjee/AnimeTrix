@@ -19,7 +19,7 @@ What does AnimeTrix feature?
 
 <hr/>
 <br>
- Demo: <a href="https://animetrix.vercel.app/" target="_blank" >
+ Demo: <a href="https://animetrix.vercel.app/" target="_blank">animetrix</a>
  <hr>
  <br>
  
