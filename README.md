@@ -5,14 +5,14 @@
 <br>
 
 What does AnimeTrix feature?
-<li>User friendly UI</li>
-<li>Large library of anime</li>
+ <li>User friendly UI</li>
+ <li>Large library of anime</li>
 
-<li>Buffer Free streaming</li>
+ <li>Buffer Free streaming</li>
 
-<li>Easy download feature</li>
+ <li>Easy download feature</li>
 
-<li>Genre Filter</li>
+ <li>Genre Filter</li>
 
 <li>Last watch section which works without signing in</li> 
 
