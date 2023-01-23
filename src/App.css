@@ -389,15 +389,26 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: hsl(218, 39%, 14%);
-  padding: 20px 20px;
+  /* background-color: hsl(218, 39%, 14%); */
+  padding: 0px 50px;
   border-radius: 20px;
   margin-bottom: 30px;
 }
-
+.filter-bar.genre{
+  background-color: hsl(218, 39%, 14%);
+  padding: 20px 50px 20px;
+}
+.filter-bar .heading h3{
+  font-size: 40px;
+  margin-top: -15px;
+}
+.filter-bar .heading h2{
+  font-size: 40px;
+}
 .filter-bar select {
   color: white;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 600;
   margin: 15px;
   cursor: pointer;
   background: transparent;
@@ -427,7 +438,7 @@ option {
   padding: 0px 50px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  margin-top: 60px;
+  margin-top: 40px;
   gap: 30px;
   z-index: 9999;
 }
@@ -626,10 +637,10 @@ option {
   padding: 20px 0;
 }
 .footer-content h3::before{
-  content: ' ';
+  content: "";
   background-color: #0000FF;
   height: 5px;
-  width: 15%;
+  width: 12%;
   border-radius: 20px;
   position: absolute;
   top: 70px;

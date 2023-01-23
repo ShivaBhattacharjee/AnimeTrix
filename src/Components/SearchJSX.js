@@ -17,7 +17,7 @@ export default function SearchJSX(props) {
         </div>
       ) : (
         <div align="center">
-          <h4 className="green mt-3 fw-bold" style={{ fontFamily: "Poppins" }}>
+          <h4>
             SEARCH RESULT
           </h4>
           <br /><br /><br />
