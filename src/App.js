@@ -210,14 +210,6 @@ function App() {
         />
         <Route
           exact
-          path="/slider"
-          element={
-            <Slider
-            />
-          }
-        />
-        <Route
-          exact
           path="/top-airing"
           element={
             <TopAnimeAiring
