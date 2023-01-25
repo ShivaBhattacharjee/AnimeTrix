@@ -46,7 +46,7 @@ export default function Details(props) {
                   </p>
                   <div className="stream">
                     <Link
-                      to={`/vidcdn/watch/${watch}`}
+                      to={`/test/${watch}`}
                       state={{ animeID: `${animeId}` }}
                       onClick={() => {
                         props.handelClick();

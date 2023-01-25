@@ -19,6 +19,7 @@ import Popular from "./Pages/Popular";
 import TopAnimeAiring from "./Pages/topAiring";
 import Slider from "./Components/slider";
 import Error404 from "./Components/error404";
+import StreamTest from "./Pages/streamtest";
 
 function App() {
   const childRef = useRef();
@@ -242,6 +243,14 @@ function App() {
               loading={loading}
             />
           }
+        />
+        <Route
+        exact
+        path="/test/:episodeId"
+        element={
+          <StreamTest
+          loading={loading}/>
+        }
         />
         <Route
 
