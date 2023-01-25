@@ -94,7 +94,7 @@ export default function Stream(props) {
                 .reverse()
                 .map((ep) => (
                   <Link
-                    to={`/test/${ep.episodeId}`}
+                    to={`/watch/${ep.episodeId}`}
                     state={{ animeID: `${animeId}` }}
                     key={ep.episodeNum}
                   >
