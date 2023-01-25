@@ -246,7 +246,7 @@ function App() {
         />
         <Route
         exact
-        path="/test/:episodeId"
+        path="/watch/:episodeId"
         element={
           <StreamTest
           loading={loading}/>
