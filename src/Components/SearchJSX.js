@@ -10,10 +10,7 @@ export default function SearchJSX(props) {
       {Object.keys(props.searchResult).length === 0 ? (
         <div align="center">
           <br /><br /><br /><br /> <br /><br />
-          <h4 className="no-results"
-          >
-            No Results found
-          </h4>
+          <h4 className="no-results">No Results found</h4>
         </div>
       ) : (
         <div align="center">

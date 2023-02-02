@@ -17,7 +17,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 export default function Slider() {
   const [sliderinfo, setSlider] = useState([]);
   const getSlider = async () => {
-    const api = await fetch("https://gogoanime.consumet.org/top-airing?page=1");
+    const api = await fetch("https://gogoanime.consumet.stream/top-airing?page=1");
     setSlider(await api.json());
   }
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Slider() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 3000,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -46,7 +46,7 @@ export default function Slider() {
                 <SwiperSlide key={swipe}>
                   <img src={data.animeImg} alt={data.animeId} className="blur" />
                   <div className="banner-text">
-                    <Link to={`/anime-detail/${data.animeId}`}>
+                    <Link to={`/anime-details/${data.animeId}`}>
                       <h4>{data.animeTitle}</h4>
 
                       <button className="watch">Watch Now</button>

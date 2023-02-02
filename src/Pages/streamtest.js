@@ -18,9 +18,9 @@ export default function Stream(props) {
     const getVideo = async () => {
       try {
         const Video = await axios.get(
-          `https://api.consumet.org/meta/anilist/watch/${episodeId}`
+          `https://api.consumet.org/meta/anilist/watch/tomodachi-game-episode-1`
         );
-        setData(Video.data.sources[0].url);
+        setData(Video.Referer);
       } catch (err) {
         console.log("Connection Error");
       }
@@ -28,7 +28,7 @@ export default function Stream(props) {
     };
     const getDetail = async () => {
       const Detail = await axios
-        .get(`https://gogoanime.consumet.org/anime-details/${animeId}`)
+        .get(``)
         .catch((err) => console.log("Connection Error"));
       const temp = episodeId;
       const ep = Detail.data.episodesList.find(

@@ -6,7 +6,7 @@ export default function Card(props) {
     <>
       <div
         className="movie-card" onClick={() => props.handelClick()}>
-        <Link to={`/anime-detail/${props.rec.animeId}`}>
+        <Link to={`/anime-details/${props.rec.animeId}`}>
           <div className="card-head">
             <img
               src={props.rec.animeImg}

@@ -220,6 +220,8 @@ nav {
 
 .navbar-nav {
   display: flex;
+  position: relative;
+  left: 50px;
 }
 
 .navbar-nav li:not(:last-child) {
@@ -228,7 +230,7 @@ nav {
 
 .navbar-brand {
   position: relative;
-  right: 60px;
+  right: 2  0px;
   font-size: 30px;
   font-weight: 600;
 }
@@ -240,6 +242,7 @@ nav {
 .navbar-nav li a {
   font-size: 16px;
   font-weight: 500;
+  position: relative;
 }
 
 .navbar-nav li a:hover {

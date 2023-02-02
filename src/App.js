@@ -42,7 +42,7 @@ function App() {
     try {
       setLoading(true);
       const Data = await axios.get(
-        `https://gogoanime.consumet.org/recent-release?page=${id}`
+        `https://gogoanime.consumet.stream/recent-release?page=${id}`
       );
       setRecent((recent) => [...recent, ...Data.data]);
       setLoading(false);
@@ -55,7 +55,7 @@ function App() {
     try {
       setLoading(true);
       const propu = await axios.get(
-        `https://gogoanime.consumet.org/popular?page=${id}`
+        `https://gogoanime.consumet.stream/popular?page=${id}`
       );
       setPopular((popular) => [...popular, ...propu.data]);
       setLoading(false);
@@ -68,7 +68,7 @@ function App() {
     try {
       setLoading(true);
       const Data = await axios.get(
-        `https://gogoanime.consumet.org/recent-release?type=2&page=${id}`
+        `https://gogoanime.consumet.stream/recent-release?type=2&page=${id}`
       );
       setDub((dub) => [...dub, ...Data.data]);
       setLoading(false);
@@ -81,7 +81,7 @@ function App() {
     try {
       setLoading(true);
       const Data = await axios.get(
-        `https://gogoanime.consumet.org/anime-movies?page=${id}`
+        `https://gogoanime.consumet.stream/anime-movies?page=${id}`
       );
       setMovie((movie) => [...movie, ...Data.data]);
       setLoading(false);
@@ -93,7 +93,7 @@ function App() {
   const getTopAiring = async (id = 1) => {
     try {
       setLoading(true);
-      const Data = await axios.get(`https://gogoanime.consumet.org/top-airing?page=${id}`
+      const Data = await axios.get(`https://gogoanime.consumet.stream/top-airing?page=${id}`
       );
       setTop((topAiring) => [...topAiring, ...Data.data]);
       setLoading(false);
@@ -117,7 +117,7 @@ function App() {
   // Search Bar function
   const handelChanges = async (val) => {
     const searchRes = await axios
-      .get(`https://gogoanime.consumet.org/search?keyw=${val}`)
+      .get(`https://gogoanime.consumet.stream/search?keyw=${val}`)
       .catch((err) => "search Error");
     if (val === "") {
       setSearchResult(null);
@@ -240,22 +240,21 @@ function App() {
           path="/genre"
           element={
             <OptionFetcher
-              loading={loading}
             />
           }
         />
         <Route
-        exact
-        path="/watch/:episodeId"
-        element={
-          <StreamTest
-          loading={loading}/>
-        }
+          exact
+          path="/watch/:episodes"
+          element={
+            <StreamTest
+              loading={loading} />
+          }
         />
         <Route
 
           exact
-          path="/anime-detail/:animeId"
+          path="/anime-details/:animeId"
           element={<Details handelClick={handelClick} />}
         />
         <Route
@@ -263,7 +262,7 @@ function App() {
           path="/vidcdn/watch/:episodeId"
           element={<Stream />}
         />
-        <Route path="/*" element={<Error404/>}/>
+        <Route path="/*" element={<Error404 />} />
       </Routes>
     </Router>
   );

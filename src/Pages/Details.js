@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import axios from "axios";
 import LoadingBar from 'react-top-loading-bar';
 import Footer from "../Components/footer";
@@ -12,7 +11,7 @@ export default function Details(props) {
   useEffect(() => {
     const getDetail = async () => {
       const Detail = await axios
-        .get(`https://gogoanime.consumet.org/anime-details/${animeId}`)
+        .get(`https://gogoanime.consumet.stream/anime-details/${animeId}`)
         .catch((err) => console.log("Connection Error"));
       setDetail(Detail.data);
       let n = Detail.data.episodesList.length;
@@ -47,7 +46,7 @@ export default function Details(props) {
                   </p>
                   <div className="stream">
                     <Link
-                      to={`/watch/${watch}`}
+                      to={`/vidcdn/watch/${watch}`}
                       state={{ animeID: `${animeId}` }}
                       onClick={() => {
                         props.handelClick();
