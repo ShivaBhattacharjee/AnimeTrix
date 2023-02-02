@@ -307,9 +307,6 @@ nav {
    text-align: center;
   font-size: 18px;
   border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .swiper-slide::after {
@@ -325,9 +322,13 @@ nav {
 
 .banner-text {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 50%;
   color: #fff;
-  transform: translateY(-50%);
+  transform: translate(0% 50%);
+  bottom: 50%;
   z-index: 999;
 }
 
