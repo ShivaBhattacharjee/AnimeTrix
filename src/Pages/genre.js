@@ -141,7 +141,7 @@ function OptionFetcher() {
               {data.map(item => (
                 <div
                   className="movie-card">
-                  <Link to={`/anime-detail/${item.animeId}`}>
+                  <Link to={`/anime-details/${item.animeId}`}>
                     <div className="card-head">
                       <img
                         src={item.animeImg}
