@@ -50,7 +50,7 @@ function OptionFetcher() {
       // Increment the page number by 1
       setPage(page + 1);
       const response = await fetch(
-        ``
+        `https://gogoanime.consumet.stream/genre/${selectedOption}?page=${page}`
       );
       const responseData = await response.json();
       // Concatenate the new data with the existing data
