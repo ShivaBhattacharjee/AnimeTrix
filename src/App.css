@@ -222,7 +222,7 @@ nav {
   display: flex;
   overflow: hidden;
   position: relative;
-  gap: 2rem;
+  gap: 1.5rem;
   width: 590px;
   left: 50px;  
 }
