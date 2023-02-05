@@ -14,6 +14,9 @@ export default function SearchJSX(props) {
         </div>
       ) : (
         <div align="center">
+          <h4>
+            SEARCH RESULT
+          </h4>
           <br /><br /><br />
           <div className="movies-grid" >
             {props.searchResult?.map((rec) => (

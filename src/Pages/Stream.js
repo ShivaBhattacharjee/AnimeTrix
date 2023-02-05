@@ -71,7 +71,7 @@ export default function Stream(props) {
       </Helmet>
       {Object.keys(data).length !== 0 ? (
         <>
-          {/* Video */}
+        {/* Video */}
           <div className="container-stream">
             <div className="video-player">
               <div className="video-title">
