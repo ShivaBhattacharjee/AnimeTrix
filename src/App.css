@@ -77,115 +77,24 @@ a {
   border-radius: 14px;
 }
 
-/* Header / Navbar */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 214px;
+/* header */
+
+header,
+nav {
+  background: hsl(225, 25%, 7%);
 }
 
-.logo>a {
-  font-size: 30px;
-  font-weight: 600;
+.navbar {
+  padding: 0 100px;
+  z-index: 9999;
 }
 
-.logo .white {
-  color: #fff !important;
-}
 
-.logo .blue {
-  color: #0000FF;
-}
-
-.toggle {
-  display: none;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.nav-links>li {
-  list-style: none;
-}
-
-.nav-links>li>a {
-  text-decoration: none;
-  margin: 0 15px;
-  word-spacing: 3px;
-  font-size: 17px;
-  font-weight: 500;
-}
-
-.active {
-  color: #FB2576;
-}
-
-.search {
-  display: flex;
-  width: 332px;
-}
-
-.search>input {
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #162032;
-  color: #fff;
-}
-
-.search-btn {
-  background: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  position: relative;
-  top: -1px;
-  right: 35px;
-}
-
-@media only screen and (max-width: 1500px) {
-  .header {
-    padding: 30px 15px;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .search {
-    position: absolute;
-    top: 150px;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
- 
-  .nav-links {
-    display: none;
-  }
-
-  .toggle {
-    display: block;
-    cursor: pointer;
-  }
-
-  .toggle-links {
-    position: absolute;
-    width: 100%;
-    top: 100px;
-    left: 0;
-    right: 0;
-    height: 300px;
-    flex-direction: column;
-    padding: 15px;
-    z-index: 9999;
-    background-color: #0F3D3E;
-  }
-
-  .toggle-links>li {
-    margin: 15px 19px;
-  }
+/*main */
+.container {
+  max-width: auto;
+  min-width: none;
+  margin: auto;
 }
 
 /* loading */
@@ -261,6 +170,16 @@ a {
   }
 }
 
+.navbar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background: hsl(225, 25%, 7%);
+}
 
 .lastwatch {
   background-color: hsl(218, 39%, 14%);
@@ -282,13 +201,97 @@ a {
 
 .play {
   font-size: 40px;
-  max-width: 50px;
+  max-width: 90px;
   float: right;
   color: #fff;
+  position: relative;
+  bottom: 10px;
 }
 
 .play:hover {
   color: #0000FF;
+}
+
+.navbar-menu-btn {
+  display: none;
+}
+
+nav {
+  margin-right: 100px;
+}
+
+.navbar-nav {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  gap: 2rem;
+  width: 590px;
+  left: 50px;  
+}
+
+.navbar-brand {
+  position: relative;
+  right: 15px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.navbar-brand span {
+  color: blue;
+}
+
+.navbar-nav li a {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.navbar-nav li a:hover {
+  color: blue;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-form {
+  position: relative;
+  left: 50px;
+}
+
+
+.navbar-form-search {
+  background-color: hsl(218, 39%, 14%);
+  width: 100%;
+  padding: 12px 50px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+}
+
+
+.navbar-form-btn {
+  background-color: hsl(218, 39%, 14%);
+  position: absolute;
+  top: calc(50% - 10px);
+  right: 10px;
+}
+
+.navbar-form-btn ion-icon,
+.navbar-search-btn ion-icon {
+  font-size: 20px;
+  color: #fff;
+  -ionicon-stroke-width: 50px;
+}
+
+.navbar-form-btn:hover ion-icon,
+.navbar-form-search::placeholder {
+  color: #fff;
+}
+
+.navbar-form-close,
+.navbar-search-btn {
+  display: none;
 }
 
 .swiper {
@@ -390,21 +393,17 @@ a {
   border-radius: 20px;
   margin-bottom: 30px;
 }
-
-.filter-bar.genre {
+.filter-bar.genre{
   background-color: hsl(218, 39%, 14%);
   padding: 20px 50px 20px;
 }
-
-.filter-bar .heading h3 {
+.filter-bar .heading h3{
   font-size: 40px;
   margin-top: -15px;
 }
-
-.filter-bar .heading h2 {
+.filter-bar .heading h2{
   font-size: 40px;
 }
-
 .filter-bar select {
   color: white;
   font-size: 20px;
@@ -419,8 +418,7 @@ option {
   background-color: #162032;
   color: #fff;
 }
-
-.card-head {
+.card-head{
   background: #162032;
   width: 100%;
   min-height: 480px;
@@ -428,7 +426,6 @@ option {
   border-radius: 20px;
   display: grid;
 }
-
 .card-img {
   width: 100%;
   height: 380px;
@@ -436,7 +433,6 @@ option {
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
 }
-
 .movies-grid {
   padding: 0px 50px;
   display: grid;
@@ -460,7 +456,7 @@ option {
 
 .anime-details {
   background-color: hsl(225, 25%, 7%);
-  height: 100vh;
+  height:100vh;
   width: 100%;
   padding-left: 75px;
 }
@@ -539,25 +535,22 @@ option {
 
 }
 
-.video-player {
+.video-player{
   height: 400px;
   width: 750px;
 }
-
-.video-player iframe {
-  bottom: 20px;
+.video-player iframe{
+  bottom:  20px;
   position: relative;
   border-radius: 14px;
 }
-
-.video-title span {
+.video-title span{
   font-size: 25px;
   position: relative;
   bottom: 40px;
   font-weight: 600;
 }
-
-.video-title p {
+.video-title p{
   position: relative;
   bottom: 30px;
   font-size: 15px;
@@ -565,7 +558,6 @@ option {
   color: #284c90;
   max-width: auto;
 }
-
 .episode-list {
   padding: 0px 20px 20px;
   background-color: rgb(18, 26, 40);
@@ -583,7 +575,7 @@ option {
 
 .episode-list a button {
   width: 50px;
-  background-color: rgb(51, 51, 154);
+  background-color:rgb(51, 51, 154) ;
   margin-left: 9px;
   margin-top: 20px;
   padding: 10px 0px;
@@ -591,8 +583,7 @@ option {
   font-weight: 600;
   font-size: 15px;
 }
-
-.episode-list a button.active {
+.episode-list a button.active{
   background: transparent;
   border: 3px solid rgb(51, 51, 154);
   padding: 8px;
@@ -613,45 +604,38 @@ option {
   height: 300px;
   border-radius: 14px;
 }
-
-.stream-img-detail img {
+.stream-img-detail img{
   border-radius: 14px;
 }
-
-.stream-data {
+.stream-data{
   min-width: 350px;
   position: relative;
   left: 250px;
   bottom: 320px;
   font-size: 24px;
 }
-
-.stream-data p {
+.stream-data p{
   font-weight: 500;
   padding-top: 10px;
 }
-
 /* footer */
-.footer {
+.footer{
   background-color: rgb(0, 0, 0);
   height: auto;
   width: 100%;
   position: relative;
   top: 150px
 }
-
-.footer-content {
+.footer-content{
   max-width: 980px;
   position: relative;
   left: 80px;
 }
-
-.footer-content h3 {
+.footer-content h3{
   font-size: 35px;
   padding: 20px 0;
 }
-
-.footer-content h3::before {
+.footer-content h3::before{
   content: "";
   background-color: #0000FF;
   height: 5px;
@@ -660,18 +644,15 @@ option {
   position: absolute;
   top: 70px;
 }
-
-.footer-content h3 span {
+.footer-content h3 span{
   color: #0000FF;
 }
-
-.footer-content p {
+.footer-content p{
   font-size: 13px;
   font-weight: 500;
   padding: 0 0 30px;
 }
-
-.footer-icons {
+.footer-icons{
   max-width: 500px;
   position: relative;
   top: 100px;
@@ -680,50 +661,42 @@ option {
   display: flex;
   cursor: pointer;
 }
-
-.footer-icons i {
+.footer-icons i{
   font-size: 40px;
   margin-left: 40px;
 }
-
-.footer-icons i:hover {
+.footer-icons i:hover{
   color: #0000FF;
   transform: translateY(-15px);
 }
 
 /* error 404 page */
-.error-container {
+.error-container{
   max-width: 1500px;
   height: 100vh;
   max-height: 100vh;
   transform: translate(10%, 20%);
 }
-
-.error-container .img {
-  width: 500px;
-  ;
+.error-container .img{
+  width: 500px;;
 }
-
-.error-container .text-field {
+.error-container .text-field{
   height: 250px;
   max-width: 900px;
   position: relative;
   left: 400px;
   bottom: 450px;
 }
-
-.error-container .text-field h1 {
+.error-container .text-field h1{
   font-size: 10rem;
   text-align: center;
   font-weight: 600;
   rotate: 0deg;
 }
-
-.error-container .text-field h1:hover {
+.error-container .text-field h1:hover{
   rotate: -20deg;
 }
-
-.error-container .text-field span {
+.error-container .text-field span{
   font-size: 16px;
   text-transform: capitalize;
   font-weight: 500;
@@ -731,16 +704,14 @@ option {
   justify-content: center;
   align-items: center;
 }
-
-.error-container .text-field button {
+.error-container .text-field button{
   background-color: #284c90;
   padding: 15px 30px;
   border-radius: 14px;
   font-weight: 500;
   margin: 20px 410px;
 }
-
-.error-container .text-field button:hover {
+.error-container .text-field button:hover{
   background: transparent;
   border: 2px solid #284c90;
 }
@@ -748,16 +719,15 @@ option {
 
 /* responsive queries */
 
-@media(max-width:1200px) {}
-
-@media(max-width:1024px) {
+@media(max-width:1200px){
+  
+}
+@media(max-width:1024px){
   /* to be addded */
 }
-
-@media(max-width:868px) {
+@media(max-width:868px){
   /*  to be added */
 }
-
-@media(max-width:480px) {
+@media(max-width:480px){
   /* to be added */
 }
