@@ -1,15 +1,38 @@
 import React, { forwardRef, useImperativeHandle, useState } from "react";
-import { NavLink } from "react-router-dom";
-
-// Import from Material UI
-import SearchIcon from '@mui/icons-material/Search';
-import DensityMediumIcon from '@mui/icons-material/DensityMedium';
-import CloseIcon from '@mui/icons-material/Close';
 
 const Header = forwardRef((props, ref) => {
-  
-  const [togglemenu, setToggleMenu] = useState(true);
-
+  const navList = [
+    {
+      id: 1,
+      text: "Home",
+      to: "/",
+    },
+    {
+      id: 2,
+      text: "Popular",
+      to: "/popular",
+    },
+    {
+      id: 5,
+      text: "Top-Airing",
+      to: "/top-airing"
+    },
+    {
+      id: 3,
+      text: "Dub-Anime",
+      to: "/dub-anime",
+    },
+    {
+      id: 4,
+      text: "Movies",
+      to: "/movie",
+    },
+    {
+      id: 5,
+      text : "Genres",
+      to: "/genre"
+    }
+  ];
   const [inputVal, setInputVal] = useState("");
   const handelChange = (e) => {
     const val = e.target.value;
@@ -24,49 +47,46 @@ const Header = forwardRef((props, ref) => {
   }));
 
   return (
-    <>
-      <section className="header">
-        <div className="logo">
-          <NavLink to={'/'}>
-            <span className="white">Anime</span> <span className="blue">Trix</span>
-          </NavLink>
-        </div>
-
-        <div className="toggle" onClick={() => {setToggleMenu(!togglemenu)}}>
-          {
-            togglemenu ? <DensityMediumIcon  /> : <CloseIcon />
-          }
-        </div>
-
-        <ul className={togglemenu ? "nav-links" : "toggle-links" } >
-          <li>
-            <NavLink to={'/'}>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to={'/popular'}>Popular</NavLink>
-          </li>
-          <li>
-            <NavLink to={'/top-airing'}>Top Airing</NavLink>
-          </li>
-          <li>
-            <NavLink to={'/dub-anime'}>Dubbed Anime</NavLink>
-          </li>
-          <li>
-            <NavLink to={'/movie'}>Movies</NavLink>
-          </li>
-          <li>
-            <NavLink to={'/genre'}>Genres</NavLink>
-          </li>
-        </ul>
-
-        <div className="search">
-          <input type="text" className="navbar-form-search" placeholder="I am looking for...." value={inputVal} onChange={handelChange} />
-          <button className="search-btn">
-            <SearchIcon />
+    <div className="container">
+      <header>
+        <div className="navbar">
+          <button className="navbar-menu-btn ">
+            <span className="one"></span>
+            <span className="two"></span>
+            <span className="three"></span>
           </button>
+          <a href="/" className="navbar-brand">Anime<span>Trix</span></a> 
+          <nav>
+            <ul className="navbar-nav">
+              {navList.map((list) => (
+                <li key={list.to}>
+                  <a href={list.to} >
+                    {list.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="navbar-actions">
+            <div className="navbar-form">
+              <input type="text" className="navbar-form-search" placeholder="I am looking for...." value={inputVal} onChange={handelChange} />
+              <button className="navbar-form-btn">
+                <ion-icon name="search-outline"></ion-icon>
+              </button>
+              <button className="navbar-form-close" type="submit">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </button>
+            </div>
+
+            <button className="navbar-search-btn">
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
+
+          </div>
         </div>
-      </section>
-    </>
+      </header>
+    </div>
   )
 });
 export default Header;
