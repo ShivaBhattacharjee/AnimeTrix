@@ -25,7 +25,7 @@ export default function Slider() {
   }, []);
   return (
     <>
-      <br /><br /><br /><br /><br></br>
+    <br /><br></br><br /><br /><br />
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

@@ -67,12 +67,12 @@ function OptionFetcher() {
 
   return (
     <>
-      <br /><br /><br /><br /><br /><br />
+      <br />
       <section className='movies'>
         <div className="filter-bar genre">
           <div className="filter-dropdowns">
             <select value={selectedOption} onChange={handleChange}>
-              <option value="action">Action</option>
+              <option value="action" defaultChecked>Action</option>
               <option value="adventure">Adventure</option>
               <option value="cars ">Cars </option>
               <option value="comedy">Comedy</option>
