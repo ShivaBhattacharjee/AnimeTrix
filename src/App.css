@@ -126,7 +126,7 @@ a {
 
 .search {
   display: flex;
-  width: 350px;
+  width: 332px;
 }
 
 .search>input {
@@ -148,7 +148,7 @@ a {
 
 @media only screen and (max-width: 1500px) {
   .header {
-    padding: 30px 30px;
+    padding: 30px 15px;
   }
 }
 
@@ -160,7 +160,7 @@ a {
     right: 0;
     margin: auto;
   }
-
+ 
   .nav-links {
     display: none;
   }
