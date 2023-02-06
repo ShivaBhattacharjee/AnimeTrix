@@ -1,4 +1,12 @@
 import "./App.css";
+import "./css/navbar.css";
+import "./css/animedetails.css";
+import "./css/stream.css";
+import "./css/footer.css";
+import "./css/lastwatch.css";
+import './css/card.css';
+import './css/error404.css';
+import './css/titleandfilterbar.css'
 import Header from "./Components/Header";
 import DubAnime from "./Pages/DubAnime";
 import RecentAnime from "./Pages/RecentAnime";

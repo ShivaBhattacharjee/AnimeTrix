@@ -1,0 +1,30 @@
+.lastwatch {
+    background-color: hsl(218, 39%, 14%);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    max-width: 350px;
+    border-radius: 14px;
+    padding: 0px 10px;
+    padding-bottom: auto;
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+    max-height: auto;
+    margin-bottom: 20px;
+    overflow: hidden;
+    z-index: 999;
+  }
+  
+  .play {
+    font-size: 40px;
+    max-width: 90px;
+    float: right;
+    color: #fff;
+    position: relative;
+    bottom: 10px;
+  }
+  
+  .play:hover {
+    color: #0000FF;
+  }

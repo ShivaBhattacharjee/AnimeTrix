@@ -1,0 +1,55 @@
+.spinner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+  }
+  
+  .genres {
+    font-weight: 500;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+  
+  .movies {
+    max-width: 1350px;
+    margin: auto;
+  }
+  
+  .filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: hsl(218, 39%, 14%); */
+    padding: 0px 50px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+  .filter-bar.genre{
+    background-color: hsl(218, 39%, 14%);
+    padding: 20px 50px 20px;
+  }
+  .filter-bar .heading h3{
+    font-size: 40px;
+    margin-top: -15px;
+  }
+  .filter-bar .heading h2{
+    font-size: 40px;
+  }
+  .filter-bar select {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px;
+    cursor: pointer;
+    background: transparent;
+  }
+  
+  option {
+    border-radius: 15px;
+    background-color: #162032;
+    color: #fff;
+  }
+  
+  
