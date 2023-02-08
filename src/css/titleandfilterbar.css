@@ -13,6 +13,8 @@
   }
   
   .movies {
+    position: relative;
+    top: 40px;
     max-width: 1350px;
     margin: auto;
   }
@@ -52,4 +54,8 @@
     color: #fff;
   }
   
-  
+  @media(max-width:550px){
+    .filter-bar .heading h3{
+      font-size: 30px;
+    }
+  }

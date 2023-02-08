@@ -8,7 +8,7 @@
   .details-img {
     max-width: 1200px;
     max-height: 600px;
-    padding-top: 180px;
+    padding-top: 70px;
     margin-left: 60px;
   }
   
@@ -67,4 +67,67 @@
     color: #fff;
     font-weight: 550;
     letter-spacing: 1px;
+  }
+  @media(max-width:550px){
+    .anime-details {
+      background-color: hsl(225, 25%, 7%);
+      height:100vh;
+      width: 100%;
+      padding-left: 5px;
+    }
+    
+    .details-img {
+      max-height: 100px;
+      padding-top: 100px;
+      margin-left: 10px;
+    }
+    
+    .details-img img {
+      width: 200px;
+      height: 350px;
+      margin-left: 150px;
+    }
+    
+    .details-info {
+      max-width: 400px;
+      left: 0px;
+      bottom: 0px;
+      gap: 40px;
+    }
+    
+    
+    .details-text {
+      font-size: 25px;
+      position: relative;
+      left: 100px;
+      top: 20px;
+    }
+    .details-text p{
+      text-align: center;
+    }
+    
+    .btn-watch {
+      padding: 15px 25px;
+      position: relative;
+      left: 180px;
+      bottom: 10px;
+    }
+    
+    .storyline {
+      min-width: auto;
+      max-width: 20000px;
+      background-color: red;
+      max-height: 200px;
+      font-size: 20px;
+      padding: 20px 14px;
+      position: relative;
+    }
+    
+    
+    .summmary-heading {
+      font-size: 20px;
+      color: #fff;
+      font-weight: 550;
+      letter-spacing: 1px;
+    }
   }

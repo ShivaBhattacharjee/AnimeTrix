@@ -33,7 +33,6 @@ const DubAnime = (props, ref) => {
         </div>
       ) : (
         <>
-          <br /><br /><br /><br /><br /><br />
           <section className="movies">
             <div className="filter-bar">
               <div className="heading">

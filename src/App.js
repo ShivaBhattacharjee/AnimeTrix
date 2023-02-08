@@ -6,7 +6,8 @@ import "./css/footer.css";
 import "./css/lastwatch.css";
 import './css/card.css';
 import './css/error404.css';
-import './css/titleandfilterbar.css'
+import './css/titleandfilterbar.css';
+import './css/slider.css';
 import Header from "./Components/Header";
 import DubAnime from "./Pages/DubAnime";
 import RecentAnime from "./Pages/RecentAnime";

@@ -30,4 +30,17 @@
     padding: 5px 10px 20px;
     text-align: center;
   }
-  
+  @media(max-width:550px){
+    .card-head{
+      min-height: 400px;
+      max-height: 200px;
+    }
+    .card-img{
+      height: 300px;
+      width: 100%;
+    }
+    .movies-grid{
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      padding: 0px 40px;
+    }
+  }

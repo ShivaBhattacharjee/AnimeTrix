@@ -1,6 +1,6 @@
 .container-stream {
     position: relative;
-    top: 130px;
+    top: 40px;
     padding: 20px 100px 150px;
     width: 100%;
     min-height: auto;
@@ -38,7 +38,7 @@
     max-width: 550px;
     overflow-y: scroll;
     position: relative;
-    bottom: 350px;
+    bottom: 400px;
     left: 900px;
     border-radius: 13px;
     display: flex;
