@@ -96,13 +96,16 @@
   .swiper{
     height: 250px;
   }
+  .banner-text{
+    bottom: 120px;
+  }
   .banner-text h4{
-    margin-bottom: 20px;
     font-size: 15px;
-    max-width: 300px;
+    max-width: 500px;
   }
   .watch{
     font-size: 10px;
-    margin-top: -0px;
+    font-size: 10px;
+    margin-top: -10px;
   }
 }
