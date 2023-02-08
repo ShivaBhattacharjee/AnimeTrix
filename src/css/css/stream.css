@@ -1,0 +1,92 @@
+.container-stream {
+    position: relative;
+    top: 40px;
+    padding: 20px 100px 150px;
+    width: 100%;
+    min-height: auto;
+  
+  }
+  
+  .video-player{
+    height: 400px;
+    width: 750px;
+  }
+  .video-player iframe{
+    bottom:  20px;
+    position: relative;
+    border-radius: 14px;
+  }
+  .video-title span{
+    font-size: 25px;
+    position: relative;
+    bottom: 40px;
+    font-weight: 600;
+  }
+  .video-title p{
+    position: relative;
+    bottom: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #284c90;
+    max-width: auto;
+  }
+  .episode-list {
+    padding: 0px 20px 20px;
+    background-color: rgb(18, 26, 40);
+    min-height: auto;
+    max-height: 400px;
+    max-width: 550px;
+    overflow-y: scroll;
+    position: relative;
+    bottom: 400px;
+    left: 900px;
+    border-radius: 13px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .episode-list a button {
+    width: 50px;
+    background-color:rgb(51, 51, 154) ;
+    margin-left: 9px;
+    margin-top: 20px;
+    padding: 10px 0px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .episode-list a button.active{
+    background: transparent;
+    border: 3px solid rgb(51, 51, 154);
+    padding: 8px;
+    color: rgb(51, 51, 154);
+  }
+  
+  .stream-detail {
+    position: relative;
+    top: 10px;
+    float: right;
+    right: 310px;
+    background-color: rgb(18, 26, 40);
+    max-width: 1000px;
+  }
+  
+  .stream-img-detail {
+    width: 210px;
+    height: 300px;
+    border-radius: 14px;
+  }
+  .stream-img-detail img{
+    border-radius: 14px;
+  }
+  .stream-data{
+    min-width: 350px;
+    position: relative;
+    left: 250px;
+    bottom: 320px;
+    font-size: 24px;
+  }
+  .stream-data p{
+    font-weight: 500;
+    padding-top: 10px;
+  }
