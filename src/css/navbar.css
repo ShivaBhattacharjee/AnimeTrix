@@ -92,7 +92,9 @@
 
   .toggle-links {
     position: absolute;
-    width: 100%;
+    width: 400px;
+    margin-left: 30px;
+    margin: auto;
     top: 100px;
     left: 0;
     right: 0;
@@ -100,7 +102,8 @@
     flex-direction: column;
     padding: 15px;
     z-index: 9999;
-    background-color: #0F3D3E;
+    background-color: rgb(18, 26, 40);
+    border-radius: 20px;
   }
 
   .toggle-links>li {
