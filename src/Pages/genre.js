@@ -67,6 +67,16 @@ function OptionFetcher() {
 
   return (
     <>
+      {isLoading && (
+        <div class="spinner-box">
+          <div class="configure-border-1">
+            <div class="configure-core"></div>
+          </div>
+          <div class="configure-border-2">
+            <div class="configure-core"></div>
+          </div>
+        </div>
+      )}
       <section className='movies'>
         <div className="filter-bar genre">
           <div className="filter-dropdowns">
@@ -119,16 +129,6 @@ function OptionFetcher() {
             <h2>Sort By Genre</h2>
           </div>
         </div>
-        {isLoading && (
-          <div class="spinner-box">
-            <div class="configure-border-1">
-              <div class="configure-core"></div>
-            </div>
-            <div class="configure-border-2">
-              <div class="configure-core"></div>
-            </div>
-          </div>
-        )}
         {data && (
           <InfiniteScroll
             dataLength={data.length}
