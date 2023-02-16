@@ -3,6 +3,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 30px 120px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: hsl(225, 25%, 7%);
 }
 
 .logo>a {
@@ -41,7 +45,7 @@
 }
 
 .active {
-  color:  #0000FF;
+  color: #0000FF;
 }
 
 .search {
@@ -74,13 +78,39 @@
 
 @media only screen and (max-width: 1200px) {
   .search {
+    display: none;
+  }
+
+  .toggle-search {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 265px;
+    overflow: hidden;
     position: absolute;
-    top: 150px;
+    top: 370px;
     left: 0;
     right: 0;
     margin: auto;
+    z-index: 9999;
   }
- 
+
+  .toggle-search>input {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: hsl(225, 25%, 7%);
+    color: #fff;
+    width: 265px;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  .search-btn {
+    right: -116px;
+  }
+
   .nav-links {
     display: none;
   }
@@ -92,13 +122,13 @@
 
   .toggle-links {
     position: absolute;
-    width: 400px;
+    width: auto;
     margin-left: 30px;
     margin: auto;
     top: 100px;
     left: 0;
     right: 0;
-    height: 300px;
+    height: 350px;
     flex-direction: column;
     padding: 15px;
     z-index: 9999;
