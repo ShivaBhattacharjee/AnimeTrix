@@ -32,12 +32,7 @@ const Header = forwardRef((props, ref) => {
           </NavLink>
         </div>
 
-        <div className="toggle" onClick={() => { setToggleMenu(!togglemenu) }}>
-          {
-            togglemenu ? <DensityMediumIcon /> : <CloseIcon />
-          }
-        </div>
-
+        
         <ul className={togglemenu ? "nav-links" : "toggle-links"} >
           <li>
             <NavLink to={'/'}>Home</NavLink>
@@ -58,13 +53,20 @@ const Header = forwardRef((props, ref) => {
             <NavLink to={'/genre'}>Genres</NavLink>
           </li>
         </ul>
-        
+
         <div className={togglemenu ? "search" : "toggle-search"}>
           <input type="text" className="navbar-form-search" placeholder="I am looking for...." value={inputVal} onChange={handelChange} />
           <button className="search-btn">
             <SearchIcon />
           </button>
         </div>
+
+        <div className="toggle" onClick={() => { setToggleMenu(!togglemenu) }}>
+          {
+            togglemenu ? <DensityMediumIcon /> : <CloseIcon />
+          }
+        </div>
+
       </section>
     </>
   )
