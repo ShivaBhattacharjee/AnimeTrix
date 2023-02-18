@@ -38,10 +38,12 @@ export default function Details(props) {
 
           <div className="anime-details">
 
-            <img
-              src={detail.animeImg}
-              alt={detail.animeTitle}
-            />
+            <div className="anime-img">
+              <img
+                src={detail.animeImg}
+                alt={detail.animeTitle}
+              />
+            </div>
 
             <div className="anime-info">
 
