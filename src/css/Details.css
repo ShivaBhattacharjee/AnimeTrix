@@ -1,0 +1,103 @@
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.anime-details {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.anime-details>img {
+  width: 700px;
+  height: 400px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.anime-info {
+  height: 100%;
+  padding: 0 30px;
+}
+
+.anime-title,
+.watch-anime,
+.anime-storyline {
+  margin: 50px 0;
+}
+
+.anime-title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.watch-anime-btn {
+  background-color: #0000FF;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.anime-storyline{
+  background-color: #162032;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.anime-storyline>.summary {
+  font-size: 18px;
+  margin: 20px 0;
+  word-spacing: 5px;
+  font-weight: 600;
+}
+
+.anime-storyline>p {
+  word-spacing: 4px;
+}
+
+@media only screen and (max-width: 1500px) {
+  .anime-details {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .anime-details {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .anime-details>img {
+    width: 300px;
+  }
+
+  .anime-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .anime-title,
+  .watch-anime,
+  .anime-storyline {
+    margin: 15px 0;
+  }
+
+  .anime-title {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .anime-details>img {
+    width: 50%;
+    height: 50%;
+  }
+}
