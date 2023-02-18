@@ -13,15 +13,16 @@
   align-items: center;
 }
 
-.anime-details>img {
+.anime-img>img {
   width: 380px;
-  height: 420px;
+  height: 450px;
   margin: auto;
   border-radius: 10px;
 }
 
 .anime-info {
   height: 100%;
+  width: 100%;
   padding: 0 30px;
 }
 
@@ -45,7 +46,7 @@
   border-radius: 8px;
 }
 
-.anime-storyline{
+.anime-storyline {
   background-color: #162032;
   padding: 15px;
   border-radius: 10px;
@@ -75,7 +76,7 @@
     flex-direction: column;
   }
 
-  .anime-details>img {
+  .anime-img>img {
     width: 300px;
   }
 
@@ -97,7 +98,7 @@
 }
 
 @media only screen and (max-width: 520px) {
-  .anime-details>img {
+  .anime-img>img {
     width: 50%;
     height: 50%;
   }
