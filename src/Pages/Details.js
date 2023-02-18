@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import LoadingBar from 'react-top-loading-bar';
-import Footer from "../Components/footer";
+import Footer from "../Components/Footer";
 export default function Details(props) {
   const { animeId } = useParams();
 
@@ -32,49 +32,56 @@ export default function Details(props) {
         shadow='true'
         style={{ borderRadius: 90 }}
       />
-        <div className="anime-details">
-          {Object.keys(detail).length !== 0 ? (
-            <div className="details-all">
-              <div className="details-img">
-                <img
-                  src={detail.animeImg}
-                  alt={detail.animeTitle}
-                />
-                <div className="details-info">
-                  <p className="details-text">
-                    {detail.animeTitle}
-                  </p>
-                  <div className="stream">
-                    <Link
-                      to={`/vidcdn/watch/${watch}`}
-                      state={{ animeID: `${animeId}` }}
-                      onClick={() => {
-                        props.handelClick();
-                      }}
-                    >
-                      <button className="btn-watch">Watch Now</button>
-                    </Link>
-                  </div>
-                  <div className="storyline">
-                    <span className="summmary-heading">Summary:- </span>
-                    <br /><br />
-                    <p>{detail.synopsis}</p>
-                  </div>
-                </div>
+      <div className="details">
+
+        {Object.keys(detail).length !== 0 ? (
+
+          <div className="anime-details">
+
+            <img
+              src={detail.animeImg}
+              alt={detail.animeTitle}
+            />
+
+            <div className="anime-info">
+
+              <p className="anime-title">{detail.animeTitle}</p>
+
+              <div className="watch-anime">
+                <Link
+                  to={`/vidcdn/watch/${watch}`}
+                  state={{ animeID: `${animeId}` }}
+                  onClick={() => {
+                    props.handelClick();
+                  }}
+                >
+                  <button className="watch-anime-btn">Watch Now</button>
+                </Link>
               </div>
+
+              <div className="anime-storyline">
+                <div className="summary">Summary : -</div>
+                <p>{detail.synopsis}</p>
+              </div>
+
             </div>
-          ) : (
-            <div class="spinner-box">
-              <div class="configure-border-1">
-                <div class="configure-core"></div>
-              </div>
-              <div class="configure-border-2">
-                <div class="configure-core"></div>
-              </div>
+          </div>
+
+        ) : (
+
+          <div class="spinner-box">
+            <div class="configure-border-1">
+              <div class="configure-core"></div>
             </div>
-          )}
-        </div>
-        <Footer/>
+            <div class="configure-border-2">
+              <div class="configure-core"></div>
+            </div>
+          </div>
+
+        )}
+
+      </div>
+      <Footer />
     </>
   );
 }

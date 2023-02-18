@@ -1,8 +1,8 @@
 import "./App.css";
 import "./css/navbar.css";
-import "./css/animedetails.css";
+import "./css/Details.css";
 import "./css/stream.css";
-import "./css/footer.css";
+import "./css/Footer.css";
 import "./css/lastwatch.css";
 import './css/card.css';
 import './css/error404.css';
