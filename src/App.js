@@ -1,7 +1,7 @@
 import "./App.css";
 import "./css/navbar.css";
 import "./css/Details.css";
-import "./css/stream.css";
+import "./css/Stream.css";
 import "./css/Footer.css";
 import "./css/lastwatch.css";
 import './css/card.css';
