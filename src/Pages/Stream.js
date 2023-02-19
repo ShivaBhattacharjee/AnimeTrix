@@ -2,16 +2,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useLocation, useParams } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 export default function Stream(props) {
   const { episodeId } = useParams();
-
   const [data, setData] = useState([]);
   const [detail, setDetail] = useState([]);
   const location = useLocation();
   const animeId = location.state.animeID;
   const [lastwatch, setLastwatch] = useState(null);
-  // Localstroage key
+
+  // Local Storage Key
   const LOCAL_STORAGE_KEY = "animix-netlify-app";
   useEffect(() => {
     const getVideo = async () => {
@@ -23,8 +24,8 @@ export default function Stream(props) {
       } catch (err) {
         console.log("Connection Error");
       }
-
     };
+
     const getDetail = async () => {
       const Detail = await axios
         .get(`https://gogoanime.consumet.stream/anime-details/${animeId}`)
@@ -71,48 +72,59 @@ export default function Stream(props) {
       </Helmet>
       {Object.keys(data).length !== 0 ? (
         <>
-          {/* Video */}
-          <div className="container-stream">
-            <div className="video-player">
+          <div className="stream">
+            <div className="stream-container">
+
               <div className="video-title">
                 <span>{detail.animeTitle}</span>
-                <p>Refresh the page if the player doesnt load (server except Vidstreaming might contain ads use an adblocker to block ads)</p>
+                <p>Note :- Refresh the page if the player doesnt load (server except Vidstreaming might contain ads use an adblocker to block ads)</p>
               </div>
-              <iframe
-                src={data}
-                width="100%"
-                height="500"
-                scrolling="no"
-                frameBorder="0"
-                allowFullScreen="allowfullscreen"
-                webkitallowfullscreen="true"
-                title={animeId}
-              />
+
+              <div className="video-player-list">
+
+                {/* Video Player */}
+                <div className="video-player">
+                  <iframe
+                    src={data}
+                    scrolling="no"
+                    frameBorder="0"
+                    allowFullScreen="allowfullscreen"
+                    webkitallowfullscreen="true"
+                    title={animeId}
+                  />
+                </div>
+
+                {/* Episode List */}
+                <div className="list-box">
+                  <div className="episode-list">
+                    {detail.episodesList &&
+                      detail.episodesList
+                        .slice(0)
+                        .reverse()
+                        .map((ep) => (
+                          <Link
+                            to={`/vidcdn/watch/${ep.episodeId}`}
+                            state={{ animeID: `${animeId}` }}
+                            key={ep.episodeNum}
+                          >
+                            {ep.episodeId === episodeId ? (
+                              <button className="active">{ep.episodeNum}</button>
+                            ) : ep.episodeNum % 2 === 0 ? (
+                              <button>{ep.episodeNum}</button>
+                            ) : (
+                              <button>{ep.episodeNum}</button>
+                            )}
+                          </Link>
+                        ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="episode-list">
-            {detail.episodesList &&
-              detail.episodesList
-                .slice(0)
-                .reverse()
-                .map((ep) => (
-                  <Link
-                    to={`/vidcdn/watch/${ep.episodeId}`}
-                    state={{ animeID: `${animeId}` }}
-                    key={ep.episodeNum}
-                  >
-                    {ep.episodeId === episodeId ? (
-                      <button className="active">{ep.episodeNum}</button>
-                    ) : ep.episodeNum % 2 === 0 ? (
-                      <button>{ep.episodeNum}</button>
-                    ) : (
-                      <button>{ep.episodeNum}</button>
-                    )}
-                  </Link>
-                ))}
-          </div>
         </>
+
       ) : (
+
         <div class="spinner-box">
           <div class="configure-border-1">
             <div class="configure-core"></div>
@@ -121,19 +133,10 @@ export default function Stream(props) {
             <div class="configure-core"></div>
           </div>
         </div>
+
       )
       }
-      <div className="footer">
-        <div className="footer-content">
-          <div className="footer-icons">
-            <i class="fa-brands fa-telegram"></i>
-            <i class="fa-brands fa-discord" onClick={() => openInNewTab("https://discord.gg/rap6A2TYds")}></i>
-            <i class="fa-brands fa-github" onClick={() => openInNewTab("https://github.com/ShivaBhattacharjee/betaanime.git")}></i>
-          </div>
-          <h3>Anime <span>Trix</span></h3>
-          <p>AnimeTrix is not affiliated with or endorsed by any of the anime studios behind the creation of the anime presented on this site. This website is only an user interface presenting/linking various self-hosted files across the internet by other third-party providers for easy access . AnimeTrix never downloads the video from any source provider, link will be returned from the response hence it is completely not subjected to DMCA compliant</p>
-        </div>
-      </div>
+      <Footer />
     </>
   );
 }
