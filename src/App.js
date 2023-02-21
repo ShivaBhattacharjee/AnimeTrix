@@ -5,7 +5,7 @@ import "./css/Stream.css";
 import "./css/Footer.css";
 import "./css/lastwatch.css";
 import './css/card.css';
-import './css/error404.css';
+import './css/Error404.css';
 import './css/titleandfilterbar.css';
 import './css/slider.css';
 import Header from "./Components/Header";
@@ -27,7 +27,7 @@ import Stream from "./Pages/Stream";
 import Popular from "./Pages/Popular";
 import TopAnimeAiring from "./Pages/topAiring";
 import Slider from "./Components/slider";
-import Error404 from "./Components/error404";
+import Error404 from "./Components/Error404";
 import StreamTest from "./Pages/streamtest";
 
 function App() {
