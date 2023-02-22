@@ -25,7 +25,7 @@ What does AnimeTrix feature?
  
   <h4>REQUIRMENTS:-<br><br>
   i.&nbsp; Nodejs and GIT installed <br><br>
-  Download:- <a href="https://git-scm.com/downloads">GitHub</a> 
+  Download:- <a href="https://git-scm.com/downloads">GitHub</a> ,
  <a href="https://nodejs.org/en/download/"> NodeJs</a>
   <br><br>
   ii.&nbsp; A bit of common sense<br><br>
