@@ -4,7 +4,8 @@
 
 <br>
 
-What does AnimeTrix feature?
+<h2>What does AnimeTrix feature?</h2>
+<br> <br> 
  i. User friendly UI
  
  ii. Large library 
