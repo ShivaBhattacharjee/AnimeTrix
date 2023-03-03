@@ -1,0 +1,138 @@
+
+.stream {
+  width: 100%;
+  padding-bottom: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s ease-in-out;
+}
+
+.stream-container {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+
+.video-title {
+  padding: 10px 0;
+  border-radius: 0 0 12px 12px;
+}
+
+.video-title>p {
+  color:  rgb(129, 174, 220);
+  margin-bottom: 15px;
+  width: 50%;
+}
+
+.video-title>span {
+  font-size:  25px;
+  font-weight: 600;
+}
+
+.video-player-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.video-player {
+  height: 400px;
+  width: 750px;
+}
+
+.video-player iframe {
+  height: 550px;
+  width: 750px;
+  border-radius: 10px;
+}
+
+.list-box {
+  width: 50%;
+}
+
+.episode-list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  max-width: 600px;
+  max-height: 450px;
+  background-color: rgb(18, 26, 40);
+  padding: 10px 10px 10px;
+  border-radius: 14px;
+  margin-left: 50px;
+}
+
+.episode-list>a>button {
+  width: 50px;
+  padding: 10px;
+  margin: 10px 8px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: rgb(51, 51, 154);
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.episode-list>a>button.active {
+  background: transparent;
+  outline: 3px solid rgb(51, 51, 154);
+  color: rgb(51, 51, 154);
+}
+
+@media only screen and (max-width: 1200px) {
+  .stream {
+    padding: 25px 0;
+  }
+
+  .stream-container {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .video-title {
+    width: 100%;
+  }
+
+  .video-title>span {
+    font-size: 22px;
+  }
+
+  .video-player-list {
+    flex-direction: column;
+  }
+
+  .video-player {
+    width: 100%;
+    padding-bottom: 450px;
+    margin-left: 1.8%;
+  }
+  .video-player iframe{
+    width: 700px;
+  }
+  .list-box {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .episode-list {
+    max-width: 100%;
+    max-height: 200px;
+    padding: 0 4.5px;
+    border-radius: 8px;
+  }
+
+  .episode-list>a>button {
+    width: 39px;
+    padding: 8px;
+    margin: 8px 5px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .video-player iframe {
+    height: 280px;
+  }
+}

@@ -14,22 +14,12 @@ function Footer() {
           </div>
 
           <div className="join-social">
-            <span className="connect-social">Connect</span>
             <div className="footer-icon">
-              <div className="footer-social telegram">
-                <i class="fa-brands fa-telegram"></i>
-                <span>Telegram</span>
-              </div>
 
-              <div className="footer-social github" onClick={() => openInNewTab("https://github.com/ShivaBhattacharjee/betaanime.git")}>
+              <div className="footer-social github" onClick={() => openInNewTab("https://github.com/ShivaBhattacharjee/AnimeTrix")}>
                 <i class="fa-brands fa-github"></i>
-                <span>Github</span>
               </div>
-
-              <div className="footer-social discord" onClick={() => openInNewTab("https://discord.gg/rap6A2TYds")}>
-                <i class="fa-brands fa-discord"></i>
-                <span>Discord</span>
-              </div>
+              
             </div>
           </div>
 

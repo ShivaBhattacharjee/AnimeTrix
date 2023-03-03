@@ -4,20 +4,20 @@
   justify-content: center;
   align-items: center;
   padding: 50px 0;
+  padding-bottom: 100px;
 }
 
 .anime-details {
-  width: 65%;
+  width: 85%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .anime-img>img {
-  width: 380px;
-  height: 450px;
+  width: 310px;
+  height: 420px;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 14px;
 }
 
 .anime-info {
@@ -29,39 +29,49 @@
 .anime-title,
 .watch-anime,
 .anime-storyline {
-  margin: 20px 0;
+  margin: 5px 0px;
+  padding-left: 30px;
 }
 
 .anime-title {
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  letter-spacing: .1px;
 }
 
 .watch-anime-btn {
-  background-color: #0000FF;
+  background-color: rgb(33,150,243);
   border: none;
-  padding: 10px;
+  padding: 19px 50px 19px;
   font-size: 18px;
-  font-weight: 500;
-  border-radius: 8px;
+  font-weight: 600;
+  border-radius: 14px;
+  margin-bottom: 40px;
 }
 
 .anime-storyline {
   background-color: #162032;
   padding: 15px;
   border-radius: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+  padding-bottom: 40px;
+  margin-left: 30px;
 }
 
 .anime-storyline>.summary {
-  font-size: 18px;
+  font-size: 25px;
   margin: 15px 0;
   word-spacing: 5px;
   font-weight: 600;
+
 }
 
 .anime-storyline>p {
-  word-spacing: 2px;
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  max-width: 900px;
 }
 
 @media only screen and (max-width: 1500px) {
@@ -86,6 +96,8 @@
     align-items: center;
   }
 
+
+
   .anime-title,
   .watch-anime,
   .anime-storyline {
@@ -93,7 +105,10 @@
   }
 
   .anime-title {
+    font-size: 25px;
     text-align: center;
+    /* background-color: red; */
+    max-width: 600px;
   }
 }
 
@@ -101,5 +116,9 @@
   .anime-img>img {
     width: 50%;
     height: 50%;
+  }
+
+  .anime-title {
+    font-size: 20px;
   }
 }

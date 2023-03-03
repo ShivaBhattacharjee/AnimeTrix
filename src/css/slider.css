@@ -2,6 +2,7 @@
   width: 85%;
   height: 450px;
   border-radius: 20px;
+  margin-top: 20px;
 }
 
 .swiper-slide {
@@ -46,7 +47,7 @@
 }
 
 .banner-text h4 {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 600;
   margin-bottom: 20px;
   overflow: hidden;
@@ -58,9 +59,9 @@
   vertical-align: middle;
   user-select: none;
   border: 1px solid transparent;
-  padding: 12px 30px;
+  padding: 14px 30px;
   line-height: 1.5;
-  background-color: #0000FF;
+  background-color: rgb(33,150,243);
   border-radius: 10px;
   color: #fff;
   font-weight: 700;

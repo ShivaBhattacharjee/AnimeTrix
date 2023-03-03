@@ -20,9 +20,6 @@ export default function Details(props) {
     getDetail();
   }, [animeId]);
 
-  const openInNewTab = url => {
-    window.open(url, '_blank', 'noopener,noreferrer')
-  }
   return (
     <>
       <LoadingBar
@@ -30,7 +27,6 @@ export default function Details(props) {
         progress={100}
         height={5}
         shadow='true'
-        style={{ borderRadius: 90 }}
       />
       <div className="details">
 
@@ -48,24 +44,21 @@ export default function Details(props) {
             <div className="anime-info">
 
               <p className="anime-title">{detail.animeTitle}</p>
-
               <div className="watch-anime">
-                <Link
-                  to={`/vidcdn/watch/${watch}`}
-                  state={{ animeID: `${animeId}` }}
-                  onClick={() => {
-                    props.handelClick();
-                  }}
-                >
-                  <button className="watch-anime-btn">Watch Now</button>
-                </Link>
+                <button className="watch-anime-btn">
+                  <Link
+                    to={`/vidcdn/watch/${watch}`}
+                    state={{ animeID: `${animeId}` }}
+                    onClick={() => {
+                      props.handelClick();
+                    }}
+                  >Watch Now</Link></button>
               </div>
 
               <div className="anime-storyline">
                 <div className="summary">Summary : -</div>
                 <p>{detail.synopsis}</p>
               </div>
-
             </div>
           </div>
 

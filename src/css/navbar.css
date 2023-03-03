@@ -2,11 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 120px;
+  padding: 10px 120px;
   position: sticky;
-  top: 0;
-  z-index: 9999;
-  background-color: hsl(225, 25%, 7%);
+  top: 0px;
+  z-index: 999;
+  background-color: rgb(0, 0, 0, .3);
+  backdrop-filter: blur(50px);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.15);
 }
 
 .logo>a {
@@ -19,7 +21,7 @@
 }
 
 .logo .blue {
-  color: #0000FF;
+  color: rgb(33,150,243);
 }
 
 .toggle {
@@ -45,7 +47,7 @@
 }
 
 .active {
-  color: #0000FF;
+  color: rgb(33,150,243);
 }
 
 .search {
@@ -54,7 +56,7 @@
 }
 
 .search>input {
-  padding: 10px;
+  padding: 12px 20px;
   border-radius: 10px;
   background-color: #162032;
   color: #fff;
@@ -76,15 +78,39 @@
 
 @media only screen and (max-width: 1500px) {
   .header {
-    padding: 30px 15px;
+    padding: 25px 40px;
   }
 }
 
-@media only screen and (max-width: 900px) {
-  .logo>a {
-    font-size: 28px;
+@media only screen and (max-width: 1260px) {
+  .navbar-menu-btn {
+    background: transparent;
+    transition: .9s ease-in-out;
+    position: relative;
+    bottom: 10px;
   }
-  
+
+  .navbar-menu-btn span {
+    display: block;
+    background: rgb(33,150,243);
+    width: 35px;
+    height: 4px;
+    margin: 8px;
+    transition: .5s ease-in-out;
+  }
+
+  .navbar-menu-btn .two {
+    width: 30px
+  }
+
+  .navbar-menu-btn .three {
+    width: 25px;
+  }
+  .logo>a {
+    font-size: 30px;
+    padding-left: 10px;
+  }
+
   .search {
     margin-right: 65px;
     z-index: -1;
@@ -97,14 +123,18 @@
   .toggle {
     display: block;
     position: absolute;
-    top: 40px;
+    top: 30px;
     right: 20px;
     cursor: pointer;
   }
 
+  .toggle svg {
+    font-size: 35px;
+  }
+
   .toggle-links {
     position: absolute;
-    width: auto;
+    width: 90%;
     margin-left: 30px;
     margin: auto;
     top: 100px;
@@ -117,15 +147,24 @@
     background-color: rgb(18, 26, 40);
     border-radius: 20px;
   }
+  /* .toggle-links::after{
+    content: "";
+    background-color: red;
+    height: 200px;
+    width: 900px;
+    position: absolute;
+    z-index: -1;
+    filter: blur(100px);
+  } */
 
   .toggle-links>li {
     margin: 15px 19px;
   }
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 750px) {
   .logo>a {
-    font-size: 25px;
+    font-size: 40px;
   }
 
   .search {
@@ -133,7 +172,11 @@
   }
 
   .search-btn {
-    right: -116px;
+    left: 50%;
+  }
+
+  .search-btn svg {
+    font-size: 35px;
   }
 
   .toggle {
@@ -141,26 +184,27 @@
   }
 
   .toggle-search {
-    padding: 10px;
+    padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 265px;
+    width: 80%;
     overflow: hidden;
     position: absolute;
-    top: 370px;
+    top: 350px;
     left: 0;
     right: 0;
     margin: auto;
     z-index: 9999;
+    border-radius: 14px;
   }
 
   .toggle-search>input {
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
-    background-color: hsl(225, 25%, 7%);
+    background-color: hsl(220, 47%, 20%);
     color: #fff;
-    width: 265px;
+    width: 100%;
     position: absolute;
     left: 0;
     right: 0;
@@ -170,4 +214,10 @@
     height: 350px;
   }
 
+}
+
+@media only screen and (max-width: 750px) {
+  .logo>a {
+    font-size: 35px;
+  }
 }
