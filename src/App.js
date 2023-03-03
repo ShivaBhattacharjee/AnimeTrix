@@ -1,11 +1,11 @@
 import "./App.css";
 import "./css/navbar.css";
 import "./css/Details.css";
-import "./css/Stream.css";
+import "./css/stream.css";
 import "./css/Footer.css";
 import "./css/lastwatch.css";
 import './css/card.css';
-import './css/Error404.css';
+import './css/error404.css';
 import './css/titleandfilterbar.css';
 import './css/slider.css';
 import Header from "./Components/Header";
@@ -26,8 +26,7 @@ import Details from "./Pages/Details";
 import Stream from "./Pages/Stream";
 import Popular from "./Pages/Popular";
 import TopAnimeAiring from "./Pages/topAiring";
-import Slider from "./Components/slider";
-import Error404 from "./Components/Error404";
+import Error404 from "./Components/error404";
 import StreamTest from "./Pages/streamtest";
 
 function App() {
@@ -86,7 +85,7 @@ function App() {
       setLoading(false);
     }
   };
-  const getMovie = async (id = 2) => {
+  const getMovie = async (id = 1) => {
     try {
       setLoading(true);
       const Data = await axios.get(

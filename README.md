@@ -4,8 +4,7 @@
 
 <br>
 
-<h2>What does AnimeTrix feature?</h2>
-<br> <br> 
+What does AnimeTrix feature?
  i. User friendly UI
  
  ii. Large library 
@@ -20,15 +19,12 @@
 
 <hr/>
 <br>
- <h1>Demo:  <a href="https://animetrix.vercel.app/" target="_blank">Click here for demo</a></h1>
-
+ Demo:  <a href="https://animetrix.vercel.app/" target="_blank">Click here for demo</a>
+ <hr>
  <br>
  
   <h4>REQUIRMENTS:-<br><br>
   i.&nbsp; Nodejs and GIT installed <br><br>
-  Download:- <a href="https://git-scm.com/downloads">GitHub</a> ,
- <a href="https://nodejs.org/en/download/"> NodeJs</a>
-  <br><br>
   ii.&nbsp; A bit of common sense<br><br>
   ii. Basic knowledge in REACT and Apis</h4>
  <hr>

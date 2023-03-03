@@ -93,7 +93,6 @@ export default function Stream(props) {
                     title={animeId}
                   />
                 </div>
-
                 {/* Episode List */}
                 <div className="list-box">
                   <div className="episode-list">

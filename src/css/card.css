@@ -13,10 +13,11 @@
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
   }
+  
   .movies-grid {
     padding: 0px 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(270px, 10fr));
     margin-top: 40px;
     gap: 30px;
     z-index: 9999;
@@ -30,7 +31,7 @@
     padding: 5px 10px 20px;
     text-align: center;
   }
-  @media(max-width:550px){
+  @media(max-width:600px){
     .card-head{
       min-height: 400px;
       max-height: 200px;

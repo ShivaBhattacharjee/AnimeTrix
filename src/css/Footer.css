@@ -1,6 +1,6 @@
 .footer {
   background-color: #000;
-  padding: 20px 98px;
+  padding: 20px 100px;
 }
 
 .footer-content {
@@ -8,7 +8,7 @@
 }
 
 .footer-about {
-  width: 50%;
+  width: 100%;
   padding: 20px;
 }
 
@@ -18,20 +18,19 @@ p {
 }
 
 .footer-about>p {
-  word-spacing: 2px;
   text-align: justify;
   font-size: 12px;
   opacity: .7;
 }
 
 .footer-about>h3 {
-  font-size: 20px;
-  border-bottom: 4px solid #0000FF;
+  font-size: 40px;
+  border-bottom: 4px solid rgb(33,150,243);
   width: 70px;
 }
 
 .about-blue {
-  color: #0000FF;
+  color: rgb(33,150,243);
 }
 
 .footer-about>h3>span {
@@ -43,15 +42,15 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 18px 0;
+  margin: 10px 0px;
   width: 50%;
 }
 
 .footer-icon {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .connect-social {
@@ -60,28 +59,19 @@ p {
 }
 
 .footer-social {
-  background-color: #162032;
-  width: 60px;
-  height: 60px;
-  border-radius: 100px;
-  line-height: 60px;
-  margin: 10px;
-  font-size: 35px;
+  margin: 10px 20px;
+  font-size: 49px;
   text-align: center;
   overflow: hidden;
   cursor: pointer;
   transition: all .5s ease-out;
+  margin-top: 20px;
 }
 
-.footer-social>span {
-  font-size: 25px;
-}
 
 .footer-social:hover {
-  width: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  transform: translateY(-20px);
+  color: rgb(33,150,243);
 }
 
 @media only screen and (max-width: 1500px) {

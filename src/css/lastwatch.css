@@ -2,18 +2,18 @@
     background-color: hsl(218, 39%, 14%);
     width: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     max-width: 350px;
     border-radius: 14px;
-    padding: 0px 10px;
-    padding-bottom: auto;
+    padding: 0px 20px;
+    padding-bottom: 20px;
     justify-content: center;
     text-align: center;
-    min-height: auto;
-    max-height: auto;
+    max-height: 150px;
     margin-bottom: 20px;
     overflow: hidden;
     z-index: 999;
+    display: none;
   }
   
   .play {
@@ -22,7 +22,8 @@
     float: right;
     color: #fff;
     position: relative;
-    bottom: 10px;
+    bottom: 20px;
+    transition: .5s ease-in-out;
   }
   
   .play:hover {

@@ -19,7 +19,7 @@ const RecentAnime = (props) => {
   // get lastwatch anime
   const [lastwatch, setLastwatch] = useState(null);
   // Localstroage key
-  const LOCAL_STORAGE_KEY = "animix-netlify-app";
+  const LOCAL_STORAGE_KEY = "animetrix.vercel.app"
   useState(() => {
     const fetchLastWatch = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (fetchLastWatch)
@@ -58,7 +58,7 @@ const RecentAnime = (props) => {
                   <Card rec={rec} key={rec.episodeId} handelClick={handelClick} />
                 ))}
             </div>
-            {/* <img src={spinner} alt="" /> */}
+            
             <InfiniteScroll
               dataLength={props.recent.length}
               next={loadMore}

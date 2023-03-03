@@ -25,14 +25,14 @@ const Header = forwardRef((props, ref) => {
 
   return (
     <>
-      <section className="header">
+      <nav className="header">
         <div className="logo">
           <NavLink to={'/'}>
             <span className="white">Anime</span> <span className="blue">Trix</span>
           </NavLink>
         </div>
 
-        
+
         <ul className={togglemenu ? "nav-links" : "toggle-links"} >
           <li>
             <NavLink to={'/'}>Home</NavLink>
@@ -63,11 +63,19 @@ const Header = forwardRef((props, ref) => {
 
         <div className="toggle" onClick={() => { setToggleMenu(!togglemenu) }}>
           {
-            togglemenu ? <DensityMediumIcon /> : <CloseIcon />
+            togglemenu ? <button className="navbar-menu-btn">
+              <span className="one"></span>
+              <span className="two"></span>
+              <span className="three"></span>
+            </button> : <div className="navbar-menu-btn active">
+              <span className="one"></span>
+              <span className="two"></span>
+              <span className="three"></span>
+            </div>
           }
         </div>
 
-      </section>
+      </nav>
     </>
   )
 });

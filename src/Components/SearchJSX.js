@@ -9,12 +9,13 @@ export default function SearchJSX(props) {
     <>
       {Object.keys(props.searchResult).length === 0 ? (
         <div align="center">
-          <br /><br /><br /><br /> <br /><br />
-          <h4 className="no-results">No Results found</h4>
+          <h4 className="no-results" style={{
+            fontSize: "35px", paddingTop:"20px",
+          }}>No Results found</h4>
+          <br /><br />
         </div>
       ) : (
         <div align="center">
-          <br /><br /><br />
           <div className="movies-grid" >
             {props.searchResult?.map((rec) => (
               <Card rec={rec} key={rec.animeId} ep="false" handelClick={handelClick} />
