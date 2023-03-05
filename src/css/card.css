@@ -59,7 +59,7 @@
       padding: 0px 20px;
     }
   }
-  @media(max-width:450px){
+  @media(max-width:468px){
     .movies-grid{
       grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
     }
