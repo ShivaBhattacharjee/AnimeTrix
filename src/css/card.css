@@ -50,12 +50,17 @@
     }
     .movies-grid{
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      padding: 0px 20px;
+      padding: 0px 40px;
     }
   }
 
-  @media(max-width:468px){
+  @media(max-width:500px){
     .movies-grid{
-      padding: 0px 60px;
+      padding: 0px 20px;
+    }
+  }
+  @media(max-width:450px){
+    .movies-grid{
+      grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
     }
   }
