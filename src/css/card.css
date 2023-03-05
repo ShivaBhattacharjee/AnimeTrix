@@ -2,7 +2,7 @@
     background: #162032;
     width: 100%;
     min-height: 480px;
-    max-height: 550px;
+    max-height: auto;
     border-radius: 20px;
     display: grid;
   }
@@ -54,18 +54,28 @@
     }
   }
 
-  @media(max-width:508px){
+  @media(max-width:510px){
     .movies-grid{
       padding: 0px 20px;
+      height: auto;
     }
   }
   @media(max-width:468px){
+    .card-img{
+      height: 270px;
+    }
     .movies-grid{
       grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
     }
   }
 
   @media(max-width:408px){
+    .card-head{
+      min-height: 380px;
+    }
+    .card-head h5{
+      font-size: 14px;
+    }
     .movies-grid{
       grid-template-columns:repeat(auto-fill,minmax(150px,1fr)) ;
     }
