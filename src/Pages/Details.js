@@ -60,8 +60,8 @@ export default function Details(props) {
                 <p>{detail.synopsis}</p>
               </div>
             </div>
-          </div>
 
+          </div>
         ) : (
 
           <div class="spinner-box">
@@ -74,7 +74,6 @@ export default function Details(props) {
           </div>
 
         )}
-
       </div>
       <Footer />
     </>

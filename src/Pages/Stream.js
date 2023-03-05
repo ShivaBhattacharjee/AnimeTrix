@@ -120,6 +120,7 @@ export default function Stream(props) {
               </div>
             </div>
           </div>
+          <Footer/>
         </>
 
       ) : (
@@ -135,7 +136,6 @@ export default function Stream(props) {
 
       )
       }
-      <Footer />
     </>
   );
 }

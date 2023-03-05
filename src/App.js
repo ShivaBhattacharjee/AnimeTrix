@@ -171,13 +171,6 @@ function App() {
       {searchResult ? (
         <SearchJSX searchResult={searchResult} handelClick={handelClick} />
       ) : null}
-      <LoadingBar
-        color='#0000FF'
-        progress={100}
-        height={5}
-        shadow='true'
-        style={{ borderRadius: 90 }}
-      />
       <Routes>
         <Route
           exact

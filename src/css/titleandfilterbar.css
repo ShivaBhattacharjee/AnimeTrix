@@ -53,8 +53,17 @@
     background-color: #162032;
     color: #fff;
   }
-  
-  @media(max-width:550px){
+  @media(max-width:1000px){
+    .filter-bar .heading h3{
+      font-size: 35px;
+    }
+  }
+  @media(max-width:600px){
+    .filter-bar .heading h3{
+      font-size: 35px;
+    }
+  }
+  @media(max-width:400px){
     .filter-bar .heading h3{
       font-size: 30px;
     }

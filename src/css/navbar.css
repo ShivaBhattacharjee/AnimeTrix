@@ -94,7 +94,7 @@
     display: block;
     background: rgb(33,150,243);
     width: 35px;
-    height: 4px;
+    height: 3px;
     margin: 8px;
     transition: .5s ease-in-out;
   }
@@ -163,6 +163,9 @@
 }
 
 @media only screen and (max-width: 750px) {
+  .header{
+    padding-bottom: 20px;
+  }
   .logo>a {
     font-size: 40px;
   }
