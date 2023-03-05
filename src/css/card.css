@@ -54,7 +54,7 @@
     }
   }
 
-  @media(max-width:500px){
+  @media(max-width:508px){
     .movies-grid{
       padding: 0px 20px;
     }
