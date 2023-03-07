@@ -33,7 +33,7 @@ const Header = forwardRef((props, ref) => {
         </div>
 
 
-        <ul className={togglemenu ? "nav-links" : "toggle-links"} >
+        <ul className={togglemenu ? "nav-links" : "toggle-links"} onClick={() => { setToggleMenu(!togglemenu) }}>
           <li>
             <NavLink to={'/'}>Home</NavLink>
           </li>
