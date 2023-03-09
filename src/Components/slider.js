@@ -17,7 +17,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 export default function Slider() {
   const [sliderinfo, setSlider] = useState([]);
   const getSlider = async () => {
-    const api = await fetch("https://gogoanime.consumet.stream/top-airing?page=1");
+    const api = await fetch("https://gogoanime-api-dc2c.up.railway.app/top-airing?page=1");
     setSlider(await api.json());
   }
   useEffect(() => {

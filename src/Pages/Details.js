@@ -11,7 +11,7 @@ export default function Details(props) {
   useEffect(() => {
     const getDetail = async () => {
       const Detail = await axios
-        .get(`https://gogoanime.consumet.stream/anime-details/${animeId}`)
+        .get(`https://gogoanime-api-dc2c.up.railway.app/anime-details/${animeId}`)
         .catch((err) => console.log("Connection Error"));
       setDetail(Detail.data);
       let n = Detail.data.episodesList.length;

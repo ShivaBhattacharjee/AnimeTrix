@@ -27,7 +27,7 @@ function OptionFetcher() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `https://gogoanime.consumet.stream/genre/${selectedOption}?page=${page}`
+        `https://gogoanime-api-dc2c.up.railway.app/genre/${selectedOption}?page=${page}`
       );
       const responseData = await response.json();
       // Update the data state with the data from the API

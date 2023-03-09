@@ -18,7 +18,7 @@ export default function Stream(props) {
     const getVideo = async () => {
       try {
         const Video = await axios.get(
-          `https://gogoanime.consumet.stream/vidcdn/watch/${episodeId}`
+          `https://gogoanime-api-dc2c.up.railway.app/vidcdn/watch/${episodeId}`
         );
         setData(Video.data.Referer);
       } catch (err) {
@@ -28,7 +28,7 @@ export default function Stream(props) {
 
     const getDetail = async () => {
       const Detail = await axios
-        .get(`https://gogoanime.consumet.stream/anime-details/${animeId}`)
+        .get(`https://gogoanime-api-dc2c.up.railway.app/anime-details/${animeId}`)
         .catch((err) => console.log("Connection Error"));
       const temp = episodeId;
       const ep = Detail.data.episodesList.find(
