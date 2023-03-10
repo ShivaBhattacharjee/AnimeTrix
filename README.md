@@ -1,45 +1,89 @@
-<h1>AnimeTrix is a simple yet elegent minimal anime streaming website which is made using REACT JS and GOGOANIME API</h1>
-<br>
+<br/>
+<p align="center">
+  <h3 align="center">AnimeTrix</h3>
+
+  <p align="center">
+    A go to platform to stream/download your favorite anime
+    <br/>
+    <br/>
+    <br/>
+    <a href="https://animetrix.vercel.app/">View Demo</a>
+    .
+    <a href="https://github.com/ShivaBhattacharjee/AnimeTrix/issues">Report Bug</a>
+    .
+    <a href="https://github.com/ShivaBhattacharjee/AnimeTrix/issues">Request Feature</a>
+  </p>
+</p>
 
 
-<br>
 
-What does AnimeTrix feature?
- i. User friendly UI
- 
- ii. Large library 
- 
- iii. Buffer Free streaming
+## Table Of Contents
 
- iv. Easy download features
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Contributing](#contributing)
+* [License](#license)
+* [Authors](#authors)
 
- v. Genre Filter
+## About The Project
 
- vi. Last watch section which works without signing in
+![Screen Shot](https://user-images.githubusercontent.com/95211406/224312675-8e8ac0a3-1c30-4453-bcd6-f502ca95d5f4.png)
 
-<hr/>
-<br>
- Demo:  <a href="https://animetrix.vercel.app/" target="_blank">Click here for demo</a>
- <hr>
- <br>
- 
-  <h4>REQUIRMENTS:-<br><br>
-  i.&nbsp; Nodejs and GIT installed <br><br>
-  ii.&nbsp; A bit of common sense<br><br>
-  ii. Basic knowledge in REACT and Apis</h4>
- <hr>
- <br>
- <br>
-  <h2>Installation:-</h2>
-  <br><br>
-  
+Anime Trix is a premier streaming site that offers a vast collection of anime shows for streaming and downloading. With a user-friendly interface, you can easily find your favorite anime shows and watch them in high-definition quality. Our platform is updated regularly with the latest anime episodes, so you can stay up-to-date with your favorite shows. Anime Trix is the go-to destination for anime lovers who want to watch their favorite shows anytime, anywhere.
 
-    git clone https://github.com/ShivaBhattacharjee/AnimeTrix.git
-    
-    cd AnimeTrix
-    
-    npm install
-    
-    npm start
+## Built With
 
+AnimeTrix is built using ReactJs and vanilla Css
+
+* [ReactJs](https://reactjs.org/docs/getting-started.html)
+
+
+## Getting Started
+
+
+### Prerequisites
+
+<a href="https://git-scm.com/downloads" >Git</a> is a distributed version control system used for software development. It allows multiple developers to work on the same codebase simultaneously, keeping track of changes and managing versions. It also enables users to revert changes and collaborate more effectively.
+
+
+
+<a href="https://nodejs.org/en/download/">NodeJs</a> is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to execute JavaScript code outside of a web browser, making it possible to create server-side applications with JavaScript. Node.js is fast, lightweight, and scalable, making it popular for building modern web applications.
+
+### Installation
+
+1. git clone https://github.com/ShivaBhattacharjee/AnimeTrix.git
+
+2. cd AnimeTrix
+
+3. npm install
+
+4. npm start
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/ShivaBhattacharjee/AnimeTrix/issues) to discuss it
+
+* Please make sure you check your spelling and grammar.
+
+### Creating A Pull Request
+
+Wanna contribute to AnimeTrix ?
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/FeatureName`)
+3. Commit your Changes (`git commit -m 'Add some FeatureName'`)
+4. Push to the Branch (`git push origin feature/FeatureName`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See [LICENSE](https://github.com/ShivaBhattacharjee/AnimeTrix/blob/main/LICENSE) for more information.
+
+## Authors
+
+* **Shiva Bhattacharjee** - [Shiva Bhattacharjee](https://github.com/ShivaBhattacharjee) - *AnimeTrix*
 
