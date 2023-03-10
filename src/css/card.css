@@ -31,12 +31,23 @@
     padding: 5px 10px 20px;
     text-align: center;
   }
-  @media(max-width:850px){
-    .card-img{
-      object-fit: cover;
-    }
+  @media(max-width:960px){
     .movies-grid{
       grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
+    }
+  }
+  @media(max-width:850px){
+    .movies-grid{
+      grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    }
+  }
+  @media(max-width:750px){
+    .card-img{
+      object-fit: cover
+    }
+    .movies-grid{
+      object-fit: ;
+      grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
     }
   }
   @media(max-width:600px){
