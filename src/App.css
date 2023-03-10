@@ -93,7 +93,7 @@ a {
   background-color: hsl(225, 25%, 7%);
   width: 100%;
   height: 100%;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .configure-border-1 {
@@ -147,4 +147,27 @@ a {
   100% {
     transform: rotate(-315deg);
   }
+}
+
+
+.top-scroll{
+  background: hsl(219, 38%, 15%);
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  z-index: 100;
+  position: fixed;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.top-scroll-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+.top-scroll-icon ion-icon{
+  font-size: 30px;
 }

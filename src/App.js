@@ -27,7 +27,7 @@ import Stream from "./Pages/Stream";
 import Popular from "./Pages/Popular";
 import TopAnimeAiring from "./Pages/topAiring";
 import Error404 from "./Components/error404";
-import StreamTest from "./Pages/streamtest";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   const childRef = useRef();
@@ -167,6 +167,7 @@ function App() {
 
   return (
     <Router className="App">
+      <ScrollToTop/>
       <Header handelChanges={handelChanges} ref={childRef} />
       {searchResult ? (
         <SearchJSX searchResult={searchResult} handelClick={handelClick} />
@@ -242,14 +243,6 @@ function App() {
           element={
             <OptionFetcher
             />
-          }
-        />
-        <Route
-          exact
-          path="/watch/:episodes"
-          element={
-            <StreamTest
-              loading={loading} />
           }
         />
         <Route

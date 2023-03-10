@@ -46,7 +46,6 @@
       object-fit: cover
     }
     .movies-grid{
-      object-fit: ;
       grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
     }
   }

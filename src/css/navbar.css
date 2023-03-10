@@ -82,7 +82,7 @@
   }
 }
 
-@media only screen and (max-width: 1260px) {
+@media only screen and (max-width: 1300px) {
   .navbar-menu-btn {
     background: transparent;
     transition: 0.9s ease-in-out;
