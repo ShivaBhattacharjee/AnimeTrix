@@ -90,5 +90,5 @@ Distributed under the Apache License 2.0 . See [LICENSE](https://github.com/Shiv
 ## Authors
 
 * **Shiva Bhattacharjee** - [Shiva Bhattacharjee](https://github.com/ShivaBhattacharjee) - *AnimeTrix*
-* * **Dark-Knight** - [Dark-Knight-16](https://github.com/Dark-Knight-16) - *AnimeTrix*
+* **Dark-Knight** - [Dark-Knight-16](https://github.com/Dark-Knight-16) - *AnimeTrix*
 
