@@ -53,15 +53,15 @@ AnimeTrix is built using ReactJs and vanilla Css
 <a href="https://nodejs.org/en/download/">NodeJs</a> is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to execute JavaScript code outside of a web browser, making it possible to create server-side applications with JavaScript. Node.js is fast, lightweight, and scalable, making it popular for building modern web applications.
 
 ### Installation
-
-1. git clone https://github.com/ShivaBhattacharjee/AnimeTrix.git
-
-2. cd AnimeTrix
-
-3. npm install
-
-4. npm start
-
+```sh
+  git clone https://github.com/ShivaBhattacharjee/AnimeTrix.git
+  
+  cd AnimeTrix
+  
+  npm install
+  
+  npm start
+```
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
