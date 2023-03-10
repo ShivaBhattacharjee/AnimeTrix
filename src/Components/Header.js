@@ -2,12 +2,9 @@ import React, { forwardRef, useImperativeHandle, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 // Import from Material UI
-import SearchIcon from '@mui/icons-material/Search';
-import DensityMediumIcon from '@mui/icons-material/DensityMedium';
-import CloseIcon from '@mui/icons-material/Close';
+import SearchIcon from "@mui/icons-material/Search";
 
 const Header = forwardRef((props, ref) => {
-
   const [togglemenu, setToggleMenu] = useState(true);
 
   const [inputVal, setInputVal] = useState("");
@@ -23,60 +20,96 @@ const Header = forwardRef((props, ref) => {
     },
   }));
 
+  const closeMenuWhenClickedLink = () => {
+    if (window.innerWidth < 750) {
+      setToggleMenu(!togglemenu);
+    }
+  };
+
   return (
     <>
       <nav className="header">
         <div className="logo">
-          <NavLink to={'/'}>
-            <span className="white">Anime</span> <span className="blue">Trix</span>
+          <NavLink to={"/"}>
+            <span className="white">Anime</span>{" "}
+            <span className="blue">Trix</span>
           </NavLink>
         </div>
 
-
-        <ul className={togglemenu ? "nav-links" : "toggle-links"} >
+        <ul className={togglemenu ? "nav-links" : "toggle-links"}>
           <li>
-            <NavLink to={'/'}>Home</NavLink>
+            <NavLink to={"/"} onClick={() => closeMenuWhenClickedLink()}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'/popular'}>Popular</NavLink>
+            <NavLink to={"/popular"} onClick={() => closeMenuWhenClickedLink()}>
+              Popular
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'/top-airing'}>Top Airing</NavLink>
+            <NavLink
+              to={"/top-airing"}
+              onClick={() => closeMenuWhenClickedLink()}
+            >
+              Top Airing
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'/dub-anime'}>Dubbed Anime</NavLink>
+            <NavLink
+              to={"/dub-anime"}
+              onClick={() => closeMenuWhenClickedLink()}
+            >
+              Dubbed Anime
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'/movie'}>Movies</NavLink>
+            <NavLink to={"/movie"} onClick={() => closeMenuWhenClickedLink()}>
+              Movies
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'/genre'}>Genres</NavLink>
+            <NavLink to={"/genre"} onClick={() => closeMenuWhenClickedLink()}>
+              Genres
+            </NavLink>
           </li>
         </ul>
 
         <div className={togglemenu ? "search" : "toggle-search"}>
-          <input type="text" className="navbar-form-search" placeholder="I am looking for...." value={inputVal} onChange={handelChange} />
+          <input
+            type="text"
+            className="navbar-form-search"
+            placeholder="I am looking for...."
+            value={inputVal}
+            onChange={handelChange}
+          />
           <button className="search-btn">
             <SearchIcon />
           </button>
         </div>
 
-        <div className="toggle" onClick={() => { setToggleMenu(!togglemenu) }}>
-          {
-            togglemenu ? <button className="navbar-menu-btn">
+        <div
+          className="toggle"
+          onClick={() => {
+            setToggleMenu(!togglemenu);
+          }}
+        >
+          {togglemenu ? (
+            <button className="navbar-menu-btn">
               <span className="one"></span>
               <span className="two"></span>
               <span className="three"></span>
-            </button> : <div className="navbar-menu-btn active">
+            </button>
+          ) : (
+            <div className="navbar-menu-btn active">
               <span className="one"></span>
               <span className="two"></span>
               <span className="three"></span>
             </div>
-          }
+          )}
         </div>
-
       </nav>
     </>
-  )
+  );
 });
 export default Header;

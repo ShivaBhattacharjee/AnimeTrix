@@ -6,12 +6,12 @@
   position: sticky;
   top: 0px;
   z-index: 999;
-  background-color: rgb(0, 0, 0, .3);
+  background-color: rgb(0, 0, 0, 0.3);
   backdrop-filter: blur(50px);
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.15);
 }
 
-.logo>a {
+.logo > a {
   font-size: 40px;
   font-weight: 600;
 }
@@ -21,7 +21,7 @@
 }
 
 .logo .blue {
-  color: rgb(33,150,243);
+  color: rgb(33, 150, 243);
 }
 
 .toggle {
@@ -34,11 +34,11 @@
   position: relative;
 }
 
-.nav-links>li {
+.nav-links > li {
   list-style: none;
 }
 
-.nav-links>li>a {
+.nav-links > li > a {
   text-decoration: none;
   margin: 0 15px;
   word-spacing: 3px;
@@ -47,7 +47,7 @@
 }
 
 .active {
-  color: rgb(33,150,243);
+  color: rgb(33, 150, 243);
 }
 
 .search {
@@ -55,7 +55,7 @@
   width: 332px;
 }
 
-.search>input {
+.search > input {
   padding: 12px 20px;
   border-radius: 10px;
   background-color: #162032;
@@ -85,28 +85,28 @@
 @media only screen and (max-width: 1260px) {
   .navbar-menu-btn {
     background: transparent;
-    transition: .9s ease-in-out;
+    transition: 0.9s ease-in-out;
     position: relative;
     bottom: 10px;
   }
 
   .navbar-menu-btn span {
     display: block;
-    background: rgb(33,150,243);
+    background: rgb(33, 150, 243);
     width: 35px;
     height: 3px;
     margin: 8px;
-    transition: .5s ease-in-out;
+    transition: 0.5s ease-in-out;
   }
 
   .navbar-menu-btn .two {
-    width: 30px
+    width: 30px;
   }
 
   .navbar-menu-btn .three {
     width: 25px;
   }
-  .logo>a {
+  .logo > a {
     font-size: 30px;
     padding-left: 10px;
   }
@@ -157,16 +157,16 @@
     filter: blur(100px);
   } */
 
-  .toggle-links>li {
+  .toggle-links > li {
     margin: 15px 19px;
   }
 }
 
 @media only screen and (max-width: 750px) {
-  .header{
+  .header {
     padding-bottom: 20px;
   }
-  .logo>a {
+  .logo > a {
     font-size: 40px;
   }
 
@@ -202,7 +202,7 @@
     border-radius: 14px;
   }
 
-  .toggle-search>input {
+  .toggle-search > input {
     padding: 20px;
     border-radius: 10px;
     background-color: hsl(220, 47%, 20%);
@@ -216,11 +216,10 @@
   .toggle-links {
     height: 350px;
   }
-
 }
 
 @media only screen and (max-width: 750px) {
-  .logo>a {
+  .logo > a {
     font-size: 35px;
   }
 }
