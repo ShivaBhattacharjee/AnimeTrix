@@ -21,7 +21,7 @@ const Header = forwardRef((props, ref) => {
   }));
 
   const closeMenuWhenClickedLink = () => {
-    if (window.innerWidth < 750) {
+    if (window.innerWidth < 1260) {
       setToggleMenu(!togglemenu);
     }
   };
