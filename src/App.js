@@ -8,26 +8,18 @@ import './css/card.css';
 import './css/error404.css';
 import './css/titleandfilterbar.css';
 import './css/slider.css';
-import Header from "./Components/Header";
-import DubAnime from "./Pages/DubAnime";
-import RecentAnime from "./Pages/RecentAnime";
-import SearchJSX from "./Components/SearchJSX";
-import Movie from "./Pages/movie";
-import LoadingBar from 'react-top-loading-bar';
-import OptionFetcher from "./Pages/genre";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+
+
+import { BrowserRouter as Router, Routes,Route,} from "react-router-dom";
+
 import { useEffect, useRef, useState } from "react";
+
 import axios from "axios";
-import Details from "./Pages/Details";
-import Stream from "./Pages/Stream";
-import Popular from "./Pages/Popular";
-import TopAnimeAiring from "./Pages/topAiring";
-import Error404 from "./Components/error404";
-import ScrollToTop from "./Components/ScrollToTop";
+
+import {Details, Stream, Popular, TopAnimeAiring, RecentAnime,  DubAnime, Movie,OptionFetcher} from "./Pages/";
+
+import {Error404, ScrollToTop, Header, SearchJSX }from "./Components/";
+
 
 function App() {
   const childRef = useRef();
