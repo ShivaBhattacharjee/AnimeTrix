@@ -274,17 +274,17 @@
   .video-title{
     padding: 10px 0;
     border-radius: 0 0 12px 12px;
-    max-width: 100%;
+    max-width: 95%;
   }
   .video-title>p {
     color:  rgb(129, 174, 220);
     margin-bottom: 15px;
-    width: 300px;
+    width: 350px;
     font-size: 12px;
   }
   
   .video-title>span {
-    font-size:  30px;
+    font-size:  25px;
     font-weight: 600;
   }
   
