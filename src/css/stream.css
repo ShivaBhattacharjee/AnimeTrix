@@ -222,3 +222,61 @@
     height: 280px;
   }
 }
+
+@media(max-width:700px){
+  .video-title{
+    padding: 10px 0;
+    border-radius: 0 0 12px 12px;
+    max-width: 70%;
+  }
+  .video-title>p {
+    color:  rgb(129, 174, 220);
+    margin-bottom: 15px;
+    width: 600px;
+  }
+  
+  .video-title>span {
+    font-size:  30px;
+    font-weight: 600;
+  }
+  
+}
+
+@media(max-width:510px){
+  .video-title{
+    padding: 10px 0;
+    border-radius: 0 0 12px 12px;
+    max-width: 100%;
+  }
+  .video-title>p {
+    color:  rgb(129, 174, 220);
+    margin-bottom: 15px;
+    width: 350px;
+    font-size: 12px;
+  }
+  
+  .video-title>span {
+    font-size:  30px;
+    font-weight: 600;
+  }
+  
+}
+@media(max-width:400px){
+  .video-title{
+    padding: 10px 0;
+    border-radius: 0 0 12px 12px;
+    max-width: 100%;
+  }
+  .video-title>p {
+    color:  rgb(129, 174, 220);
+    margin-bottom: 15px;
+    width: 300px;
+    font-size: 12px;
+  }
+  
+  .video-title>span {
+    font-size:  30px;
+    font-weight: 600;
+  }
+  
+}

@@ -125,4 +125,8 @@
   .anime-title {
     font-size: 20px;
   }
+
+  .watch-anime-btn{
+    padding: 15px 20px;
+  }
 }

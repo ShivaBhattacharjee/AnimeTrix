@@ -142,7 +142,7 @@
     background-color: rgb(18, 26, 40);
     border-radius: 20px;
   }
-  
+
   /* .toggle-links::after{
     content: "";
     background-color: red;
@@ -178,9 +178,6 @@
     font-size: 35px;
   }
 
-  .toggle {
-    top: 38px;
-  }
 
   .toggle-search {
     padding: 30px;
@@ -217,5 +214,10 @@
 @media only screen and (max-width: 750px) {
   .logo > a {
     font-size: 35px;
+  }
+}
+@media(max-width: 500px){
+  .logo >a{
+    font-size: 30px;
   }
 }

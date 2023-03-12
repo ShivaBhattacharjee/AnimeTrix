@@ -71,6 +71,14 @@
     }
   }
   @media(max-width:468px){
+    .card-head{
+      min-height: 350px;
+      max-height: 1000px;
+      padding-bottom: 20px;
+    }
+    .card-head h5{
+      font-size: 14px;
+    }
     .card-img{
       height: 270px;
     }
