@@ -87,7 +87,6 @@
     background: transparent;
     transition: 0.9s ease-in-out;
     position: relative;
-    bottom: 10px;
   }
 
   .navbar-menu-btn span {
@@ -123,13 +122,9 @@
   .toggle {
     display: block;
     position: absolute;
-    top: 30px;
+    top: 25px;
     right: 20px;
     cursor: pointer;
-  }
-
-  .toggle svg {
-    font-size: 35px;
   }
 
   .toggle-links {
@@ -147,6 +142,7 @@
     background-color: rgb(18, 26, 40);
     border-radius: 20px;
   }
+  
   /* .toggle-links::after{
     content: "";
     background-color: red;
