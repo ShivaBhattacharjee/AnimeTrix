@@ -1,7 +1,7 @@
 .footer {
-  margin-top: 50px;
-  background-color: #000;
+  margin-top: 200px;
   padding: 0px 100px;
+  background-color: #000;
 }
 
 .footer-content {
@@ -26,12 +26,12 @@ p {
 
 .footer-about>h3 {
   font-size: 40px;
-  border-bottom: 4px solid rgb(33,150,243);
+  border-bottom: 4px solid rgb(33, 150, 243);
   width: 70px;
 }
 
 .about-blue {
-  color: rgb(33,150,243);
+  color: rgb(33, 150, 243);
 }
 
 .footer-about>h3>span {
@@ -72,7 +72,7 @@ p {
 
 .footer-social:hover {
   transform: translateY(-20px);
-  color: rgb(33,150,243);
+  color: rgb(33, 150, 243);
 }
 
 @media only screen and (max-width: 1500px) {

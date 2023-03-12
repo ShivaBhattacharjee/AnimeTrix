@@ -7,7 +7,7 @@ const ScrollToTop = () => {
     }
 
     const listenToScroll = () => {
-        let hidden = 250
+        let hidden = 500
         const winScroll =
             document.body.scrollTop || document.documentElement.scrollTop;
         if (winScroll > hidden) {
@@ -27,7 +27,7 @@ const ScrollToTop = () => {
                 isVisible && (
                     <div className='top-scroll' onClick={goToBtn}>
                         <div className="top-scroll-icon">
-                            <ion-icon name="arrow-up-outline"></ion-icon>
+                        <ion-icon name="chevron-up-outline"></ion-icon>
                         </div>
                     </div>
                 )

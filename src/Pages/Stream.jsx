@@ -51,9 +51,9 @@ export default function Stream(props) {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(lastwatch));
   }, [lastwatch]);
 
-  const openInNewTab = url => {
-    window.open(url, '_blank', 'noopener,noreferrer')
-  }
+  // const openInNewTab = url => {
+  //   window.open(url, '_blank', 'noopener,noreferrer')
+  // }
   return (
     <>
       <Helmet>

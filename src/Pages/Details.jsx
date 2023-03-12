@@ -60,7 +60,6 @@ export default function Details(props) {
                 <p>{detail.synopsis}</p>
               </div>
             </div>
-
           </div>
         ) : (
 

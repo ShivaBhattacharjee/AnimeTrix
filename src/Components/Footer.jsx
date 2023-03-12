@@ -1,7 +1,7 @@
 import React from "react";
-const openInNewTab = url => {
-  window.open(url, '_blank', 'noopener,noreferrer')
-}
+// const openInNewTab = url => {
+//   window.open(url, '_blank', 'noopener,noreferrer')
+// }
 function Footer() {
   return (
     <>

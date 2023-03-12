@@ -10,15 +10,19 @@ import './css/titleandfilterbar.css';
 import './css/slider.css';
 
 
-import { BrowserRouter as Router, Routes,Route,} from "react-router-dom";
+import {Error404,Header,ScrollToTop,SearchJSX,} from "./Components/";
+import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFetcher} from"./Pages"
 
+
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-
 import axios from "axios";
 
-import {Details, Stream, Popular, TopAnimeAiring, RecentAnime,  DubAnime, Movie,OptionFetcher} from "./Pages/";
-
-import {Error404, ScrollToTop, Header, SearchJSX }from "./Components/";
 
 
 function App() {

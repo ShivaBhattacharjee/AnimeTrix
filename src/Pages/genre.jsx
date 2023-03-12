@@ -4,25 +4,25 @@ import { Link } from "react-router-dom";
 import spinner from "../img/spinner.svg";
 
 function OptionFetcher() {
-  // Declare a state variable to store the selected option
+ 
   const [selectedOption, setSelectedOption] = useState('action');
-  // Declare a state variable to store the data
+
   const [data, setData] = useState(null);
-  // Declare a state variable to store the page number
+  
   const [page, setPage] = useState(1);
 
   const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch the data from the API when the component mounts
+
   useEffect(() => {
     fetchData();
   }, []);
-  // Use the useEffect hook to call the fetchData function whenever the selectedOption state variable is updated
+
   useEffect(() => {
     fetchData();
   }, [selectedOption]);
 
-  // Function to fetch the data from the API
+
   async function fetchData() {
     try {
       setIsLoading(true);
@@ -30,7 +30,7 @@ function OptionFetcher() {
         `https://gogoanime-api-dc2c.up.railway.app/genre/${selectedOption}?page=${page}`
       );
       const responseData = await response.json();
-      // Update the data state with the data from the API
+
       setData(responseData);
       setIsLoading(false);
     } catch (error) {
@@ -38,29 +38,27 @@ function OptionFetcher() {
     }
   }
 
-  // Handle changes to the select element
+
   function handleChange(event) {
-    // Update the selected option state
+
     setSelectedOption(event.target.value);
   }
 
-  // Function to fetch more data
+
   async function fetchMoreData() {
     try {
-      // Increment the page number by 1
       setPage(page + 1);
       const response = await fetch(
         `https://gogoanime-api-dc2c.up.railway.app/genre/${selectedOption}?page=${page}`
       );
       const responseData = await response.json();
-      // Concatenate the new data with the existing data
       setData([...data, ...responseData]);
     } catch (error) {
       console.error(error);
     }
   }
 
-  // Use the useEffect hook to update the page state variable synchronously
+
   useEffect(() => {
     setPage(1);
   }, [selectedOption]);
