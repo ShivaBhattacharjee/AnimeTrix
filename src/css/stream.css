@@ -36,8 +36,8 @@
 }
 
 .video-player {
-  height: 400px;
-  width: 900px;
+  max-height: 400px;
+  max-width: 800px;
 }
 
 .video-player iframe {
@@ -192,7 +192,7 @@
   }
   .list-box {
     width: 100%;
-    margin-top: 20%;
+    margin-top: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,6 +224,9 @@
 }
 
 @media(max-width:700px){
+  .list-box {
+    margin-top: 35%;
+  }
   .video-title{
     padding: 10px 0;
     border-radius: 0 0 12px 12px;
@@ -243,6 +246,9 @@
 }
 
 @media(max-width:510px){
+  .list-box {
+    margin-top: 45%;
+  }
   .video-title{
     padding: 10px 0;
     border-radius: 0 0 12px 12px;
@@ -261,7 +267,10 @@
   }
   
 }
-@media(max-width:400px){
+@media(max-width:470px){
+  .list-box {
+    margin-top: 0%;
+  }
   .video-title{
     padding: 10px 0;
     border-radius: 0 0 12px 12px;
