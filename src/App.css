@@ -214,7 +214,7 @@ a {
   }
 }
 @media(max-width:355px){
-  .movies-grid{
+  .search-grid{
     grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
   }
 }
