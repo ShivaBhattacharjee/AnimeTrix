@@ -213,7 +213,7 @@ a {
     grid-template-columns:repeat(auto-fill,minmax(150px,1fr)) ;
   }
 }
-@media(max-width:355px){
+@media(max-width:360px){
   .search-grid{
     grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
   }
