@@ -173,6 +173,7 @@ a {
 .top-scroll-icon ion-icon{
   font-size: 30px;
 }
+
 .search-grid{
   padding: 0px 50px;
   display: grid;
@@ -185,6 +186,9 @@ a {
 @media(max-width:750px){
   .search-grid{
     grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    margin-top: 140px;
+  }
+  .no-results{
     margin-top: 140px;
   }
 }
