@@ -13,7 +13,7 @@ export default function Card(props) {
               alt={props.rec.animeId}
               className="card-img"
             />
-            <div className="">
+            <div className="card-details">
               <h5 className="card-title">{(props.rec.animeTitle)}</h5>
               {props.ep !== "false" ? (
                 <p className="card-info">

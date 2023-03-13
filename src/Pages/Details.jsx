@@ -74,6 +74,7 @@ export default function Details(props) {
 
         )}
       </div>
+      <div class="spacer"></div>
       <Footer />
     </>
   );

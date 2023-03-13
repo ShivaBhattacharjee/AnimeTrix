@@ -16,7 +16,7 @@ export default function SearchJSX(props) {
         </div>
       ) : (
         <div align="center">
-          <div className="movies-grid" >
+          <div className="search-grid" >
             {props.searchResult?.map((rec) => (
               <Card rec={rec} key={rec.animeId} ep="false" handelClick={handelClick} />
             ))}

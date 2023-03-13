@@ -1,7 +1,10 @@
 .footer {
-  margin-top: 200px;
-  padding: 0px 100px;
   background-color: #000;
+  margin-top: 200px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 0px 100px;
 }
 
 .footer-content {

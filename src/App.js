@@ -16,10 +16,9 @@ import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFe
 
 
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+  BrowserRouter as Router,Routes,Route,} from "react-router-dom";
+
+
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 

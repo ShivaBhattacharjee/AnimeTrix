@@ -51,8 +51,7 @@
   }
   @media(max-width:600px){
     .card-head{
-      min-height: 400px;
-      max-height: 200px;
+      max-height: 1000px;
     }
     .card-img{
       height: 300px;

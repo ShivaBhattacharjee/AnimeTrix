@@ -1,12 +1,30 @@
-import React, { forwardRef, useImperativeHandle, useState } from "react";
+import React, { forwardRef, useImperativeHandle, useState , useEffect, useRef} from "react";
 import { NavLink } from "react-router-dom";
 
-// Import from Material UI
-import SearchIcon from "@mui/icons-material/Search";
 
 const Header = forwardRef((props, ref) => {
   const [togglemenu, setToggleMenu] = useState(true);
 
+  const [searchActive, setSearchActive] = useState(false);
+  
+  let menuRef = useRef();
+  useEffect(() => {
+    let handler = (e)=>{
+      if(!menuRef.current.contains(e.target)){
+        setSearchActive(false);
+      }
+    };
+    document.addEventListener("mousedown", handler)
+
+    return()=>{
+      document.removeEventListener("mousedown", handler)
+    }
+  })
+  
+
+  function MobileView() {
+    setSearchActive(!searchActive);
+  }
   const [inputVal, setInputVal] = useState("");
   const handelChange = (e) => {
     const val = e.target.value;
@@ -21,7 +39,7 @@ const Header = forwardRef((props, ref) => {
   }));
 
   const closeMenuWhenClickedLink = () => {
-    if (window.innerWidth <=1300) {
+    if (window.innerWidth <= 1300) {
       setToggleMenu(!togglemenu);
     }
   };
@@ -75,7 +93,7 @@ const Header = forwardRef((props, ref) => {
           </li>
         </ul>
 
-        <div className={togglemenu ? "search" : "toggle-search"}>
+        <div className="search">
           <input
             type="text"
             className="navbar-form-search"
@@ -84,9 +102,19 @@ const Header = forwardRef((props, ref) => {
             onChange={handelChange}
           />
           <button className="search-btn">
-            <SearchIcon />
+            {/* <SearchIcon /> */}
           </button>
         </div>
+
+        <div className="mobile-search" ref={menuRef}>
+          <div className="search-field">
+            <input type="text" className={`active-search-mobile ${searchActive ? 'active' : ''}`} placeholder="I am looking for" value={inputVal} onChange={handelChange} />
+            <div className="field-icon-search" onClick={MobileView}>
+              <ion-icon name="search-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+
 
         <div
           className="toggle"
