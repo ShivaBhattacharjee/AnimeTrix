@@ -19,7 +19,7 @@ const RecentAnime = (props) => {
   // get lastwatch anime
   const [lastwatch, setLastwatch] = useState(null);
   // Localstroage key
-  const LOCAL_STORAGE_KEY = "animetrix.vercel.app"
+  const LOCAL_STORAGE_KEY = "AnimeTrix"
   useState(() => {
     const fetchLastWatch = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (fetchLastWatch)
