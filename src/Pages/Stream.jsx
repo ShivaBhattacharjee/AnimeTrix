@@ -13,7 +13,7 @@ export default function Stream(props) {
   const [lastwatch, setLastwatch] = useState(null);
 
   // Local Storage Key
-  const LOCAL_STORAGE_KEY = "animix-netlify-app";
+  const LOCAL_STORAGE_KEY = "AnimeTrix";
   useEffect(() => {
     const getVideo = async () => {
       try {
