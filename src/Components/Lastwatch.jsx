@@ -3,23 +3,20 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Lastwatch = (props) => {
-  const [isActivelw, setIsActivelw] = useState(true);
+  const [isActive, setIsActive] = useState(true);
   const handleCloseLastwatch = () => {
-    setIsActivelw(current => !current);
-    if (isActivelw === true)
+    setIsActive(current => !current);
+    if (isActive === true)
       document.getElementsByClassName("lastwatch")[0].style.width = "10px"
     else
       document.getElementsByClassName("lastwatch")[0].style.width = "100%"
   }
 
-  return (<>
+  return (
+  <>
     {props.lastwatch !== null ?
-      <div className="lastwatch active" >
-        <div className={isActivelw ? "" : 'deactiveLw'}>
-          <br />
-          <p className="my-1" style={{ fontSize: "15px" }}>
-            <i>Continue From Where Left Of</i> 
-          </p>
+      <div className={`lastwatch ${isActive? "active": ""}`}>
+          <p>Welcome Back</p>
           <h3 className="heading">Last Watched</h3>
           <Link
             to={props.lastwatch.url}
@@ -28,29 +25,20 @@ const Lastwatch = (props) => {
             <div className="play">
               <ion-icon name="play-circle-outline"></ion-icon>
             </div>
-            <div
-              className="d-flex row"
-              style={{
-                alignItem: "center",
-              }}
-            >
-              <p className="d-flex" style={{ fontSize: "auto",fontWeight:"500",padding:"4px 0 0 0" }}>
-                <i className="bi bi-caret-right-square-fill me-2" />
+            <div>
                 <span>
                   {props.lastwatch?.title} 
                 </span>
-              </p>
             </div>
 
           </Link>
-        </div>
-        <div className="switchLw d-flex">
+        <div className="lastwatch-close">
           {
-            isActivelw === true ?
+            isActive === true ?
               <i
-                className="bi bi-x-lg lastwatchClose"
+              className="fa-solid fa-x"
                 onClick={handleCloseLastwatch}
-              /> : <i className="bi bi-caret-right-fill lastwatchOpen" onClick={handleCloseLastwatch} />
+              /> : <i className="fa-solid fa-house" onClick={handleCloseLastwatch} />
           }
         </div>
 
