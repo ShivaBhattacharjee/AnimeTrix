@@ -54,11 +54,11 @@
 
 .search {
   display: flex;
-  width: 332px;
+  width: 292px;
 }
 
 .search > input {
-  padding: 12px 20px;
+  padding: 12px 40px;
   border-radius: 10px;
   background-color: #162032;
   color: #fff;
