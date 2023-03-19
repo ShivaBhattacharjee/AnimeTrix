@@ -5,10 +5,8 @@
   bottom: 0px;
   max-width: 350px;
   border-radius: 14px;
-  padding: 0px 20px;
+  padding: 30px;
   padding-bottom: 10px;
-  justify-content: center;
-  text-align: center;
   max-height: 150px;
   margin-bottom: 20px;
   z-index: 999;
@@ -17,28 +15,45 @@
   overflow-y: scroll;
   padding-top: 10px;
 }
+.lastwatch .welcome{
+}
 .lastwatch.active{
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .play {
+  position: absolute;
+  right: 13px;
   font-size: 40px;
-  max-width: 90px;
-  float: right;
-  color: #fff;
-  position: relative;
-  bottom: 20px;
+  bottom: 3px;
   transition: .5s ease-in-out;
 }
 .lastwatch-close{
   position: absolute;
-  top:10px;
+  top: 7px;
   right: 20px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 600; 
   cursor: pointer; 
+  transition: .3s;
+}
+@keyframes spin{
+  0% {
+    transform: rotate( 0deg );
+  }
+  50% {
+    transform: rotate( 180deg );
+  }
+  100%{
+    transform: rotate( 360deg);
+  }
+}
+.lastwatch-close:hover{
+  animation: spin .8s linear infinite;
 }
 .play:hover {
-  color: #0000FF;
+  color:rgb(33,150,243);
 }
 
 @media(max-width:400px){
@@ -46,8 +61,6 @@
     margin-left: 5%;
     max-width: 90%;
     padding-bottom: 20px;
-    justify-content: center;
-    text-align: center;
     max-height: 130px;
     overflow-y: scroll;
   }
