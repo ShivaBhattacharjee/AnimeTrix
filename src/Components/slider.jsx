@@ -42,11 +42,11 @@ export default function Slider() {
           sliderinfo.map((data, uqley , swipe) => {
             return (
               <div className="banner-card" key={uqley}>
-                <SwiperSlide key={swipe}>
+                <SwiperSlide key={swipe.animeId}>
                   <img src={data.animeImg} alt={data.animeId} className="blur" />
                   <div className="banner-text">
                     <Link to={`/anime-details/${data.animeId}`}>
-                      <h4>{data.animeTitle}</h4>
+                      <h4>{data.animeTitle.substring(0,30)}</h4>
 
                       <button className="watch">Watch Now</button>
                     </Link>
