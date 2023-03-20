@@ -1,9 +1,8 @@
 import React, { useState, useRef } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import spinner from "../img/spinner.svg";
-import Card from "../Components/Card";
-import Lastwatch from "../Components/Lastwatch"
-import Slider from "../Components/slider";
+
+import { Card, Lastwatch, Slider } from "../Components"
+import {Popular} from "../Pages"
+
 import { useFetchInitialData } from "../utils/hooks";
 
 const RecentAnime = (props) => {
@@ -12,18 +11,21 @@ const RecentAnime = (props) => {
   const handelClick = () => {
     props.handelClick();
   };
+
   const loadMore = () => {
     props.loadMoreRecent();
   };
 
-  // get lastwatch anime
+
   const [lastwatch, setLastwatch] = useState(null);
-  // Localstroage key
-  const LOCAL_STORAGE_KEY = "AnimeTrix"
+
+  const LOCAL_STORAGE_KEY = "animetrix-vercel-app"
+
   useState(() => {
     const fetchLastWatch = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (fetchLastWatch)
+    if (fetchLastWatch) {
       setLastwatch(fetchLastWatch);
+    }
   }, []);
 
   const { loading, recent, loadMoreRecent } = props;
@@ -34,16 +36,17 @@ const RecentAnime = (props) => {
     <>
       <Slider />
       {Object.keys(props.recent).length === 0 ? (
-        <div class="spinner-box">
-          <div class="configure-border-1">
-            <div class="configure-core"></div>
+        <div className="spinner-box">
+          <div className="configure-border-1">
+            <div className="configure-core"></div>
           </div>
-          <div class="configure-border-2">
-            <div class="configure-core"></div>
+          <div className="configure-border-2">
+            <div className="configure-core"></div>
           </div>
         </div>
       ) : (
         <>
+          <Lastwatch lastwatch={lastwatch} />
           <br /><br />
           <section className="movies">
             <div className="filter-bar">
@@ -51,22 +54,15 @@ const RecentAnime = (props) => {
                 <h3>Recently Added</h3>
               </div>
             </div>
-
             <div className="movies-grid" ref={ref}>
               {props.recent &&
                 props.recent.map((rec) => (
-                  <Card rec={rec} key={rec.episodeId} handelClick={handelClick} />
+                  <Card rec={rec} key={rec.animeId} handelClick={handelClick} />
                 ))}
             </div>
-            
-            <InfiniteScroll
-              dataLength={props.recent.length}
-              next={loadMore}
-              hasMore={true}
-              loader={<img src={spinner} alt="spinner" className="spinner" />}
-            ></InfiniteScroll>
-
-            <Lastwatch lastwatch={lastwatch} />
+            <div className="loadmore-recent">
+            <button onClick={loadMoreRecent} className="loadmore">LOAD MORE</button>
+            </div>
           </section>
         </>
       )}
