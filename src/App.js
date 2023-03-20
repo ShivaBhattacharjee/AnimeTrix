@@ -8,7 +8,8 @@ import './css/card.css';
 import './css/error404.css';
 import './css/titleandfilterbar.css';
 import './css/slider.css';
-
+import './css/loading.css';
+import './css/topScroll.css'
 
 import {Error404,Header,ScrollToTop,SearchJSX,} from "./Components/";
 import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFetcher} from"./Pages"
