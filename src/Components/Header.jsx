@@ -35,9 +35,12 @@ const Header = forwardRef((props, ref) => {
     }
   })
   
-
+  function scroll(){
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }
   function MobileView() {
     setSearchActive(!searchActive);
+    scroll()
   }
   const [inputVal, setInputVal] = useState("");
   const handelChange = (e) => {
@@ -68,7 +71,7 @@ const Header = forwardRef((props, ref) => {
           </NavLink>
         </div>
 
-        <ul className={togglemenu ? "nav-links" : "toggle-links"}ref={toggleref}>
+        <ul onClick={scroll} className={togglemenu ? "nav-links" : "toggle-links"}ref={toggleref}>
           <li>
             <NavLink to={"/"} onClick={() => closeMenuWhenClickedLink()}>
               Home
