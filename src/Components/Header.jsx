@@ -20,6 +20,20 @@ const Header = forwardRef((props, ref) => {
       document.removeEventListener("mousedown", handler)
     }
   })
+
+  let toggleref = useRef();
+  useEffect(() => {
+    let handler = (e)=>{
+      if(!toggleref.current.contains(e.target)){
+        setToggleMenu(true);
+      }
+    };
+    document.addEventListener("mousedown", handler)
+
+    return()=>{
+      document.removeEventListener("mousedown", handler)
+    }
+  })
   
 
   function MobileView() {
@@ -54,7 +68,7 @@ const Header = forwardRef((props, ref) => {
           </NavLink>
         </div>
 
-        <ul className={togglemenu ? "nav-links" : "toggle-links"}>
+        <ul className={togglemenu ? "nav-links" : "toggle-links"}ref={toggleref}>
           <li>
             <NavLink to={"/"} onClick={() => closeMenuWhenClickedLink()}>
               Home
