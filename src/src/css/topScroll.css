@@ -1,0 +1,22 @@
+.top-scroll{
+    background: hsl(219, 38%, 15%);
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+    z-index: 100;
+    position: fixed;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: .5s all ease-in-out;
+  }
+  .top-scroll-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+  }
+  .top-scroll-icon ion-icon{
+    font-size: 30px;
+  }
