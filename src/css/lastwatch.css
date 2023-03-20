@@ -15,12 +15,12 @@
   overflow-y: scroll;
   padding-top: 10px;
 }
-.lastwatch .welcome{
-}
+
 .lastwatch.active{
   display: flex;
   flex-direction: column;
   gap: 10px;
+  display: none;
 }
 .play {
   position: absolute;

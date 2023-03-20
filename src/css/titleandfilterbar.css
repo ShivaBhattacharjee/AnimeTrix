@@ -6,7 +6,7 @@
   }
   
   .genres {
-    font-weight: 500;
+    font-weight: 200;
     color: #fff;
     font-size: 12px;
     letter-spacing: 2px;
@@ -23,7 +23,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: hsl(218, 39%, 14%); */
     padding: 0px 50px;
     border-radius: 20px;
     margin-bottom: 30px;
@@ -35,16 +34,17 @@
     margin: auto;
   }
   .filter-bar .heading h3{
-    font-size: 40px;
+    font-size: 50px;
     margin-top: -15px;
   }
   .filter-bar .heading h2{
-    font-size: 40px;
+    font-size: 30px;
+    font-weight: 500;
   }
   .filter-bar select {
     color: white;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 25px;
+    font-weight: 500;
     margin: 15px;
     cursor: pointer;
     background: transparent;
@@ -85,7 +85,7 @@
 
   @media(max-width: 560px){
     .filter-bar select {
-      font-size: 15px;
+      font-size: 20px;
       margin: 0px;
     }
     .filter-bar .heading h2{

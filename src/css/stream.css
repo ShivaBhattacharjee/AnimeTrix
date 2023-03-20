@@ -11,7 +11,15 @@
   flex-direction: column;
   width: 85%;
 }
-
+.select-server{
+  display: flex;
+  background-color: red;
+  margin-left: 100px;
+  height: 200px;
+  max-width: 50%;
+  margin-top: 140px;
+  border-radius: 14px;
+}
 .video-title {
   padding: 10px 10px;
   max-width: 70%;

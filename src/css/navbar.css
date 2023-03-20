@@ -197,15 +197,7 @@
     background-color: #162032;
     color: #fff;
   }
-  .active-search-mobile.active::before{
-    content: "";
-    background-color: red;
-    position: absolute;
-    top: 200px;
-    right: 0px;
-    left: 0px;
-    height: 100px;
-  }
+
   .mobile-view-search{
     display: none;
   }
