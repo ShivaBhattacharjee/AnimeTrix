@@ -92,10 +92,10 @@ a {
 @media(max-width:750px){
   .search-grid{
     grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
-    margin-top: 140px;
+    margin-top: 100px;
   }
   .no-results{
-    margin-top: 140px;
+    margin-top: 100px;
   }
 }
 @media(max-width:600px){
