@@ -56,7 +56,7 @@
   color:rgb(33,150,243);
 }
 
-@media(max-width:400px){
+@media(max-width:480px){
   .lastwatch {
     margin-left: 5%;
     max-width: 90%;
