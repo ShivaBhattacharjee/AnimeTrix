@@ -68,9 +68,9 @@
   }
 }
 
-@media(max-width:400px){
-
-  .lastwatch-heading{
-    font-size: 20px;
+@media(max-width:420px){
+  .lastwatch-heading h1{
+    font-size: 26px;
+    padding-bottom: 30px;
   }
 }
