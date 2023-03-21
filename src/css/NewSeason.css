@@ -19,11 +19,13 @@
     grid-column-gap: 40px;
     grid-auto-flow: column;
     overflow-x: scroll;
+    padding-bottom: 20px;
   }
-  .seasons-grid::-webkit-scrollbar-thumb{
-    background: transparent;
 
+  .seasons-grid::-webkit-scrollbar:horizontal{
+    height: 6px;
   }
+
 
   .season-title {
     font-size: 16px;
