@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 const ScrollToTop = () => {
     const [isVisible, setIsVisible] = useState(false)
     const goToBtn = () => {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+        window.scrollTo({ top:0, left: 0, behavior: "smooth" })
     }
 
     const listenToScroll = () => {

@@ -1,8 +1,9 @@
+
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useLocation, useParams } from "react-router-dom";
-import Footer from "../Components/Footer";
+import {Footer} from "../Components/";
 
 export default function Stream(props) {
   const { episodeId } = useParams();
@@ -13,7 +14,7 @@ export default function Stream(props) {
   const [lastwatch, setLastwatch] = useState(null);
 
   // Local Storage Key
-  const LOCAL_STORAGE_KEY = "AnimeTrix";
+  const LOCAL_STORAGE_KEY = "animetrix-vercel-app";
   useEffect(() => {
     const getVideo = async () => {
       try {
@@ -30,15 +31,18 @@ export default function Stream(props) {
       const Detail = await axios
         .get(`https://gogoanime-api-dc2c.up.railway.app/anime-details/${animeId}`)
         .catch((err) => console.log("Connection Error"));
+
       const temp = episodeId;
       const ep = Detail.data.episodesList.find(
         ({ episodeId }) => episodeId === temp
       );
+
       setLastwatch({
         ep: ep.episodeNum,
         title: Detail.data.animeTitle,
         url: window.location.pathname,
         animeId: animeId,
+        coverimg: Detail.data.animeImg
       });
 
       setDetail(Detail.data);
@@ -51,9 +55,7 @@ export default function Stream(props) {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(lastwatch));
   }, [lastwatch]);
 
-  // const openInNewTab = url => {
-  //   window.open(url, '_blank', 'noopener,noreferrer')
-  // }
+
   return (
     <>
       <Helmet>
@@ -125,12 +127,12 @@ export default function Stream(props) {
 
       ) : (
 
-        <div class="spinner-box">
-          <div class="configure-border-1">
-            <div class="configure-core"></div>
+        <div className="spinner-box">
+          <div className="configure-border-1">
+            <div className="configure-core"></div>
           </div>
-          <div class="configure-border-2">
-            <div class="configure-core"></div>
+          <div className="configure-border-2">
+            <div className="configure-core"></div>
           </div>
         </div>
 

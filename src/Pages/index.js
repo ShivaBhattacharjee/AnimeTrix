@@ -6,7 +6,7 @@ import Popular from "./Popular"
 import RecentAnime from "./RecentAnime"
 import Stream from "./Stream"
 import TopAnimeAiring from "./topAiring"
-
+import NewSeason from "./NewSeason";
 export{
     Details,
     DubAnime,
@@ -15,5 +15,6 @@ export{
     Popular,
     RecentAnime,
     Stream,
-    TopAnimeAiring
+    TopAnimeAiring,
+    NewSeason
 }

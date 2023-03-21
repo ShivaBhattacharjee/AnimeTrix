@@ -10,6 +10,7 @@ import './css/titleandfilterbar.css';
 import './css/slider.css';
 import './css/loading.css';
 import './css/topScroll.css'
+import './css/NewSeason.css'
 
 import {Error404,Header,ScrollToTop,SearchJSX,} from "./Components/";
 import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFetcher} from"./Pages"

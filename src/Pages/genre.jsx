@@ -66,12 +66,12 @@ function OptionFetcher() {
   return (
     <>
           {isLoading && (
-        <div class="spinner-box">
-          <div class="configure-border-1">
-            <div class="configure-core"></div>
+        <div className="spinner-box">
+          <div className="configure-border-1">
+            <div className="configure-core"></div>
           </div>
-          <div class="configure-border-2">
-            <div class="configure-core"></div>
+          <div className="configure-border-2">
+            <div className="configure-core"></div>
           </div>
         </div>
       )}
@@ -137,7 +137,7 @@ function OptionFetcher() {
             <div className='movies-grid'>
               {data.map(item => (
                 <div
-                  className="movie-card">
+                  className="movie-card" key={item.animeId}>
                   <Link to={`/anime-details/${item.animeId}`}>
                     <div className="card-head">
                       <img

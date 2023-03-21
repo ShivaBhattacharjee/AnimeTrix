@@ -3,7 +3,11 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import LoadingBar from 'react-top-loading-bar';
 import Footer from "../Components/Footer";
+
+
 export default function Details(props) {
+
+  
   const { animeId } = useParams();
 
   const [detail, setDetail] = useState([]);
@@ -12,7 +16,7 @@ export default function Details(props) {
     const getDetail = async () => {
       const Detail = await axios
         .get(`https://gogoanime-api-dc2c.up.railway.app/anime-details/${animeId}`)
-        .catch((err) => console.log("Connection Error"));
+        .catch((err) => console.log(`Error loading details of ${animeId}`));
       setDetail(Detail.data);
       let n = Detail.data.episodesList.length;
       setWatch(Detail.data.episodesList[n - 1].episodeId);
@@ -63,18 +67,17 @@ export default function Details(props) {
           </div>
         ) : (
 
-          <div class="spinner-box">
-            <div class="configure-border-1">
-              <div class="configure-core"></div>
+          <div className="spinner-box">
+            <div className="configure-border-1">
+              <div className="configure-core"></div>
             </div>
-            <div class="configure-border-2">
-              <div class="configure-core"></div>
+            <div className="configure-border-2">
+              <div className="configure-core"></div>
             </div>
           </div>
 
         )}
       </div>
-      <div class="spacer"></div>
       <Footer />
     </>
   );

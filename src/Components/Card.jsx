@@ -17,7 +17,6 @@ export default function Card(props) {
               <h5 className="card-title">{(props.rec.animeTitle.substring(0,35))}</h5>
               {props.ep !== "false" ? (
                 <p className="card-info">
-
                 </p>
               ) : null}
             </div>

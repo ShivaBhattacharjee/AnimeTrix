@@ -1,67 +1,76 @@
 .lastwatch {
-  background-color: hsl(218, 39%, 14%);
+  padding: 20px 0px;
+  display: none;
+  padding-bottom: 30px;
+}
+
+.lastwatch.active {
+  display: block;
+}
+.lastwatch-heading{
+  font-size: 30px;
+  padding: 30px 40px;
+}
+.lastwatch-close {
+  position: absolute;
+  left: 10;
+  background: hsl(225, 25%, 7%);
+  padding: 10px 20px;
+  -webkit-clip-path: circle(34.7% at 50% 50%);
+  clip-path: circle(34.7% at 50% 50%);
+  cursor: pointer;
+}
+
+.lastwatch-close i {
+  font-size: 30px;
+}
+
+.lastwatch-head{
+  background: #162032;
+  width: 180px;
+  display: grid;
+}
+.lastwatch-img {
   width: 100%;
-  position: fixed;
-  bottom: 0px;
-  max-width: 350px;
-  border-radius: 14px;
-  padding: 30px;
-  padding-bottom: 10px;
-  max-height: 150px;
-  margin-bottom: 20px;
-  z-index: 999;
-  display: none;
-  margin-left: 5%;
-  overflow-y: scroll;
-  padding-top: 10px;
+  height: 230px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
-.lastwatch.active{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  display: none;
+.lastwatch-grid {
+  padding: 0px 20px;
+  display: grid;
+  grid-column-gap: 40px;
+  grid-auto-flow: column;
+  overflow-x: scroll;
 }
-.play {
-  position: absolute;
-  right: 13px;
-  font-size: 40px;
-  bottom: 3px;
-  transition: .5s ease-in-out;
-}
-.lastwatch-close{
-  position: absolute;
-  top: 7px;
-  right: 20px;
-  font-size: 25px;
-  font-weight: 600; 
-  cursor: pointer; 
-  transition: .3s;
-}
-@keyframes spin{
-  0% {
-    transform: rotate( 0deg );
-  }
-  50% {
-    transform: rotate( 180deg );
-  }
-  100%{
-    transform: rotate( 360deg);
-  }
-}
-.lastwatch-close:hover{
-  animation: spin .8s linear infinite;
-}
-.play:hover {
-  color:rgb(33,150,243);
+.lastwatch-grid::-webkit-scrollbar-thumb{
+  background: transparent;
+
 }
 
-@media(max-width:480px){
-  .lastwatch {
-    margin-left: 5%;
-    max-width: 90%;
-    padding-bottom: 20px;
-    max-height: 130px;
-    overflow-y: scroll;
+.lastwatch-title {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+  text-transform: capitalize;
+  padding: 5px 10px 20px;
+  text-align: center;
+}
+.last-ep{
+  color:  rgb(33,150,243);
+}
+
+@media(max-width:600px){
+  .lastwatch-heading{
+    font-size: 25px;
+  }
+}
+
+@media(max-width:400px){
+
+  .lastwatch-heading{
+    font-size: 20px;
   }
 }

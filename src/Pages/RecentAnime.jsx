@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import { Card, Lastwatch, Slider } from "../Components"
-import {Popular} from "../Pages"
+import { NewSeason } from "../Pages"
 
 import { useFetchInitialData } from "../utils/hooks";
 
@@ -12,9 +12,7 @@ const RecentAnime = (props) => {
     props.handelClick();
   };
 
-  const loadMore = () => {
-    props.loadMoreRecent();
-  };
+
 
 
   const [lastwatch, setLastwatch] = useState(null);
@@ -47,6 +45,7 @@ const RecentAnime = (props) => {
       ) : (
         <>
           <Lastwatch lastwatch={lastwatch} />
+          <NewSeason />
           <br /><br />
           <section className="movies">
             <div className="filter-bar">
@@ -61,7 +60,7 @@ const RecentAnime = (props) => {
                 ))}
             </div>
             <div className="loadmore-recent">
-            <button onClick={loadMoreRecent} className="loadmore">LOAD MORE</button>
+              <button onClick={loadMoreRecent} className="loadmore">LOAD MORE</button>
             </div>
           </section>
         </>
