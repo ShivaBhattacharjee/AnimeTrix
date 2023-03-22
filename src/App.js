@@ -158,8 +158,8 @@ function App() {
     setIdxmovie(idxmovie + 1);
   };
   const loadMoreTopAnime = () => {
-    getTopAiring(idxtop + 1);
-    setIdxtop(idxtop + 1);
+    getTopAiring(idxtop + 2);
+    setIdxtop(idxtop + 2);
   }
 
   return (
