@@ -33,12 +33,12 @@
     grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
   }
 }
-@media(max-width:850px){
+@media(max-width:870px){
   .seasons-grid{
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
   }
 }
-@media(max-width:750px){
+@media(max-width:770px){
   .season-img{
     object-fit: cover
   }
@@ -69,7 +69,7 @@
     height: auto;
   }
 }
-@media(max-width:468px){
+@media(max-width:450px){
   .season-head h5{
     font-size: 14px;
     font-weight: 500;
@@ -78,7 +78,7 @@
     height: 270px;
   }
   .seasons-grid{
-    grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
   }
 }
 
@@ -90,7 +90,7 @@
     font-size: 12px;
   }
   .seasons-grid{
-    grid-template-columns:repeat(auto-fill,minmax(150px,1fr)) ;
+    grid-template-columns:repeat(auto-fill,minmax(100px,1fr)) ;
   }
 }
 @media(max-width:355px){
