@@ -30,9 +30,8 @@
 
 .lastwatch-head{
   background: #162032;
-  width: 180px;
-  max-height: auto;
-  height: 370px;
+  width: 200px;
+  min-height: 200px;
   display: grid;
   border-radius: 4px;
 }
@@ -50,10 +49,6 @@
   grid-column-gap: 40px;
   grid-auto-flow: column;
   overflow-x: scroll;
-}
-.lastwatch-grid::-webkit-scrollbar-thumb{
-  background: transparent;
-
 }
 
 .lastwatch-title {
@@ -77,17 +72,14 @@
 @media(max-width:420px){
   .lastwatch-head{
     background: #162032;
-    width: 140px;
-    height: 350px;
-    display: grid;
+    width: 170px;
+    height: auto;
     border-radius: 4px;
   }
   .lastwatch-img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
   }
   .lastwatch-heading{
     padding: 20px 30px;
