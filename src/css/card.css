@@ -128,7 +128,7 @@
   }
 
   .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
 
   .loadmore-recent .loadmore {
@@ -136,8 +136,8 @@
   }
 }
 
-@media(max-width:355px) {
+@media(max-width:455px) {
   .movies-grid {
-    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
   }
 }
