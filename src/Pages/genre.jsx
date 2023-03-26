@@ -146,7 +146,7 @@ function OptionFetcher() {
                         className="card-img"
                       />
                       <div className="">
-                        <h5 className="card-title">{(item.animeTitle)}</h5>
+                        <h5 className="card-title">{(item.animeTitle.substring(0,35))}</h5>
                       </div>
                     </div>
                   </Link>
