@@ -16,7 +16,7 @@ const Lastwatch = (props) => {
           <section className="movies">
             <div className="lastwatch-bar">
               <div className="lastwatch-heading">
-                <h1>Continue <span>Watching</span></h1>
+                <h1>Continue Watching</h1>
                 <div className="lastwatch-card">
                   <div className="lastwatch-close">
                     {

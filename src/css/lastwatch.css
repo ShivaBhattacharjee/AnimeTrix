@@ -13,7 +13,7 @@
 }
 .lastwatch-close {
   position: absolute;
-  left: 10;
+  left: 20;
   background: hsl(225, 25%, 7%);
   padding: 10px 20px;
   -webkit-clip-path: circle(34.7% at 50% 50%);
@@ -23,16 +23,22 @@
 
 .lastwatch-close i {
   font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .lastwatch-head{
   background: #162032;
   width: 180px;
+  max-height: auto;
+  height: 370px;
   display: grid;
+  border-radius: 4px;
 }
 .lastwatch-img {
   width: 100%;
-  height: 230px;
+  height: 250px;
   object-fit: cover;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -69,8 +75,25 @@
 }
 
 @media(max-width:420px){
+  .lastwatch-head{
+    background: #162032;
+    width: 140px;
+    height: 350px;
+    display: grid;
+    border-radius: 4px;
+  }
+  .lastwatch-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .lastwatch-heading{
+    padding: 20px 30px;
+  }
   .lastwatch-heading h1{
     font-size: 26px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 }

@@ -243,3 +243,9 @@
     font-size: 30px;
   }
 }
+
+@media(max-width:320px){
+  .logo>a{
+    font-size: 25px;
+  }
+}

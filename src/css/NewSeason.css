@@ -1,72 +1,100 @@
 .season-head{
-    background: #162032;
-    width: 240px;
-    height: 480px;
-    border-radius: 20px;
-    display: grid;
+  background: #162032;
+  width: 100%;
+  height: 470px;
+  display: grid;
+  border-radius: 4px;
+}
+.season-img {
+  height: 380px;
+  object-fit: cover;
+}
+
+.seasons-grid {
+  padding: 0px 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 10fr));
+  margin-top: 40px;
+  gap: 30px;
+  z-index: 9999;
+}
+
+.season-title {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+  text-transform: capitalize;
+  padding: 5px 10px 20px;
+  text-align: center;
+}
+
+@media(max-width:960px){
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
   }
-  .season-img {
+}
+@media(max-width:850px){
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  }
+}
+@media(max-width:750px){
+  .season-img{
+    object-fit: cover
+  }
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+  }
+}
+@media(max-width:600px){
+  .season-head{
+    height: 400px;
+  }
+  .season-img{
+    height: 300px;
     width: 100%;
-    height: 380px;
-    object-fit: cover;
-    border-top-left-radius: 14px;
-    border-top-right-radius: 14px;
   }
-  
-  .seasons-grid {
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    padding: 0px 40px;
+  }
+}
+
+@media(max-width:510px){
+  .season-head{
+    height: 390px;
+  }
+  .seasons-grid{
     padding: 0px 20px;
-    display: grid;
-    grid-column-gap: 40px;
-    grid-auto-flow: column;
-    overflow-x: scroll;
-    padding-bottom: 20px;
+    height: auto;
   }
-
-  .seasons-grid::-webkit-scrollbar:horizontal{
-    height: 6px;
+}
+@media(max-width:468px){
+  .season-head h5{
+    font-size: 14px;
+    font-weight: 500;
   }
-
-
-  .season-title {
-    font-size: 16px;
-    font-weight: 400;
-    margin-top: 10px;
-    text-transform: capitalize;
-    padding: 5px 10px 20px;
-    text-align: center;
+  .season-img{
+    height: 270px;
   }
-
-  @media(max-width:600px){
-    .season-head{
-      height: 410px;
-    }
-    .season-img{
-      height: 300px;
-      width: 100%;
-    }
-    .seasons-grid{
-      padding: 0px 40px;
-    }
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
   }
+}
 
-
-  @media(max-width:468px){
-    .season-head{
-      height: 380px;
-      width: 200px;
-    }
-    .season-img{
-      height: 300px;
-    }
+@media(max-width:408px){
+  .season-head{
+    height: 350px;
   }
-
-  @media(max-width:408px){
-    .season-head{
-      height: 390px;
-      width: 150px;
-    }
-    .season-head h5{
-      font-size: 12px;
-    }
+  .season-head h5{
+    font-size: 12px;
   }
-
+  .seasons-grid{
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr)) ;
+  }
+}
+@media(max-width:355px){
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+  }
+}

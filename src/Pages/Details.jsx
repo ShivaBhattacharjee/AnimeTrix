@@ -51,7 +51,7 @@ export default function Details(props) {
               <div className="watch-anime">
                 <button className="watch-anime-btn">
                   <Link
-                    to={`/vidcdn/watch/${watch}`}
+                    to={`/watch/${watch}`}
                     state={{ animeID: `${animeId}` }}
                     onClick={() => {
                       props.handelClick();
