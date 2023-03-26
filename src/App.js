@@ -250,7 +250,7 @@ function App() {
         />
         <Route
           exact
-          path="/watch/:episodeId"
+          path="/vidcdn/watch/:episodeId"
           element={<Stream />}
         />
         <Route path="/*" element={<Error404 />} />

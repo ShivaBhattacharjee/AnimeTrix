@@ -19,9 +19,9 @@ export default function Stream(props) {
     const getVideo = async () => {
       try {
         const Video = await axios.get(
-          `https://api.consumet.org/anime/gogoanime/watch/${episodeId}`
+          `https://gogoanime-api-dc2c.up.railway.app/vidcdn/watch/${episodeId}`
         );
-        setData(Video.data.headers.Referer);
+        setData(Video.data.Referer);
       } catch (err) {
         console.log("Connection Error");
       }
