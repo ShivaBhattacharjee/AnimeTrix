@@ -349,6 +349,7 @@
   border-radius: 10px;
   border: none;
   outline: none;
+  resize: none;
 }
 .send-comment button{
   margin: 10px 0;
@@ -421,6 +422,7 @@
   margin: 10px 0;
   color: white;
   outline: none;
+  resize: none;
 }
 .reply-textarea button{
   margin: 10px 0;
