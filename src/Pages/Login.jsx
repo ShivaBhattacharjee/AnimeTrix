@@ -6,7 +6,7 @@ function Login() {
     <div className="login">
       <div className="login-container">
         <h1>Log In</h1>
-        <form>
+        <form autoComplete="false">
           <div className="form-group">
             <input
               type="text"

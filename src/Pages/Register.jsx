@@ -7,7 +7,7 @@ function Register() {
     <div className="register">
     <div className="register-container">
       <h1>Sign Up</h1>
-      <form>
+      <form autoComplete="false">
         <div className="form-group">
         <input
             type="text"

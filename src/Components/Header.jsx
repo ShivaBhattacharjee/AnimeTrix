@@ -109,10 +109,12 @@ const Header = forwardRef((props, ref) => {
             value={inputVal}
             onChange={handelChange}
           />
-          <button className="search-btn">
-            {/* <SearchIcon /> */}
-          </button>
         </div>
+        <li className="login-tab">
+            <NavLink to={"/login"}>
+            <ion-icon name="log-in-outline"></ion-icon>
+            </NavLink>
+          </li>
 
         <div className="mobile-search" ref={menuRef}>
           <div className="search-field">

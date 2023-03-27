@@ -64,24 +64,19 @@
     transform: translateY(80%);
   }
 }
-@media screen and (max-width: 1500px){
-  .login{
-    transform: translateY(80%);
-  }
-}
 @media screen and (max-width: 1200px){
   .login{
-    transform: translateY(80%);
+    transform: translateY(50%);
   }
 }
 @media screen and (max-width: 800px){
   .login{
-    transform: translateY(80%);
+    transform: translateY(70%);
   }
 }
 @media screen and (max-width: 700px){
     .login{
-      transform: translateY(30%);
+      transform: translateY(20%);
     }
     .login-container{
         width: 90%;

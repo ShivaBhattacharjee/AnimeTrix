@@ -45,7 +45,7 @@
     background:transparent;
     color: #fff;
     font-size: 30px;
-    width: 60%;
+    display: flex;
   }
   option {
     border-radius: 15px;

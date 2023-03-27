@@ -10,6 +10,12 @@
   backdrop-filter: blur(50px);
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.15);
 }
+.login-tab ion-icon{
+  font-size: 40px;
+  color:  rgb(33, 150, 243);
+  position: relative;
+  right: 40px;
+}
 .mobile-search{
   display: none;
 }
@@ -52,10 +58,6 @@
   color: rgb(33, 150, 243);
 }
 
-.search {
-  display: flex;
-  width: 292px;
-}
 .login-btn{
   font-size: 40px;
   padding: 0px;
@@ -85,11 +87,15 @@
 
 @media only screen and (max-width: 1500px) {
   .header {
-    padding: 25px 40px;
+    padding: 25px 35px;
   }
 }
 
 @media only screen and (max-width: 1300px) {
+  .search {
+    position: relative;
+    left: 25%;
+  }
   .navbar-menu-btn {
     background: transparent;
     transition: 0.9s ease-in-out;
@@ -155,10 +161,32 @@
     margin: 15px 19px;
   }
 }
-
+@media (max-width:1200px){
+  .search {
+    position: relative;
+    left: 19%;
+  }
+}
+@media (max-width:1000px){
+  .search {
+    position: relative;
+    left: 17%;
+  }
+}
+@media (max-width:900px){
+  .search {
+    position: relative;
+    left: 12%;
+  }
+}
 @media only screen and (max-width: 750px) {
   .header {
     padding-bottom: 20px;
+  }
+  .login-tab ion-icon{
+    font-size: 40px;
+    color:  rgb(33, 150, 243);
+    position: relative;
   }
   .logo > a {
     font-size: 40px;
@@ -199,7 +227,7 @@
     margin: auto;
     z-index: 9999;
     border-radius: 14px;
-    background-color: hsl(220, 47%, 20%);
+    background-color: #162032;
     color: #fff;
   }
 
@@ -239,18 +267,52 @@
 }
 
 @media only screen and (max-width: 750px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 150px;
+  }
   .logo > a {
     font-size: 35px;
   }
 }
+@media only screen and (max-width: 650px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 100px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 90px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .logo a{
+    position: relative;
+    right:20px;
+  }
+  .login-tab ion-icon{
+    left: 60px;
+  }
+}
+
 @media(max-width: 500px){
+  .login-tab ion-icon{
+    left: 40px;
+  }
   .logo >a{
     font-size: 30px;
   }
 }
+@media(max-width:415px){
+  .login-tab ion-icon{
+    left: 6px;
+  }
+}
 
-@media(max-width:325px){
+@media(max-width:320px){
   .logo>a{
-    font-size: 25px;
+    font-size: 20px;
   }
 }

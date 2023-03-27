@@ -81,7 +81,7 @@
   }
 @media screen and (max-width: 540px){
     .register{
-        transform: translateY(10%);
+        transform: translateY(5%);
     }
     .register-container{
         width: 95%;
