@@ -46,15 +46,6 @@
   z-index: 999;
   padding-left: 40px;
   padding-right: 40px;
-  font-size: 16px;
-  font-weight: 400;
-  text-transform: capitalize;
-  text-align: center;
-  overflow-y: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical
 }
 
 
