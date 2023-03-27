@@ -183,24 +183,10 @@
 }
 
 @media only screen and (max-width: 980px) {
-  .video-title {
-    padding-left: 0px;
-  }
-
-  .video-title>span {
-    padding-left: 20px;
-  }
-
-  .video-title>p {
-    padding-left: 10px;
-    width: 660px;
-  }
-
   .video-player-list {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
   }
 
   .video-player {
