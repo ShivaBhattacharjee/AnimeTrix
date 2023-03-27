@@ -11,9 +11,12 @@ import './css/slider.css';
 import './css/loading.css';
 import './css/topScroll.css'
 import './css/NewSeason.css'
+import './css/Login.css'
+import './css/Register.css'
+import './css/Search.css'
 
 import {Error404,Header,ScrollToTop,SearchJSX,} from "./Components/";
-import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFetcher} from"./Pages"
+import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFetcher,Login, Register} from"./Pages"
 
 
 
@@ -254,6 +257,8 @@ function App() {
           element={<Stream />}
         />
         <Route path="/*" element={<Error404 />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
       </Routes>
     </Router>
   );

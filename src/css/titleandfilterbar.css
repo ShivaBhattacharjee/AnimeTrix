@@ -15,7 +15,7 @@
   .movies {
     position: relative;
     top: 40px;
-    max-width: 95%;
+    max-width: 1350px;
     margin: auto;
   }
   
@@ -83,7 +83,10 @@
   }
   
 
-  @media(max-width: 560px){
+  @media(max-width: 510px){
+    .filter-bar{
+      padding: 0px 20px;
+    }
     .filter-bar select {
       font-size: 20px;
       margin: 0px;
@@ -98,6 +101,6 @@
       margin: 0px;
     }
     .filter-bar .heading h2{
-      font-size:  15px;
+      font-size:  12px;
     }
   }

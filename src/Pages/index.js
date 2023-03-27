@@ -7,6 +7,8 @@ import RecentAnime from "./RecentAnime"
 import Stream from "./Stream"
 import TopAnimeAiring from "./topAiring"
 import NewSeason from "./NewSeason";
+import Login from "./Login"
+import Register from "./Register";
 export{
     Details,
     DubAnime,
@@ -16,5 +18,7 @@ export{
     RecentAnime,
     Stream,
     TopAnimeAiring,
-    NewSeason
+    NewSeason,
+    Login,
+    Register
 }

@@ -47,7 +47,7 @@ export default function Slider() {
                   <img src={data.animeImg} alt={data.animeId} className="blur" />
                   <div className="banner-text">
                     <Link to={`/anime-details/${data.animeId}`}>
-                      <h4>{data.animeTitle.substring(0,30)}</h4>
+                      <h4>{data.animeTitle.substring(0,25)}....</h4>
 
                       <button className="watch">Watch Now</button>
                     </Link>

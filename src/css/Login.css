@@ -1,0 +1,70 @@
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.login-container {
+    border: 2px solid rgb(33, 150, 243);
+    padding: 30px;
+    border-radius: 10px;
+    height: 100%;
+    width: 30%;
+}
+.login-container form{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-group input{
+    padding: 14px;
+    color: white;
+    background-color: rgb(22, 32, 50);
+    border-radius: 4px;
+}
+.form-group input:focus{
+    outline: 1px solid rgb(33, 150, 243);
+}
+.form-group button{
+    padding: 12px;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(33, 150, 243);
+    transition: .4s ease-in-out;
+}
+.form-group button:hover{
+    background-color: rgb(22, 32, 50);
+    outline: 1px solid rgb(33, 150, 243);
+}
+.check-remember{
+    display: flex;
+    align-items: center;
+}
+.remember-me-forget-pass .check-remember input{
+    margin: 0 10px 0 0;
+    cursor: pointer;
+}
+.remember-me-forget-pass a{
+    margin: 10px 0;
+    width: fit-content;
+}
+.remember-me-forget-pass a:hover{
+    color: rgb(33, 150, 243);
+}
+
+@media screen and (max-width: 500px){
+    .login{
+        max-height: 500px;
+    }
+    .login-container{
+        width: 90%;
+    }
+    
+}

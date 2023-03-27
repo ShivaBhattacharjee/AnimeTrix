@@ -14,7 +14,7 @@ export default function Card(props) {
               className="card-img"
             />
             <div className="card-details">
-              <h5 className="card-title">{(props.rec.animeTitle.substring(0,35))}</h5>
+              <h5 className="card-title">{(props.rec.animeTitle)}</h5>
               {props.ep !== "false" ? (
                 <p className="card-info">
                 </p>

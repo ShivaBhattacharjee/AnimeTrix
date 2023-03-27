@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useState , useEffect, useRef} from "react";
+import React, { forwardRef, useImperativeHandle, useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 
 
@@ -6,36 +6,36 @@ const Header = forwardRef((props, ref) => {
   const [togglemenu, setToggleMenu] = useState(true);
 
   const [searchActive, setSearchActive] = useState(false);
-  
+
   let menuRef = useRef();
   useEffect(() => {
-    let handler = (e)=>{
-      if(!menuRef.current.contains(e.target)){
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
         setSearchActive(false);
       }
     };
     document.addEventListener("mousedown", handler)
 
-    return()=>{
+    return () => {
       document.removeEventListener("mousedown", handler)
     }
   })
 
   let toggleref = useRef();
   useEffect(() => {
-    let handler = (e)=>{
-      if(!toggleref.current.contains(e.target)){
+    let handler = (e) => {
+      if (!toggleref.current.contains(e.target)) {
         setToggleMenu(true);
       }
     };
     document.addEventListener("mousedown", handler)
 
-    return()=>{
+    return () => {
       document.removeEventListener("mousedown", handler)
     }
   })
-  
-  function scroll(){
+
+  function scroll() {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
   }
   function MobileView() {
@@ -71,7 +71,7 @@ const Header = forwardRef((props, ref) => {
           </NavLink>
         </div>
 
-        <ul onClick={scroll} className={togglemenu ? "nav-links" : "toggle-links"}ref={toggleref}>
+        <ul onClick={scroll} className={togglemenu ? "nav-links" : "toggle-links"} ref={toggleref}>
           <li>
             <NavLink to={"/"} onClick={() => closeMenuWhenClickedLink()}>
               Home
@@ -84,18 +84,10 @@ const Header = forwardRef((props, ref) => {
           </li>
           <li>
             <NavLink
-              to={"/top-airing"}
-              onClick={() => closeMenuWhenClickedLink()}
-            >
-              Top Airing
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to={"/dub-anime"}
               onClick={() => closeMenuWhenClickedLink()}
             >
-              Dubbed Anime
+              Dub Anime
             </NavLink>
           </li>
           <li>
@@ -109,7 +101,6 @@ const Header = forwardRef((props, ref) => {
             </NavLink>
           </li>
         </ul>
-
         <div className="search">
           <input
             type="text"
@@ -131,6 +122,7 @@ const Header = forwardRef((props, ref) => {
             </div>
           </div>
         </div>
+        
 
 
         <div

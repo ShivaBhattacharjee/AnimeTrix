@@ -11,6 +11,11 @@
     border-radius: 50%;
     transition: .5s all ease-in-out;
   }
+  .top-scroll:hover{
+    background: transparent;
+    border: 2px solid hsl(219, 38%, 15%);
+    color: rgb(33,150,243);
+  }
   .top-scroll-icon{
     display: flex;
     justify-content: center;

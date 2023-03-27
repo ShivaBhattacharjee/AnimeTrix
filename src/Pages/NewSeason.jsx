@@ -33,7 +33,7 @@ const NewSeason = () => {
                                             className="season-img"
                                         />
                                         <div className="season-details">
-                                            <h5 className="season-title">{(newSeason.animeTitle.substring(0, 35))}</h5>
+                                            <h5 className="season-title">{(newSeason.animeTitle)}</h5>
                                         </div>
                                     </div>
                                 </Link>

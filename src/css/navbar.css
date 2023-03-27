@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 120px;
+  padding: 10px 60px;
   position: sticky;
   top: 0px;
   z-index: 999;
@@ -42,7 +42,7 @@
 
 .nav-links > li > a {
   text-decoration: none;
-  margin: 0 15px;
+  margin: 0 20px;
   word-spacing: 3px;
   font-size: 17px;
   font-weight: 500;
@@ -56,7 +56,12 @@
   display: flex;
   width: 292px;
 }
-
+.login-btn{
+  font-size: 40px;
+  padding: 0px;
+  color: rgb(33, 150, 243);
+  cursor: pointer;
+}
 .search > input {
   padding: 12px 40px;
   border-radius: 10px;
@@ -229,7 +234,7 @@
   }
 
   .toggle-links {
-    height: 280px;
+    height: 250px;
   }
 }
 

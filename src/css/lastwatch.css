@@ -9,11 +9,11 @@
 }
 .lastwatch-heading{
   font-size: 30px;
-  padding: 30px 40px;
+  padding: 20px 40px;
 }
 .lastwatch-close {
   position: absolute;
-  left: 20;
+  left: auto;
   background: hsl(225, 25%, 7%);
   padding: 10px 20px;
   -webkit-clip-path: circle(34.7% at 50% 50%);
@@ -69,7 +69,7 @@
   }
 }
 
-@media(max-width:420px){
+@media(max-width:440px){
   .lastwatch-head{
     background: #162032;
     width: 170px;
