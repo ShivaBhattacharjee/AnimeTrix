@@ -65,10 +65,11 @@
   cursor: pointer;
 }
 .search > input {
-  padding: 12px 40px;
+  padding: 12px 20px;
   border-radius: 10px;
   background-color: #162032;
   color: #fff;
+  width: 300px;
 }
 
 .search-btn {
@@ -311,7 +312,7 @@
   }
 }
 
-@media(max-width:320px){
+@media(max-width:350px){
   .logo>a{
     font-size: 20px;
   }
