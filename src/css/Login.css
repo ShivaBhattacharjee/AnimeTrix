@@ -5,13 +5,14 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
+    transform: translateY(20%);
 }
 .login-container {
     border: 2px solid rgb(33, 150, 243);
     padding: 30px;
     border-radius: 10px;
     height: 100%;
-    width: 30%;
+    width: 60%;
 }
 .login-container form{
     display: flex;
@@ -58,10 +59,29 @@
 .remember-me-forget-pass a:hover{
     color: rgb(33, 150, 243);
 }
-
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1500px){
+  .login{
+    transform: translateY(80%);
+  }
+}
+@media screen and (max-width: 1500px){
+  .login{
+    transform: translateY(80%);
+  }
+}
+@media screen and (max-width: 1200px){
+  .login{
+    transform: translateY(80%);
+  }
+}
+@media screen and (max-width: 800px){
+  .login{
+    transform: translateY(80%);
+  }
+}
+@media screen and (max-width: 700px){
     .login{
-        max-height: 500px;
+      transform: translateY(30%);
     }
     .login-container{
         width: 90%;
