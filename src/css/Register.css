@@ -5,13 +5,14 @@
     justify-content: center;
     align-items: center;
     margin-top: 0%;
+    transform: translateY(20%);
 }
 .register-container {
     border: 2px solid rgb(33, 150, 243);
     padding: 30px;
     border-radius: 10px;
     height: 100%;
-    width: 40%;
+    width: 70%;
 }
 .register-container form{
     display: flex;
@@ -58,9 +59,29 @@
 .login-here a:hover{
     color: rgb(33, 150, 243);
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1500px){
     .register{
-        max-height: 500px;
+      transform: translateY(40%);
+    }
+  }
+  @media screen and (max-width: 1500px){
+    .register{
+      transform: translateY(40%);
+    }
+  }
+  @media screen and (max-width: 1200px){
+    .register{
+      transform: translateY(40%);
+    }
+  }
+  @media screen and (max-width: 800px){
+    .register{
+      transform: translateY(40%);
+    }
+  }
+@media screen and (max-width: 540px){
+    .register{
+        transform: translateY(10%);
     }
     .register-container{
         width: 95%;
