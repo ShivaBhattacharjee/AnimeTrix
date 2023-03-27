@@ -1,85 +1,66 @@
 
 .login{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    flex-direction: column;
-    transform: translateY(20%);
+    width: 90%;
+    height: 80vh;
+    overflow-x: hidden;
+    margin: auto;
 }
 .login-container {
-    border: 2px solid rgb(33, 150, 243);
-    padding: 30px;
-    border-radius: 10px;
-    height: 100%;
-    width: 60%;
-}
-.login-container form{
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
-}
-.form-group{
+    position: relative;
+    padding:30px;
+    background-color:hsl(220, 47%, 20%);;
+    background-color: blur(20px);
+    width: 500px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border-radius: 14px;
 }
-.form-group input{
-    padding: 14px;
-    color: white;
-    background-color: rgb(22, 32, 50);
-    border-radius: 4px;
+.form-group{
+  position: relative;
 }
-.form-group input:focus{
-    outline: 1px solid rgb(33, 150, 243);
+.login-container .login-group-input{
+  position: relative;
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background:transparent;
+  border: 2px solid  rgb(33,150,243);
+  color: #ffff;
+  border-radius: 8px;
 }
-.form-group button{
-    padding: 12px;
-    border-radius: 4px;
-    color: white;
-    background-color: rgb(33, 150, 243);
-    transition: .4s ease-in-out;
+.login-container .login-group-input::placeholder{
+  color: #fff;
 }
-.form-group button:hover{
-    background-color: rgb(22, 32, 50);
-    outline: 1px solid rgb(33, 150, 243);
+.login-container h1{
+  text-align: center;
+  font-size: 30px;
 }
-.check-remember{
-    display: flex;
-    align-items: center;
+.login-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }
-.remember-me-forget-pass .check-remember input{
-    margin: 0 10px 0 0;
-    cursor: pointer;
+.login-sign-in{
+  padding: 10px 20px;
+  background-color:  rgb(33,150,243);
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 4px;
 }
-.remember-me-forget-pass a{
-    margin: 10px 0;
-    width: fit-content;
+.remember-me-forget-pass{
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
 }
-.remember-me-forget-pass a:hover{
-    color: rgb(33, 150, 243);
+.register{
+  font-size: 20px;
+  color: rgb(33,150,243) ;
 }
-@media screen and (max-width: 1500px){
-  .login{
-    transform: translateY(80%);
-  }
-}
-@media screen and (max-width: 1200px){
-  .login{
-    transform: translateY(50%);
-  }
-}
-@media screen and (max-width: 800px){
-  .login{
-    transform: translateY(70%);
-  }
-}
-@media screen and (max-width: 700px){
-    .login{
-      transform: translateY(20%);
-    }
-    .login-container{
-        width: 90%;
-    }
-    
-}
+.forgot{padding-bottom: 40px;}
