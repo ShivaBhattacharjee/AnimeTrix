@@ -41,15 +41,12 @@
     font-size: 30px;
     font-weight: 500;
   }
-  .filter-bar select {
-    color: white;
-    font-size: 25px;
-    font-weight: 500;
-    margin: 15px;
-    cursor: pointer;
-    background: transparent;
+  select{
+    background:transparent;
+    color: #fff;
+    font-size: 30px;
+    width: 60%;
   }
-  
   option {
     border-radius: 15px;
     background-color: #162032;
@@ -72,18 +69,18 @@
     }
 
     .filter-bar .heading h2{
-      font-size: 25px;
+      font-size: 23px;
     }
   }
 
-  @media(max-width:400px){
+  @media(max-width:410px){
     .filter-bar .heading h3{
       font-size: 30px;
     }
   }
   
 
-  @media(max-width: 510px){
+  @media(max-width: 560px){
     .filter-bar{
       padding: 0px 20px;
     }
@@ -95,12 +92,17 @@
       font-size:  20px;
     }
   }
-  @media(max-width: 400px){
+  @media(max-width: 418px){
     .filter-bar select {
       font-size: 12px;
       margin: 0px;
     }
     .filter-bar .heading h2{
-      font-size:  12px;
+      font-size:  18px;
+    }
+  }
+  @media(max-width:450px){
+    .filter-bar .heading h2{
+      font-size: 17px;
     }
   }

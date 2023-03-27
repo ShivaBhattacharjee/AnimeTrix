@@ -97,18 +97,17 @@
   }
 }
 
-@media(max-width:510px) {
+@media(max-width:500px) {
   .card-head {
-    height: 350px;
+    height: 380px;
   }
-
   .movies-grid {
     padding: 0px 20px;
     height: auto;
   }
 }
 
-@media(max-width:468px) {
+@media(max-width: 490px) {
   .card-head h5 {
     font-size: 14px;
     font-weight: 500;
@@ -123,9 +122,9 @@
   }
 }
 
-@media(max-width:408px) {
+@media(max-width:410px) {
   .card-head {
-    height: 350px;
+    height: 380px;
   }
 
   .card-head h5 {
@@ -144,5 +143,10 @@
 @media(max-width:455px) {
   .movies-grid {
     grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+  }
+}
+@media(max-width:360px){
+  .card-head{
+    height: 340px;
   }
 }

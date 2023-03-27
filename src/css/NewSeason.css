@@ -67,9 +67,9 @@
   }
 }
 
-@media(max-width:510px){
+@media(max-width:500px){
   .season-head{
-    height: 350px;
+    height: 380px;
   }
   .seasons-grid{
     padding: 0px 20px;
@@ -97,7 +97,7 @@
     font-size: 12px;
   }
   .seasons-grid{
-    grid-template-columns:repeat(auto-fill,minmax(100px,1fr)) ;
+    grid-template-columns:repeat(auto-fill,minmax(140px,1fr)) ;
   }
 }
 @media(max-width:355px){

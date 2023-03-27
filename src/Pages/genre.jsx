@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import spinner from "../img/spinner.svg";
 
 function OptionFetcher() {
- 
+
   const [selectedOption, setSelectedOption] = useState('action');
 
   const [data, setData] = useState(null);
-  
-  const [page, setPage] = useState(1);
+
+  const [page, setPage] = useState(3);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -65,7 +65,7 @@ function OptionFetcher() {
 
   return (
     <>
-          {isLoading && (
+      {isLoading && (
         <div className="spinner-box">
           <div className="configure-border-1">
             <div className="configure-core"></div>
@@ -79,7 +79,7 @@ function OptionFetcher() {
         <div className="filter-bar genre">
           <div className="filter-dropdowns">
             <select value={selectedOption} onChange={handleChange}>
-              <option value="action" defaultChecked>Action</option>
+              <option value="action" >Action</option>
               <option value="adventure">Adventure</option>
               <option value="cars ">Cars </option>
               <option value="comedy">Comedy</option>
@@ -146,7 +146,7 @@ function OptionFetcher() {
                         className="card-img"
                       />
                       <div className="">
-                        <h5 className="card-title">{(item.animeTitle.substring(0,35))}</h5>
+                        <h5 className="card-title">{(item.animeTitle.substring(0, 35))}</h5>
                       </div>
                     </div>
                   </Link>

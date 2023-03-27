@@ -199,7 +199,7 @@
     margin: auto;
     z-index: 9999;
     border-radius: 14px;
-    background-color: #162032;
+    background-color: hsl(220, 47%, 20%);
     color: #fff;
   }
 
@@ -249,7 +249,7 @@
   }
 }
 
-@media(max-width:320px){
+@media(max-width:325px){
   .logo>a{
     font-size: 25px;
   }
