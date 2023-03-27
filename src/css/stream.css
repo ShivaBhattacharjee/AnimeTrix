@@ -332,11 +332,7 @@
   padding-top: 120px;
   width: 800px;
 }
-.comments::-webkit-scrollbar-thumb{
-  background: transparent;
-  width: 0px;
-  height: 0px;
-}
+
 .comments-header{
   padding: 10px;
 }
@@ -370,6 +366,9 @@
   overflow-y: scroll;
   height: 800px;
   padding-bottom: 50px;
+}
+.comment-field::-webkit-scrollbar{
+  width: 3px;
 }
 .user-comment{
   display: flex;
