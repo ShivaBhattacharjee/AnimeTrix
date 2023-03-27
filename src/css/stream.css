@@ -1,3 +1,4 @@
+
 .stream {
   margin-top: 20px;
   display: flex;
@@ -322,5 +323,117 @@
 @media(max-width:360px){
   .video-title p{
     width: 290px;
+  }
+}
+
+/* comments */
+.comments{
+  margin: 100px 0 0 0;
+  padding-top: 120px;
+  width: 800px;
+}
+.comments::-webkit-scrollbar-thumb{
+  background: transparent;
+  width: 0px;
+  height: 0px;
+}
+.comments-header{
+  padding: 10px;
+}
+.send-comment{
+  padding: 10px;
+}
+.send-comment textarea{
+  width: 100%;
+  margin: 10px 0;
+  height: 90px;
+  background: rgb(22, 32, 50);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+.send-comment button{
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  background: rgb(51, 51, 154);
+  color: #fff;
+}
+.like-active{
+  color:rgb(33,150,243);
+}
+.comment-field{
+  padding: 10px;
+  overflow-y: scroll;
+  height: 800px;
+  padding-bottom: 50px;
+}
+.user-comment{
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.user-img img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.user-name-time-text{
+  display: flex;
+  flex-direction: column;
+}
+.user-name-time{
+  padding: 0 10px;
+  display: flex;
+  gap:  10px;
+  align-items: center;
+}
+.user-name-time .user-name{
+  font-size: 18px;
+  font-weight: 500;
+}
+.reply-like-replies{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.reply-like-replies button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+
+}
+/* reply textarea */
+.hide{
+  display: none;
+}
+.reply-textarea textarea{
+  width: 100%;
+  height: 90px;
+  padding: 10px;
+  background-color: rgb(22, 32, 50);
+  border-radius: 10px;
+  border: none;
+  margin: 10px 0;
+  color: white;
+  outline: none;
+}
+.reply-textarea button{
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  background: rgb(51, 51, 154);
+  color: #fff;
+}
+@media (max-width: 1100px){
+  .comments{
+    margin: auto;
+    width: 100%;
   }
 }
