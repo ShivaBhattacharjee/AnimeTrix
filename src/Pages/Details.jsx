@@ -9,7 +9,7 @@ export default function Details(props) {
 
   
   const { animeId } = useParams();
-
+  const { episodeId } = useParams();
   const [detail, setDetail] = useState([]);
   const [watch, setWatch] = useState("");
   useEffect(() => {
@@ -17,6 +17,10 @@ export default function Details(props) {
       const Detail = await axios
         .get(`https://gogoanime-api-dc2c.up.railway.app/anime-details/${animeId}`)
         .catch((err) => console.log(`Error loading details of ${animeId}`));
+        const temp = episodeId;
+        const ep = Detail.data.episodesList.find(
+          ({ episodeId }) => episodeId === temp
+        );
       setDetail(Detail.data);
       let n = Detail.data.episodesList.length;
       setWatch(Detail.data.episodesList[n - 1].episodeId);
@@ -61,8 +65,35 @@ export default function Details(props) {
 
               <div className="anime-storyline">
                 <div className="summary">Summary : -</div>
-                <p>{detail.synopsis}</p>
+              <p>{detail.synopsis}</p>
               </div>
+
+              
+            <div className="list-box details">
+                  <div className="episode-list details">
+                    {detail.episodesList &&
+                      detail.episodesList
+                        .slice(0)
+                        .reverse()
+                        .map((ep) => (
+                          <Link
+                            to={`/vidcdn/watch/${ep.episodeId}`}
+                            state={{ animeID: `${animeId}` }}
+                            key={ep.episodeNum}
+                          >
+                            {ep.episodeId === episodeId ? (
+                              <button>
+                                {ep.episodeNum}
+                              </button>
+                            ) : ep.episodeNum % 2 === 0 ? (
+                              <button>{ep.episodeNum}</button>
+                            ) : (
+                              <button>{ep.episodeNum}</button>
+                            )}
+                          </Link>
+                        ))}
+                  </div>
+                </div>
             </div>
           </div>
         ) : (

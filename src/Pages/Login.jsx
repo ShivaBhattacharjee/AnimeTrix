@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Login() {
   return (
-    <div className="login">
+    <section className="login">
       <div className="login-container">
         <h1>Log In</h1>
         <form autoComplete="false">
@@ -20,9 +20,11 @@ function Login() {
               placeholder="Password"
               required
             />
-            <button type="button" className="login-sign-in">
+            <div className="login-btn">
+            <button type="submit" className="login-sign-in">
               Log In
             </button>
+            </div>
           </div>
         </form>
           <div className="remember-me-forget-pass">
@@ -30,11 +32,12 @@ function Login() {
             <input type="checkbox" id="" name="remember-me" value="" />
             <label htmlFor="remember-me">Remember me</label>
             </div>
-            <Link to={"/"}>Forgot password ?</Link>
-            <Link to={"/register"}>Don't have an account register</Link>
+            <Link to={"/"}><span className="forgot">Forgot password ?</span></Link>
+            <Link to={"/register"}>
+              <span className="register"> Register</span></Link>
           </div>
       </div>
-    </div>
+    </section>
   );
 }
 
