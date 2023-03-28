@@ -16,17 +16,19 @@ import './css/Register.css'
 import './css/Search.css'
 import './css/Chatbot.css'
 
-import {Error404,Header,ScrollToTop,SearchJSX,} from "./Components/";
-import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFetcher,Login, Register, AIChat} from"./Pages"
+import { Error404, Header, ScrollToTop, SearchJSX, } from "./Components/";
+import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword } from "./Pages"
 
 
 
 import {
-  BrowserRouter as Router,Routes,Route,} from "react-router-dom";
+  BrowserRouter as Router, Routes, Route,
+} from "react-router-dom";
 
 
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+
 
 
 
@@ -168,7 +170,7 @@ function App() {
 
   return (
     <Router className="App">
-      <ScrollToTop/>
+      <ScrollToTop />
       <Header handelChanges={handelChanges} ref={childRef} />
       {searchResult ? (
         <SearchJSX searchResult={searchResult} handelClick={handelClick} />
@@ -265,9 +267,11 @@ function App() {
           path="/vidcdn/watch/:episodeId"
           element={<Stream />}
         />
-        <Route path="/*" element={<Error404 />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/*" element={<Error404 />} />
       </Routes>
     </Router>
   );

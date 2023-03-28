@@ -10,6 +10,8 @@ import NewSeason from "./NewSeason";
 import Login from "./Login"
 import Register from "./Register";
 import AIChat from "./AIChat";
+import Profile from "./Profile";
+import ForgotPassword from "./ForgotPassword";
 export{
     Details,
     DubAnime,
@@ -22,5 +24,7 @@ export{
     NewSeason,
     Login,
     Register,
-    AIChat
+    AIChat,
+    Profile,
+    ForgotPassword
 }

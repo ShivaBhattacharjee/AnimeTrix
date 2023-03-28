@@ -35,6 +35,32 @@
 .login-container .login-group-input::placeholder{
   color: #fff;
 }
+
+.login-group-input-otp{
+  position: relative;
+  width: 50%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background:transparent;
+  border: 2px solid  rgb(33,150,243);
+  color: #ffff;
+  border-radius: 8px;
+}
+.otp-btn{
+  padding: 10px 20px;
+  border: 2px solid  rgb(33,150,243);
+  background: transparent;
+  color: #ffff;
+  font-weight: 600;
+  letter-spacing: .1px;
+  border-radius: 4px;
+  position: absolute;
+  right: 30px;
+}
+.login-group-input-otp::placeholder{
+  color: #fff;
+}
+
 .login-container h1{
   text-align: center;
   font-size: 30px;
