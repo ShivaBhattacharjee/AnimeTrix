@@ -9,6 +9,7 @@ import TopAnimeAiring from "./topAiring"
 import NewSeason from "./NewSeason";
 import Login from "./Login"
 import Register from "./Register";
+import AIChat from "./AIChat";
 export{
     Details,
     DubAnime,
@@ -20,5 +21,6 @@ export{
     TopAnimeAiring,
     NewSeason,
     Login,
-    Register
+    Register,
+    AIChat
 }

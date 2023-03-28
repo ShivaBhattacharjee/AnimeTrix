@@ -14,9 +14,10 @@ import './css/NewSeason.css'
 import './css/Login.css'
 import './css/Register.css'
 import './css/Search.css'
+import './css/Chatbot.css'
 
 import {Error404,Header,ScrollToTop,SearchJSX,} from "./Components/";
-import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFetcher,Login, Register} from"./Pages"
+import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFetcher,Login, Register, AIChat} from"./Pages"
 
 
 
@@ -242,6 +243,14 @@ function App() {
           path="/genre"
           element={
             <OptionFetcher
+            />
+          }
+        />
+        <Route
+          exact
+          path="/ai-chat"
+          element={
+            <AIChat
             />
           }
         />

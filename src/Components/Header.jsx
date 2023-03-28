@@ -100,6 +100,11 @@ const Header = forwardRef((props, ref) => {
               Genres
             </NavLink>
           </li>
+          <li>
+            <NavLink to={"/ai-chat"} onClick={() => closeMenuWhenClickedLink()}>
+              AI Chat
+            </NavLink>
+          </li>
         </ul>
         <div className="search">
           <input

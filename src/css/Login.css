@@ -13,7 +13,6 @@
     position: relative;
     padding:30px;
     background-color:hsl(220, 47%, 20%);;
-    background-color: blur(20px);
     width: 500px;
     display: flex;
     flex-direction: column;

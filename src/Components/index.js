@@ -6,7 +6,8 @@ import Lastwatch from "./Lastwatch";
 import ScrollToTop from "./ScrollToTop"
 import SearchJSX from "./SearchJSX"
 import Slider from "./slider";
-
+import ChatBody from "./ChatBody";
+import ChatInput from "./ChatInput";
 export {
     Card,
     Error404,
@@ -15,5 +16,7 @@ export {
     Lastwatch,
     ScrollToTop,
     SearchJSX,
-    Slider
+    Slider,
+    ChatBody,
+    ChatInput
 }
