@@ -263,7 +263,7 @@
   }
 
   .toggle-links {
-    height: 250px;
+    height: 280px;
   }
 }
 
@@ -276,16 +276,28 @@
     font-size: 35px;
   }
 }
+@media only screen and (max-width: 680px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 130px;
+  }
+}
 @media only screen and (max-width: 650px) {
   .login-tab ion-icon{
     font-size: 35px;
-    left: 100px;
+    left: 110px;
   }
 }
 @media only screen and (max-width: 600px) {
   .login-tab ion-icon{
     font-size: 35px;
     left: 90px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 80px;
   }
 }
 @media only screen and (max-width: 550px) {
@@ -306,6 +318,7 @@
     font-size: 30px;
   }
 }
+
 @media(max-width:415px){
   .login-tab ion-icon{
     left: 6px;
