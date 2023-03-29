@@ -33,6 +33,9 @@ const NewSeason = () => {
                                             className="season-img"
                                         />
                                         <div className="season-details">
+                                            <div className="release-date-season">
+                                                <span className='season-relase'>{(newSeason.releasedDate)}</span>
+                                            </div>
                                             <h5 className="season-title">{(newSeason.animeTitle)}</h5>
                                         </div>
                                     </div>

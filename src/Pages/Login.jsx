@@ -32,7 +32,7 @@ function Login() {
             <input type="checkbox" id="" name="remember-me" value="" />
             <label htmlFor="remember-me">Remember me</label>
             </div>
-            <Link to={"/"}><span className="forgot">Forgot password ?</span></Link>
+            <Link to={"/forgot-password"}><span className="forgot">Forgot password ?</span></Link>
             <Link to={"/register"}>
               <span className="register"> Register</span></Link>
           </div>

@@ -66,6 +66,9 @@ export default function Stream(props) {
   const handleReplyClick = () => {
     setShowReplyTextArea(!showReplyTextArea)
   }
+
+  
+  
   return (
     <>
       <Helmet>
@@ -253,18 +256,19 @@ export default function Stream(props) {
                         </div>
                         <div className="user-text">
                           <p>
-                            Testing comment
+                            Big as paragraph cause why not?
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, exercitationem tempora ipsum atque nihil consequuntur, ad nulla voluptatem rem, voluptas mollitia eius! Iure, pariatur! Eaque, libero! Quidem incidunt obcaecati veritatis?
                           </p>
                         </div>
                         <div className="reply-like-replies">
-                          <button  onClick={handleReplyClick}><ReplyIcon /></button>
+                          <button><ReplyIcon /></button>
                           <button><ThumbUpIcon /></button>
                           <button><ThumbDownIcon /></button>
                           <button> 10 Replies</button>
                         </div>
                       </div>
                     </div>
-
 
                     <div className="user-comment">
                       <div className="user-img">
@@ -277,7 +281,9 @@ export default function Stream(props) {
                         </div>
                         <div className="user-text">
                           <p>
-                            Comment section has no backend if you are wondering?
+                            Big as paragraph cause why not?
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, exercitationem tempora ipsum atque nihil consequuntur, ad nulla voluptatem rem, voluptas mollitia eius! Iure, pariatur! Eaque, libero! Quidem incidunt obcaecati veritatis?
                           </p>
                         </div>
                         <div className="reply-like-replies">
@@ -301,7 +307,9 @@ export default function Stream(props) {
                         </div>
                         <div className="user-text">
                           <p>
-                            Bro skill issues
+                            Big as paragraph cause why not?
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, exercitationem tempora ipsum atque nihil consequuntur, ad nulla voluptatem rem, voluptas mollitia eius! Iure, pariatur! Eaque, libero! Quidem incidunt obcaecati veritatis?
                           </p>
                         </div>
                         <div className="reply-like-replies">
@@ -312,6 +320,33 @@ export default function Stream(props) {
                         </div>
                       </div>
                     </div>
+
+
+                    <div className="user-comment">
+                      <div className="user-img">
+                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user-img" />
+                      </div>
+                      <div className="user-name-time-text">
+                        <div className="user-name-time">
+                          <span className="user-name">Casca</span>
+                          <span>12:00 AM</span>
+                        </div>
+                        <div className="user-text">
+                          <p>
+                            Big as paragraph cause why not?
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, exercitationem tempora ipsum atque nihil consequuntur, ad nulla voluptatem rem, voluptas mollitia eius! Iure, pariatur! Eaque, libero! Quidem incidunt obcaecati veritatis?
+                          </p>
+                        </div>
+                        <div className="reply-like-replies">
+                          <button><ReplyIcon /></button>
+                          <button><ThumbUpIcon /></button>
+                          <button><ThumbDownIcon /></button>
+                          <button> 10 Replies</button>
+                        </div>
+                      </div>
+                    </div>
+
 
                     <div className="user-comment">
                       <div className="user-img">

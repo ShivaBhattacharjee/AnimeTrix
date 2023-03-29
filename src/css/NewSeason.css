@@ -20,7 +20,21 @@
   gap: 30px;
   z-index: 9999;
 }
-
+.release-date-season{
+  border-radius: 3px;
+  justify-content: right;
+  display: flex;
+  gap: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 13px
+}
+.release-date-season span{
+  background-color:rgb(33,150,243);
+  padding: 0px 7px;
+  position: relative;
+  border-radius: 3px;
+}
 .season-title {
   font-size: 16px;
   font-weight: 400;

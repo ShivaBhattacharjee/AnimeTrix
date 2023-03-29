@@ -34,7 +34,21 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical
 }
-
+.episode-total{
+  border-radius: 3px;
+  justify-content: right;
+  display: flex;
+  gap: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+.episode-total span{
+  background-color:rgb(33,150,243);
+  padding: 0px 7px;
+  position: relative;
+  border-radius: 3px;
+}
 .loadmore-recent {
   display: flex;
   justify-content: center;
