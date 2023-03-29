@@ -14,6 +14,10 @@ export default function Card(props) {
               className="card-img"
             />
             <div className="card-details">
+              <div className="episode-total">
+              <span>{(props.rec.subOrDub)}</span>
+                <span>{(props.rec.episodeNum)}</span>
+                </div>
               <h5 className="card-title">{(props.rec.animeTitle)}</h5>
               {props.ep !== "false" ? (
                 <p className="card-info">
