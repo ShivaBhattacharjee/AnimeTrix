@@ -14,18 +14,21 @@ import './css/NewSeason.css'
 import './css/Login.css'
 import './css/Register.css'
 import './css/Search.css'
+import './css/Chatbot.css'
 
-import {Error404,Header,ScrollToTop,SearchJSX,} from "./Components/";
-import{DubAnime,RecentAnime,Details,Stream,Popular,TopAnimeAiring,Movie,OptionFetcher,Login, Register} from"./Pages"
+import { Error404, Header, ScrollToTop, SearchJSX, } from "./Components/";
+import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile} from "./Pages"
 
 
 
 import {
-  BrowserRouter as Router,Routes,Route,} from "react-router-dom";
+  BrowserRouter as Router, Routes, Route,
+} from "react-router-dom";
 
 
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+
 
 
 
@@ -50,7 +53,7 @@ function App() {
     try {
       setLoading(true);
       const Data = await axios.get(
-        `https://gogoanime-api-dc2c.up.railway.app/recent-release?page=${id}`
+        `https://animetrix-api.onrender.com/recent-release?page=${id}`
       );
       setRecent((recent) => [...recent, ...Data.data]);
       setLoading(false);
@@ -63,7 +66,7 @@ function App() {
     try {
       setLoading(true);
       const propu = await axios.get(
-        `https://gogoanime-api-dc2c.up.railway.app/popular?page=${id}`
+        `https://animetrix-api.onrender.com/popular?page=${id}`
       );
       setPopular((popular) => [...popular, ...propu.data]);
       setLoading(false);
@@ -76,7 +79,7 @@ function App() {
     try {
       setLoading(true);
       const Data = await axios.get(
-        `https://gogoanime-api-dc2c.up.railway.app/recent-release?type=2&page=${id}`
+        `https://animetrix-api.onrender.com/recent-release?type=2&page=${id}`
       );
       setDub((dub) => [...dub, ...Data.data]);
       setLoading(false);
@@ -89,7 +92,7 @@ function App() {
     try {
       setLoading(true);
       const Data = await axios.get(
-        `https://gogoanime-api-dc2c.up.railway.app/anime-movies?page=${id}`
+        `https://animetrix-api.onrender.com/anime-movies?page=${id}`
       );
       setMovie((movie) => [...movie, ...Data.data]);
       setLoading(false);
@@ -101,7 +104,7 @@ function App() {
   const getTopAiring = async (id = 1) => {
     try {
       setLoading(true);
-      const Data = await axios.get(`https://gogoanime-api-dc2c.up.railway.app/top-airing?page=${id}`
+      const Data = await axios.get(`https://animetrix-api.onrender.com/top-airing?page=${id}`
       );
       setTop((topAiring) => [...topAiring, ...Data.data]);
       setLoading(false);
@@ -125,7 +128,7 @@ function App() {
   // Search Bar function
   const handelChanges = async (val) => {
     const searchRes = await axios
-      .get(`https://gogoanime-api-dc2c.up.railway.app/search?keyw=${val}`)
+      .get(`https://animetrix-api.onrender.com/search?keyw=${val}`)
       .catch((err) => "search Error");
     if (val === "") {
       setSearchResult(null);
@@ -167,7 +170,7 @@ function App() {
 
   return (
     <Router className="App">
-      <ScrollToTop/>
+      <ScrollToTop />
       <Header handelChanges={handelChanges} ref={childRef} />
       {searchResult ? (
         <SearchJSX searchResult={searchResult} handelClick={handelClick} />
@@ -246,6 +249,14 @@ function App() {
           }
         />
         <Route
+          exact
+          path="/ai-chat"
+          element={
+            <AIChat
+            />
+          }
+        />
+        <Route
 
           exact
           path="/anime-details/:animeId"
@@ -256,9 +267,10 @@ function App() {
           path="/vidcdn/watch/:episodeId"
           element={<Stream />}
         />
-        <Route path="/*" element={<Error404 />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/profile" element={<Profile />} />
+        <Route path="/*" element={<Error404 />} />
       </Routes>
     </Router>
   );
