@@ -27,7 +27,7 @@ function OptionFetcher() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `https://gogoanime-api-dc2c.up.railway.app/genre/${selectedOption}?page=${page}`
+        `https://animetrix-api.onrender.com/genre/${selectedOption}?page=${page}`
       );
       const responseData = await response.json();
 
@@ -49,7 +49,7 @@ function OptionFetcher() {
     try {
       setPage(page + 1);
       const response = await fetch(
-        `https://gogoanime-api-dc2c.up.railway.app/genre/${selectedOption}?page=${page}`
+        `https://animetrix-api.onrender.com/genre/${selectedOption}?page=${page}`
       );
       const responseData = await response.json();
       setData([...data, ...responseData]);
