@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import spinner from "../img/spinner.svg";
 
 function OptionFetcher() {
- 
+
   const [selectedOption, setSelectedOption] = useState('action');
 
   const [data, setData] = useState(null);
-  
+
   const [page, setPage] = useState(1);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +27,7 @@ function OptionFetcher() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `https://gogoanime-api-dc2c.up.railway.app/genre/${selectedOption}?page=${page}`
+        `https://animetrix-api.onrender.com/genre/${selectedOption}?page=${page}`
       );
       const responseData = await response.json();
 
@@ -49,7 +49,7 @@ function OptionFetcher() {
     try {
       setPage(page + 1);
       const response = await fetch(
-        `https://gogoanime-api-dc2c.up.railway.app/genre/${selectedOption}?page=${page}`
+        `https://animetrix-api.onrender.com/genre/${selectedOption}?page=${page}`
       );
       const responseData = await response.json();
       setData([...data, ...responseData]);
@@ -65,13 +65,13 @@ function OptionFetcher() {
 
   return (
     <>
-          {isLoading && (
-        <div class="spinner-box">
-          <div class="configure-border-1">
-            <div class="configure-core"></div>
+      {isLoading && (
+        <div className="spinner-box">
+          <div className="configure-border-1">
+            <div className="configure-core"></div>
           </div>
-          <div class="configure-border-2">
-            <div class="configure-core"></div>
+          <div className="configure-border-2">
+            <div className="configure-core"></div>
           </div>
         </div>
       )}
@@ -79,7 +79,7 @@ function OptionFetcher() {
         <div className="filter-bar genre">
           <div className="filter-dropdowns">
             <select value={selectedOption} onChange={handleChange}>
-              <option value="action" defaultChecked>Action</option>
+              <option value="action" >Action</option>
               <option value="adventure">Adventure</option>
               <option value="cars ">Cars </option>
               <option value="comedy">Comedy</option>
@@ -137,7 +137,7 @@ function OptionFetcher() {
             <div className='movies-grid'>
               {data.map(item => (
                 <div
-                  className="movie-card">
+                  className="movie-card" key={item.animeId}>
                   <Link to={`/anime-details/${item.animeId}`}>
                     <div className="card-head">
                       <img
@@ -146,7 +146,7 @@ function OptionFetcher() {
                         className="card-img"
                       />
                       <div className="">
-                        <h5 className="card-title">{(item.animeTitle)}</h5>
+                        <h5 className="card-title">{(item.animeTitle.substring(0, 35))}</h5>
                       </div>
                     </div>
                   </Link>

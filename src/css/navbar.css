@@ -2,13 +2,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 120px;
+  padding: 10px 60px;
   position: sticky;
   top: 0px;
   z-index: 999;
   background-color: rgb(0, 0, 0, 0.3);
   backdrop-filter: blur(50px);
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+.login-tab ion-icon{
+  font-size: 40px;
+  color:  rgb(33, 150, 243);
+  position: relative;
+  right: 40px;
 }
 .mobile-search{
   display: none;
@@ -42,7 +48,7 @@
 
 .nav-links > li > a {
   text-decoration: none;
-  margin: 0 15px;
+  margin: 0 20px;
   word-spacing: 3px;
   font-size: 17px;
   font-weight: 500;
@@ -52,16 +58,18 @@
   color: rgb(33, 150, 243);
 }
 
-.search {
-  display: flex;
-  width: 332px;
+.login-btn{
+  font-size: 40px;
+  padding: 0px;
+  color: rgb(33, 150, 243);
+  cursor: pointer;
 }
-
 .search > input {
   padding: 12px 20px;
   border-radius: 10px;
   background-color: #162032;
   color: #fff;
+  width: 300px;
 }
 
 .search-btn {
@@ -80,11 +88,15 @@
 
 @media only screen and (max-width: 1500px) {
   .header {
-    padding: 25px 40px;
+    padding: 25px 35px;
   }
 }
 
 @media only screen and (max-width: 1300px) {
+  .search {
+    position: relative;
+    left: 25%;
+  }
   .navbar-menu-btn {
     background: transparent;
     transition: 0.9s ease-in-out;
@@ -150,10 +162,32 @@
     margin: 15px 19px;
   }
 }
-
+@media (max-width:1200px){
+  .search {
+    position: relative;
+    left: 19%;
+  }
+}
+@media (max-width:1000px){
+  .search {
+    position: relative;
+    left: 17%;
+  }
+}
+@media (max-width:900px){
+  .search {
+    position: relative;
+    left: 12%;
+  }
+}
 @media only screen and (max-width: 750px) {
   .header {
     padding-bottom: 20px;
+  }
+  .login-tab ion-icon{
+    font-size: 40px;
+    color:  rgb(33, 150, 243);
+    position: relative;
   }
   .logo > a {
     font-size: 40px;
@@ -197,15 +231,7 @@
     background-color: #162032;
     color: #fff;
   }
-  .active-search-mobile.active::before{
-    content: "";
-    background-color: red;
-    position: absolute;
-    top: 200px;
-    right: 0px;
-    left: 0px;
-    height: 100px;
-  }
+
   .mobile-view-search{
     display: none;
   }
@@ -237,17 +263,70 @@
   }
 
   .toggle-links {
-    height: 350px;
+    height: 280px;
   }
 }
 
 @media only screen and (max-width: 750px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 150px;
+  }
   .logo > a {
     font-size: 35px;
   }
 }
+@media only screen and (max-width: 680px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 130px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 110px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 90px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 80px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .logo a{
+    position: relative;
+    right:20px;
+  }
+  .login-tab ion-icon{
+    left: 60px;
+  }
+}
+
 @media(max-width: 500px){
+  .login-tab ion-icon{
+    left: 40px;
+  }
   .logo >a{
     font-size: 30px;
+  }
+}
+
+@media(max-width:415px){
+  .login-tab ion-icon{
+    left: 6px;
+  }
+}
+
+@media(max-width:355px){
+  .logo>a{
+    font-size: 20px;
   }
 }

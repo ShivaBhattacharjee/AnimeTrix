@@ -7,7 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css/navigation"
+// import "swiper/css/navigation";
 
 import "../css/slider.css";
 
@@ -17,7 +18,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 export default function Slider() {
   const [sliderinfo, setSlider] = useState([]);
   const getSlider = async () => {
-    const api = await fetch("https://gogoanime-api-dc2c.up.railway.app/top-airing?page=1");
+    const api = await fetch("https://animetrix-api.onrender.com/top-airing?page=1");
     setSlider(await api.json());
   }
   useEffect(() => {
@@ -42,11 +43,11 @@ export default function Slider() {
           sliderinfo.map((data, uqley , swipe) => {
             return (
               <div className="banner-card" key={uqley}>
-                <SwiperSlide key={swipe}>
+                <SwiperSlide key={swipe.animeId}>
                   <img src={data.animeImg} alt={data.animeId} className="blur" />
                   <div className="banner-text">
                     <Link to={`/anime-details/${data.animeId}`}>
-                      <h4>{data.animeTitle}</h4>
+                      <h4>{data.animeTitle.substring(0,25)}....</h4>
 
                       <button className="watch">Watch Now</button>
                     </Link>

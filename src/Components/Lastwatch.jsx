@@ -3,60 +3,53 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Lastwatch = (props) => {
-  const [isActivelw, setIsActivelw] = useState(true);
+  const [isActive, setIsActive] = useState(true);
   const handleCloseLastwatch = () => {
-    setIsActivelw(current => !current);
-    if (isActivelw === true)
-      document.getElementsByClassName("lastwatch")[0].style.width = "10px"
-    else
-      document.getElementsByClassName("lastwatch")[0].style.width = "100%"
+    setIsActive(current => !current);
+
   }
 
-  return (<>
-    {props.lastwatch !== null ?
-      <div className="lastwatch active" >
-        <div className={isActivelw ? "" : 'deactiveLw'}>
-          <br />
-          <p className="my-1" style={{ fontSize: "15px" }}>
-            <i>Continue From Where Left Of</i> 
-          </p>
-          <h3 className="heading">Last Watched</h3>
-          <Link
-            to={props.lastwatch.url}
-            state={{ animeID: `${props.lastwatch.animeId}` }}
-          >
-            <div className="play">
-              <ion-icon name="play-circle-outline"></ion-icon>
+  return (
+    <>
+      {props.lastwatch !== null ?
+        <div className={`lastwatch ${isActive ? "active" : ""}`}>
+          <section className="movies">
+            <div className="lastwatch-bar">
+              <div className="lastwatch-heading">
+                <h1><i class="fa-solid fa-clock-rotate-left lastwatch-icon continue-icon"></i> Continue Watching</h1>
+                <div className="lastwatch-card">
+                  <div className="lastwatch-close">
+                    {
+                      isActive === true ?
+                        <i
+                          className="fa-solid fa-xmark"
+                          onClick={handleCloseLastwatch}
+                        /> : null
+                    }
+                  </div>
+                  <div className="lastwatch-head">
+                    <Link
+                      to={props.lastwatch.url}
+                      state={{ animeID: `${props.lastwatch.animeId}` }}
+                    >
+                      <img src={props.lastwatch?.coverimg} alt={props.lastwatch?.animeId} className="lastwatch-img" />
+                    </Link>
+                    <div className="lastwatch-details">
+                      <h5 className="lastwatch-title">
+                        {props.lastwatch?.title}
+                        <br />
+                        <span className="last-ep">Episode:- {props.lastwatch?.ep}</span>
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div
-              className="d-flex row"
-              style={{
-                alignItem: "center",
-              }}
-            >
-              <p className="d-flex" style={{ fontSize: "auto",fontWeight:"500",padding:"4px 0 0 0" }}>
-                <i className="bi bi-caret-right-square-fill me-2" />
-                <span>
-                  {props.lastwatch?.title} 
-                </span>
-              </p>
-            </div>
+          </section>
 
-          </Link>
-        </div>
-        <div className="switchLw d-flex">
-          {
-            isActivelw === true ?
-              <i
-                className="bi bi-x-lg lastwatchClose"
-                onClick={handleCloseLastwatch}
-              /> : <i className="bi bi-caret-right-fill lastwatchOpen" onClick={handleCloseLastwatch} />
-          }
-        </div>
-
-      </div> : null
-    }
-  </>
+        </div> : null
+      }
+    </>
   );
 };
 
