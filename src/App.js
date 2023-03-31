@@ -17,7 +17,7 @@ import './css/Search.css'
 import './css/Chatbot.css'
 
 import { Error404, Header, ScrollToTop, SearchJSX, } from "./Components/";
-import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, Profile} from "./Pages"
+import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register} from "./Pages"
 
 
 
@@ -261,7 +261,6 @@ function App() {
         />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
-        <Route exact path="/profile" element={<Profile />} />
         <Route path="/*" element={<Error404 />} />
       </Routes>
     </Router>
