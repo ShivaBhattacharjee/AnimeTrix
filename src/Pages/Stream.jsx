@@ -22,7 +22,7 @@ export default function Stream(props) {
     const getVideo = async () => {
       try {
         const Video = await axios.get(
-          `https://gogoanime-api-dc2c.up.railway.app/vidcdn/watch/${episodeId}`
+          `https://animetrix-api.onrender.com/vidcdn/watch/${episodeId}`
         );
         setData(Video.data.Referer);
       } catch (err) {
@@ -33,7 +33,7 @@ export default function Stream(props) {
     const getDetail = async () => {
       const Detail = await axios
         .get(
-          `https://gogoanime-api-dc2c.up.railway.app/anime-details/${animeId}`
+          `https://animetrix-api.onrender.com/anime-details/${animeId}`
         )
         .catch((err) => console.log("Connection Error"));
 
