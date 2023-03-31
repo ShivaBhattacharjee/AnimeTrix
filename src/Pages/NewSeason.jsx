@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const NewSeason = () => {
     const [season, setSeason] = useState([])
     const getSeason = async (id = 1) => {
-        const api = await fetch(`https://gogoanime-api-dc2c.up.railway.app/new-season?page=${id}`)
+        const api = await fetch(`https://animetrix-api.onrender.com/new-season?page=${id}`)
         setSeason(await api.json())
     }
     useEffect(() => {
