@@ -15,7 +15,7 @@ export default function Details(props) {
   useEffect(() => {
     const getDetail = async () => {
       const Detail = await axios
-        .get(`https://gogoanime-api-dc2c.up.railway.app/anime-details/${animeId}`)
+        .get(`https://animetrix-api.onrender.com/anime-details/${animeId}`)
         .catch((err) => console.log(`Error loading details of ${animeId}`));
       const temp = episodeId;
       const ep = Detail.data.episodesList.find(
