@@ -50,7 +50,10 @@
   grid-auto-flow: column;
   overflow-x: scroll;
 }
-
+.continue-icon{
+  font-size: 35px;
+  color: rgb(33,150,243);
+}
 .lastwatch-title {
   font-size: 16px;
   font-weight: 400;
@@ -64,12 +67,20 @@
 }
 
 @media(max-width:600px){
+  .continue-icon{
+    font-size: 35px;
+    color: rgb(33,150,243);
+  }
   .lastwatch-heading{
     font-size: 25px;
   }
 }
 
 @media(max-width:440px){
+  .continue-icon{
+    font-size: 25px;
+    color: rgb(33,150,243);
+  }
   .lastwatch-head{
     background: #162032;
     width: 170px;
@@ -87,5 +98,16 @@
   .lastwatch-heading h1{
     font-size: 26px;
     padding-bottom: 20px;
+  }
+}
+@media(max-width:350px){
+  .lastwatch-head{
+    width: 140px;
+  }
+  .lastwatch-head img{
+    height: 200px;
+  }
+  .lastwatch-heading h1{
+    font-size: 20px;
   }
 }
