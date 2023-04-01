@@ -25,21 +25,26 @@ const NewSeason = () => {
                     return (
                         <>
                             <div className='season-card' key={newSeasonId.animeId}>
-                                <Link to={`/anime-details/${newSeason.animeId}`}>
-                                    <div className="season-head">
+
+                                <div className="season-head">
+                                    <div className="bookmark-icon">
+                                        <i class="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <Link to={`/anime-details/${newSeason.animeId}`}>
                                         <img
                                             src={newSeason.animeImg}
                                             alt={newSeason.animeId}
                                             className="season-img"
                                         />
-                                        <div className="season-details">
-                                            <div className="release-date-season">
-                                                <span className='season-relase'>{(newSeason.releasedDate)}</span>
-                                            </div>
-                                            <h5 className="season-title">{(newSeason.animeTitle)}</h5>
+                                    </Link>
+                                    <div className="season-details">
+                                        <div className="release-date-season">
+                                            <span className='season-relase'>{(newSeason.releasedDate)}</span>
                                         </div>
+                                        <h5 className="season-title">{(newSeason.animeTitle)}</h5>
+
                                     </div>
-                                </Link>
+                                </div>
                             </div>
                         </>
                     )
