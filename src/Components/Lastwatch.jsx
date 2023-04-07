@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState} from "react";
 
 const Lastwatch = (props) => {
   const [isActive, setIsActive] = useState(true);
+  const [lastwatch] = useState(null);
+
+  const LOCAL_STORAGE_KEY = "animetrix-vercel-app"
+  
   const handleCloseLastwatch = () => {
     setIsActive(current => !current);
-
+    localStorage.removeItem(LOCAL_STORAGE_KEY, JSON.stringify(lastwatch));
   }
 
   return (
