@@ -1,0 +1,20 @@
+.user-picture{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.user-img{
+    width: 80px;
+    border-radius: 50%;
+}
+.edit-profile{
+    position: absolute;
+    left: 40%;
+    width: 100px;
+    opacity: 0;
+    cursor: pointer;
+}
+.edit-profile:hover{
+    cursor: pointer;
+}

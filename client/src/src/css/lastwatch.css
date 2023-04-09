@@ -1,0 +1,67 @@
+.lastwatch {
+  background-color: hsl(218, 39%, 14%);
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  max-width: 350px;
+  border-radius: 14px;
+  padding: 30px;
+  padding-bottom: 10px;
+  max-height: 150px;
+  margin-bottom: 20px;
+  z-index: 999;
+  display: none;
+  margin-left: 5%;
+  overflow-y: scroll;
+  padding-top: 10px;
+}
+
+.lastwatch.active{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  display: none;
+}
+.play {
+  position: absolute;
+  right: 13px;
+  font-size: 40px;
+  bottom: 3px;
+  transition: .5s ease-in-out;
+}
+.lastwatch-close{
+  position: absolute;
+  top: 7px;
+  right: 20px;
+  font-size: 25px;
+  font-weight: 600; 
+  cursor: pointer; 
+  transition: .3s;
+}
+@keyframes spin{
+  0% {
+    transform: rotate( 0deg );
+  }
+  50% {
+    transform: rotate( 180deg );
+  }
+  100%{
+    transform: rotate( 360deg);
+  }
+}
+.lastwatch-close:hover{
+  animation: spin .8s linear infinite;
+}
+.play:hover {
+  color:rgb(33,150,243);
+}
+
+@media(max-width:480px){
+  .lastwatch {
+    margin-left: 5%;
+    max-width: 90%;
+    padding-bottom: 20px;
+    max-height: 130px;
+    overflow-y: scroll;
+  }
+}
