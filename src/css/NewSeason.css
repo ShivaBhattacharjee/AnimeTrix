@@ -1,0 +1,121 @@
+.season-head{
+  background: #162032;
+  width: 100%;
+  height: 470px;
+  display: grid;
+  border-radius: 8px;
+}
+.season-img {
+  height: 380px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.seasons-grid {
+  padding: 0px 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 10fr));
+  margin-top: 40px;
+  gap: 30px;
+  z-index: 9999;
+}
+.release-date-season{
+  border-radius: 3px;
+  justify-content: right;
+  display: flex;
+  gap: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 13px
+}
+.release-date-season span{
+  background-color:rgb(33,150,243);
+  padding: 0px 7px;
+  position: relative;
+  border-radius: 3px;
+}
+.season-title {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  padding-right: 4px;
+  text-align: center;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical
+}
+
+@media(max-width:960px){
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
+  }
+}
+@media(max-width:870px){
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  }
+}
+@media(max-width:770px){
+  .season-img{
+    object-fit: cover
+  }
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+  }
+}
+@media(max-width:600px){
+  .season-head{
+    height: 400px;
+  }
+  .season-img{
+    height: 300px;
+    width: 100%;
+  }
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    padding: 0px 40px;
+  }
+}
+
+@media(max-width:500px){
+  .season-head{
+    height: 380px;
+  }
+  .seasons-grid{
+    padding: 0px 20px;
+    height: auto;
+  }
+}
+@media(max-width:450px){
+  .season-head h5{
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .season-img{
+    height: 270px;
+  }
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
+  }
+}
+
+@media(max-width:408px){
+  .season-head{
+    height: 350px;
+  }
+  .season-head h5{
+    font-size: 12px;
+  }
+  .seasons-grid{
+    grid-template-columns:repeat(auto-fill,minmax(140px,1fr)) ;
+  }
+}
+@media(max-width:355px){
+  .seasons-grid{
+    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+  }
+}
