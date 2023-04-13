@@ -13,6 +13,7 @@ import AIChat from "./AIChat";
 import Profile from "./Profile";
 import ForgotPassword from "./ForgotPassword";
 import MovieDetails from "./MovieDetails";
+import Watch from "./WatchOldApi";
 export{
     Details,
     DubAnime,
@@ -28,5 +29,6 @@ export{
     AIChat,
     Profile,
     ForgotPassword,
-    MovieDetails
+    MovieDetails,
+    Watch
 }

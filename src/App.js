@@ -17,7 +17,7 @@ import './css/Search.css'
 import './css/Chatbot.css'
 
 import { Error404, Header, ScrollToTop, SearchJSX, } from "./Components/";
-import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, MovieDetails } from "./Pages"
+import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, MovieDetails, Watch } from "./Pages"
 
 
 
@@ -277,6 +277,11 @@ function App() {
           exact
           path="/watch/:episodeId/:animeId"
           element={<Stream />}
+        />
+        <Route
+          exact
+          path="/vidcdn/watch/:episodeId"
+          element={<Watch />}
         />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
