@@ -140,11 +140,13 @@ function OptionFetcher() {
                   className="movie-card" key={item.animeId}>
                   <Link to={`/anime-details/${item.animeId}`}>
                     <div className="card-head">
+                      <Link to={`/details/${item.animeId}`}>
                       <img
                         src={item.animeImg}
                         alt={item.animeId}
                         className="card-img"
                       />
+                      </Link>
                       <div className="">
                         <h5 className="card-title">{(item.animeTitle.substring(0, 35))}</h5>
                       </div>

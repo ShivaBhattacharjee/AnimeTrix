@@ -12,6 +12,7 @@ import Register from "./Register";
 import AIChat from "./AIChat";
 import Profile from "./Profile";
 import ForgotPassword from "./ForgotPassword";
+import MovieDetails from "./MovieDetails";
 export{
     Details,
     DubAnime,
@@ -26,5 +27,6 @@ export{
     Register,
     AIChat,
     Profile,
-    ForgotPassword
+    ForgotPassword,
+    MovieDetails
 }

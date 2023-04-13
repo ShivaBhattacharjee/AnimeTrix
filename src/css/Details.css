@@ -1,14 +1,14 @@
 .details {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 0;
+  position: relative;
+  padding: 2rem 4rem;
   padding-bottom: 100px;
+  flex-direction: column;
 }
 
 .anime-details {
-  width: 85%;
+  width: 98%;
   display: flex;
   justify-content: space-between;
 }
@@ -48,6 +48,8 @@
   border-radius: 10px;
   margin-bottom: 40px;
   color: #fff;
+  margin-left: 30px;
+  text-align: center;
 }
 
 .anime-storyline {
@@ -69,23 +71,15 @@
 .list-box.details{
   width: 100%;
 }
-.episode-list.details{
-  display:flex;
-  flex-wrap: wrap;
-  overflow-y: scroll;
-  max-width: auto;
-  max-height: 250px;
-  background-color: rgb(18, 26, 40);
-  padding: 10px 0px 20px;
-  border-radius: 14px;
-  margin-left: 50px;
-}
+
 .anime-storyline>p {
   font-size: 18px;
   font-weight: 500;
   max-width: 900px;
 }
-
+.recommended-anime{
+  padding-top: 5rem;
+}
 @media only screen and (max-width: 1500px) {
   .list-box.details{
     margin-top: 0px;

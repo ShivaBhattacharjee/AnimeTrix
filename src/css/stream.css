@@ -2,9 +2,12 @@
 .stream {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-left: 5rem;
   transition: .5s ease-in-out;
+  flex-direction: column;
+}
+.airing-extra-info{
+  margin-top: 90px;
 }
 
 .stream-container {
@@ -54,7 +57,7 @@
 }
 
 .list-box {
-  width: 50%;
+  width: 70%;
 }
 
 .episode-list {
@@ -69,7 +72,7 @@
   margin-left: 50px;
 }
 
-.episode-list>a>button {
+.episode-list button{
   width: 50px;
   padding: 10px;
   margin: 10px 8px;
@@ -81,13 +84,30 @@
   display: flex;
   justify-content: center;
 }
+.btn-download{
+  background-color: rgb(51, 51, 154);
+  border-radius: 6px;
+  padding: 10px;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
 
 .episode-list>a>button.active {
   background: transparent;
   outline: 3px solid rgb(51, 51, 154);
   color: rgb(51, 51, 154);
 }
-
+.characters-container{
+  max-width: 1200px;
+}
+.characters-container div{
+}
+.characters-container div img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
 @media(max-width:1196px) {
   .stream {
     padding: 20px 0px;

@@ -44,7 +44,7 @@ const Popular = (props) => {
               {props.popular.map((rec) => (
                 <Card
                   rec={rec}
-                  key={rec.animeId} handelClick={handelClick}
+                  key={rec.id} handelClick={handelClick}
                   ep="false" />
               ))}
             </div>

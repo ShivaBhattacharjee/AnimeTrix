@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { Card, Lastwatch, Slider } from "../Components"
 import { NewSeason } from "../Pages"
@@ -6,6 +6,24 @@ import { NewSeason } from "../Pages"
 import { useFetchInitialData } from "../utils/hooks";
 
 const RecentAnime = (props) => {
+  const renderAfterCalled = useRef(false);
+    const [airingList, setairingList] = useState([])
+    const getAiring = async () => {
+      try{
+        const api = await fetch(`https://api.consumet.org/meta/anilist/airing-schedule?notYetAired=true`)
+        const response = await api.json()
+        setairingList(response.results)
+      }
+      catch(error){
+        console.log("Error loading top airing list")
+      }
+    }
+    useEffect(() => {
+        if (!renderAfterCalled.current) {
+            getAiring()
+        }
+        renderAfterCalled.current = true;
+    }, []);
   const ref = useRef(null);
 
   const handelClick = () => {
@@ -50,17 +68,24 @@ const RecentAnime = (props) => {
           <section className="movies">
             <div className="filter-bar">
               <div className="heading">
-                <h3>Recently Added</h3>
+                <h3>Airing Schedule</h3>
               </div>
             </div>
             <div className="movies-grid" ref={ref}>
-              {props.recent &&
-                props.recent.map((rec) => (
-                  <Card rec={rec} key={rec.animeId} handelClick={handelClick} />
+              {airingList.map((airingData) => (
+                <div key={airingData.id}>
+                  <div>
+                    <img src={airingData.image} alt=""/>
+                  <p>Name : {airingData.title.userPreferred}</p>
+                  <p>country : {airingData.country}</p>
+                  <p>Genres: {airingData.genres.slice(0,2)}</p>
+                  <p>episode: {airingData.episode}</p>
+                  <p>airing at : {new Date(airingData.airingAt * 1000).toLocaleString()}</p>
+                  <p>type:{airingData.type}</p>
+                  <p>rating : {airingData.rating/10}</p>
+                  </div>
+                </div>
                 ))}
-            </div>
-            <div className="loadmore-recent">
-              <button onClick={loadMoreRecent} className="loadmore">LOAD MORE</button>
             </div>
           </section>
         </>

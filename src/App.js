@@ -17,7 +17,7 @@ import './css/Search.css'
 import './css/Chatbot.css'
 
 import { Error404, Header, ScrollToTop, SearchJSX, } from "./Components/";
-import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword } from "./Pages"
+import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, MovieDetails } from "./Pages"
 
 
 
@@ -66,9 +66,9 @@ function App() {
     try {
       setLoading(true);
       const propu = await axios.get(
-        `https://animetrix-api.onrender.com/popular?page=${id}`
+        `https://api.consumet.org/meta/anilist/popular?page=${id}&perPage=20`
       );
-      setPopular((popular) => [...popular, ...propu.data]);
+      setPopular((popular) => [...popular, ...propu.data.results]);
       setLoading(false);
     } catch (err) {
       console.log("Error loading Popular Anime");
@@ -104,9 +104,9 @@ function App() {
   const getTopAiring = async (id = 1) => {
     try {
       setLoading(true);
-      const Data = await axios.get(`https://animetrix-api.onrender.com/top-airing?page=${id}`
+      const Data = await axios.get(`https://api.consumet.org/meta/anilist/trending?page=${id}&perPage=20`
       );
-      setTop((topAiring) => [...topAiring, ...Data.data]);
+      setTop((topAiring) => [...topAiring, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
       console.log("Error loading top-airing");
@@ -127,13 +127,18 @@ function App() {
 
   // Search Bar function
   const handelChanges = async (val) => {
-    const searchRes = await axios
-      .get(`https://animetrix-api.onrender.com/search?keyw=${val}`)
-      .catch((err) => "search Error");
-    if (val === "") {
-      setSearchResult(null);
-    } else {
-      setSearchResult(searchRes.data);
+    try {
+      const searchRes = await axios
+        .get(`https://api.consumet.org/meta/anilist/${val}`)
+      if (val === "") {
+        setSearchResult(null);
+      } else {
+        setSearchResult(searchRes.data);
+        console.log(searchRes.data)
+      }
+    }
+    catch (err) {
+      console.log("Search failed")
     }
   };
 
@@ -263,8 +268,14 @@ function App() {
           element={<Details handelClick={handelClick} />}
         />
         <Route
+
           exact
-          path="/vidcdn/watch/:episodeId"
+          path="/details/:animeId"
+          element={<MovieDetails handelClick={handelClick} />}
+        />
+        <Route
+          exact
+          path="/watch/:episodeId/:animeId"
           element={<Stream />}
         />
         <Route exact path="/login" element={<Login />} />

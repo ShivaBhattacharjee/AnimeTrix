@@ -65,10 +65,10 @@ const Header = forwardRef((props, ref) => {
     <>
       <nav className="header">
         <div className="logo">
-          <NavLink to={"/"}>
+          <a href="/">
             <span className="white">Anime</span>{" "}
             <span className="blue">Trix</span>
-          </NavLink>
+          </a>
         </div>
 
         <ul onClick={scroll} className={togglemenu ? "nav-links" : "toggle-links"} ref={toggleref}>
@@ -77,17 +77,14 @@ const Header = forwardRef((props, ref) => {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink to={"/popular"} onClick={() => closeMenuWhenClickedLink()}>
+          <li>  
+             <NavLink to={"/popular"} onClick={() => closeMenuWhenClickedLink()}>
               Popular
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to={"/dub-anime"}
-              onClick={() => closeMenuWhenClickedLink()}
-            >
-              Dub Anime
+          <li>  
+             <NavLink to={"/top-airing"} onClick={() => closeMenuWhenClickedLink()}>
+              Trending
             </NavLink>
           </li>
           <li>
@@ -100,6 +97,15 @@ const Header = forwardRef((props, ref) => {
               Genres
             </NavLink>
           </li>
+          {/*
+          <li>
+            <NavLink
+              to={"/dub-anime"}
+              onClick={() => closeMenuWhenClickedLink()}
+            >
+              Dub Anime
+            </NavLink>
+          </li> */}
           <li>
             <NavLink to={"/ai-chat"} onClick={() => closeMenuWhenClickedLink()}>
               AI Chat

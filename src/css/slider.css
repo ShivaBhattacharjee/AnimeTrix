@@ -1,10 +1,13 @@
 .swiper {
-  width: 85%;
-  height: 450px;
+  width: 95%;
+  height: 410px;
   border-radius: 14px;
   margin-top: 20px;
+  object-fit: cover;
 }
-
+.swiper img{
+  object-fit: cover;
+}
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -46,6 +49,7 @@
   z-index: 999;
   padding-left: 40px;
   padding-right: 40px;
+  letter-spacing: 1px;
 }
 
 

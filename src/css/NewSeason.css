@@ -27,7 +27,8 @@
   gap: 10px;
   padding-right: 10px;
   padding-bottom: 5px;
-  font-size: 13px
+  font-size: 13px;
+  color: #fff;
 }
 .release-date-season span{
   background-color:rgb(33,150,243);

@@ -4,7 +4,7 @@ import spinner from "../img/spinner.svg";
 import Card from "../Components/Card";
 
 import { useFetchInitialData } from "../utils/hooks";
-
+import { Link } from "react-router-dom";
 const Movie = (props) => {
   const ref = useRef(null);
 
@@ -40,12 +40,32 @@ const Movie = (props) => {
             </div>
             <div className="movies-grid" ref={ref}>
               {props.recent.map((rec) => (
-                <Card
-                  rec={rec}
-                  key={rec.animeId}
-                  handelClick={handelClick}
-                  ep="false"
-                />
+                      <div
+                      className="movie-card" onClick={() => props.handelClick()} key={rec.animeId}>
+                      <div className="card-head">
+                        <div className="bookmark-icon">
+                          <i class="fa-solid fa-bookmark"></i>
+                        </div>
+                        <Link to={`/details/${rec.animeId}`}>
+                          <img
+                            src={rec.animeImg}
+                            alt={rec.animeId}
+                            className="card-img"
+                          />
+                          </Link>
+                        <div className="card-details">
+                          <div className="episode-total">
+                            <span>{(rec.subOrDub)}</span>
+                            <span>{(rec.episodeNum)}</span>
+                          </div>
+                          <h5 className="card-title">{(rec.animeTitle)}</h5>
+                          {props.ep !== "false" ? (
+                            <div className="card-info">
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+                    </div>
               ))}
             </div>
             <InfiniteScroll
