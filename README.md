@@ -64,9 +64,9 @@ AnimeTrix is built using ReactJs and vanilla Css
   
   cd AnimeTrix
   
-  npm install
+  npm i or yarn install
   
-  npm start
+  npm start or yarn start
 ```
 ## Contributing
 
