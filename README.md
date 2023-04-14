@@ -3,6 +3,7 @@
     <img src="https://user-images.githubusercontent.com/95211406/224316874-4fa09fa0-eae0-4e28-9da8-ca30aaf6d463.gif" alt="Logo" width="120px" height="100px">
   </a>
 <br/>
+
   
   <h3 align="center">AnimeTrix</h3>
 
@@ -35,7 +36,7 @@
 
 ## About The Project
 
-![Screen Shot](https://user-images.githubusercontent.com/95211406/231962473-9c3ea720-0a2d-44ff-888a-4a09c0a46f59.png)
+![Screen Shot](https://user-images.githubusercontent.com/95211406/231963035-24a0f85f-86a9-4ebd-9aa9-de0bf8872b5f.png)
 
 Anime Trix is an anime streaming / downloading site that offers a vast collection of anime shows for streaming and downloading. With a user-friendly interface, you can easily find your favorite anime shows and watch them in high-definition quality. Our platform is updated regularly with the latest anime episodes, so you can stay up-to-date with your favorite shows. Anime Trix is the go-to destination for anime lovers who want to watch their favorite shows anytime, anywhere.
 
