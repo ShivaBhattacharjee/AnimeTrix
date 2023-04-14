@@ -16,7 +16,7 @@ import './css/Register.css'
 import './css/Search.css'
 import './css/Chatbot.css'
 
-import { Error404, Header, ScrollToTop, SearchJSX, } from "./Components/";
+import { Error404, Header, ScrollToTop, SearchJSX, } from "./Components";
 import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, MovieDetails, Watch } from "./Pages"
 
 
