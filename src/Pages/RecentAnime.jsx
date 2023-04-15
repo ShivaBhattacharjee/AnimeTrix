@@ -4,6 +4,7 @@ import { Card, Lastwatch, Slider } from "../Components"
 import { NewSeason } from "../Pages"
 
 import { useFetchInitialData } from "../utils/hooks";
+import AiringSchedule from "../Components/AiringSchedule";
 
 const RecentAnime = (props) => {
   const renderAfterCalled = useRef(false);
@@ -65,29 +66,8 @@ const RecentAnime = (props) => {
           <Lastwatch lastwatch={lastwatch} />
           <NewSeason />
           <br /><br />
-          <section className="movies">
-            <div className="filter-bar">
-              <div className="heading">
-                <h3>Airing Schedule</h3>
-              </div>
-            </div>
-            <div className="movies-grid" ref={ref}>
-              {airingList.map((airingData) => (
-                <div key={airingData.id}>
-                  <div>
-                    <img src={airingData.image} alt=""/>
-                  <p>Name : {airingData.title.userPreferred}</p>
-                  <p>country : {airingData.country}</p>
-                  <p>Genres: {airingData.genres.slice(0,2)}</p>
-                  <p>episode: {airingData.episode}</p>
-                  <p>airing at : {new Date(airingData.airingAt * 1000).toLocaleString()}</p>
-                  <p>type:{airingData.type}</p>
-                  <p>rating : {airingData.rating/10}</p>
-                  </div>
-                </div>
-                ))}
-            </div>
-          </section>
+
+          <AiringSchedule airingList={airingList} ref={ref}/>
         </>
       )}
     </>

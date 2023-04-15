@@ -471,3 +471,8 @@
     width: 100%;
   }
 }
+
+.characters{
+  display: flex;
+  gap: 10px;
+}
