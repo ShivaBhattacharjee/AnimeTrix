@@ -117,7 +117,7 @@ function App() {
     try {
       setLoading(true);
       const response = await fetch(
-        `${HomeApi}/meta/anilist/advanced-search?format=MOVIE`
+        `${HomeApi}/meta/anilist/advanced-search?format=MOVIE&page=${id}`
       );
       const data = await response.json();
       console.log(data)
