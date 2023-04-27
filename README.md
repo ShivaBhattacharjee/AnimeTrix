@@ -10,6 +10,7 @@
     A go to platform to stream/download your favorite anime
     <br/>
     <br/>
+
     <br/>
     <a href="https://animetrix.vercel.app/">View Demo</a>
     .
@@ -34,7 +35,7 @@
 
 ## About The Project
 
-![Screen Shot](https://user-images.githubusercontent.com/95211406/224312675-8e8ac0a3-1c30-4453-bcd6-f502ca95d5f4.png)
+![Screenshot (675)](https://user-images.githubusercontent.com/95211406/234815538-17642467-574a-42ec-96d1-75c2a67bebd3.png)
 
 Anime Trix is an anime streaming / downloading site that offers a vast collection of anime shows for streaming and downloading. With a user-friendly interface, you can easily find your favorite anime shows and watch them in high-definition quality. Our platform is updated regularly with the latest anime episodes, so you can stay up-to-date with your favorite shows. Anime Trix is the go-to destination for anime lovers who want to watch their favorite shows anytime, anywhere.
 
