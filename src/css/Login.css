@@ -78,6 +78,15 @@
   font-weight: 600;
   letter-spacing: 2px;
   border-radius: 4px;
+  margin-left: 20px;
+}
+.login-sign-reg{
+  padding: 10px 20px;
+  background-color:  rgb(33,150,243);
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 4px;
 }
 .remember-me-forget-pass{
   text-align: center;
@@ -89,3 +98,20 @@
   color: rgb(33,150,243) ;
 }
 .forgot{padding-bottom: 40px;}
+
+.login-toast{
+  display: flex;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(33, 150, 243);
+  max-width: 300px;
+  border-radius: 9px;
+  margin: auto;
+  margin-top: 2%;
+}
+.login-toast small{
+  font-size: 20px;
+  font-weight: 500;
+}

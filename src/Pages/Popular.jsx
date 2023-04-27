@@ -44,8 +44,8 @@ const Popular = (props) => {
               {props.popular.map((rec) => (
                 <Card
                   rec={rec}
-                  key={rec.animeId} handelClick={handelClick}
-                  ep="false" />
+                  key={rec.id} handelClick={handelClick}
+                />
               ))}
             </div>
             <InfiniteScroll

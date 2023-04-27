@@ -1,26 +1,28 @@
-
 .stream {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-left: 5rem;
   transition: .5s ease-in-out;
+  flex-direction: column;
+}
+
+.airing-extra-info {
+  margin-top: 100px;
+  max-width: 800px;
+}
+
+.airing-extra-info h2 {
+  background-color: rgb(22, 32, 50);
+  padding: 20px;
+  border-radius: 9px;
 }
 
 .stream-container {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 95%;
 }
-.select-server{
-  display: flex;
-  background-color: red;
-  margin-left: 100px;
-  height: 200px;
-  max-width: 50%;
-  margin-top: 140px;
-  border-radius: 14px;
-}
+
 .video-title {
   padding: 10px 10px;
   max-width: 70%;
@@ -29,7 +31,7 @@
 .video-title>p {
   color: rgb(129, 174, 220);
   margin-bottom: 15px;
-  width: 78%;
+  width: 80%;
 }
 
 .video-title>span {
@@ -48,13 +50,13 @@
 }
 
 .video-player iframe {
-  height: 550px;
+  height: 500px;
   width: 800px;
   border-radius: 10px;
 }
 
 .list-box {
-  width: 50%;
+  width: 80%;
 }
 
 .episode-list {
@@ -69,7 +71,7 @@
   margin-left: 50px;
 }
 
-.episode-list>a>button {
+.episode-list button {
   width: 50px;
   padding: 10px;
   margin: 10px 8px;
@@ -82,10 +84,101 @@
   justify-content: center;
 }
 
+.btn-download {
+  background-color: rgb(51, 51, 154);
+  border-radius: 6px;
+  padding: 10px;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+
 .episode-list>a>button.active {
   background: transparent;
   outline: 3px solid rgb(51, 51, 154);
   color: rgb(51, 51, 154);
+}
+
+.characters-container {
+  padding-top: 60px;
+  flex-wrap: wrap;
+  max-width: 790px;
+}
+
+.characters-container .characters-heading h2 {
+  font-size: 30px;
+  padding-bottom: 40px;
+}
+
+.characters::-webkit-scrollbar {
+  display: none;
+}
+
+.characters {
+  display: flex;
+  gap: 30px;
+  overflow-x: scroll;
+  cursor: pointer;
+}
+
+.characters-container img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.previous-seasons {
+  display: flex;
+  max-width: 800px;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  max-height: 150px;
+  overflow-y: scroll;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.previous-seasons .related-seasons .image-related{
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative;
+  filter: brightness(70%);
+}
+
+
+.previous-seasons .related-seasons .image-related::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.65);;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+
+.previous-seasons::-webkit-scrollbar {
+  display: none;
+}
+
+.title-and-type{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title-and-type h1{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px; 
+  align-items: center;
+  font-size: 14px;
+  text-align: center;
 }
 
 @media(max-width:1196px) {
@@ -100,12 +193,12 @@
 
 @media (max-width:1400px) {
   .stream {
-    padding: 20px 0;
+    padding: 20px 30px;
     padding-bottom: 300px;
   }
 
   .stream-container {
-    width: 95%;
+    width: 100%;
   }
 
   .video-player iframe {
@@ -132,11 +225,11 @@
 
 @media(max-width: 1200px) {
   .stream {
-    padding: 25px 0;
+    padding: 25px 30px;
   }
 
   .stream-container {
-    width: 95%;
+    width: 100%;
   }
 
   .video-player iframe {
@@ -144,7 +237,7 @@
   }
 
   .episode-list {
-    width: 103%;
+    width: 100%;
     max-height: 350px;
   }
 
@@ -158,11 +251,11 @@
 
 @media only screen and (max-width: 1150px) {
   .stream {
-    padding: 20px 0;
+    padding: 10px 20px;
   }
 
   .stream-container {
-    width: 95%;
+    width: 100%;
   }
 
   .video-player iframe {
@@ -214,7 +307,7 @@
     max-width: 800px;
     width: 700px;
     max-height: 400px;
-    padding: 20px 30px;
+    /* padding: 20px 30px; */
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -226,19 +319,23 @@
     padding: 8px;
     margin: 8px 5px;
   }
-  .video-title{
+
+  .video-title {
     max-width: 90%;
-    padding-left:10%;
+    padding-left: 10%;
   }
-  .video-title p{
+
+  .video-title p {
     width: 100%;
   }
 }
-@media(max-width:900px){
-  .video-title{
-    padding-left:0px ;
+
+@media(max-width:900px) {
+  .video-title {
+    padding-left: 0px;
   }
 }
+
 @media only screen and (max-width: 500px) {
   .video-player iframe {
     height: 280px;
@@ -246,6 +343,11 @@
 }
 
 @media(max-width:700px) {
+  .previous-seasons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .list-box {
     margin-top: 35%;
   }
@@ -295,12 +397,17 @@
 }
 
 @media(max-width:575px) {
+  .previous-seasons .related-seasons .image-related{
+    width: 120px;
+    height: 100px;
+  }
   .stream {
     margin-top: 20px;
     display: flex;
     margin: auto;
     transition: .5s ease-in-out;
   }
+
   .list-box {
     margin-top: 0%;
   }
@@ -326,33 +433,40 @@
   }
 
 }
-@media(max-width:410px){
-  .video-title p{
+
+@media(max-width:410px) {
+  .video-title p {
     width: 320px;
   }
 }
-@media(max-width:365px){
-  .video-title p{
+
+@media(max-width:365px) {
+  .video-title p {
     width: 290px;
   }
-  .video-title span{
-    font-size:21px;
+
+  .video-title span {
+    font-size: 21px;
   }
 }
 
 /* comments */
-.comments{
-  margin: 100px 0 0 0;
+.comments {
   padding-top: 120px;
-  width: 800px;
+  max-width: 800px;
+  width: 100%;
 }
-.comments-header{
+
+.comments-header {
+  padding: 10px;
+  font-size: 30px;
+}
+
+.send-comment {
   padding: 10px;
 }
-.send-comment{
-  padding: 10px;
-}
-.send-comment textarea{
+
+.send-comment textarea {
   width: 100%;
   margin: 10px 0;
   height: 90px;
@@ -364,7 +478,8 @@
   outline: none;
   resize: none;
 }
-.send-comment button{
+
+.send-comment button {
   margin: 10px 0;
   padding: 10px;
   border-radius: 10px;
@@ -372,60 +487,70 @@
   background: rgb(51, 51, 154);
   color: #fff;
 }
-.like-active{
-  color:rgb(33,150,243);
+
+.like-active {
+  color: rgb(33, 150, 243);
 }
-.comment-field{
+
+.comment-field {
   padding: 10px;
   overflow-y: scroll;
   height: 800px;
   padding-bottom: 50px;
 }
-.comment-field::-webkit-scrollbar{
+
+.comment-field::-webkit-scrollbar {
   width: 3px;
 }
-.user-comment{
+
+.user-comment {
   display: flex;
-  gap: 10px;
-  margin: 15px 0;
+  margin: 12px 0;
 }
 
-.user-img img{
-  width: 40px;
-  height: 40px;
+.user-img img {
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
 }
-.user-name-time-text{
+
+.user-name-time-text {
   display: flex;
   flex-direction: column;
 }
-.user-name-time{
+
+.user-name-time {
   padding: 0 10px;
   display: flex;
-  gap:  10px;
+  gap: 20px;
   align-items: center;
 }
-.user-name-time .user-name{
+
+.user-name-time .user-name {
   font-size: 18px;
   font-weight: 500;
 }
-.reply-like-replies{
+
+.reply-like-replies {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-.reply-like-replies button{
+
+.reply-like-replies button {
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
 
 }
+
 /* reply textarea */
-.hide{
+.hide {
   display: none;
 }
-.reply-textarea textarea{
+
+.reply-textarea textarea {
   width: 100%;
   height: 90px;
   padding: 10px;
@@ -437,7 +562,8 @@
   outline: none;
   resize: none;
 }
-.reply-textarea button{
+
+.reply-textarea button {
   margin: 10px 0;
   padding: 10px;
   border-radius: 10px;
@@ -445,8 +571,9 @@
   background: rgb(51, 51, 154);
   color: #fff;
 }
-@media (max-width: 1100px){
-  .comments{
+
+@media (max-width: 1100px) {
+  .comments {
     margin: auto;
     width: 100%;
   }

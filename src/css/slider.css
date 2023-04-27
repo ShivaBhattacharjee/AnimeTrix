@@ -1,5 +1,5 @@
 .swiper {
-  width: 85%;
+  width: 95%;
   height: 450px;
   border-radius: 14px;
   margin-top: 20px;
@@ -11,7 +11,6 @@
 
   border-radius: 14px;
 
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -117,5 +116,10 @@
     font-size: 10px;
     margin-top: -10px;
     padding: 10px 20px;
+  }
+}
+@media (max-width:400px){
+  .swiper{
+    height: 180px;
   }
 }

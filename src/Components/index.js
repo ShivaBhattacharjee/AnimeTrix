@@ -8,6 +8,12 @@ import SearchJSX from "./SearchJSX"
 import Slider from "./slider";
 import ChatBody from "./ChatBody";
 import ChatInput from "./ChatInput";
+import AiringSchedule from "./AiringSchedule";
+import ForYou from "./ForYou";
+import History from "./History";
+import Bookmark from './Bookmark'
+import AnimeImageSearchLayout from "./AnimeImageSearchLayout";
+import UpcomingSeason from "./UpcomingSeason";
 export {
     Card,
     Error404,
@@ -18,5 +24,11 @@ export {
     SearchJSX,
     Slider,
     ChatBody,
-    ChatInput
+    ChatInput,
+    AiringSchedule,
+    ForYou,
+    History,
+    Bookmark,
+    AnimeImageSearchLayout,
+    UpcomingSeason
 }

@@ -12,6 +12,7 @@ import Register from "./Register";
 import AIChat from "./AIChat";
 import Profile from "./Profile";
 import ForgotPassword from "./ForgotPassword";
+import AnimeImageSearch from "./AnimeImageSearch";
 export{
     Details,
     DubAnime,
@@ -27,4 +28,5 @@ export{
     AIChat,
     Profile,
     ForgotPassword,
+    AnimeImageSearch,
 }

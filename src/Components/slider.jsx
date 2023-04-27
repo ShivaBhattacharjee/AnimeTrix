@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import {HomeApi} from "./constants"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -7,7 +8,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation"
-// import "swiper/css/navigation";
 
 import "../css/slider.css";
 
@@ -18,8 +18,9 @@ export default function Slider() {
   const renderAfterCalled = useRef(false);
   const [sliderinfo, setSlider] = useState([]);
   const getSlider = async () => {
-    const api = await fetch("https://animetrix-api.onrender.com/top-airing?page=1");
-    setSlider(await api.json());
+    const api = await fetch(`${HomeApi}/meta/anilist/trending?page=1`);
+    const response = await api.json();
+    setSlider(response.results);
   }
   useEffect(() => {
     if (!renderAfterCalled.current) {
@@ -29,38 +30,38 @@ export default function Slider() {
   }, []);
   return (
     <>
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >{
-          sliderinfo.map((data, uqley , swipe) => {
-            return (
-              <div className="banner-card" key={uqley}>
-                <SwiperSlide key={swipe.animeId}>
-                  <img src={data.animeImg} alt={data.animeId} className="blur" />
-                  <div className="banner-text">
-                    <Link to={`/anime-details/${data.animeId}`}>
-                      <h4>{data.animeTitle.substring(0,25)}....</h4>
+    <Swiper
+      spaceBetween={30}
+      centeredSlides={true}
+      autoplay={{
+        delay: 3500,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={true}
+      modules={[Autoplay, Pagination, Navigation]}
+      className="mySwiper"
+    >{
+        sliderinfo.map((data, uqley , swipe) => {
+          return (
+            <div className="banner-card" key={uqley}>
+              <SwiperSlide key={swipe.id}>
+                <img src={data.cover} alt={data.title.english} />
+                <div className="banner-text">
+                  <Link to={`/anime-details/${data.id}`}>
+                    <h4>{data.title.english}</h4>
 
-                      <button className="watch">Watch Now</button>
-                    </Link>
-                  </div>
-                </SwiperSlide>
-              </div>
-            )
-          })
-        }
-      </Swiper>
-    </>
+                    <button className="watch">Watch Now</button>
+                  </Link>
+                </div>
+              </SwiperSlide>
+            </div>
+          )
+        })
+      }
+    </Swiper>
+  </>
   );
 }

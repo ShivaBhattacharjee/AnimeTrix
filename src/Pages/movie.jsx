@@ -1,10 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import spinner from "../img/spinner.svg";
 import Card from "../Components/Card";
 
 import { useFetchInitialData } from "../utils/hooks";
-
 const Movie = (props) => {
   const ref = useRef(null);
 
@@ -18,7 +17,7 @@ const Movie = (props) => {
   const { loading, movie, loadMoreMovies } = props;
 
   useFetchInitialData(loading, movie, loadMoreMovies, ref, window)
-
+  console.log(props);
   return (
     <>
       {Object.keys(props.recent).length === 0 ? (
@@ -40,12 +39,7 @@ const Movie = (props) => {
             </div>
             <div className="movies-grid" ref={ref}>
               {props.recent.map((rec) => (
-                <Card
-                  rec={rec}
-                  key={rec.animeId}
-                  handelClick={handelClick}
-                  ep="false"
-                />
+<Card rec={rec} key={rec.id}/>
               ))}
             </div>
             <InfiniteScroll

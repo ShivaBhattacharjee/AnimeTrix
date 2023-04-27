@@ -1,20 +1,243 @@
-.user-picture{
+.user-picture {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.user-img{
+
+.user-img {
     width: 80px;
     border-radius: 50%;
 }
-.edit-profile{
+.edit-user-profile{
+    font-size: 10px;
+    position: absolute;
+    color:  rgb(33, 150, 243);
+    right: 41%;
+    top: 17%;
+    /* display: none; */
+    cursor: pointer;
+}
+.edit-user-profile i{
+    padding: 8px;
+    background-color: #000;
+    border-radius: 50%;
+}
+.edit-profile {
     position: absolute;
     left: 40%;
     width: 100px;
     opacity: 0;
     cursor: pointer;
 }
-.edit-profile:hover{
+
+.edit-profile:hover {
     cursor: pointer;
+}
+.profile-images-modal{
+    display: flex;
+    max-width: 700px;
+    gap: 6px;
+    position: absolute;
+    background-color: black;
+    padding: 20px;
+    border-radius: 14px;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    display: none;
+}
+.profile-images-modal::-webkit-scrollbar{
+    display: none;
+}
+.profile-images-modal img{
+    width: 80px;
+}
+.profile-wrapper {
+    background-color: hsl(220, 47%, 20%);
+}
+
+.profile-wrapper .profile-greeting {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.profile-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-navbar ul {
+    display: flex;
+    gap: 40px;
+    color: #fff;
+}
+
+.profile-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.profile-display img {
+    width: 40px;
+}
+
+.profile-contnet {
+    background-color: blue;
+    display: flex;
+}
+
+.profile-user-info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 70vh;
+    overflow-x: hidden;
+    margin: auto;
+}
+
+.profile-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.profile-save {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: rgb(33, 150, 243);
+    color: #000;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-radius: 4px;
+}
+.clear-history{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    padding-bottom: 30px;
+}
+.clear-history button{
+    padding: 5px 15px;
+    font-size: 12px;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 2px solid rgb(33, 150, 243);
+}
+.user-profile{
+    min-width: 100%;
+    padding: 50px 0 0 0;
+}
+.profile-top{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.profile-top img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-top button{
+    background: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+.hide-image-list{
+    display: none;
+}
+
+.image-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20;
+    z-index: 999;
+    background-color: #162032;
+    /* width: 700px; */
+    height: 250px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.image-list .single-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile-nav{
+    margin: 20px 0;
+    min-height: 100%;
+}
+
+.profile-nav ul{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.profile-nav ul li{
+    cursor: pointer;
+}
+
+.hide-profile, .hide-bookmark, .hide-history{
+    display: none;
+}
+
+.edit-profile{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 600px;
+    padding: 20px;
+}
+.edit-profile-form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+.edit-profile-form-group input{
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.edit-profile form button{
+    background: blue;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+@media screen and (max-width: 900px){
+    .profile-nav ul{
+        font-size: 18px;
+    }
+    .edit-profile{
+        width: 90%;
+        padding: 0;
+    }
+.edit-profile-form-group input{
+    padding: 5px 5px;
+}
+
 }

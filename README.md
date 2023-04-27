@@ -3,7 +3,6 @@
     <img src="https://user-images.githubusercontent.com/95211406/224316874-4fa09fa0-eae0-4e28-9da8-ca30aaf6d463.gif" alt="Logo" width="120px" height="100px">
   </a>
 <br/>
-
   
   <h3 align="center">AnimeTrix</h3>
 
@@ -29,14 +28,13 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-
 * [Contributing](#contributing)
 * [License](#license)
 * [Authors](#authors)
 
 ## About The Project
 
-![Screen Shot](https://user-images.githubusercontent.com/95211406/231963035-24a0f85f-86a9-4ebd-9aa9-de0bf8872b5f.png)
+![Screen Shot](https://user-images.githubusercontent.com/95211406/224312675-8e8ac0a3-1c30-4453-bcd6-f502ca95d5f4.png)
 
 Anime Trix is an anime streaming / downloading site that offers a vast collection of anime shows for streaming and downloading. With a user-friendly interface, you can easily find your favorite anime shows and watch them in high-definition quality. Our platform is updated regularly with the latest anime episodes, so you can stay up-to-date with your favorite shows. Anime Trix is the go-to destination for anime lovers who want to watch their favorite shows anytime, anywhere.
 
@@ -64,9 +62,9 @@ AnimeTrix is built using ReactJs and vanilla Css
   
   cd AnimeTrix
   
-  npm i or yarn install
+  npm install
   
-  npm start or yarn start
+  npm start
 ```
 ## Contributing
 

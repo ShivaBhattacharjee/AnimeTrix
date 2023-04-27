@@ -1,103 +1,426 @@
-
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
-import { Link, useLocation, useParams } from "react-router-dom";
+import React, { useEffect, useState, useRef, useId } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Footer } from "../Components/";
+import LoadingBar from "react-top-loading-bar";
 import ReplyIcon from '@mui/icons-material/Reply';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import Cookie from "js-cookie"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { HomeApi,ServerApi,StreamApi } from "../Components/constants";
+
 
 export default function Stream(props) {
-  const { episodeId } = useParams();
+  const { episodeId } = useParams()
   const [data, setData] = useState([]);
-  const [detail, setDetail] = useState([]);
-  const location = useLocation();
-  const animeId = location.state.animeID;
-  const [lastwatch, setLastwatch] = useState(null);
+  const [userId, setUserId] = useState("");
+  const { animeId } = useParams()
+  const [loading, setLoading] = useState(true)
+  const [stream, setstream] = useState([])
+  const [detail, setDetail] = useState({});
+  const [extraDetail, setextraDetail] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState("");
 
+  const navigate = useNavigate();
+  const containerRef = useRef(null);
+  let isMouseDown = false;
+  let startX;
+  let scrollLeft;
+
+  const handleMouseDown = (event) => {
+    isMouseDown = true;
+    startX = event.pageX - containerRef.current.offsetLeft;
+    scrollLeft = containerRef.current.scrollLeft;
+  };
+
+  const handleMouseMove = (event) => {
+    if (!isMouseDown) return;
+    event.preventDefault();
+    const x = event.pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX) * 1;
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    isMouseDown = false;
+  };
   // Local Storage Key
-  const LOCAL_STORAGE_KEY = "animetrix-vercel-app";
-  useEffect(() => {
-    const getVideo = async () => {
-      try {
-        const Video = await axios.get(
-          `https://animetrix-api.onrender.com/vidcdn/watch/${episodeId}`
+  // const LOCAL_STORAGE_KEY = "animetrix-vercel-app";
+
+  const addHistory = async () => {
+    try {
+      if (userId) {
+        const response = await axios.post(
+          `${ServerApi}/user/history`,
+          {
+            _id: userId,
+            animeId: animeId,
+            epId: episodeId,
+          }
         );
-        setData(Video.data.Referer);
-      } catch (err) {
-        console.log("Connection Error");
+
+        console.log(response.data);
+        return response.data;
       }
-    };
-
-    const getDetail = async () => {
-      const Detail = await axios
-        .get(
-          `https://animetrix-api.onrender.com/anime-details/${animeId}`
-        )
-        .catch((err) => console.log("Connection Error"));
-
-      const temp = episodeId;
-      const ep = Detail.data.episodesList.find(
-        ({ episodeId }) => episodeId === temp
-      );
-
-      setLastwatch({
-        ep: ep.episodeNum,
-        title: Detail.data.animeTitle,
-        url: window.location.pathname,
-        animeId: animeId,
-        coverimg: Detail.data.animeImg,
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong ", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
       });
+    }
+  };
 
-      setDetail(Detail.data);
-    };
-    getDetail();
-    getVideo();
-  }, [animeId, episodeId]);
 
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(lastwatch));
-  }, [lastwatch]);
-
-  // reply logic
-  const [showReplyTextArea, setShowReplyTextArea] = useState(false)
-
-  const handleReplyClick = () => {
-    setShowReplyTextArea(!showReplyTextArea)
+  const getComments = async () => {
+    try {
+      axios.interceptors.response.use(response => {
+        return response;
+      }, error => {
+        toast.error(error.response.data.error, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return;
+      });
+      const res = await axios.get(`${ServerApi}/discussion/comments/${episodeId}`)
+      if (res.data.comments)
+        setComments(res.data.comments);
+      else
+        setComments([]);
+    } catch (err) {
+      console.log(err);
+      toast.error("Error loading comments", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }
+  const getStream = async () => {
+    try {
+      const Video = await axios.get(
+        `${StreamApi}/vidcdn/watch/${episodeId}`
+      );
+      setData(Video.data.Referer);
+      setLoading(false);
+    }
+    catch (err) {
+      console.log("Error loading streaming data");
+    }
   }
 
-  
-  
+  const getDetails = async () => {
+    try {
+      const api = await fetch(`${HomeApi}/meta/anilist/info/${animeId}`)
+      const response = await api.json()
+      setDetail(response);
+      const responseArray = [response];
+      setextraDetail(responseArray)
+    }
+    catch (err) {
+      console.log("Error loading details")
+    }
+  }
+
+  function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith(name + '=')) {
+        return cookie.substring(name.length + 1);
+      }
+    }
+    return undefined;
+  }
+
+  useEffect(() => {
+    addHistory();
+  }, []);
+
+  useEffect(() => {
+    const id = getCookie("id");
+    if (id)
+      setUserId(id);
+    addHistory();
+    getDetails();
+    getStream();
+    getComments();
+  }, [animeId, episodeId, userId]);
+
+  // reply logic
+  // const [showReplyTextArea, setShowReplyTextArea] = useState(false)
+
+  // const handleReplyClick = () => {
+  //   setShowReplyTextArea(!showReplyTextArea)
+  // }
+
+  const addComment = async (e) => {
+    e.preventDefault();
+    try {
+      if (userId) {
+        axios.interceptors.response.use(response => {
+          return response;
+        }, error => {
+          toast.error(error.response.data.error, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+          return;
+        });
+        const res = await axios.post(`${ServerApi}/discussion/comment`, {
+          sender: userId,
+          _id: episodeId,
+          comment: comment
+        })
+        getComments();
+        setComment("");
+        return res;
+      } 
+      toast.error("Login first", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } catch (err) {
+      console.log(err);
+      toast.error("Something went wrong please try again later", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }
+
+  const reportComment = async (comment) => {
+    try {
+      if (userId) {
+        axios.interceptors.response.use(response => {
+          return response;
+        }, error => {
+          toast.error(error.response.data.error, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+          return;
+        });
+        const res = await axios.post(`${ServerApi}/discussion/report`, {
+          userId: userId,
+          commentId: comment._id
+        })
+        getComments();
+        toast.error(res.data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return res;
+      }
+      toast.error("Login first", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } catch (err) {
+      console.log(err);
+      toast.error("Something went wrong please try again later", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }
+
+  const deleteComment = async (comment) => {
+    try {
+      if (userId) {
+        const conf = window.confirm("Are you Sure??");
+        if (conf) {
+          axios.interceptors.response.use(response => {
+            return response;
+          }, error => {
+               toast.error(error.response.data.error, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            });
+            return;
+          });
+          const res = await axios.delete(`${ServerApi}/discussion/comment/${comment._id}/${userId}`);
+          getComments();
+          toast.success(res.data.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+          return res;
+        }
+      }
+      toast.error("Login first", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } catch (err) {
+      console.log(err);
+      toast.error("Something went wrong please try again later", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }
+
+  const getLocalDate = (mongoTimestamp) => {
+    const date = new Date(mongoTimestamp);
+    const localDate = date.toLocaleString();
+    const [dateStr, timeStr] = localDate.split(", ");
+    return dateStr+" "+timeStr;
+  }
+
+  const printComments = () => {
+    if (comments.length != 0) {
+      return (
+        <>
+          {comments.map(comment => {
+            return (
+              <div className="user-comment">
+                <div className="user-img">
+                  <img src={comment.sender ? comment.sender.profile : "https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg"} alt="user-img" />
+                </div>
+                <div className="user-name-time-text">
+                  <div className="user-name-time">
+                    <span className="user-name">{comment.sender ? comment.sender.name : "User"}</span>
+                    <span>{getLocalDate(comment.createdAt)}</span>
+                  </div>
+                  <div className="user-text">
+                    <p>
+                      {comment.comment}
+                    </p>
+                  </div>
+                  <div className="reply-like-replies">
+                    {/* <button><ThumbUpIcon /></button>
+                          <button><ThumbDownIcon /></button> */}
+                    <button className={comment.reports.includes(userId) ? "active" : ""} onClick={e => reportComment(comment)}><i className="fa-solid fa-flag"></i>&nbsp;&nbsp;&nbsp;Report</button>
+                    {comment.sender && comment.sender._id == userId ? <button onClick={e => { deleteComment(comment) }}><i className="fa-regular fa-trash-can"></i>&nbsp;&nbsp;&nbsp;Delete</button> : ""}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </>)
+    } else {
+      return (<h1>No Comments Posted</h1>)
+    }
+  }
   return (
     <>
-      <Helmet>
-        <meta
-          name="description"
-          content={`Best site to watch Anime English Sub/Dub online Free and download Anime English Sub/Dub anime.`}
-          charSet="utf-8"
-        />
-        <meta
-          name="keywords"
-          content={`${detail.animeTitle} English Sub/Dub, free ${detail.animeTitle} online, watch ${detail.animeTitle} online, watch ${detail.animeTitle} free, download ${detail.animeTitle} anime, download ${detail.animeTitle} free`}
-          charSet="utf-8"
-        />
-        <title>{`Watching ${detail.animeTitle} on AnimeTrix`}</title>
-        <link rel="canonical" href={`/vidcdn/watch/${episodeId}`} />
-      </Helmet>
-      {Object.keys(data).length !== 0 ? (
+    <ToastContainer/>
+      <LoadingBar
+        color='#0000FF'
+        progress={100}
+        height={5}
+        shadow='true'
+      />
+      {loading ? (
+        <div className="spinner-box">
+          <div className="configure-border-1">
+            <div className="configure-core"></div>
+          </div>
+          <div className="configure-border-2">
+            <div className="configure-core"></div>
+          </div>
+        </div>
+
+      ) : (
         <>
-          <div className="stream">
+          <div className="stream" key={episodeId}>
             <div className="stream-container">
               <div className="video-title">
-                <span>{detail.animeTitle}</span>
+                <span>{detail.title?.romaji}</span>
                 <p>
                   Note :- Refresh the page if the player doesnt load (server
                   except Vidstreaming might contain ads use an adblocker to
                   block ads)
                 </p>
               </div>
-
               <div className="video-player-list">
                 {/* Video Player */}
                 <div className="video-player">
@@ -107,315 +430,110 @@ export default function Stream(props) {
                     frameBorder="0"
                     allowFullScreen="allowfullscreen"
                     webkitallowfullscreen="true"
-                    title={animeId}
+                    title={episodeId}
                   />
                 </div>
+
                 {/* Episode List */}
                 <div className="list-box">
                   <div className="episode-list">
-                    {detail.episodesList &&
-                      detail.episodesList
-                        .slice(0)
-                        .reverse()
-                        .map((ep) => (
-                          <Link
-                            to={`/vidcdn/watch/${ep.episodeId}`}
-                            state={{ animeID: `${animeId}` }}
-                            key={ep.episodeNum}
-                          >
-                            {ep.episodeId === episodeId ? (
-                              <button className="active">
-                                {ep.episodeNum}
-                              </button>
-                            ) : ep.episodeNum % 2 === 0 ? (
-                              <button>{ep.episodeNum}</button>
-                            ) : (
-                              <button>{ep.episodeNum}</button>
-                            )}
-                          </Link>
-                        ))}
+                    {detail.episodes.map((ep) => (
+                      <>
+                        <Link to={`/watch/${ep.id}/${animeId}`}>
+                          {ep.id === episodeId ? (
+                            <button className="active">
+                              {ep.number}
+                            </button>
+                          ) : ep.number % 2 === 0 ? (
+                            <button>{ep.number}</button>
+                          ) : (
+                            <button>{ep.number}</button>
+                          )}
+                        </Link>
+                      </>
+                    ))}
                   </div>
                 </div>
               </div>
+            </div>
+            {extraDetail.map((extra) => {
+              return (
+                <>
+                  <div className="airing-extra-info">
+                    {extra.nextAiringEpisode == undefined ? (
+                      <h1></h1>
+                    ) : (
+                      <h2>
+                        Episode {extra.nextAiringEpisode.episode} will air at{" "}
+                        {new Date(
+                          extra.nextAiringEpisode.airingTime * 1000
+                        ).toLocaleString()}
+                      </h2>
+                    )}
+                  </div>
+                  <div className="previous-seasons">
+                    {detail?.relations?.map((relatedSeason) => {
+                      return (
+                        <div className="related-seasons">
+                          <Link to={`/anime-details/${relatedSeason?.id}`}>
+                            <img src={relatedSeason.image} alt="" className="image-related" />
+                          </Link>
+                          <div className="title-and-type">
+                            <h1>{relatedSeason?.title?.userPreferred}...</h1>
+                            <span>{relatedSeason?.type}</span>
+                          </div>
+                        </div>
+                      )
 
-              {/* discussion */}
-              <div className="comments">
-                <div className="comments-header">
-                  <h3>Comments</h3>
+                    })}
+                  </div>
+                  <div className="characters-container">
+                    <div className="characters-heading">
+                      <h2>Characters</h2>
+                    </div>
+                    <div className="characters" onMouseDown={handleMouseDown}
+                      onMouseMove={handleMouseMove}
+                      onMouseUp={handleMouseUp} ref={containerRef}>
+                      {
+                        extra.characters.map((character) => {
+                          return <div className="character">
+                            <img src={character.image} alt="" />
+                            <p>{character.name.full}</p>
+                          </div>
+                        })
+                      }
+                    </div>
+                  </div>
+                </>
+              )
+            })}
+            {/* discussion */}
+            <div className="comments">
+              <div className="comments-header">
+                <h3>Comments</h3>
+              </div>
+
+              <div className="comment-section">
+                <div className="send-comment">
+                  <textarea
+                    name=""
+                    id=""
+                    placeholder="Leave a comment"
+                    value={comment}
+                    onChange={e => { setComment(e.target.value) }}
+                  ></textarea>
+                  <button onClick={e => { addComment(e) }}>Comment</button>
                 </div>
 
-                <div className="comment-section">
-                  <div className="send-comment">
-                    <textarea
-                      name=""
-                      id=""
-                      placeholder="Leave a comment"
-                    ></textarea>
-                    <button>Comment</button>
-                  </div>
+                <div className="comment-field">
 
-                  <div className="comment-field">
-
-                    <div className="user-comment">
-                      <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user" />
-                      </div>
-                      <div className="user-name-time-text">
-                        <div className="user-name-time">
-                          <span className="user-name">Guts</span>
-                          <span>12:00 AM</span>
-                        </div>
-                        <div className="user-text">
-                          <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Architecto exercitationem dicta quas quasi
-                            repellendus, voluptatem deserunt perferendis quam
-                            dolore molestiae quis commodi beatae accusantium
-                            minima veniam quibusdam, consequatur cupiditate
-                            aliquid?
-                          </p>
-                        </div>
-                        <div className="reply-like-replies">
-                          <button onClick={handleReplyClick}><ReplyIcon /></button>
-                          <button className="like-active"><ThumbUpIcon /></button>
-                          <button><ThumbDownIcon /></button>
-                          <button> 10 Replies</button>
-                        </div>
-
-                        <div className={showReplyTextArea ?  "reply-textarea" : 'hide' }>
-                          <textarea name="" id="" placeholder="Leave a comment"></textarea>
-                          <button>Send Comment</button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="user-comment">
-                      <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user-img" />
-                      </div>
-                      <div className="user-name-time-text">
-                        <div className="user-name-time">
-                          <span className="user-name">Girffith</span>
-                          <span>12:00 AM</span>
-                        </div>
-                        <div className="user-text">
-                          <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Architecto exercitationem dicta quas quasi
-                            repellendus, voluptatem deserunt perferendis quam
-                            dolore molestiae quis commodi beatae accusantium
-                            minima veniam quibusdam, consequatur cupiditate
-                            aliquid?
-                          </p>
-                        </div>
-                        <div className="reply-like-replies">
-                          <button  onClick={handleReplyClick}><ReplyIcon /></button>
-                          <button><ThumbUpIcon /></button>
-                          <button><ThumbDownIcon /></button>
-                          <button> 10 Replies</button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="user-comment">
-                      <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user-img" />
-                      </div>
-                      <div className="user-name-time-text">
-                        <div className="user-name-time">
-                          <span className="user-name">Casca</span>
-                          <span>12:00 AM</span>
-                        </div>
-                        <div className="user-text">
-                          <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Architecto exercitationem dicta quas quasi
-                            repellendus, voluptatem deserunt perferendis quam
-                            dolore molestiae quis commodi beatae accusantium
-                            minima veniam quibusdam, consequatur cupiditate
-                            aliquid?
-                          </p>
-                        </div>
-                        <div className="reply-like-replies">
-                          <button><ReplyIcon /></button>
-                          <button><ThumbUpIcon /></button>
-                          <button><ThumbDownIcon /></button>
-                          <button> 10 Replies</button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="user-comment">
-                      <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user-img" />
-                      </div>
-                      <div className="user-name-time-text">
-                        <div className="user-name-time">
-                          <span className="user-name">Casca</span>
-                          <span>12:00 AM</span>
-                        </div>
-                        <div className="user-text">
-                          <p>
-                            Big as paragraph cause why not?
-
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, exercitationem tempora ipsum atque nihil consequuntur, ad nulla voluptatem rem, voluptas mollitia eius! Iure, pariatur! Eaque, libero! Quidem incidunt obcaecati veritatis?
-                          </p>
-                        </div>
-                        <div className="reply-like-replies">
-                          <button><ReplyIcon /></button>
-                          <button><ThumbUpIcon /></button>
-                          <button><ThumbDownIcon /></button>
-                          <button> 10 Replies</button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="user-comment">
-                      <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user-img" />
-                      </div>
-                      <div className="user-name-time-text">
-                        <div className="user-name-time">
-                          <span className="user-name">Casca</span>
-                          <span>12:00 AM</span>
-                        </div>
-                        <div className="user-text">
-                          <p>
-                            Big as paragraph cause why not?
-
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, exercitationem tempora ipsum atque nihil consequuntur, ad nulla voluptatem rem, voluptas mollitia eius! Iure, pariatur! Eaque, libero! Quidem incidunt obcaecati veritatis?
-                          </p>
-                        </div>
-                        <div className="reply-like-replies">
-                          <button><ReplyIcon /></button>
-                          <button><ThumbUpIcon /></button>
-                          <button><ThumbDownIcon /></button>
-                          <button> 10 Replies</button>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div className="user-comment">
-                      <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user-img" />
-                      </div>
-                      <div className="user-name-time-text">
-                        <div className="user-name-time">
-                          <span className="user-name">Casca</span>
-                          <span>12:00 AM</span>
-                        </div>
-                        <div className="user-text">
-                          <p>
-                            Big as paragraph cause why not?
-
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, exercitationem tempora ipsum atque nihil consequuntur, ad nulla voluptatem rem, voluptas mollitia eius! Iure, pariatur! Eaque, libero! Quidem incidunt obcaecati veritatis?
-                          </p>
-                        </div>
-                        <div className="reply-like-replies">
-                          <button><ReplyIcon /></button>
-                          <button><ThumbUpIcon /></button>
-                          <button><ThumbDownIcon /></button>
-                          <button> 10 Replies</button>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div className="user-comment">
-                      <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user-img" />
-                      </div>
-                      <div className="user-name-time-text">
-                        <div className="user-name-time">
-                          <span className="user-name">Casca</span>
-                          <span>12:00 AM</span>
-                        </div>
-                        <div className="user-text">
-                          <p>
-                            Big as paragraph cause why not?
-
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, exercitationem tempora ipsum atque nihil consequuntur, ad nulla voluptatem rem, voluptas mollitia eius! Iure, pariatur! Eaque, libero! Quidem incidunt obcaecati veritatis?
-                          </p>
-                        </div>
-                        <div className="reply-like-replies">
-                          <button><ReplyIcon /></button>
-                          <button><ThumbUpIcon /></button>
-                          <button><ThumbDownIcon /></button>
-                          <button> 10 Replies</button>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div className="user-comment">
-                      <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user-img" />
-                      </div>
-                      <div className="user-name-time-text">
-                        <div className="user-name-time">
-                          <span className="user-name">Casca</span>
-                          <span>12:00 AM</span>
-                        </div>
-                        <div className="user-text">
-                          <p>
-                            Big as paragraph cause why not?
-
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, exercitationem tempora ipsum atque nihil consequuntur, ad nulla voluptatem rem, voluptas mollitia eius! Iure, pariatur! Eaque, libero! Quidem incidunt obcaecati veritatis?
-                          </p>
-                        </div>
-                        <div className="reply-like-replies">
-                          <button><ReplyIcon /></button>
-                          <button><ThumbUpIcon /></button>
-                          <button><ThumbDownIcon /></button>
-                          <button> 10 Replies</button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="user-comment">
-                      <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg" alt="user-img" />
-                      </div>
-                      <div className="user-name-time-text">
-                        <div className="user-name-time">
-                          <span className="user-name">Casca</span>
-                          <span>12:00 AM</span>
-                        </div>
-                        <div className="user-text">
-                          <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Architecto exercitationem dicta quas quasi
-                            repellendus, voluptatem deserunt perferendis quam
-                            dolore molestiae quis commodi beatae accusantium
-                            minima veniam quibusdam, consequatur cupiditate
-                            aliquid?
-                          </p>
-                        </div>
-                        <div className="reply-like-replies">
-                          <button><ReplyIcon /></button>
-                          <button><ThumbUpIcon /></button>
-                          <button><ThumbDownIcon /></button>
-                          <button> 10 Replies</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {printComments()}
                 </div>
               </div>
             </div>
           </div>
           <Footer />
         </>
-      ) : (
-        <div className="spinner-box">
-          <div className="configure-border-1">
-            <div className="configure-core"></div>
-          </div>
-          <div className="configure-border-2">
-            <div className="configure-core"></div>
-          </div>
-        </div>
       )}
     </>
   );

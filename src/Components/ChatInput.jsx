@@ -4,7 +4,7 @@ import { useState } from "react";
 import loader from '../assests/loader.gif'
 import { AiOutlineSend } from "react-icons/ai"
 const ChatInput = ({ sendMessage, loading }) => {
-  const [value, setValue] = useState("Hi can you help me?");
+  const [value, setValue] = useState("Hi, Can you help me?");
 
   const handleSubmit = () => {
     if (value === "") return;

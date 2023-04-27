@@ -50,11 +50,12 @@ p {
   width: 10%;
 }
 
-.join-social ion-icon{
+.join-social ion-icon ,
+.join-social i{
   font-size: 50px;
   transition: .5s;
 }
-.join-social ion-icon:hover{
+.join-social a:hover{
   color: rgb(33, 150, 243);
 }
 
@@ -87,8 +88,11 @@ p {
   }
   .join-social {
     width: 100%;
+    display: flex;
+    flex-direction: row;
   }
-  .join-social ion-icon{
+  .join-social ion-icon,
+  .join-social i{
     margin-top: 5px;
     padding-bottom: 30px;
   }

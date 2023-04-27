@@ -1,3 +1,4 @@
+
 .season-head{
   background: #162032;
   width: 100%;
@@ -18,7 +19,6 @@
   grid-template-columns: repeat(auto-fill, minmax(190px, 10fr));
   margin-top: 40px;
   gap: 30px;
-  z-index: 9999;
 }
 .release-date-season{
   border-radius: 3px;
@@ -34,6 +34,7 @@
   padding: 0px 7px;
   position: relative;
   border-radius: 3px;
+  color: #fff;
 }
 .season-title {
   font-size: 16px;

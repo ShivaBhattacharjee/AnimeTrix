@@ -2,17 +2,24 @@ import React, { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from "react-router-dom";
 import spinner from "../img/spinner.svg";
-
+import { Card } from '../Components';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { HomeApi } from '../Components/constants';
 function OptionFetcher() {
 
-  const [selectedOption, setSelectedOption] = useState('action');
+  const [selectedOption, setSelectedOption] = useState('Action');
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   const [page, setPage] = useState(1);
 
   const [isLoading, setIsLoading] = useState(false);
-
+  const [isBookmark, setIsBookmark] = useState(false);
+  //bookmark
+  function handleIconClick() {
+    setIsBookmark(!isBookmark);
+  }
 
   useEffect(() => {
     fetchData();
@@ -27,14 +34,26 @@ function OptionFetcher() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `https://animetrix-api.onrender.com/genre/${selectedOption}?page=${page}`
+        `${HomeApi}/meta/anilist/advanced-search?genres=["${selectedOption}"]&&page=${page}`
       );
       const responseData = await response.json();
-
-      setData(responseData);
+      console.log(responseData)
+      setData([...data, ...responseData.results]);
       setIsLoading(false);
     } catch (error) {
       console.error(error);
+      toast.error("Error loading genre", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        rtl: false,
+        pauseOnFocusLoss: true,
+        draggable: true,
+        pauseOnHover: true,
+        theme: "dark",
+      });
+
     }
   }
 
@@ -42,17 +61,19 @@ function OptionFetcher() {
   function handleChange(event) {
 
     setSelectedOption(event.target.value);
+    setPage(1);
+    setData([]);
   }
 
 
   async function fetchMoreData() {
     try {
-      setPage(page + 1);
+      setPage(page => page + 1);
       const response = await fetch(
-        `https://animetrix-api.onrender.com/genre/${selectedOption}?page=${page}`
+        `${HomeApi}/meta/anilist/advanced-search?genres=["${selectedOption}"]&&page=${page + 1}`
       );
       const responseData = await response.json();
-      setData([...data, ...responseData]);
+      setData([...data, ...responseData.results]);
     } catch (error) {
       console.error(error);
     }
@@ -63,8 +84,10 @@ function OptionFetcher() {
     setPage(1);
   }, [selectedOption]);
 
+
   return (
     <>
+      <ToastContainer />
       {isLoading && (
         <div className="spinner-box">
           <div className="configure-border-1">
@@ -79,48 +102,11 @@ function OptionFetcher() {
         <div className="filter-bar genre">
           <div className="filter-dropdowns">
             <select value={selectedOption} onChange={handleChange}>
-              <option value="action" >Action</option>
-              <option value="adventure">Adventure</option>
-              <option value="cars ">Cars </option>
-              <option value="comedy">Comedy</option>
-              <option value="crime">Crime</option>
-              <option value="dementia">Dementia</option>
-              <option value="demons">Demons</option>
-              <option value="drama">Drama</option>
-              <option value="ecchi">Ecchi</option>
-              <option value="family">Family</option>
-              <option value="fantasy">Fantasy</option>
-              <option value="game">Game</option>
-              <option value="gourmet">Gourmet</option>
-              <option value="harem">Harem</option>
-              <option value="historical">Historical</option>
-              <option value="horror">Horror</option>
-              <option value="josei">Josei</option>
-              <option value="kids">Kids</option>
-              <option value="magic">Magic</option>
-              <option value="mecha">Mecha</option>
-              <option value="martial-arts">Martial-arts</option>
-              <option value="military">Military</option>
-              <option value="mystery">Mystery</option>
-              <option value="parody">Parody</option>
-              <option value="police">Police</option>
-              <option value="psychological">Psychological</option>
-              <option value="romance">Romance</option>
-              <option value="samurai">Samurai</option>
-              <option value="school">School</option>
-              <option value="sci-fi">Sci-fi</option>
-              <option value="seinen">Seinen</option>
-              <option value="shoujo">Shoujo</option>
-              <option value="shounen">Shounen</option>
-              <option value="space">Space</option>
-              <option value="sports">Sports</option>
-              <option value="super-power">Super-power</option>
-              <option value="supernatural">Supernatural</option>
-              <option value="suspense">Suspense</option>
-              <option value="thriller">Thriller</option>
-              <option value="vampire">Vampire</option>
-              <option value="yaoi">Yaoi</option>
-              <option value="yuri">Yuri</option>
+              {["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mecha", "Mystery", "Romance", "Sci-Fi", "Sports", "Supernatural", "Thriller"].map((genreItem) => {
+                return (
+                  <option value={genreItem} key={genreItem} >{genreItem}</option>
+                )
+              })}
             </select>
           </div>
           <div className="heading">
@@ -135,22 +121,8 @@ function OptionFetcher() {
             loader={<img src={spinner} alt="spinner" className="spinner" />}
           >
             <div className='movies-grid'>
-              {data.map(item => (
-                <div
-                  className="movie-card" key={item.animeId}>
-                  <Link to={`/anime-details/${item.animeId}`}>
-                    <div className="card-head">
-                      <img
-                        src={item.animeImg}
-                        alt={item.animeId}
-                        className="card-img"
-                      />
-                      <div className="">
-                        <h5 className="card-title">{(item.animeTitle.substring(0, 35))}</h5>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
+              {data.map(rec => (
+                <Card rec={rec} key={rec.id} />
               ))}
             </div>
           </InfiniteScroll>

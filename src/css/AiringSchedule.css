@@ -1,0 +1,96 @@
+.airing-schedule {
+    margin: 50px 0;
+    max-width: 1400px;
+    margin: auto;
+    padding-bottom: 40px;
+  }
+  .airing-schedule-heading {
+    padding: 20px 10px;
+    margin: 20px 0;
+    font-size: 50px;
+  }
+  .anime-airing {
+    background-color: #162032;
+    padding: 20px;
+    border-radius: 10px;
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+  .anime-schedule {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border-bottom: 1px solid rgb(61, 58, 58);
+  }
+  .anime-schedule .first-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+  .anime-schedule .schedule-info {
+    padding: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    background-color: rgb(0, 0, 0, 0.3);
+  }
+  @media screen and (max-width: 1500px){
+    .airing-schedule {
+      width: 90%;
+    }
+    .airing-schedule-heading h3{
+      font-size: 40px;
+    }
+  }
+  @media screen and (max-width: 900px){
+    .airing-schedule {
+      width: 90%;
+    }
+    .airing-schedule-heading h3{
+      font-size: 35px;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .airing-schedule {
+      width: 90%;
+    }
+    .anime-airing {
+      padding: 0;
+    }
+    .anime-schedule {
+      font-size: 12px;
+    }
+    .anime-schedule .first-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      width: 60%;
+    } 
+  }
+  @media screen and (max-width: 700px){
+    .airing-schedule-heading h3{
+      font-size: 35px;
+    }
+  }
+  @media screen and (max-width: 600px){
+    .airing-schedule-heading h3{
+      font-size: 30px;
+    }
+  }
+  @media screen and (max-width: 350px){
+    .airing-schedule-heading h3{
+      font-size: 20px;
+    }
+    .anime-schedule .schedule-info {
+      padding: 5px;
+      border-radius: 5px;
+      padding: 10px;
+      width: 100px;
+      text-align: center;
+      background-color: rgb(0, 0, 0, 0.3);
+    }
+  }
