@@ -45,7 +45,7 @@ const Header = forwardRef((props, ref) => {
   let profileRef = useRef();
   useEffect(() => {
     let handler = (e) => {
-      if (!profileRef?.current?.contains(e.target)) {
+      if (!profileRef.current.contains(e.target)) {
         setProfileActive(false);
       }
     };
@@ -73,7 +73,7 @@ const Header = forwardRef((props, ref) => {
     const id = getCookie("id");
     const category = getCookie("category");
     setImg(getCookie("img"));
-    if (id?.length != 0) 
+    if (id.length != 0) 
       setIsLoggedIn(true);
     if(category == "admin")
       setIsAdmin(true);
@@ -172,7 +172,7 @@ const Header = forwardRef((props, ref) => {
           </li> */}
           <li>
             <NavLink to={"/ai-chat"} onClick={() => closeMenuWhenClickedLink()}>
-              AI Chat
+              ChatterBox
             </NavLink>
           </li>
 
