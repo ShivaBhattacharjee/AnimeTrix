@@ -31,7 +31,7 @@ const Header = forwardRef((props, ref) => {
     }
   })
 
-  
+
   function getCookie(name) {
     const cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++) {
@@ -73,9 +73,10 @@ const Header = forwardRef((props, ref) => {
     const id = getCookie("id");
     const category = getCookie("category");
     setImg(getCookie("img"));
-    if (id.length != 0) 
+    if (id && id.length !== 0) {
       setIsLoggedIn(true);
-    if(category == "admin")
+    }
+    if (category == "admin")
       setIsAdmin(true);
   }
 
@@ -115,23 +116,23 @@ const Header = forwardRef((props, ref) => {
   };
 
   const logout = (e) => {
-      Cookies.remove("id");
-      setIsLoggedIn(false);
-      toast('Goodbye see you soon', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        });
+    Cookies.remove("id");
+    setIsLoggedIn(false);
+    toast('Goodbye see you soon', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   }
 
   return (
     <>
-    <ToastContainer/>
+      <ToastContainer />
       <nav className="header">
         <div className="logo">
           <NavLink to="/">
@@ -178,7 +179,7 @@ const Header = forwardRef((props, ref) => {
 
           <li>
             <NavLink to={"/image-search"} onClick={() => closeMenuWhenClickedLink()}>
-            AniScan
+              AniScan
             </NavLink>
           </li>
         </ul>
@@ -211,8 +212,8 @@ const Header = forwardRef((props, ref) => {
               <Link to="/history">
                 <li>History</li>
               </Link>
-              {isAdmin?
-                <a href="http://localhost:3001"><li>Admin</li></a>:""}
+              {isAdmin ?
+                <a href="http://localhost:3001"><li>Admin</li></a> : ""}
               <li onClick={e => { logout(e) }}>Logout</li>
             </div>
           </div>}
