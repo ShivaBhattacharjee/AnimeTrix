@@ -45,7 +45,7 @@ const Header = forwardRef((props, ref) => {
   let profileRef = useRef();
   useEffect(() => {
     let handler = (e) => {
-      if (!profileRef.current.contains(e.target)) {
+      if (profileRef.current && !profileRef.current.contains(e.target)) {
         setProfileActive(false);
       }
     };
