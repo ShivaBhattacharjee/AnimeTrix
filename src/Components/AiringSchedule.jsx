@@ -9,7 +9,7 @@ function AiringSchedule(props) {
       </div>
 
       <div className="anime-airing">
-        {airingList.map((airingSchedule) => {
+        {airingList?.map((airingSchedule) => {
           const { id, title, episode, airingAt } = airingSchedule;
 
           return (
