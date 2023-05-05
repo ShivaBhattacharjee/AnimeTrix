@@ -122,7 +122,7 @@ export default function Details() {
                 <div className="anime-trailer">
                   <div className="trailer">
                     {animeDetails.trailer && (
-                      <iframe src={`https://www.youtube.com/embed/${animeDetails.trailer.id}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      <iframe src={`https://www.youtube.com/embed/${animeDetails.trailer.id}`} name={animeDetails.animeId} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen></iframe>
                     )}
                   </div>

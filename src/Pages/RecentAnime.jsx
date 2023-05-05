@@ -4,14 +4,23 @@ import { Card, Lastwatch, Slider, AiringSchedule, ForYou, Footer, UpcomingSeason
 import { NewSeason } from "../Pages"
 import { Link } from "react-router-dom";
 import { useFetchInitialData } from "../utils/hooks";
+import { HomeApi } from "../Components/constants";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation"
+
+import "../css/slider.css";
+import { Autoplay, Pagination, Navigation } from "swiper";
 // import History from "../Components/History";
 const RecentAnime = (props) => {
   const renderAfterCalled = useRef(false);
-  const [isBookmark, setIsBookmark] = useState(false);
   const [airingList, setairingList] = useState([])
   const getAiring = async () => {
     try {
-      const api = await fetch(`https://api.consumet.org/meta/anilist/airing-schedule?notYetAired=true`)
+      const api = await fetch(`${HomeApi}/meta/anilist/airing-schedule?notYetAired=true`)
       const response = await api.json()
       setairingList(response.results)
     }
@@ -20,10 +29,7 @@ const RecentAnime = (props) => {
     }
   }
 
-  //bookmark
-  function handleIconClick() {
-    setIsBookmark(!isBookmark);
-  }
+
 
   useEffect(() => {
     if (!renderAfterCalled.current) {
@@ -36,25 +42,16 @@ const RecentAnime = (props) => {
   const handelClick = () => {
     props.handelClick();
   };
+  function scroll() {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }
 
-  const [lastwatch, setLastwatch] = useState(null);
+  const { loading, recent, loadMoreRecent, slider } = props;
 
-  const LOCAL_STORAGE_KEY = "animetrix-vercel-app"
-
-  useState(() => {
-    const fetchLastWatch = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (fetchLastWatch) {
-      setLastwatch(fetchLastWatch);
-    }
-  }, []);
-
-  const { loading, recent, loadMoreRecent } = props;
-
-  useFetchInitialData(loading, recent, loadMoreRecent, ref, window)
+  useFetchInitialData(loading, recent, loadMoreRecent, ref, window, slider)
 
   return (
     <>
-      <Slider />
       {Object.keys(props.recent).length === 0 ? (
         <div className="spinner-box">
           <div className="configure-border-1">
@@ -66,9 +63,58 @@ const RecentAnime = (props) => {
         </div>
       ) : (
         <>
+        <div className="home-container">
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {props.slider &&
+              props.slider.map((rec) => (
+                <div className="banner-card" key={rec.id}>
+                  <SwiperSlide >
+                    <img src={rec?.cover} alt={rec.id} />
+                    <div className="banner-text">
+                      <Link to={`/anime-details/${rec.id}`}>
+                        <h4>{rec.title.english}</h4>
+
+                        <button className="watch">Watch Now</button>
+                      </Link>
+                    </div>
+                  </SwiperSlide>
+                </div>
+              ))}
+          </Swiper>
           {/* <History/> */}
-          <NewSeason handelClick={handelClick} />
           <br /><br />
+          <section className="movies">
+            <div className="filter-bar">
+              <div className="heading">
+                <h3>Recent Anime</h3>
+              </div>
+            </div>
+            <div className="seasons-grid">
+              {props.recent &&
+                props.recent.map((rec) => (
+                  <Card rec={rec} key={rec.id} handelClick={handelClick} />
+                ))}
+            </div>
+            <div className="loadmore-recent">
+              <Link to="/recent-anime" onClick={scroll}>
+                <button className="loadmore">View More</button>
+              </Link>
+            </div>
+          </section>
+
           <section className="movies">
             <div className="filter-bar">
               <div className="heading">
@@ -76,15 +122,17 @@ const RecentAnime = (props) => {
               </div>
             </div>
             <div className="seasons-grid">
-              {props.recent &&
-                props.recent.map((rec) => (
-                  <Card rec={rec} key={rec.id} handelClick={handelClick}/>
-                ))}
+              {props.popular.map((rec) => (
+                <Card
+                  rec={rec}
+                  key={rec.id} handelClick={handelClick}
+                />
+              ))}
             </div>
             <div className="loadmore-recent">
-              <a href="/popular">
+              <Link to="/popular" onClick={scroll}>
                 <button className="loadmore">View More</button>
-              </a>
+              </Link>
             </div>
           </section>
           <ForYou />
@@ -93,6 +141,7 @@ const RecentAnime = (props) => {
           <br /><br />
           <AiringSchedule airingList={airingList} ref={ref} />
           <Footer />
+          </div>
         </>
       )}
     </>

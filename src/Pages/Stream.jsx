@@ -9,8 +9,10 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import Cookie from "js-cookie"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { HomeApi,ServerApi,StreamApi } from "../Components/constants";
-
+import { HomeApi, ServerApi, StreamApi } from "../Components/constants";
+import Hls from 'hls.js';
+import Artplayer from "../Components/ArtPlayer";
+import VideoPlayer from "../Components/VideoPlayer";
 
 export default function Stream(props) {
   const { episodeId } = useParams()
@@ -23,7 +25,10 @@ export default function Stream(props) {
   const [extraDetail, setextraDetail] = useState([]);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
-
+  const [download, setDownload] = useState("")
+  const [quality, setQuality] = useState([])
+  const [displayArtPlayer, setDisplayArtPlayer] = useState(true);
+  const [external, setExternal] = useState([])
   const navigate = useNavigate();
   const containerRef = useRef(null);
   let isMouseDown = false;
@@ -120,9 +125,12 @@ export default function Stream(props) {
   const getStream = async () => {
     try {
       const Video = await axios.get(
-        `${StreamApi}/vidcdn/watch/${episodeId}`
+        `${HomeApi}/anime/gogoanime/watch/${episodeId}`
       );
-      setData(Video.data.Referer);
+      setData(Video?.data?.sources);
+      setDownload(Video?.data?.download)
+      setQuality(Video?.data?.sources)
+      setExternal(Video?.data?.headers?.Referer)
       setLoading(false);
     }
     catch (err) {
@@ -168,12 +176,13 @@ export default function Stream(props) {
     getComments();
   }, [animeId, episodeId, userId]);
 
-  // reply logic
-  // const [showReplyTextArea, setShowReplyTextArea] = useState(false)
+  const handleInternalClick = () => {
+    setDisplayArtPlayer(true);
+  };
 
-  // const handleReplyClick = () => {
-  //   setShowReplyTextArea(!showReplyTextArea)
-  // }
+  const handleExternalClick = () => {
+    setDisplayArtPlayer(false);
+  };
 
   const addComment = async (e) => {
     e.preventDefault();
@@ -202,7 +211,7 @@ export default function Stream(props) {
         getComments();
         setComment("");
         return res;
-      } 
+      }
       toast.error("Login first", {
         position: "top-right",
         autoClose: 5000,
@@ -296,7 +305,7 @@ export default function Stream(props) {
           axios.interceptors.response.use(response => {
             return response;
           }, error => {
-               toast.error(error.response.data.error, {
+            toast.error(error.response.data.error, {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -352,7 +361,7 @@ export default function Stream(props) {
     const date = new Date(mongoTimestamp);
     const localDate = date.toLocaleString();
     const [dateStr, timeStr] = localDate.split(", ");
-    return dateStr+" "+timeStr;
+    return dateStr + " " + timeStr;
   }
 
   const printComments = () => {
@@ -392,7 +401,7 @@ export default function Stream(props) {
   }
   return (
     <>
-    <ToastContainer/>
+      <ToastContainer />
       <LoadingBar
         color='#0000FF'
         progress={100}
@@ -416,28 +425,34 @@ export default function Stream(props) {
               <div className="video-title">
                 <span>{detail.title?.romaji}</span>
                 <p>
-                  Note :- Refresh the page if the player doesnt load (server
-                  except Vidstreaming might contain ads use an adblocker to
-                  block ads)
+                  Note :- For ad-free experience, please use the internal player. If it's not working, external player with adblocker recommended to block ads.
                 </p>
               </div>
+              <br />
               <div className="video-player-list">
                 {/* Video Player */}
                 <div className="video-player">
-                  <iframe
-                    src={data}
-                    scrolling="no"
-                    frameBorder="0"
-                    allowFullScreen="allowfullscreen"
-                    webkitallowfullscreen="true"
-                    title={episodeId}
-                  />
+                  {displayArtPlayer ?
+                    <VideoPlayer
+                      videoUrl={data}
+                      download={download}
+                      quality={quality}
+                      title={episodeId}
+                    /> : <><iframe
+                      src={external}
+                      scrolling="no"
+                      frameBorder="0"
+                      allowFullScreen="allowfullscreen"
+                      webkitallowfullscreen="true"
+                      title={episodeId}
+                    />
+                    </>}
                 </div>
 
                 {/* Episode List */}
                 <div className="list-box">
                   <div className="episode-list">
-                    {detail.episodes.map((ep) => (
+                    {detail?.episodes?.map((ep) => (
                       <>
                         <Link to={`/watch/${ep.id}/${animeId}`}>
                           {ep.id === episodeId ? (
@@ -456,26 +471,26 @@ export default function Stream(props) {
                 </div>
               </div>
             </div>
-            {extraDetail.map((extra) => {
+            {extraDetail?.map((extra) => {
               return (
                 <>
                   <div className="airing-extra-info">
-                    {extra.nextAiringEpisode == undefined ? (
-                      <h1></h1>
-                    ) : (
-                      <h2>
-                        Episode {extra.nextAiringEpisode.episode} will air at{" "}
-                        {new Date(
-                          extra.nextAiringEpisode.airingTime * 1000
-                        ).toLocaleString()}
-                      </h2>
-                    )}
+                    <h2>
+                      Episode {extra.nextAiringEpisode.episode} will air at{" "}
+                      {new Date(
+                        extra.nextAiringEpisode.airingTime * 1000
+                      ).toLocaleString()}
+                    </h2>
+                  </div>
+                  <div className="player-change">
+                    <button onClick={handleInternalClick}>Internel Player</button>
+                    <button onClick={handleExternalClick}>External Player</button>
                   </div>
                   <div className="previous-seasons">
                     {detail?.relations?.map((relatedSeason) => {
                       return (
                         <div className="related-seasons">
-                          <Link to={`/anime-details/${relatedSeason?.id}`}>
+                          <Link to={`/anime-details/${relatedSeason?.id}`} onClick={() => alert(episodeId)}>
                             <img src={relatedSeason.image} alt="" className="image-related" />
                           </Link>
                           <div className="title-and-type">

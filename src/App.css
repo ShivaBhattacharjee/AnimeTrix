@@ -6,7 +6,9 @@
   list-style-type: none;
   -webkit-tap-highlight-color: transparent;
 }
-
+.art-setting-quality {
+  display: block !important;
+}
 *,
 *::before,
 *::after {
@@ -31,7 +33,7 @@ h6 {
   color: #fff;
 }
 
-body {
+body{
   background: hsl(225, 25%, 7%);
   max-height: 100%;
   min-height: 100vh;

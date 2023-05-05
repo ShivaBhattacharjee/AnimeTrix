@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import Card from './Card';
+import { HomeApi } from './constants';
 const ForYou = () => {
   const [forYou, setforYou] = useState([])
   const [isBookmark, setIsBookmark] = useState(false);
@@ -11,7 +12,7 @@ const ForYou = () => {
   }
   const getRandom = async () => {
     try {
-      const api = await fetch(`https://api.consumet.org/meta/anilist/random-anime`)
+      const api = await fetch(`${HomeApi}/meta/anilist/random-anime`)
       const response = await api.json()
       setforYou(response)
     }

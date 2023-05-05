@@ -49,21 +49,21 @@ function Login() {
   }
 
   function getCookie(name) {
-  const cookies = document.cookie.split(';');
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
-    if (cookie.startsWith(name + '=')) {
-      return cookie.substring(name.length + 1);
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith(name + '=')) {
+        return cookie.substring(name.length + 1);
+      }
     }
+    return undefined;
   }
-  return undefined;
-}
 
   const navigate = useNavigate();
 
-  useEffect(()=>{
+  useEffect(() => {
     const id = getCookie("id");
-    if(id) {
+    if (id) {
       navigate("/");
     }
   });
@@ -101,43 +101,47 @@ function Login() {
   }
   return (
     <>
-    <section className="login">
-      <ToastContainer/>
-      <div className="login-container">
-        <h1>Log In</h1>
-        <form autoComplete="false" onSubmit={e => { submitHandler(e) }}>
-          <div className="form-group">
-            <input
-              type="text"
-              className="login-group-input"
-              placeholder="Email"
-              onChange={e => { setEmail(e.target.value) }}
-              required
-            />
-            <input
-              type="password"
-              className="login-group-input"
-              placeholder="Password"
-              onChange={e => { setPassword(e.target.value) }}
-              required
-            />
-             <div className="login-btn">
-              <button type="submit" className="login-sign-in">
-                Log In
-              </button>
+      <section className="login">
+        <ToastContainer />
+        <div className="login-container">
+          <h1>Welcome back 👋 </h1>
+          <form autoComplete="false" onSubmit={e => { submitHandler(e) }}>
+            <div className="form-group">
+              <label htmlFor="email">Email : </label>
+              <input
+                type="text"
+                className="login-group-input"
+                placeholder="xyz@email.com"
+                onChange={e => { setEmail(e.target.value) }}
+                required
+              />
+              <label htmlFor="password">Password : </label>
+              <input
+                type="password"
+                className="login-group-input"
+                placeholder="Password"
+                onChange={e => { setPassword(e.target.value) }}
+                required
+              />
+              <div className="remember-me-forget-pass">
+                <div className="check-remember">
+                  <input type="checkbox" id="" name="remember-me" value="" onChange={e => { setRememberMe(!rememberMe) }} />
+                  <span>Remember me</span>
+                </div>
+                <Link to={"/forgot-password"} className="forgot-password">Forgot password ?</Link>
+              </div>
+              <div className="login-btn">
+                <button type="submit" className="login-sign-in">
+                  Log In
+                </button>
+              </div>
+              <div className="create-acc">
+              <Link to={"/register"}>Don't have an account <span className="register"> Register</span></Link>
+              </div>
             </div>
-          </div>
-        </form>
-        <div className="remember-me-forget-pass">
-          <div className="check-remember">
-            <input type="checkbox" id="" name="remember-me" value="" onChange={e => { setRememberMe(!rememberMe) }} />
-            <label htmlFor="remember-me">Remember me</label>
-          </div>
-          <Link to={"/forgot-password"}>Forgot password ?</Link>
-          <Link to={"/register"}>Don't have an account <span className="register"> Register</span></Link>
+          </form>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 }

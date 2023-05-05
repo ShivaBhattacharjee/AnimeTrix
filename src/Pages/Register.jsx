@@ -174,11 +174,12 @@ function Register() {
   }
   return (
     <div className="login">
-       <ToastContainer />
+      <ToastContainer />
       <div className="login-container">
-        <h1>Sign Up</h1>
+        <h1>Join Us 🤝</h1>
         <form autoComplete="false" onSubmit={e => { getOTP(e) }}>
           <div className="form-group">
+            <label htmlFor="email">Username : </label>
             <input
               type="text"
               className="login-group-input"
@@ -187,6 +188,7 @@ function Register() {
               required
               autoComplete='off'
             />
+            <label htmlFor="email">Email : </label>
             <input
               type="text"
               className="login-group-input"
@@ -195,6 +197,7 @@ function Register() {
               required
               autoComplete='off'
             />
+            <label htmlFor="email">Password : </label>
             <input
               type="password"
               className="login-group-input"
@@ -204,6 +207,7 @@ function Register() {
               required
               autoComplete='off'
             />
+                <label htmlFor="email">Confirm Password : </label>
             <input
               type="password"
               className="login-group-input"
@@ -213,13 +217,14 @@ function Register() {
               required
               autoComplete='off'
             />
+            <br />
             <input
               type="text"
               className="login-group-input-otp"
               placeholder="OTP"
               onChange={e => { setOtp(e.target.value) }}
             />
-            <button type="submit" className="login-sign-in">
+            <button type="submit" className="login-register">
               Get OTP
             </button>
             <button type="button" className="login-sign-reg" onClick={e => { submitHandler(e) }}>

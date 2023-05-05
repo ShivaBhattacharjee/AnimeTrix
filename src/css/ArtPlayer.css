@@ -1,0 +1,47 @@
+.video-art{
+	width: 100vw;
+	max-width: 100%;
+	height: calc(var(--vh, 1vh) * 55);
+	border-radius: 14px;
+	max-height: 100vh;
+	margin: auto;
+}
+.art-video-player {
+	height: calc(var(--vh, 1vh) * 60) !important;
+	width: 100% !important;
+	border-radius: 14px;
+}
+
+@media(max-width:1200px){
+	.video-art{
+		width: 55vw;
+	}
+	.video-art{
+		height: calc(var(--vh, 1vh) * 50);
+	}
+	.art-video-player {
+		height: calc(var(--vh, 1vh) * 50) !important;
+	}
+	
+}
+@media(max-width:1000px){
+	.video-art{
+		width: 90vw;
+	}
+	.video-art{
+		height: calc(var(--vh, 1vh) * 50);
+	}
+	.art-video-player {
+		height: calc(var(--vh, 1vh) * 50) !important;
+	}
+	
+}
+@media(max-width:600px){
+	.video-art{
+		height: calc(var(--vh, 1vh) * 35);
+	}
+	.art-video-player {
+		height: calc(var(--vh, 1vh) * 30) !important;
+
+	}
+}

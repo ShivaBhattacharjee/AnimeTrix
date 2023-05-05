@@ -59,6 +59,21 @@
   width: 80%;
 }
 
+.player-change {
+  margin-top: 2%;
+  display: flex;
+  gap: 20px;
+}
+
+.player-change button {
+  padding: 12px;
+  border-radius: 12px;
+  background-color: rgb(51, 51, 154);
+  ;
+  color: #fff;
+  font-weight: 500;
+}
+
 .episode-list {
   display: flex;
   flex-wrap: wrap;
@@ -105,6 +120,11 @@
   max-width: 790px;
 }
 
+.character p {
+  display: flex;
+  text-align: center;
+}
+
 .characters-container .characters-heading h2 {
   font-size: 30px;
   padding-bottom: 40px;
@@ -138,7 +158,7 @@
   margin-top: 50px;
 }
 
-.previous-seasons .related-seasons .image-related{
+.previous-seasons .related-seasons .image-related {
   width: 200px;
   height: 100px;
   object-fit: cover;
@@ -148,7 +168,7 @@
 }
 
 
-.previous-seasons .related-seasons .image-related::after{
+.previous-seasons .related-seasons .image-related::after {
   content: '';
   position: absolute;
   top: 0;
@@ -156,7 +176,8 @@
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.65);;
+  background-color: rgba(0, 0, 0, 0.65);
+  ;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
 }
 
@@ -164,18 +185,19 @@
   display: none;
 }
 
-.title-and-type{
+.title-and-type {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.title-and-type h1{
+
+.title-and-type h1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 120px; 
+  max-width: 120px;
   align-items: center;
   font-size: 14px;
   text-align: center;
@@ -296,7 +318,7 @@
 
   .list-box {
     width: 100%;
-    margin-top: 25%;
+    margin-top: 14%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -328,6 +350,7 @@
   .video-title p {
     width: 100%;
   }
+
 }
 
 @media(max-width:900px) {
@@ -343,13 +366,14 @@
 }
 
 @media(max-width:700px) {
-  .previous-seasons{
+  .previous-seasons {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .list-box {
-    margin-top: 35%;
+    margin-top: 15%;
   }
 
   .video-title {
@@ -397,10 +421,11 @@
 }
 
 @media(max-width:575px) {
-  .previous-seasons .related-seasons .image-related{
+  .previous-seasons .related-seasons .image-related {
     width: 120px;
     height: 100px;
   }
+
   .stream {
     margin-top: 20px;
     display: flex;

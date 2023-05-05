@@ -65,7 +65,7 @@ export default function Card(props) {
         });
         const res = await axios.get(`${ServerApi}/user/bookmark/${userId}`)
         const bookmark = res.data;
-        // console.log(bookmark);
+        console.log(bookmark);
         setBookmark(bookmark);
         bookmark.includes(props.rec.id) ? setIsBookmark(true) : setIsBookmark(false);
       }
@@ -114,7 +114,7 @@ export default function Card(props) {
     <>
       <div
         className="movie-card" >
-        <ToastContainer/>
+        <ToastContainer />
         <div className="card-head">
 
           <div className="bookmark-icon" onClick={toggleBookmark}>
@@ -132,7 +132,11 @@ export default function Card(props) {
               <span>{(props.rec.type)}</span>
               <span>{(props.rec.rating / 10)}</span>
             </div>
-            <h5 className="card-title">{props?.rec?.title?.userPreferred || props?.rec?.title?.english || props?.rec?.romaji}</h5>
+            {props?.rec?.title?.english && props?.rec?.title?.english ? (
+              <h5 className="card-title">{props?.rec?.title?.english }</h5>
+            ) : (
+              <p className="card-title"> {props?.rec?.title?.romaji}</p>
+            )}
           </div>
         </div>
       </div>

@@ -112,9 +112,10 @@ function ForgotPassword() {
   return (
 <section className="login">
       <div className="login-container">
-        <h1>Forgot Password?</h1>
+        <h1>Memorize with Care💡</h1>
         <form autoComplete="false" onSubmit={e => {submitHandler(e)}}>
           <div className="form-group">
+          <label htmlFor="email">Email : </label>
             <input
               type="email"
               className="login-group-input"
@@ -123,20 +124,23 @@ function ForgotPassword() {
               onChange={e => {setEmail(e.target.value)}}
               value={email}
             />
+                <label htmlFor="password">Password : </label>
             <input
               type="password"
               className="login-group-input"
-              placeholder="Enter your password Password"
+              placeholder="Enter your New Password "
               required
               onChange={e => {setPassword(e.target.value)}}
             />
+                <label htmlFor="password">Confirm Password : </label>
             <input
               type="password"
               className="login-group-input"
-              placeholder="Confirm Password"
+              placeholder="Confirm New Password"
               required
               onChange={e => {setConPassword(e.target.value)}}
             />
+            <br /><br />
               <input
               type="text"
               className="login-group-input-otp"
@@ -145,6 +149,7 @@ function ForgotPassword() {
                onChange={e => {setOtp(e.target.value)}}
             />
             <button type="button" className='otp-btn' onClick={e => {getOTP(e)}}>Get OTP</button>
+            <br /><br />
             <div className="login-btn">
               <button type="submit" className="login-sign-in">
                 Change Password

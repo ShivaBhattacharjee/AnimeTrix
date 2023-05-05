@@ -1,0 +1,48 @@
+.themes{
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+#theme-default{
+    background-color: hsl(225, 25%, 7%);;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+#theme-blue{
+    background-color: rgb(33, 150, 243);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+#theme-white{
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+#theme-green{
+    background-color: green;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+#theme-pink{
+    background-color: pink;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+#theme-purple{
+    background-color: purple;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* custom theme srtyling */
+
+.container.theme-blue{
+    background-color: pink;
+    color: #fff;
+}

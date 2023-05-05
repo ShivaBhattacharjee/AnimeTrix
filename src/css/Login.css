@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     width: 90%;
-    height: 80vh;
+    height: calc(100vh - 12vh);
     overflow-x: hidden;
     margin: auto;
 }
@@ -31,6 +31,8 @@
   border: 2px solid  rgb(33,150,243);
   color: #ffff;
   border-radius: 8px;
+  background: transparent;
+  margin-bottom: 10px;
 }
 .login-container .login-group-input::placeholder{
   color: #fff;
@@ -70,6 +72,20 @@
   justify-content: center;
   align-items: center;
   font-size: 18px;
+  margin: auto;
+}
+.login-register{
+  padding: 10px 20px;
+  background-color:  rgb(33,150,243);
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  /* width: 20%; */
+  margin-left: 20px;
+}
+.form-group label{
+  margin-left: 10px;
 }
 .login-sign-in{
   padding: 10px 20px;
@@ -78,7 +94,13 @@
   font-weight: 600;
   letter-spacing: 2px;
   border-radius: 4px;
-  margin-left: 20px;
+  width: 90%;
+  transition: .2s all ease-in-out;
+}
+.login-sign-in:hover{
+  background: transparent;
+  border: 2px solid rgb(33,150,243);
+  color: #fff;
 }
 .login-sign-reg{
   padding: 10px 20px;
@@ -88,10 +110,17 @@
   letter-spacing: 2px;
   border-radius: 4px;
 }
+.forgot-password{
+  color:rgb(33,150,243);
+}
 .remember-me-forget-pass{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.create-acc{
   text-align: center;
-  font-size: 16px;
-  font-weight: 500;
+  margin-top: 20px;
 }
 .register{
   font-size: 20px;
@@ -114,4 +143,11 @@
 .login-toast small{
   font-size: 20px;
   font-weight: 500;
+}
+
+.check-remember input[type="checkbox"]{
+  background: rgb(33,150,243);
+}
+.check-remember input[type=checkbox] {
+  accent-color: rgb(33,150,243);
 }

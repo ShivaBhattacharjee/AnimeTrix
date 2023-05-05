@@ -5,7 +5,6 @@ import Header from "./Header";
 import Lastwatch from "./Lastwatch";
 import ScrollToTop from "./ScrollToTop"
 import SearchJSX from "./SearchJSX"
-import Slider from "./slider";
 import ChatBody from "./ChatBody";
 import ChatInput from "./ChatInput";
 import AiringSchedule from "./AiringSchedule";
@@ -22,7 +21,6 @@ export {
     Lastwatch,
     ScrollToTop,
     SearchJSX,
-    Slider,
     ChatBody,
     ChatInput,
     AiringSchedule,

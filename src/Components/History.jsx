@@ -126,7 +126,7 @@ function History() {
         }
     };
 
-    const removeHistory = async(animeId) => {
+    const removeHistory = async (animeId) => {
         try {
             const conf = window.confirm("Are you sure you want to delete your history?");
             if (conf) {
@@ -183,7 +183,7 @@ function History() {
             });
         }
     }
-    
+
     useEffect(() => {
         const id = getCookie("id");
         setUserId(id);
@@ -228,7 +228,7 @@ function History() {
                         <section className="movies">
                             <div className="lastwatch-bar">
                                 <div className="lastwatch-heading">
-                                    {history.length == 0 ? "": <div className="clear-history">
+                                    {history.length == 0 ? "" : <div className="clear-history">
                                         <button onClick={deleteHistory}>Clear all</button>
                                     </div>}
                                     {/* <h1><i class="fa-solid fa-clock-rotate-left lastwatch-icon continue-icon"></i> Continue Watching</h1> */}
@@ -257,9 +257,9 @@ function History() {
                                             )
                                         })}
                                     </div>
-                                    {history.length > 18? <div className="loadmore-recent">
+                                    {history.length > 18 ? <div className="loadmore-recent">
                                         <button className="loadmore">View More</button>
-                                    </div>: ""}
+                                    </div> : ""}
                                 </div>
                             </div>
                         </section >

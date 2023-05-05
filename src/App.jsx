@@ -12,7 +12,6 @@ import './css/loading.css';
 import './css/topScroll.css'
 import './css/NewSeason.css'
 import './css/Login.css'
-import './css/Register.css'
 import './css/Search.css'
 import './css/Chatbot.css'
 import './css/AiringSchedule.css'
@@ -21,7 +20,7 @@ import "./css/ImageSearch.css"
 import "./css/UpcomingSeason.css"
 
 import { Error404, Header, ScrollToTop, SearchJSX, History, Bookmark } from "./Components/";
-import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch } from "./Pages"
+import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason } from "./Pages"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -39,31 +38,57 @@ import { HomeApi } from "./Components/constants";
 
 function App() {
   const childRef = useRef();
+  const [slider,setSlider]= useState([]);
   const [recent, setRecent] = useState([]);
   const [popular, setPopular] = useState([]);
   const [movie, setMovie] = useState([]);
-  const [dub, setDub] = useState([]);
+  const [newUpload, setNewUpload] = useState([]);
+  // const [dub, setDub] = useState([]);
   const [topAiring, setTop] = useState([]);
   const [idx, setIdx] = useState(1);
   const [idxPropular, setidxPropular] = useState(1);
-  const [idxdub, setIdxdub] = useState(1);
+  // const [idxdub, setIdxdub] = useState(1);
   const [idxmovie, setIdxmovie] = useState(1);
   const [idxtop, setIdxtop] = useState(1);
+  const [idxNewUpload, setIdxNewUpload] = useState(1);
   const renderAfterCalled = useRef(false);
   const [searchResult, setSearchResult] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // Fetch Functions
+  const getSlider = async (id = 1) => {
+    try {
+      setLoading(true);
+      const Data = await axios.get(
+        `${HomeApi}/meta/anilist/trending?page=1`
+      );
+      setSlider((slider) => [...slider, ...Data.data.results]);
+      setLoading(false);
+    } catch (err) {
+      toast.error("Error loading slider", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        rtl: false,
+        pauseOnFocusLoss: true,
+        draggable: true,
+        pauseOnHover: true,
+        theme: "dark",
+      });
+      setLoading(false);
+    }
+  };
   const getAnime = async (id = 1) => {
     try {
       setLoading(true);
       const Data = await axios.get(
-        `${HomeApi}/meta/anilist/popular?page=${id}&perPage=20`
+        `${HomeApi}/meta/anilist/recent-episodes?page=${id}&perPage=20`
       );
       setRecent((recent) => [...recent, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
-      toast.error("Error loading anime", {
+      toast.error("Error loading recentanime", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 5000,
         hideProgressBar: false,
@@ -81,7 +106,7 @@ function App() {
     try {
       setLoading(true);
       const propu = await axios.get(
-        `${HomeApi}/meta/anilist/popular`
+        `${HomeApi}/meta/anilist/popular?page=${id}`
       );
       setPopular((popular) => [...popular, ...propu.data.results]);
       setLoading(false);
@@ -123,7 +148,7 @@ function App() {
       console.log(data)
       if (Array.isArray(data.results)) {
         setMovie((movie) => [...movie, ...data.results]);
-      }else{
+      } else {
         toast.error("Error loading movies", {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 5000,
@@ -176,14 +201,39 @@ function App() {
       setLoading(false);
     }
   };
+
+  const getNewUpload = async (id = 1) => {
+    try {
+      setLoading(true);
+      const Data = await axios.get(`${HomeApi}/meta/anilist/recent-episodes?page=${id}&perPage=20`);
+      setNewUpload((newUpload) => [...newUpload, ...Data.data.results]);
+      setLoading(false);
+    } catch (err) {
+      toast.error("Error loading recent upload", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        rtl: false,
+        pauseOnFocusLoss: true,
+        draggable: true,
+        pauseOnHover: true,
+        theme: "dark",
+      });
+      setLoading(false);
+    }
+  };
+
   // Fetch function call
   useEffect(() => {
     if (!renderAfterCalled.current) {
       getAnime(1);
+      getSlider();
       getPropular();
       // getDub();
       getMovie();
       getTopAiring();
+      getNewUpload();
     }
     renderAfterCalled.current = true;
   }, []);
@@ -238,18 +288,23 @@ function App() {
   //   getDub(idxdub + 1);
   //   setIdxdub(idxdub + 1);
   // };
+
   const loadMoreMovies = () => {
     getMovie(idxmovie + 1);
     setIdxmovie(idxmovie + 1);
   };
   const loadMoreTopAnime = () => {
-    getTopAiring(idxtop + 2);
-    setIdxtop(idxtop + 2);
+    getTopAiring(idxtop + 1);
+    setIdxtop(idxtop + 1);
   }
+  const loadmoreUpload = () => {
+    getNewUpload(idxNewUpload + 1);
+    setIdxNewUpload(idxNewUpload + 1);
+  };
 
   return (
     <Router className="App">
-      <ToastContainer/>
+      <ToastContainer />
       <ScrollToTop />
       <Header handelChanges={handelChanges} ref={childRef} />
       {searchResult ? (
@@ -262,10 +317,12 @@ function App() {
           element={
             <RecentAnime
               recent={recent}
+              popular={popular}
               searchResult={searchResult}
               handelClick={handelClick}
               loadMoreRecent={loadMoreRecent}
               loading={loading}
+              slider={slider}
             />
           }
         />
@@ -316,6 +373,19 @@ function App() {
               searchResult={searchResult}
               handelClick={handelClick}
               loadMoreMovies={loadMoreMovies}
+              loading={loading}
+            />
+          }
+        />
+        <Route
+          exact
+          path="/recent-anime"
+          element={
+            <NewSeason
+              recent={newUpload}
+              searchResult={searchResult}
+              handelClick={handelClick}
+              loadmoreUpload={loadmoreUpload}
               loading={loading}
             />
           }

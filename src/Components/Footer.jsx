@@ -1,9 +1,11 @@
 import React from "react";
+import ThemeSelector from "../Pages/ThemeSelector";
 
 function Footer() {
   return (
     <>
       <div className="footer">
+      <ThemeSelector/>
         <div className="footer-content">
 
           <div className="footer-about">

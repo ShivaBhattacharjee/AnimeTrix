@@ -1,46 +1,58 @@
 import React from 'react'
-import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom';
+import { useRef } from 'react'
+import spinner from "../img/spinner.svg";
 import { Card } from '../Components';
+import InfiniteScroll from "react-infinite-scroll-component";
 
+import { useFetchInitialData } from "../utils/hooks";
 const NewSeason = (props) => {
-    const renderAfterCalled = useRef(false);
-    const [isBookmark, setIsBookmark] = useState(false);
-    const [season, setSeason] = useState([])
-    const getSeason = async (id = 1) => {
-        const api = await fetch(`https://api.consumet.org/meta/anilist/recent-episodes?page=${id}`)
-        const response = await api.json()
-        setSeason(response.results)
-    }
-    //bookmark
-    function handleIconClick() {
-     setIsBookmark(!isBookmark);
-  }
-    useEffect(() => {
-        if (!renderAfterCalled.current) {
-            getSeason()
-        }
-        renderAfterCalled.current = true;
-    }, []);
+    const ref = useRef(null);
+    const handelClick = () => {
+        props.handelClick();
+    };
+    const { loading, recent,loadmoreUpload } = props;
+
+    const loadMore = () => {
+        props.loadmoreUpload();
+    };
+
+    useFetchInitialData(loading, recent, loadmoreUpload, ref, window);
 
     return (
-        <section className="movies" onClick={() => props.handelClick()}>
-            <div className="filter-bar">
-                <div className="heading">
-                    <h3>Recent Episodes</h3>
+        <>
+            {Object?.keys(recent).length === 0 ? (
+                <div class="spinner-box">
+                    <div class="configure-border-1">
+                        <div class="configure-core"></div>
+                    </div>
+                    <div class="configure-border-2">
+                        <div class="configure-core"></div>
+                    </div>
                 </div>
-            </div>
-            <div className="seasons-grid">
-                {season.map((rec) => {
-                    return (
-                        <>
-                            <Card rec={rec} key={rec.id}/>
-                        </>
-                    )
-                })}
-            </div>
-        </section>
-    )
-}
+            ) : (
+                <>
+                    <section className="movies">
+                        <div className="filter-bar">
+                            <div className="heading">
+                                <h3>Recent Anime</h3>
+                            </div>
+                        </div>
+                        <div className="movies-grid" ref={ref}>
+                            {recent.map((rec) => (
+                                <Card rec={rec} key={rec.id} handelClick={handelClick} />
+                            ))}
+                        </div>
+                        <InfiniteScroll
+                            dataLength={recent.length}
+                            next={loadMore}
+                            hasMore={true}
+                            loader={<img src={spinner} alt="spinner" className="spinner" />}
+                        ></InfiniteScroll>
+                    </section>
+                </>
+            )}
+        </>
+    );
+};
 
-export default NewSeason
+export default NewSeason;
