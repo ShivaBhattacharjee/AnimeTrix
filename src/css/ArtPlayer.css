@@ -69,7 +69,7 @@
 	}
 
 	.art-video-player {
-		height: calc(var(--vh, 1vh) * 34) !important;
+		height: calc(var(--vh, 1vh) * 31) !important;
 	}
 
 }
