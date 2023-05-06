@@ -476,9 +476,9 @@ export default function Stream(props) {
                 <>
                   <div className="airing-extra-info">
                     <h2>
-                      Episode {extra.nextAiringEpisode.episode} will air at{" "}
+                      Episode {extra?.nextAiringEpisode.episode} will air at{" "}
                       {new Date(
-                        extra.nextAiringEpisode.airingTime * 1000
+                        extra?.nextAiringEpisode?.airingTime * 1000
                       ).toLocaleString()}
                     </h2>
                   </div>
