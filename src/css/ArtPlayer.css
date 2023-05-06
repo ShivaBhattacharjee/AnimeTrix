@@ -45,19 +45,28 @@
 	}
 
 }
-
-@media(max-width:600px) {
+@media(max-width:850px) {
 	.video-art {
 		height: calc(var(--vh, 1vh) * 35);
 	}
 
 	.art-video-player {
-		height: calc(var(--vh, 1vh) * 30) !important;
+		height: calc(var(--vh, 1vh) * 35) !important;
+
+	}
+}
+@media(max-width:650px) {
+	.video-art {
+		height: calc(var(--vh, 1vh) * 35);
+	}
+
+	.art-video-player {
+		height: calc(var(--vh, 1vh) * 40) !important;
 
 	}
 }
 
-@media(max-width:400px) {
+@media(max-width:450px) {
 	.video-art {
 		max-width: 100%;
 		border-radius: 14px;
