@@ -28,6 +28,7 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Contributing](#contributing)
+* [Issue Template](#raising-an-issue)
 * [License](#license)
 * [Authors](#authors)
 
@@ -83,7 +84,7 @@ Wanna contribute to AnimeTrix ?
 5. Open a Pull Request
 
 
-### Raising an issue
+## Raising an issue
 
 If you're experiencing any problems with Animetrix, please be sure to review our [issue template](https://github.com/ShivaBhattacharjee/AnimeTrix/tree/main/.github/ISSUE_TEMPLATE) before opening a new issue. The template includes a list of questions and prompts that will help us better understand the issue you're experiencing, and it will ensure that we have all of the necessary information to investigate the problem.
 
