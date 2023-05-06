@@ -471,16 +471,20 @@ export default function Stream(props) {
                 </div>
               </div>
             </div>
-            {extraDetail?.map((extra) => {
+            {extraDetail && extraDetail?.map((extra) => {
               return (
                 <>
                   <div className="airing-extra-info">
-                    <h2>
-                      Episode {extra?.nextAiringEpisode.episode} will air at{" "}
-                      {new Date(
-                        extra?.nextAiringEpisode?.airingTime * 1000
-                      ).toLocaleString()}
-                    </h2>
+                    {extra.nextAiringEpisode == undefined ? (
+                      null
+                    ) : (
+                      <h2>
+                        Episode {extra?.nextAiringEpisode?.episode} will air at{" "}
+                        {new Date(
+                          extra?.nextAiringEpisode?.airingTime * 1000
+                        ).toLocaleString()}
+                      </h2>
+                    )}
                   </div>
                   <div className="player-change">
                     <button onClick={handleInternalClick}>Internel Player</button>
