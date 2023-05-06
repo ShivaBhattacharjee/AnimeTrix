@@ -14,20 +14,6 @@
 }
 
 
-@media(max-width:1650px) {
-	.video-art {
-		width: 55vw;
-	}
-
-	.video-art {
-		height: calc(var(--vh, 1vh) * 33);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 35) !important;
-	}
-
-}
 
 
 @media(max-width:1300px) {
