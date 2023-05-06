@@ -33,7 +33,7 @@
 
 @media(max-width:1000px) {
 	.video-art {
-		width: 90vw;
+		width: 100vw;
 	}
 
 	.video-art {
@@ -41,7 +41,7 @@
 	}
 
 	.art-video-player {
-		height: calc(var(--vh, 1vh) * 50) !important;
+		height: calc(var(--vh, 1vh) * 40) !important;
 	}
 
 }
