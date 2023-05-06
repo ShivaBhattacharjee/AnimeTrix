@@ -151,3 +151,8 @@
 .check-remember input[type=checkbox] {
   accent-color: rgb(33,150,243);
 }
+@media(max-width:420px){
+  .remember-me-forget-pass{
+    font-size: 12px;
+  }
+}
