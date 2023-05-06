@@ -82,6 +82,16 @@ Wanna contribute to AnimeTrix ?
 4. Push to the Branch (`git push origin feature/FeatureName`)
 5. Open a Pull Request
 
+
+### Raising an issue
+
+If you're experiencing any problems with Animetrix, please be sure to review our [issue template](https://github.com/ShivaBhattacharjee/AnimeTrix/tree/main/.github/ISSUE_TEMPLATE) before opening a new issue. The template includes a list of questions and prompts that will help us better understand the issue you're experiencing, and it will ensure that we have all of the necessary information to investigate the problem.
+
+We kindly ask that you provide as much detail as possible when submitting an issue, including steps to reproduce the problem, any error messages that you have seen, and any other relevant information. This will help us to identify and fix the issue more quickly.
+
+Thank you for your cooperation, and we look forward to hearing from you!
+
+
 ## License
 
 Distributed under the Apache License 2.0 . See [LICENSE](https://github.com/ShivaBhattacharjee/AnimeTrix/blob/main/LICENSE) for more information.
