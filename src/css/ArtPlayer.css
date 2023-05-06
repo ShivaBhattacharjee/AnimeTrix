@@ -45,6 +45,20 @@
 	}
 
 }
+@media(max-width:920px) {
+	.video-art {
+		width: 100vw;
+	}
+
+	.video-art {
+		height: calc(var(--vh, 1vh) * 35);
+	}
+
+	.art-video-player {
+		height: calc(var(--vh, 1vh) * 38) !important;
+	}
+
+}
 @media(max-width:850px) {
 	.video-art {
 		height: calc(var(--vh, 1vh) * 35);
