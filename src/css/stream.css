@@ -7,7 +7,7 @@
 }
 
 .airing-extra-info {
-  margin-top: 100px;
+  margin-top: 50px;
   max-width: 800px;
 }
 
@@ -307,7 +307,7 @@
 
   .video-player {
     width: 100%;
-    padding-bottom: 50%;
+    padding-bottom: 0%;
     display: flex;
     justify-content: center;
   }
@@ -318,7 +318,7 @@
 
   .list-box {
     width: 100%;
-    margin-top: 14%;
+    margin-top: 6%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -395,7 +395,13 @@
 
 }
 
-@media(max-width:510px) {
+@media(max-width:550px) {
+  .video-player {
+    width: 100%;
+    padding-bottom:15%;
+    display: flex;
+    justify-content: center;
+  }
   .list-box {
     margin-top: 45%;
   }

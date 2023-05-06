@@ -471,6 +471,11 @@ export default function Stream(props) {
                 </div>
               </div>
             </div>
+            <br /><br />
+            <div className="player-change">
+                    <button onClick={handleInternalClick}>Internel Player</button>
+                    <button onClick={handleExternalClick}>External Player</button>
+                  </div>
             {extraDetail && extraDetail?.map((extra) => {
               return (
                 <>
@@ -486,15 +491,11 @@ export default function Stream(props) {
                       </h2>
                     )}
                   </div>
-                  <div className="player-change">
-                    <button onClick={handleInternalClick}>Internel Player</button>
-                    <button onClick={handleExternalClick}>External Player</button>
-                  </div>
                   <div className="previous-seasons">
                     {detail?.relations?.map((relatedSeason) => {
                       return (
                         <div className="related-seasons">
-                          <Link to={`/anime-details/${relatedSeason?.id}`} onClick={() => alert(episodeId)}>
+                          <Link to={`/anime-details/${relatedSeason?.id}`}>
                             <img src={relatedSeason.image} alt="" className="image-related" />
                           </Link>
                           <div className="title-and-type">
