@@ -25,7 +25,7 @@ function VideoPlayer({
                 playbackRate: true,
                 aspectRatio: true,
                 fullscreen: true,
-                fullscreenWeb: true,
+                fullscreenWeb: false,
                 subtitleOffset: false,
                 miniProgressBar: true,
                 mutex: true,

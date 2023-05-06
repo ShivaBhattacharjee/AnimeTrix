@@ -1,7 +1,6 @@
 import { useEffect, useRef, memo } from "react"
 import Artplayer from "artplayer"
 import Hls from "hls.js"
-import artplayerPluginHlsQuality from "artplayer-plugin-hls-quality"
 import artplayerPluginControl from "artplayer-plugin-control"
 function ArtPlayer({
 	option,
