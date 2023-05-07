@@ -1,127 +1,49 @@
+
 .footer {
-  background-color: #162032;
-  margin-top: 200px;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  padding: 0px 120px;
-}
-
-.footer-content {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 0;
+  background-color: #000;
 }
-
-.footer-about {
-  width: 100%;
-  padding: 20px;
-}
-
-.footer-about>h3,
-p {
-  margin: 10px;
-}
-
-.footer-about>p {
-  text-align: justify;
-  font-size: 12px;
-  opacity: .7;
-}
-
-.footer-about>h3 {
-  font-size: 40px;
-  border-bottom: 4px solid rgb(33, 150, 243);
-  width: 70px;
-}
-
-.about-blue {
+.footer h1 {
   color: rgb(33, 150, 243);
+  display: flex;
+  gap: 10px;
 }
-
-.footer-about>h3>span {
-  margin: 0 10px 0 0;
+.footer h1 .white {
+  color: white;
 }
-
-.join-social {
+.footer .footer-about {
+  font-size: 12px;
+  width: 70%;
+  text-align: center;
+}
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+.footer-social button {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin: 0px 0px;
-  width: 10%;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #162032;
+  transition: .1s all ease-in;
 }
-
-.join-social ion-icon ,
-.join-social i{
-  font-size: 50px;
-  transition: .5s;
+.footer-social button:hover{
+  transform: scale(1.2);
 }
-.join-social a:hover{
-  color: rgb(33, 150, 243);
-}
-
-
-
-
-
-@media only screen and (max-width: 890px) {
-  .footer {
-    padding: 0;
+@media (max-width: 600px) {
+  .footer .footer-about {
+    width: 90%;
   }
-
-  .footer-content {
-    flex-direction: column;
-  }
-
-  .footer-about>h3 {
-    width: 90px;
-  }
-
-  .footer-about {
-    width: 100%;
-    padding: 0 20px;
-  }
-  .footer-about h3{
-    font-size:30px;
-  }
-  .footer-about p{
-    font-size: 9px;
-  }
-  .join-social {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-  .join-social ion-icon,
-  .join-social i{
-    margin-top: 5px;
-    padding-bottom: 30px;
-  }
-  .connect-social {
-    display: none;
-  }
-
-  .footer-social {
-    width: 10px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-  }
-
-  .footer-social>span {
-    font-size: 14px;
-  }
-
-  .join-social {
-    margin: 0;
-  }
-
-  .footer-icon {
-    flex-direction: row;
-  }
-
-  .footer-social>i {
-    margin-right: 5px;
-    font-size: 20px;
+  .footer .footer-about{
+    font-size: 8px;
   }
 }
