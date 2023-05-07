@@ -44,6 +44,8 @@ AnimeTrix is built using ReactJs and vanilla Css
 
 * [ReactJs](https://reactjs.org/docs/getting-started.html)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [EXPRESS JS](http://expressjs.com/)
+* [MONGO DB](https://www.mongodb.com/)
 
 ## Getting Started
 
