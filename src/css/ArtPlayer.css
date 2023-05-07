@@ -56,11 +56,11 @@
 @media(max-width:980px){
 	.video-art {
 		width: 100vw;
-		height: calc(var(--vh, 1vh) * 35);
+		height: calc(var(--vh, 1vh) * 30);
 	}
 
 	.art-video-player {
-		height: calc(var(--vh, 1vh) * 38) !important;
+		height: calc(var(--vh, 1vh) * 34) !important;
 	}
 }
 @media(max-width:920px) {
@@ -74,14 +74,13 @@
 
 }
 
-
 @media(max-width:850px) {
 	.video-art {
-		height: calc(var(--vh, 1vh) * 32);
+		height: calc(var(--vh, 1vh) * 35);
 	}
 
 	.art-video-player {
-		height: calc(var(--vh, 1vh) * 38) !important;
+		height: calc(var(--vh, 1vh) * 35) !important;
 
 	}
 }
@@ -110,24 +109,15 @@
 
 @media(max-width:550px) {
 	.video-art {
-		height: calc(var(--vh, 1vh) * 25);
+		height: calc(var(--vh, 1vh) * 34);
 	}
 
 	.art-video-player {
-		height: calc(var(--vh, 1vh) * 30) !important;
+		height: calc(var(--vh, 1vh) * 40) !important;
 
 	}
 }
-@media(max-width:480px) {
-	.video-art {
-		height: calc(var(--vh, 1vh) * 27);
-	}
 
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 30) !important;
-
-	}
-}
 @media(max-width:450px) {
 	.video-art {
 		max-width: 100%;
