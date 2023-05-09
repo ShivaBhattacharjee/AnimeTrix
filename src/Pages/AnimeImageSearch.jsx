@@ -72,7 +72,6 @@ function AnimeImageSearch() {
 
     return (
         <>
-        <div className="image-search-here">
             {!toggle && (
                 <AnimeImageSearchLayout
                     searchResult={searchResult}
@@ -208,7 +207,6 @@ function AnimeImageSearch() {
             ) : (
                 null
             )}
-        </div>
         </>
     )
 }
