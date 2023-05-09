@@ -14,12 +14,6 @@ export default function Details() {
   const [detail, setDetail] = useState([]);
   const [watch, setWatch] = useState(" ");
   const [loading, setLoading] = useState(true)
-  const [isBookmark, setIsBookmark] = useState(false);
-
-  //bookmark
-  function handleIconClick() {
-    setIsBookmark(!isBookmark);
-  }
 
   const getDetails = async () => {
     try {
@@ -83,6 +77,7 @@ export default function Details() {
                     <img
                       src={animeDetails.image}
                       alt="anime-image"
+                      className="anime-image"
                     />
                   </div>
 

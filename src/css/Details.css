@@ -27,13 +27,13 @@
   display: flex;
   justify-content: space-between;
 }
-
-.anime-img>img {
+.anime-img .anime-image{
   width: 310px;
   height: 420px;
   margin: auto;
   border-radius: 14px;
 }
+
 
 .anime-info {
   height: 100%;

@@ -84,7 +84,7 @@ const UpcomingSeason = () => {
                             <>
                                 <div className="content">
                                     <Link to={`/anime-details/${fallData?.id}`}>
-                                        <img src={fallData?.image} alt="img" />
+                                        <img src={fallData?.image} alt="img" loading='lazy'/>
                                     </Link>
                                     <div className="text">
                                         <h4>{fallData?.title?.userPreferred}</h4>
@@ -114,7 +114,7 @@ const UpcomingSeason = () => {
                             <>
                                 <div className="content">
                                     <Link to={`/anime-details/${winterData.id}`}>
-                                        <img src={winterData.image} alt="img" />
+                                        <img src={winterData.image} alt="img"  loading='lazy' />
                                     </Link>
                                     <div className="text">
                                         <h4>{winterData?.title?.userPreferred}</h4>
@@ -144,7 +144,7 @@ const UpcomingSeason = () => {
                             <>
                                 <div className="content">
                                     <Link to={`/anime-details/${sprinData.id}`}>
-                                        <img src={sprinData.image} alt="img" />
+                                        <img src={sprinData.image} alt="img"  loading='lazy' />
                                     </Link>
                                     <div className="text">
                                         <h4>{sprinData?.title?.userPreferred}</h4>

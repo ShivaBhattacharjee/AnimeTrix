@@ -82,3 +82,18 @@ a {
 
 
 
+.react-loading-skeleton {
+  display: block;
+  animation: pulse 1.5s ease-in-out 0.5s infinite;
+  background: linear-gradient(-90deg, #000000 0%, #444 50%, #444 100%);
+  background-size: 400% 400%;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -100% 0%;
+  }
+}

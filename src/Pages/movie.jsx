@@ -4,6 +4,7 @@ import spinner from "../img/spinner.svg";
 import Card from "../Components/Card";
 
 import { useFetchInitialData } from "../utils/hooks";
+import OtherPagesCard from "../Loading/OtherPagesCard";
 const Movie = (props) => {
   const ref = useRef(null);
 
@@ -20,14 +21,7 @@ const Movie = (props) => {
   return (
     <>
       {Object.keys(props.recent).length === 0 ? (
-        <div class="spinner-box">
-          <div class="configure-border-1">
-            <div class="configure-core"></div>
-          </div>
-          <div class="configure-border-2">
-            <div class="configure-core"></div>
-          </div>
-        </div>
+        <OtherPagesCard title="Anime Movies"/>
       ) : (
         <>
           <section className="movies">

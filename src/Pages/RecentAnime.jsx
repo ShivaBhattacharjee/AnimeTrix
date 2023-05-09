@@ -14,6 +14,8 @@ import "swiper/css/navigation"
 
 import "../css/slider.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import HomePageLoader from "../Loading/HomePageLoader";
 // import History from "../Components/History";
 const RecentAnime = (props) => {
   const renderAfterCalled = useRef(false);
@@ -53,17 +55,9 @@ const RecentAnime = (props) => {
   return (
     <>
       {Object.keys(props.recent).length === 0 ? (
-        <div className="spinner-box">
-          <div className="configure-border-1">
-            <div className="configure-core"></div>
-          </div>
-          <div className="configure-border-2">
-            <div className="configure-core"></div>
-          </div>
-        </div>
+        <HomePageLoader/>
       ) : (
         <>
-        <div className="home-container">
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
@@ -82,7 +76,7 @@ const RecentAnime = (props) => {
               props.slider.map((rec) => (
                 <div className="banner-card" key={rec.id}>
                   <SwiperSlide >
-                    <img src={rec?.cover} alt={rec.id} />
+                    <img src={rec?.cover} loading="lazy" alt={rec.id} />
                     <div className="banner-text">
                       <Link to={`/anime-details/${rec.id}`}>
                         <h4>{rec.title.english}</h4>
@@ -102,7 +96,7 @@ const RecentAnime = (props) => {
                 <h3>Recent Anime</h3>
               </div>
             </div>
-            <div className="seasons-grid">
+            <div className="movies-grid">
               {props.recent &&
                 props.recent.map((rec) => (
                   <Card rec={rec} key={rec.id} handelClick={handelClick} />
@@ -141,7 +135,6 @@ const RecentAnime = (props) => {
           <br /><br />
           <AiringSchedule airingList={airingList} ref={ref} />
           <Footer />
-          </div>
         </>
       )}
     </>

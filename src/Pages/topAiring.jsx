@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import spinner from "../img/spinner.svg";
 import Card from "../Components/Card";
-
+import OtherPagesCard from "../Loading/OtherPagesCard";
 import { useFetchInitialData } from "../utils/hooks";
 
 const TopAnimeAiring = (props) => {
@@ -22,14 +22,7 @@ const TopAnimeAiring = (props) => {
   return (
     <>
       {Object.keys(props.recent).length === 0 ? (
-        <div class="spinner-box">
-        <div class="configure-border-1">
-          <div class="configure-core"></div>
-        </div>
-        <div class="configure-border-2">
-          <div class="configure-core"></div>
-        </div>
-      </div>
+   <OtherPagesCard title="Top-Airing"/>
       ) : (
         <>
           <section className="movies">

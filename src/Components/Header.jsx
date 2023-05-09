@@ -91,7 +91,7 @@ const Header = forwardRef((props, ref) => {
   function ProfileView() {
     setProfileActive(profileActive => !profileActive)
   }
-  const ProfileOpen = profileActive ? 'active' : 'gay';
+  const ProfileOpen = profileActive ? 'active' : null;
   function MobileView() {
     setSearchActive(!searchActive);
     scroll()
@@ -143,7 +143,7 @@ const Header = forwardRef((props, ref) => {
 
         <ul onClick={scroll} className={togglemenu ? "nav-links" : "toggle-links"} ref={toggleref}>
           <li>
-            <NavLink to={"/"} onClick={() => closeMenuWhenClickedLink()}>
+            <NavLink exact to={"/"} onClick={() => closeMenuWhenClickedLink()}>
               Home
             </NavLink>
           </li>

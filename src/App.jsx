@@ -35,6 +35,8 @@ import axios from "axios";
 
 
 import { HomeApi } from "./Components/constants";
+import HomePageLoader from "./Loading/HomePageLoader";
+import DetailsLoader from "./Loading/DetailsLoader";
 
 function App() {
   const childRef = useRef();
@@ -424,6 +426,7 @@ function App() {
         <Route exact path="/forgot-password" element={<ForgotPassword />} />
         <Route exact path="/history" element={<History />} />
         <Route exact path="/bookmark" element={<Bookmark />} />
+        {/* <Route exact path="/loader-home" element={<DetailsLoader />} /> */}
         <Route path="/*" element={<Error404 />} />
       </Routes>
     </Router>

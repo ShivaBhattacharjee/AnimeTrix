@@ -6,6 +6,7 @@ import { Card } from '../Components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi } from '../Components/constants';
+import GenreLoading from '../Loading/GenreLoading';
 function OptionFetcher() {
 
   const [selectedOption, setSelectedOption] = useState('Action');
@@ -88,46 +89,40 @@ function OptionFetcher() {
   return (
     <>
       <ToastContainer />
-      {isLoading && (
-        <div className="spinner-box">
-          <div className="configure-border-1">
-            <div className="configure-core"></div>
-          </div>
-          <div className="configure-border-2">
-            <div className="configure-core"></div>
-          </div>
-        </div>
-      )}
-      <section className='movies'>
-        <div className="filter-bar genre">
-          <div className="filter-dropdowns">
-            <select value={selectedOption} onChange={handleChange}>
-              {["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mecha", "Mystery", "Romance", "Sci-Fi", "Sports", "Supernatural", "Thriller"].map((genreItem) => {
-                return (
-                  <option value={genreItem} key={genreItem} >{genreItem}</option>
-                )
-              })}
-            </select>
-          </div>
-          <div className="heading">
-            <h2>Sort By Genre</h2>
-          </div>
-        </div>
-        {data && (
-          <InfiniteScroll
-            dataLength={data.length}
-            next={fetchMoreData}
-            hasMore={true}
-            loader={<img src={spinner} alt="spinner" className="spinner" />}
-          >
-            <div className='movies-grid'>
-              {data.map(rec => (
-                <Card rec={rec} key={rec.id} />
-              ))}
+      {data && (
+        <section className='movies'>
+          <div className="filter-bar genre">
+            <div className="filter-dropdowns">
+              <select value={selectedOption} onChange={handleChange}>
+                {["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mecha", "Mystery", "Romance", "Sci-Fi", "Sports", "Supernatural", "Thriller"].map((genreItem) => {
+                  return (
+                    <option value={genreItem} key={genreItem} >{genreItem}</option>
+                  )
+                })}
+              </select>
             </div>
-          </InfiniteScroll>
-        )}
-      </section>
+            <div className="heading">
+              <h2>Sort By Genre</h2>
+            </div>
+          </div>
+          {isLoading ? (
+      <GenreLoading/>
+          ) : (
+            <InfiniteScroll
+              dataLength={data.length}
+              next={fetchMoreData}
+              hasMore={true}
+              loader={<img src={spinner} alt="spinner" className="spinner" />}
+            >
+              <div className='movies-grid'>
+                {data.map(rec => (
+                  <Card rec={rec} key={rec.id} />
+                ))}
+              </div>
+            </InfiniteScroll>
+          )}
+        </section>
+      )}
     </>
   );
 }

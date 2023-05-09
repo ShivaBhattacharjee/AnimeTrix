@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import Card from './Card';
 import { HomeApi } from './constants';
+import { useFetchInitialData } from "../utils/hooks";
 const ForYou = () => {
   const [forYou, setforYou] = useState([])
   const [isBookmark, setIsBookmark] = useState(false);

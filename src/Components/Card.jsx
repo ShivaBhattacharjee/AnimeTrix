@@ -124,6 +124,7 @@ export default function Card(props) {
             <img
               src={props.rec.image}
               alt={props.rec.id}
+              loading="lazy"
               className="card-img"
             />
           </Link>

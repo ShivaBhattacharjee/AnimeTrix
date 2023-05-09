@@ -50,6 +50,7 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 												<img
 													src={imageSearch.image}
 													alt={imageSearch.id}
+													loading="lazy"
 													className="card-img"
 												/>
 											</Link>

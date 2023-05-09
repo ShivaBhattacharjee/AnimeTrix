@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import spinner from "../img/spinner.svg";
 import { Card } from '../Components';
 import InfiniteScroll from "react-infinite-scroll-component";
-
+import OtherPagesCard from "../Loading/OtherPagesCard";
 import { useFetchInitialData } from "../utils/hooks";
 const NewSeason = (props) => {
     const ref = useRef(null);
@@ -21,14 +21,7 @@ const NewSeason = (props) => {
     return (
         <>
             {Object?.keys(recent).length === 0 ? (
-                <div class="spinner-box">
-                    <div class="configure-border-1">
-                        <div class="configure-core"></div>
-                    </div>
-                    <div class="configure-border-2">
-                        <div class="configure-core"></div>
-                    </div>
-                </div>
+                  <OtherPagesCard title="Recent Anime"/>
             ) : (
                 <>
                     <section className="movies">

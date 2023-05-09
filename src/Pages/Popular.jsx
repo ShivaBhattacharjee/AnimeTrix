@@ -5,6 +5,7 @@ import spinner from "../img/spinner.svg";
 import Card from "../Components/Card";
 
 import { useFetchInitialData } from "../utils/hooks";
+import OtherPagesCard from "../Loading/OtherPagesCard";
 
 const Popular = (props) => {
   const ref = useRef(null);
@@ -23,14 +24,7 @@ const Popular = (props) => {
   return (
     <>
       {Object.keys(props.popular).length === 0 ? (
-        <div class="spinner-box">
-          <div class="configure-border-1">
-            <div class="configure-core"></div>
-          </div>
-          <div class="configure-border-2">
-            <div class="configure-core"></div>
-          </div>
-        </div>
+        <OtherPagesCard title="Popular Anime"/>
       ) : (
         <>
           <section className="movies">
