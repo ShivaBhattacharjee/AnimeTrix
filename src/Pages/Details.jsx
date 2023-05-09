@@ -127,13 +127,18 @@ export default function Details() {
                     )}
                   </div>
                 </div>
-
-                <div className="recommended-anime">
+                {animeDetails && animeDetails?.recommendations == false?(
+                  null
+                ):(
+                  <div className="recommended-anime">
                   <h1>Recommended Anime</h1>
                 </div>
+                )}
                 <div className="recommended-grid">
-                  {animeDetails.recommendations.map((rec) => (
-                    <Card rec={rec} key={rec.id} />
+                  {animeDetails?.recommendations?.map((rec) => (
+                    <>
+                      <Card rec={rec} key={rec.id} />
+                    </>
                   ))}
                 </div>
               </div>
