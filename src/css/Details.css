@@ -27,7 +27,7 @@
   display: flex;
   justify-content: space-between;
 }
-.anime-img .anime-image{
+.anime-img>img{
   width: 310px;
   height: 420px;
   margin: auto;

@@ -77,7 +77,6 @@ export default function Details() {
                     <img
                       src={animeDetails.image}
                       alt="anime-image"
-                      className="anime-image"
                     />
                   </div>
 
