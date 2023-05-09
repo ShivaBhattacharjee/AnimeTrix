@@ -1,3 +1,6 @@
+.image-search-here{
+    height: 70vh;
+}
 .search-image {
     display: flex;
     justify-content: center;
