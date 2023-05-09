@@ -1,5 +1,13 @@
 .image-search-here{
-    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    overflow-x: hidden;
+    margin: auto;
 }
 .search-image {
     display: flex;
