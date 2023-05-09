@@ -26,6 +26,7 @@
     "react-html-parser": "^2.0.2",
     "react-icons": "^4.8.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-loading-skeleton": "^3.3.1",
     "react-player": "^2.10.1",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.3.0",
