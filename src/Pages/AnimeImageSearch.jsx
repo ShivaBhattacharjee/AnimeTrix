@@ -209,7 +209,6 @@ function AnimeImageSearch() {
                 null
             )}
         </div>
-        <Footer/>
         </>
     )
 }
