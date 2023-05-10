@@ -35,8 +35,6 @@ import axios from "axios";
 
 
 import { HomeApi } from "./Components/constants";
-import HomePageLoader from "./Loading/HomePageLoader";
-import DetailsLoader from "./Loading/DetailsLoader";
 
 function App() {
   const childRef = useRef();

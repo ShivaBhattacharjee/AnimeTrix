@@ -9,13 +9,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi } from "../Components/constants";
 import DetailsLoader from "../Loading/DetailsLoader";
-export default function Details() {
+export default function Details(props) {
 
   const { animeId } = useParams()
   const [detail, setDetail] = useState([]);
   const [watch, setWatch] = useState(" ");
   const [loading, setLoading] = useState(true)
-
+  const handelClick = () => {
+    props.handelClick();
+    setLoading(true);
+  };
   const getDetails = async () => {
     try {
       const api = await fetch(`${HomeApi}/meta/anilist/info/${animeId}`)
@@ -58,10 +61,10 @@ export default function Details() {
         shadow='true'
       />
       {loading ? (
-<DetailsLoader/>
+        <DetailsLoader />
       ) : (
         <>
-          <div className="details">
+          <div className="details" >
             {detail.map((animeDetails) => (
               <div key={animeId}>
                 <div className="anime-details">
@@ -115,17 +118,17 @@ export default function Details() {
                     )}
                   </div>
                 </div>
-                {animeDetails && animeDetails?.recommendations == false?(
+                {animeDetails && animeDetails?.recommendations == false ? (
                   null
-                ):(
+                ) : (
                   <div className="recommended-anime">
-                  <h1>Recommended Anime</h1>
-                </div>
+                    <h1>Recommended Anime</h1>
+                  </div>
                 )}
                 <div className="recommended-grid">
                   {animeDetails?.recommendations?.map((rec) => (
                     <>
-                      <Card rec={rec} key={rec.id} />
+                      <Card rec={rec} key={rec.id} handelClick={handelClick}  />
                     </>
                   ))}
                 </div>
