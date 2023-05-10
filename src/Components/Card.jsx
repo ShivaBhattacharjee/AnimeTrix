@@ -10,7 +10,9 @@ export default function Card(props) {
   const [isBookmark, setIsBookmark] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [userId, setUserId] = useState("");
-
+  const goToBtn = () => {
+    window.scrollTo({ top:0, left: 0, behavior: "smooth" })
+}
   function getCookie(name) {
     const cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++) {
@@ -120,7 +122,7 @@ export default function Card(props) {
           <div className="bookmark-icon" onClick={toggleBookmark}>
             <i class={isLoading ? "fas fa-spinner fa-pulse" : (isBookmark ? "fa-solid fa-bookmark" : "fa-regular fa-bookmark")} ></i>
           </div>
-          <Link to={`/anime-details/${props.rec.id}`} onClick={() => props.handelClick()}>
+          <Link to={`/anime-details/${props.rec.id}`} onClick={() => { props.handelClick(); goToBtn(); }}>
             <img
               src={props.rec.image}
               alt={props.rec.id}
