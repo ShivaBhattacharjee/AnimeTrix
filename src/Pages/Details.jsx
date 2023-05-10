@@ -8,6 +8,7 @@ import Card from "../Components/Card"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi } from "../Components/constants";
+import DetailsLoader from "../Loading/DetailsLoader";
 export default function Details() {
 
   const { animeId } = useParams()
@@ -57,15 +58,7 @@ export default function Details() {
         shadow='true'
       />
       {loading ? (
-        <div className="spinner-box">
-          <div className="configure-border-1">
-            <div className="configure-core"></div>
-          </div>
-          <div className="configure-border-2">
-            <div className="configure-core"></div>
-          </div>
-        </div>
-
+<DetailsLoader/>
       ) : (
         <>
           <div className="details">
@@ -77,6 +70,7 @@ export default function Details() {
                     <img
                       src={animeDetails.image}
                       alt="anime-image"
+                      className="anime-image"
                     />
                   </div>
 

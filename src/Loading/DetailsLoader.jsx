@@ -9,16 +9,12 @@ const DetailsLoader = () => {
                     <div className="anime-details">
 
                         <div className="anime-img">
-                            <Skeleton className='anime-image'/>
+                            <Skeleton className='anime-image' />
                         </div>
 
                         <div className="anime-info">
-                            <p className="anime-title">Loading Please be patient</p>
-                            <button className="watch-anime-btn">Loading..</button>
-                            <div className="anime-storyline">
-                                <div className="summary">Summary:-</div>
-                                <p>Loading.... </p>
-                            </div>
+                            <p className="anime-title"><Skeleton /></p>
+                            <Skeleton className='anime-storyline' style={{height:"100%", minWidth:"300px"}} />
 
                         </div>
                     </div>

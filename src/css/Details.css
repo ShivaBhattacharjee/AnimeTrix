@@ -27,7 +27,7 @@
   display: flex;
   justify-content: space-between;
 }
-.anime-img>img{
+.anime-img .anime-image{
   width: 310px;
   height: 420px;
   margin: auto;
@@ -183,7 +183,7 @@
     flex-direction: column;
   }
 
-  .anime-img>img {
+  .anime-img .anime-image {
     width: 300px;
   }
 
@@ -234,9 +234,9 @@
 }
 
 @media only screen and (max-width: 520px) {
-  .anime-img>img {
-    width: 50%;
-    height: 50%;
+  .anime-img .anime-image {
+    width: 200px;
+    height: 300px;
   }
 
   .anime-title {
