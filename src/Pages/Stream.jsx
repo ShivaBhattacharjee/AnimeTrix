@@ -13,6 +13,8 @@ import { HomeApi, ServerApi, StreamApi } from "../Components/constants";
 import Hls from 'hls.js';
 import Artplayer from "../Components/ArtPlayer";
 import VideoPlayer from "../Components/VideoPlayer";
+import StreamLoader from "../Loading/StreamLoader";
+import DetailsLoader from "../Loading/DetailsLoader";
 
 export default function Stream(props) {
   const { episodeId } = useParams()
@@ -409,15 +411,7 @@ export default function Stream(props) {
         shadow='true'
       />
       {loading ? (
-        <div className="spinner-box">
-          <div className="configure-border-1">
-            <div className="configure-core"></div>
-          </div>
-          <div className="configure-border-2">
-            <div className="configure-core"></div>
-          </div>
-        </div>
-
+        <StreamLoader />
       ) : (
         <>
           <div className="stream" key={episodeId}>
@@ -473,9 +467,9 @@ export default function Stream(props) {
             </div>
             <br /><br />
             <div className="player-change">
-                    <button onClick={handleInternalClick}>Internel Player</button>
-                    <button onClick={handleExternalClick}>External Player</button>
-                  </div>
+              <button onClick={handleInternalClick}>Internel Player</button>
+              <button onClick={handleExternalClick}>External Player</button>
+            </div>
             {extraDetail && extraDetail?.map((extra) => {
               return (
                 <>

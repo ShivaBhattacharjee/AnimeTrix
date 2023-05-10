@@ -18,7 +18,7 @@ function VideoPlayer({
                 autoplay: false,
                 pip: false,
                 autoSize: true,
-                autoMini: true,
+                autoMini: false,
                 screenshot: true,
                 loop: true,
                 flip: true,
