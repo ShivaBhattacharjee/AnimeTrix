@@ -45,8 +45,8 @@ AnimeTrix is built using ReactJs and vanilla Css
 
 * [ReactJs](https://reactjs.org/docs/getting-started.html)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [EXPRESS JS](http://expressjs.com/)
-* [MONGO DB](https://www.mongodb.com/)
+* [Express Js](http://expressjs.com/)
+* [Mongo DB](https://www.mongodb.com/)
 
 Disclaimer: Please note that the backend logic for comment, login, and validation is currently not available as an open source. However, you can still utilize the API provided in the "constant.js" file to access and use the functions for login and other login related stuff. We make no guarantees or warranties as to the performance or suitability of this API for your specific needs, and we are not responsible for any damages or issues that may arise from its use. Use of this API is entirely at your own risk.
 
