@@ -121,7 +121,7 @@
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
   }
 }
-@media(max-width:770px){
+@media(max-width:805px){
   .card-img{
     object-fit: cover
   }
