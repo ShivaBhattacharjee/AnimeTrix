@@ -125,7 +125,7 @@ export default function Details(props) {
                     <h1>Recommended Anime</h1>
                   </div>
                 )}
-                <div className="movies-grid">
+                <div className="recommended-grid">
                   {animeDetails?.recommendations?.map((rec) => (
                     <>
                       <Card rec={rec} key={rec.id} handelClick={handelClick}  />
