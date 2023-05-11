@@ -27,6 +27,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+  * [Hosting](#host-your-own)
 * [Contributing](#contributing)
 * [Issue Template](#raising-an-issue)
 * [License](#license)
@@ -70,6 +71,14 @@ Disclaimer: Please note that the backend logic for comment, login, and validatio
   
   npm start
 ```
+
+## Host your own 
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FShivaBhattacharjee%2FAnimeTrix)
+<br/>
+<br/>
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ShivaBhattacharjee/AnimeTrix)
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
