@@ -116,19 +116,12 @@
     grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
   }
 }
-@media(max-width:870px){
+@media(max-width:900px){
   .movies-grid{
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
   }
 }
-@media(max-width:805px){
-  .card-img{
-    object-fit: cover
-  }
-  .movies-grid{
-    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
-  }
-}
+
 @media(max-width:600px){
   .card-head{
     height: 400px;
