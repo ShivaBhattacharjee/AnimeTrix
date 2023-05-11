@@ -4,12 +4,15 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi, ServerApi } from './constants';
+import OtherPagesCard from '../Loading/OtherPagesCard';
 // const user = "Shiva";
 function History() {
     const [animeData, setAnimeData] = useState([])
     const [userId, setUserId] = useState("");
     const [history, setHistory] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [count, setCount] = useState(18);
+
     function getCookie(name) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
@@ -20,7 +23,9 @@ function History() {
         }
         return undefined;
     }
-
+    const handleViewMoreClick = () => {
+        setCount(count + 18);
+    };
     const navigate = useNavigate();
     const getHistory = async () => {
         try {
@@ -45,14 +50,15 @@ function History() {
                 console.log(history)
                 setHistory(history);
 
-                const animeDataArray = [];
-                for (const historyItem of history) {
+                const animeDataPromises = history.map(async (historyItem) => {
                     const animeRes = await axios.get(`${HomeApi}/meta/anilist/info/${historyItem.animeId}`);
-                    const animeDataItem = animeRes.data;
-                    animeDataArray.push(animeDataItem);
-                }
+                    return animeRes.data;
+                });
+
+                const animeDataArray = await Promise.all(animeDataPromises);
+
                 setAnimeData(animeDataArray);
-                setLoading(false)
+                setLoading(false);
             }
         } catch (err) {
             toast.error('Error loading history!', {
@@ -197,14 +203,25 @@ function History() {
         <>
             <ToastContainer />
             {loading ? (
-                <div className="spinner-box">
-                    <div className="configure-border-1">
-                        <div className="configure-core"></div>
-                    </div>
-                    <div className="configure-border-2">
-                        <div className="configure-core"></div>
-                    </div>
-                </div>
+                <>
+                    <section className='profile-wrapper'>
+                        <div className="profile-greeting">
+                            <h1 className='history-head'><i class="fa-solid fa-clock-rotate-left lastwatch-icon continue-icon"></i> Continue Watching</h1>
+                        </div>
+                        <div className='profile-navbar'>
+                            <ul>
+                                <Link to="/profile">
+                                    <li>Profile</li>
+                                </Link>
+                                <li style={{ cursor: "pointer" }}>History</li>
+                                <Link to="/bookmark">
+                                    <li>Bookmark</li>
+                                </Link>
+                            </ul>
+                        </div>
+                    </section>
+                    <OtherPagesCard />
+                </>
             ) : (
                 <>
                     <section className='profile-wrapper'>
@@ -234,7 +251,7 @@ function History() {
                                     {/* <h1><i class="fa-solid fa-clock-rotate-left lastwatch-icon continue-icon"></i> Continue Watching</h1> */}
                                     {history.length == 0 ? <h1>No History</h1> : ""}
                                     <div className="movies-grid">
-                                        {animeData?.slice(0, 18).map((animeDataHis, index) => {
+                                        {animeData?.slice(0, count).map((animeDataHis, index) => {
                                             return (
                                                 <div className="movie-card">
                                                     <div className="lastwatch-close" onClick={ev => removeHistory(history[index].animeId)}>
@@ -258,7 +275,7 @@ function History() {
                                         })}
                                     </div>
                                     {history.length > 18 ? <div className="loadmore-recent">
-                                        <button className="loadmore">View More</button>
+                                        <button className="loadmore" onClick={handleViewMoreClick}>View More</button>
                                     </div> : ""}
                                 </div>
                             </div>

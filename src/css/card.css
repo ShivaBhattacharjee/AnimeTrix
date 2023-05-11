@@ -152,7 +152,7 @@
     height: auto;
   }
 }
-@media(max-width:450px){
+@media(max-width:480px){
   .card-head h5{
     font-size: 14px;
     font-weight: 500;

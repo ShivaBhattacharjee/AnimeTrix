@@ -5,13 +5,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Card from './Card';
 import { ServerApi } from './constants';
+import OtherPagesCard from '../Loading/OtherPagesCard';
 
 const Bookmark = () => {
     const [animeData, setAnimeData] = useState([])
     const [userId, setUserId] = useState("");
     const [loading, setLoading] = useState(true);
     const [bookmark, setBookmark] = useState([]);
-
+    const [count, setCount] = useState(18);
+    
     function getCookie(name) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
@@ -22,7 +24,12 @@ const Bookmark = () => {
         }
         return undefined;
     }
+    const handleViewMoreClick = () => {
+        setCount(count + 18);
+        if(count>=40){
 
+        }
+    };
     const removeBookmark = (animeId) => {
         const newArray = bookmark.filter(item => item != animeId);
         const newAnimeData = animeData.filter(data => data.id != animeId);
@@ -58,20 +65,17 @@ const Bookmark = () => {
                     });
                     return;
                 });
-                const res = await axios.get(`${ServerApi}/user/bookmark/${userId}`)
+                const res = await axios.get(`${ServerApi}/user/bookmark/${userId}`);
                 const bookmark = res.data;
-                // console.log(bookmark);
                 setBookmark(bookmark);
-
-                const animeDataArray = [];
-                for (const bookmarkItem of bookmark) {
-                    const animeRes = await axios.get(`https://animetrix-api.vercel.app/meta/anilist/info/${bookmarkItem}`);
-                    // console.log(animeRes.data);
-                    const animeDataItem = animeRes.data;
-                    animeDataArray.push(animeDataItem);
-                }
+                
+                const animeDataArray = await Promise.all(bookmark.map(async (bookmarkItem) => {
+                  const animeRes = await axios.get(`https://animetrix-api.vercel.app/meta/anilist/info/${bookmarkItem}`);
+                  return animeRes.data;
+                }));
+                
                 setAnimeData(animeDataArray);
-                setLoading(false)
+                setLoading(false);
             }
         } catch (err) {
             console.log(err);
@@ -87,19 +91,29 @@ const Bookmark = () => {
             });
         }
     }
-
+console.log(count)
     return (
         <>
             <ToastContainer />
             {loading ? (
-                <div className="spinner-box">
-                    <div className="configure-border-1">
-                        <div className="configure-core"></div>
-                    </div>
-                    <div className="configure-border-2">
-                        <div className="configure-core"></div>
-                    </div>
-                </div>
+                <>
+                    <section className='profile-wrapper'>
+                        <div className="profile-greeting">
+                            {/* <h1> Hi, {user}</h1> */}
+                            <h1><i class="fa-solid fa-bookmark continue-icon"></i> Bookmarks</h1>
+                        </div>
+                        <div className='profile-navbar'>
+                            <ul>
+                                <Link to="/profile">
+                                    <li>Profile</li>
+                                </Link>
+                                <Link to="/history"><li>History</li></Link>
+                                <li style={{ cursor: "pointer" }}>Bookmark</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <OtherPagesCard />
+                </>
             )
                 : (<>
                     <section className='profile-wrapper'>
@@ -124,15 +138,15 @@ const Bookmark = () => {
                                     {/* <h1><i class="fa-solid fa-bookmark continue-icon"></i> Bookmarks</h1> */}
                                     {bookmark.length == 0 ? <h1>No bookmark</h1> : ""}
                                     <div className="movies-grid">
-                                        {animeData?.slice(0, 18).reverse().map((animeDataHis, index) => {
+                                        {animeData?.slice(0, count).reverse().map((animeDataHis, index) => {
                                             return (
                                                 <Card rec={animeDataHis} removeBookmark={removeBookmark} />
                                             )
                                         })}
                                     </div>
                                     {bookmark.length > 18 ? <div className="loadmore-recent">
-                                        <button className="loadmore">View More</button>
-                                    </div> : ""}
+                                        <button className="loadmore" onClick={handleViewMoreClick}>View More</button>
+                                    </div> : null}
                                 </div>
                             </div>
                         </section>

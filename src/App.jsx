@@ -410,7 +410,7 @@ function App() {
 
           exact
           path="/anime-details/:animeId"
-          element={<Details handelClick={handelClick} />}
+          element={<Details handelClick={handelClick}/>}
         />
         <Route
           exact

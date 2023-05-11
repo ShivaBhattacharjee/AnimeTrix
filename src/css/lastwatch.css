@@ -1,5 +1,4 @@
 .lastwatch {
-  /* padding: 20px 0px; */
   display: none;
   padding-bottom: 30px;
 }
@@ -9,7 +8,6 @@
 }
 .lastwatch-heading{
   font-size: 30px;
-  padding: 20px 40px;
 }
 .lastwatch-close {
   position: absolute;
@@ -68,63 +66,4 @@
   color:  rgb(33,150,243);
 }
 
-@media(max-width:600px){
-  .continue-icon{
-    font-size: 35px;
-    color: rgb(33,150,243);
-  }
-  .lastwatch-heading{
-    font-size: 25px;
-  }
-}
-.history-head{
-  font-size: 40px;
-}
-@media(max-width:600px){
-  .history-head{
-    font-size: 30px;
-  }
-}
-@media(max-width:440px){
-  .history-head{
-    font-size: 20px;
-  }
-  .continue-icon{
-    font-size: 25px;
-    color: rgb(33,150,243);
-  }
-  .lastwatch-head{
-    background: #162032;
-    width: 170px;
-    height: auto;
-    border-radius: 4px;
-  }
-  .lastwatch-img {
-    width: 300px;
-    height: 250px;
-    object-fit: cover;
-  }
-  .lastwatch-heading{
-    padding: 20px 30px;
-  }
-  .lastwatch-heading h1{
-    font-size: 26px;
-    padding-bottom: 20px;
-  }
-  .lastwatch-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 10fr));
-    gap: 30px;
-  }
-}
-@media(max-width:350px){
-  .lastwatch-head{
-    width: 140px;
-  }
-  .lastwatch-head img{
-    height: 200px;
-  }
-  .lastwatch-heading h1{
-    font-size: 20px;
-  }
-}
+
