@@ -133,7 +133,7 @@
 
 .recommended-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+  grid-template-columns: repeat(5,1fr);
   gap: 30px;
   padding-top: 40px;
 }
@@ -213,17 +213,24 @@
     justify-content: center;
     align-items: center;
   }
+
+  .recommended-grid{
+    grid-template-columns: repeat(4,1fr);
+  }
 }
 
 @media(max-width:785px) {
   .recommended-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media(max-width:600px) {
   .recommended-anime h1 {
     font-size: 30px;
+  }
+  .recommended-grid{
+    grid-template-columns: repeat(2,1fr);
   }
   .anime-trailer iframe{
     max-width: 700px;
@@ -246,17 +253,17 @@
   .watch-anime-btn {
     padding: 15px 20px;
   }
-}
-
-@media(max-width:430px) {
-  .recommended-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  .recommended-grid{
+    grid-template-columns: repeat(2,1fr);
   }
 }
 
 @media(max-width:450px) {
   .recommended-anime h1 {
     font-size: 25px;
+  }
+  .recommended-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
