@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi } from "../Components/constants";
 import DetailsLoader from "../Loading/DetailsLoader";
+// import DetailsLoader from "../Loading/DetailsLoader";
 export default function Details(props) {
 
   const { animeId } = useParams()
@@ -47,10 +48,22 @@ export default function Details(props) {
       });
     }
   }
+
+  const myfunc = () => {
+    setLoading(true)
+  }
   useEffect(() => {
     getDetails()
+    myfunc()
   }, [animeId]);
 
+
+  if(loading){
+    return(
+      <DetailsLoader />
+    )
+  }
+ 
   return (
     <>
       <ToastContainer />
@@ -60,10 +73,10 @@ export default function Details(props) {
         height={5}
         shadow='true'
       />
-      {loading ? (
+      {/* {loading ? (
         <DetailsLoader />
       ) : (
-        <>
+        <> */}
           <div className="details" >
             {detail.map((animeDetails) => (
               <div key={animeId}>
@@ -135,9 +148,12 @@ export default function Details(props) {
               </div>
             ))}
           </div>
-        </>
-      )}
+        {/* </>
+      )} */}
       <Footer />
     </>
   );
+
+  
 }
+

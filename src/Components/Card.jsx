@@ -5,6 +5,7 @@ import axios from "axios";
 // import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ServerApi } from "./constants";
+
 export default function Card(props) {
   const { rec } = props;
   const [isBookmark, setIsBookmark] = useState(false);
