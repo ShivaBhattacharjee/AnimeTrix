@@ -198,7 +198,7 @@ function History() {
     useEffect(() => {
         getHistory();
     }, [userId]);
-
+console.log(history.length)
     return (
         <>
             <ToastContainer />
@@ -274,9 +274,16 @@ function History() {
                                             )
                                         })}
                                     </div>
-                                    {history.length > 18 ? <div className="loadmore-recent">
-                                        <button className="loadmore" onClick={handleViewMoreClick}>View More</button>
-                                    </div> : ""}
+                                    {history.length > 18 && (
+                                        <div className="loadmore-recent">
+                                            {history.length == 40 && (
+                                                <button className="loadmore" onClick={handleViewMoreClick}>
+                                                    View More
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
+
                                 </div>
                             </div>
                         </section >

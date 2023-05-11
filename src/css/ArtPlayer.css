@@ -1,144 +1,32 @@
 .video-art {
 	width: 100vw;
 	max-width: 100%;
-	height: calc(var(--vh, 1vh) * 55);
+	height: 100%;
 	border-radius: 14px;
 	max-height: 100vh;
 	margin: auto;
 }
 
 .art-video-player {
-	height: calc(var(--vh, 1vh) * 55) !important;
-	width: 100% !important;
+	height: 400px !important;
+	width: 800px !important;
 	border-radius: 14px;
 }
 
 
-
-
-@media(max-width:1300px) {
-	.video-art {
-		width: 55vw;
-	}
-
-	.video-art {
-		height: calc(var(--vh, 1vh) * 30);
-	}
-
+@media(max-width:600px){
 	.art-video-player {
-		height: calc(var(--vh, 1vh) * 30) !important;
-	}
-
-}
-@media(max-width:1300px) {
-
-	.video-art {
-		height: calc(var(--vh, 1vh) * 50);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 50) !important;
-	}
-
-}
-
-@media(max-width:1030px) {
-
-	.video-art {
-		height: calc(var(--vh, 1vh) * 50);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 50) !important;
-	}
-
-}
-@media(max-width:980px){
-	.video-art {
-		width: 100vw;
-		height: calc(var(--vh, 1vh) * 35);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 38) !important;
-	}
-}
-@media(max-width:920px) {
-	.video-art {
-		height: calc(var(--vh, 1vh) * 30);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 31) !important;
-	}
-
-}
-
-
-@media(max-width:850px) {
-	.video-art {
-		height: calc(var(--vh, 1vh) * 32);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 38) !important;
-
-	}
-}
-
-@media(max-width:650px) {
-	.video-art {
-		height: calc(var(--vh, 1vh) * 35);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 40) !important;
-
-	}
-}
-
-@media(max-width:700px) {
-	.video-art {
-		height: calc(var(--vh, 1vh) * 35);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 30) !important;
-
-	}
-}
-
-@media(max-width:550px) {
-	.video-art {
-		height: calc(var(--vh, 1vh) * 25);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 30) !important;
-
-	}
-}
-@media(max-width:480px) {
-	.video-art {
-		height: calc(var(--vh, 1vh) * 27);
-	}
-
-	.art-video-player {
-		height: calc(var(--vh, 1vh) * 30) !important;
-
-	}
-}
-@media(max-width:450px) {
-	.video-art {
-		max-width: 100%;
+		height: 300px !important;
+		width: 700px !important;
 		border-radius: 14px;
-		max-height: 100vh;
-		margin: auto;
-		height: calc(var(--vh, 1vh) * 30);
-	}
+	}	
+	
+}
 
+@media(max-width:400px){
 	.art-video-player {
-		height: calc(var(--vh, 1vh) * 30) !important;
-		width: 100% !important;
-	}
+		height: 250px !important;
+		border-radius: 14px;
+	}	
+	
 }

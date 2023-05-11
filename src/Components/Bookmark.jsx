@@ -64,7 +64,7 @@ const Bookmark = () => {
                         theme: "dark",
                     });
                     return;
-                });
+                });  
                 const res = await axios.get(`${ServerApi}/user/bookmark/${userId}`);
                 const bookmark = res.data;
                 setBookmark(bookmark);

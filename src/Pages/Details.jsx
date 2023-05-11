@@ -49,12 +49,12 @@ export default function Details(props) {
     }
   }
 
-  const myfunc = () => {
+  const AnimeLoading = () => {
     setLoading(true)
   }
   useEffect(() => {
     getDetails()
-    myfunc()
+    AnimeLoading()
   }, [animeId]);
 
 
@@ -156,4 +156,3 @@ export default function Details(props) {
 
   
 }
-

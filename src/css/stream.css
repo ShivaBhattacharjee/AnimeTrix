@@ -315,7 +315,7 @@
   }
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 1025px) {
   .video-player-list {
     flex-direction: column;
     justify-content: center;

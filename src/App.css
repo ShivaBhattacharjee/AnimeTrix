@@ -81,7 +81,6 @@ a {
 
 
 
-
 .react-loading-skeleton {
   display: block;
   animation: pulse 1.5s ease-in-out 0.5s infinite;
@@ -98,3 +97,4 @@ a {
     background-position: -100% 0%;
   }
 }
+
