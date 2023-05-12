@@ -60,7 +60,7 @@
 }
 @media(max-width:400px) {
 	.art-video-player {
-		width: 330px !important;
+		width: 350px !important;
 		height: 250px !important;
 
 	}
