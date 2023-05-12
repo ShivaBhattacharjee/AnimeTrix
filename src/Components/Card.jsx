@@ -5,6 +5,7 @@ import axios from "axios";
 // import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ServerApi } from "./constants";
+import {  LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Card(props) {
   const { rec } = props;
@@ -124,10 +125,9 @@ export default function Card(props) {
             <i class={isLoading ? "fas fa-spinner fa-pulse" : (isBookmark ? "fa-solid fa-bookmark" : "fa-regular fa-bookmark")} ></i>
           </div>
           <Link to={`/anime-details/${props.rec.id}`} onClick={() => { props.handelClick(); goToBtn(); }}>
-            <img
+            <LazyLoadImage
               src={props.rec.image}
               alt={props.rec.id}
-              loading="lazy"
               className="card-img"
             />
           </Link>

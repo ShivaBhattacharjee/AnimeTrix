@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { HomeApi } from './constants';
 import { useFetchInitialData } from "../utils/hooks";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 const UpcomingSeason = () => {
     const [summer, setSummer] = useState([])
     const [fall, setFall] = useState([]);
@@ -54,7 +55,7 @@ const UpcomingSeason = () => {
                             <>
                                 <div className="content">
                                     <Link to={`/anime-details/${fallData?.id}`}>
-                                        <img src={fallData?.image} alt="img" />
+                                        <LazyLoadImage src={fallData?.image} alt="img" />
                                     </Link>
                                     <div className="text">
                                         <h4>{fallData?.title?.userPreferred}</h4>
@@ -84,7 +85,7 @@ const UpcomingSeason = () => {
                             <>
                                 <div className="content">
                                     <Link to={`/anime-details/${fallData?.id}`}>
-                                        <img src={fallData?.image} alt="img" loading='lazy'/>
+                                        <LazyLoadImage src={fallData?.image} alt="img" loading='lazy'/>
                                     </Link>
                                     <div className="text">
                                         <h4>{fallData?.title?.userPreferred}</h4>
@@ -114,7 +115,7 @@ const UpcomingSeason = () => {
                             <>
                                 <div className="content">
                                     <Link to={`/anime-details/${winterData.id}`}>
-                                        <img src={winterData.image} alt="img"  loading='lazy' />
+                                        <LazyLoadImage src={winterData.image} alt="img"  loading='lazy' />
                                     </Link>
                                     <div className="text">
                                         <h4>{winterData?.title?.userPreferred}</h4>
@@ -144,7 +145,7 @@ const UpcomingSeason = () => {
                             <>
                                 <div className="content">
                                     <Link to={`/anime-details/${sprinData.id}`}>
-                                        <img src={sprinData.image} alt="img"  loading='lazy' />
+                                        <LazyLoadImage src={sprinData.image} alt="img"  loading='lazy' />
                                     </Link>
                                     <div className="text">
                                         <h4>{sprinData?.title?.userPreferred}</h4>
