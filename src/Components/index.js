@@ -28,5 +28,5 @@ export {
     History,
     Bookmark,
     AnimeImageSearchLayout,
-    UpcomingSeason
+    UpcomingSeason,
 }
