@@ -211,7 +211,7 @@ const Profile = () => {
           </section>
           <section className='profile-user-info'>
             <div className="login-container">
-              <div className="user-picture" onClick={() => setChangeAvatar(!changeAvatar)}>
+              <div className="user-picture">
                 <img src={img} alt="user-image" className='user-img' />
                 <div className={changeAvatar ? "image-list" : "hide-image-list"}>
                   {profileImages.map((profileImg) => {
