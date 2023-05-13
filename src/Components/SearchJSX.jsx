@@ -1,10 +1,13 @@
 import React from "react";
 import Card from "./Card";
-
+import { useEffect } from "react";
 export default function SearchJSX(props) {
   const handelClick = () => {
     props.handelClick();
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <>
       {Object.keys(props.searchResult).length === 0 ? (
