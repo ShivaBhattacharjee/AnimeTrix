@@ -21,7 +21,16 @@
 		height: 400px !important;
 	}
 }
+@media(max-width:830px) {
+	.video-art {
+		width: 700px;
+	}
 
+	.art-video-player {
+		width: 700px !important;
+
+	}
+}
 
 @media(max-width:700px) {
 	.video-art {

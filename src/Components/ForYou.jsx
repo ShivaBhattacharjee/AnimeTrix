@@ -34,7 +34,7 @@ const ForYou = () => {
               <h3>You might like</h3>
             </div>
           </div>
-          <div className="seasons-grid">
+          <div className="movies-grid">
             <Card rec={forYou}></Card>
           </div>
         </section>

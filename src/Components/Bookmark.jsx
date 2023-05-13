@@ -43,6 +43,7 @@ const Bookmark = () => {
     });
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         getBookmarks();
     }, [userId]);
 

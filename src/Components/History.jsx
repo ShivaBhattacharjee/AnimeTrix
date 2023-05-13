@@ -196,6 +196,7 @@ function History() {
     });
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         getHistory();
     }, [userId]);
 console.log(history.length)

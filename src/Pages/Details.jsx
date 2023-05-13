@@ -53,6 +53,7 @@ export default function Details(props) {
     setLoading(true)
   }
   useEffect(() => {
+    window.scrollTo(0, 0);
     getDetails()
     AnimeLoading()
   }, [animeId]);

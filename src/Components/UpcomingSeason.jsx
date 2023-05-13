@@ -145,7 +145,7 @@ const UpcomingSeason = () => {
                             <>
                                 <div className="content">
                                     <Link to={`/anime-details/${sprinData.id}`}>
-                                        <LazyLoadImage src={sprinData.image} alt="img"  loading='lazy' />
+                                        <LazyLoadImage src={sprinData.image} alt="img" />
                                     </Link>
                                     <div className="text">
                                         <h4>{sprinData?.title?.userPreferred}</h4>

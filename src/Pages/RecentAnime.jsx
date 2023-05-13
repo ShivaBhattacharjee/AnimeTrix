@@ -115,7 +115,7 @@ const RecentAnime = (props) => {
                 <h3>Popular</h3>
               </div>
             </div>
-            <div className="seasons-grid">
+            <div className="movies-grid">
               {props.popular.map((rec) => (
                 <Card
                   rec={rec}
