@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { Link } from "react-router-dom";
 import spinner from "../img/spinner.svg";
 import { Card } from '../Components';
 import { ToastContainer, toast } from 'react-toastify';
@@ -16,11 +15,8 @@ function OptionFetcher() {
   const [page, setPage] = useState(1);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isBookmark, setIsBookmark] = useState(false);
   //bookmark
-  function handleIconClick() {
-    setIsBookmark(!isBookmark);
-  }
+
 
   useEffect(() => {
     fetchData();
