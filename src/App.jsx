@@ -20,7 +20,7 @@ import "./css/ImageSearch.css"
 import "./css/UpcomingSeason.css"
 
 import { Error404, Header, ScrollToTop, SearchJSX, History, Bookmark } from "./Components/";
-import { DubAnime, RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason } from "./Pages"
+import {  RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason } from "./Pages"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

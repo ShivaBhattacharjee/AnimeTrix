@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { FileUploader } from "react-drag-drop-files"
 import axios from "axios"
-import Footer from "../Components/Footer"
 import AnimeImageSearchLayout from "../Components/AnimeImageSearchLayout"
 const fileTypes = ["JPG", "PNG", "JPEG"]
 function AnimeImageSearch() {

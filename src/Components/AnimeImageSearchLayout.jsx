@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react"
-import axios from "axios"
 import { Link } from "react-router-dom"
 import { HomeApi } from "./constants"
 function AnimeImageSearchLayout({ searchResult, setToggle }) {
@@ -28,7 +27,7 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 
 	useEffect(() => {
 		getAnime(select)
-	}, [searchResult.result, select])
+	}, [searchResult.result, select, getAnime])
 
 	return (
 		<>
