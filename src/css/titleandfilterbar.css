@@ -15,8 +15,9 @@
   .movies {
     position: relative;
     top: 40px;
-    max-width: 1350px;
+    max-width: 100%;
     margin: auto;
+    padding: 0 10px;
   }
   
   .filter-bar {
