@@ -133,6 +133,7 @@
   .movies-grid{
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     padding: 0px 40px;
+    gap: 20px;
   }
 }
 
