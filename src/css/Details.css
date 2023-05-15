@@ -163,7 +163,10 @@
 
 @media(max-width:1300px) {
   .details {
-    padding: 1rem 20px;
+    padding: 1rem 0px;
+  }
+  .recommended-anime h1{
+    padding: 0px 4%;
   }
 }
 

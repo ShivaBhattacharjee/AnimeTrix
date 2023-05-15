@@ -55,7 +55,7 @@
 
 @media(max-width:550px) {
 	.art-video-player {
-		width: 500px !important;
+		width: 450px !important;
 		height: 300px !important;
 
 	}
