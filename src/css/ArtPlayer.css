@@ -69,7 +69,7 @@
 }
 @media(max-width:400px) {
 	.art-video-player {
-		width: 350px !important;
+		width: 360px !important;
 		height: 250px !important;
 
 	}
