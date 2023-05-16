@@ -122,6 +122,7 @@ function AnimeImageSearch() {
                                     >
                                         SEARCH
                                     </button>
+                                    <br /><br />
                                 </div>
                             ) : (
 
