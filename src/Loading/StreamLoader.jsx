@@ -16,7 +16,7 @@ const StreamLoader = () => {
                     <div className="video-player-list">
                         {/* Video Player */}
                         <div className="video-player">
-                            <Skeleton className='skeleton-loader-video'/>
+                            <Skeleton className='art-video-player'/>
                         </div>
 
                         {/* Episode List */}
