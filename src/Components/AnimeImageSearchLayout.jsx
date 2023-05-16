@@ -41,7 +41,7 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 										<h3>Match?</h3>
 									</div>
 								</div>
-								<div className="seasons-grid">
+								<div className="movies-grid">
 									<div
 										className="movie-card">
 										<div className="card-head">
@@ -74,7 +74,7 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 						<h3>Other Results</h3>
 					</div>
 				</div>
-				<div className="seasons-grid">
+				<div className="movies-grid">
 					{searchResult.result.map((item, i) => (
 						<div
 							key={i}
@@ -130,6 +130,7 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 						/>
 					</div> */}
 				</div>
+				<br /><br />
 			</div>
 		</>
 	)
