@@ -36,11 +36,19 @@ const ChatBody = ({ chat }) => {
             </span>
             <br />
             {message.sender === "ai" && (
-              <CopyToClipboard text={message.message}
-                onCopy={() => setCopy(true)}>
-                <button className={`text-copy ${copy ? "copied" : null}`}>
-                  <i class="fa-regular fa-clipboard"></i>&nbsp;&nbsp;Copy Text</button>
-              </CopyToClipboard>
+              <div>
+                {copy ? (
+                  <button className="text-copy">
+                    <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Copied
+                  </button>
+                ) : (
+                  <CopyToClipboard text={message.message} onCopy={() => setCopy(true)}>
+                    <button className="text-copy">
+                      <i className="fa-regular fa-clipboard"></i>&nbsp;&nbsp;Copy Text
+                    </button>
+                  </CopyToClipboard>
+                )}
+              </div>
             )}
           </div>
         );
