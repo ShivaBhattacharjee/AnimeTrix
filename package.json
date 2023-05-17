@@ -20,6 +20,7 @@
     "hls.js": "^1.4.1",
     "js-cookie": "^3.0.1",
     "react": "^18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-drag-drop-files": "^2.3.9",
     "react-helmet": "^6.1.0",
