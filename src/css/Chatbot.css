@@ -125,6 +125,9 @@
     display: none;
 }
 @media(max-width:400px){
+     .chat-container{
+        height: 75vh;
+    }
     .chat-container-heading {
         font-size: 14px;
     }
