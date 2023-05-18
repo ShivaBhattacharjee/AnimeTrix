@@ -20,7 +20,24 @@ const ChatBody = ({ chat }) => {
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" })
+    window.scrollTo(0, 0);
   }, [chat])
+
+  useEffect(() => {
+    let copiedTimeout;
+
+    if (copy) {
+      copiedTimeout = setTimeout(() => {
+        setCopy(false);
+      }, 2000);
+    }
+
+    return () => {
+      if (copiedTimeout) {
+        clearTimeout(copiedTimeout);
+      }
+    };
+  }, [copy]);
 
   return (
     <div className="chat-main-details" ref={parent}>
