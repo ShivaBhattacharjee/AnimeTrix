@@ -27,7 +27,7 @@ const DetailsLoader = () => {
                     <div className="recommended-anime">
                         <h1>Recommended Anime</h1>
                     </div>
-                    <div className="recommended-grid">
+                    <div className="movies-grid">
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
                             <>
                                 <div
