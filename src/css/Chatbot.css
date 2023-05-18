@@ -126,7 +126,7 @@
 }
 @media(max-width:400px){
      .chat-container{
-        height: 75vh;
+        height: 80vh;
     }
     .chat-container-heading {
         font-size: 14px;
