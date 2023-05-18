@@ -14,7 +14,6 @@ import Hls from 'hls.js';
 import Artplayer from "../Components/ArtPlayer";
 import VideoPlayer from "../Components/VideoPlayer";
 import StreamLoader from "../Loading/StreamLoader";
-import DetailsLoader from "../Loading/DetailsLoader";
 
 export default function Stream(props) {
   const { episodeId } = useParams()
@@ -22,15 +21,10 @@ export default function Stream(props) {
   const [userId, setUserId] = useState("");
   const { animeId } = useParams()
   const [loading, setLoading] = useState(true)
-  const [stream, setstream] = useState([])
   const [detail, setDetail] = useState({});
   const [extraDetail, setextraDetail] = useState([]);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
-  const [download, setDownload] = useState("")
-  const [quality, setQuality] = useState([])
-  const [displayArtPlayer, setDisplayArtPlayer] = useState(true);
-  const [external, setExternal] = useState([])
   const navigate = useNavigate();
   const containerRef = useRef(null);
   let isMouseDown = false;
@@ -54,8 +48,6 @@ export default function Stream(props) {
   const handleMouseUp = () => {
     isMouseDown = false;
   };
-  // Local Storage Key
-  // const LOCAL_STORAGE_KEY = "animetrix-vercel-app";
 
   const addHistory = async () => {
     try {
@@ -127,16 +119,25 @@ export default function Stream(props) {
   const getStream = async () => {
     try {
       const Video = await axios.get(
-        `${HomeApi}/anime/gogoanime/watch/${episodeId}`
+        `https://api.amvstr.ml/api/v2/stream/${episodeId}`
       );
-      setData(Video?.data?.sources);
-      setDownload(Video?.data?.download)
-      setQuality(Video?.data?.sources)
-      setExternal(Video?.data?.headers?.Referer)
-      setLoading(false);
+      if (Video.length == 0) {
+        setLoading(true)
+      }
+      setLoading(false)
+      setData(Video?.data?.data?.plyr?.main);
     }
     catch (err) {
-      console.log("Error loading streaming data");
+      toast.error("Error loading streaming data", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   }
 
@@ -179,13 +180,7 @@ export default function Stream(props) {
     getComments();
   }, [animeId, episodeId, userId]);
 
-  const handleInternalClick = () => {
-    setDisplayArtPlayer(true);
-  };
 
-  const handleExternalClick = () => {
-    setDisplayArtPlayer(false);
-  };
 
   const addComment = async (e) => {
     e.preventDefault();
@@ -427,21 +422,7 @@ export default function Stream(props) {
               <div className="video-player-list">
                 {/* Video Player */}
                 <div className="video-player">
-                  {displayArtPlayer ?
-                    <VideoPlayer
-                      videoUrl={data}
-                      download={download}
-                      quality={quality}
-                      title={episodeId}
-                    /> : <><iframe
-                      src={external}
-                      scrolling="no"
-                      frameBorder="0"
-                      allowFullScreen="allowfullscreen"
-                      webkitallowfullscreen="true"
-                      title={episodeId}
-                    />
-                    </>}
+                  <iframe src={data} frameborder="0"></iframe>
                 </div>
 
                 {/* Episode List */}
@@ -468,8 +449,8 @@ export default function Stream(props) {
             </div>
             <br /><br />
             <div className="player-change">
-              <button onClick={handleInternalClick}>Internel Player</button>
-              <button onClick={handleExternalClick}>External Player</button>
+              <button >Internel Player</button>
+              <button >External Player</button>
             </div>
             {extraDetail && extraDetail?.map((extra) => {
               return (
