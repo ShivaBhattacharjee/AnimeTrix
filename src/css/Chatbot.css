@@ -125,7 +125,7 @@
     display: none;
 }
 @media(max-width:400px){
-    .chat-container{
+     .chat-container{
         height: 80vh;
     }
     .chat-container-heading {
