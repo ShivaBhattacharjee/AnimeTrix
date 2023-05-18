@@ -117,7 +117,7 @@
 
 }
 .anime-episodes .episodes-list button {
-  width: 50px;
+  width: 55px;
   padding: 10px;
   margin: 10px 0px;
   font-size: 15px;
@@ -143,10 +143,6 @@
     padding: 2rem 4rem;
   }
 
-  .list-box.details {
-    margin-top: 0px;
-    width: 100%;
-  }
 
   .episode-list.details {
     margin-left: 0px;
