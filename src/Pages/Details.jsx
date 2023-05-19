@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi } from "../Components/constants";
 import DetailsLoader from "../Loading/DetailsLoader";
 // import DetailsLoader from "../Loading/DetailsLoader";
+import { showErrorToast } from "../utils/toast";
 export default function Details(props) {
 
   const { animeId } = useParams()
@@ -36,16 +37,8 @@ export default function Details(props) {
       setLoading(false);
     }
     catch (error) {
-      toast.error("Error loading details", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading details!';
+      showErrorToast(errorMessage);
     }
   }
 

@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi, ServerApi } from './constants';
 import OtherPagesCard from '../Loading/OtherPagesCard';
+import { showErrorToast } from '../utils/toast';
 // const user = "Shiva";
 function History() {
     const [animeData, setAnimeData] = useState([])
@@ -26,23 +27,14 @@ function History() {
     const handleViewMoreClick = () => {
         setCount(count + 18);
     };
-    const navigate = useNavigate();
     const getHistory = async () => {
         try {
             if (userId) {
                 axios.interceptors.response.use(response => {
                     return response;
                 }, error => {
-                    toast.error(error.response.data.error, {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-                    });
+                    const errorMessage = error.response.data.error;
+                    showErrorToast(errorMessage);
                     return;
                 });
                 const res = await axios.get(`${ServerApi}/user/history/${userId}`)
@@ -61,16 +53,8 @@ function History() {
                 setLoading(false);
             }
         } catch (err) {
-            toast.error('Error loading history!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
+            const errorMessage = 'Error loading History!';
+            showErrorToast(errorMessage);
         }
     }
 
@@ -83,17 +67,8 @@ function History() {
                         return response;
                     },
                     (error) => {
-                        toast.error(error.response.data.error, {
-                            position: toast.POSITION.TOP_RIGHT,
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            rtl: false,
-                            pauseOnFocusLoss: true,
-                            draggable: true,
-                            pauseOnHover: true,
-                            theme: "dark",
-                        });
+                        const errorMessage = error.response.data.error;
+                        showErrorToast(errorMessage);
                         return;
                     }
                 );
@@ -103,32 +78,15 @@ function History() {
                 console.log(res);
                 await getHistory();
                 if (res && res.data) {
-                    toast.success(res.data.message, {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-                    });
+                    const errorMessage = res.data.message;
+                    showErrorToast(errorMessage);
                     return res;
                 }
             }
         } catch (err) {
             console.log(err);
-            toast.error("Something went wrong", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                rtl: false,
-                pauseOnFocusLoss: true,
-                draggable: true,
-                pauseOnHover: true,
-                theme: "dark",
-            });
+            const errorMessage = 'Something went wrong';
+            showErrorToast(errorMessage);
         }
     };
 
@@ -141,17 +99,8 @@ function History() {
                         return response;
                     },
                     (error) => {
-                        toast.error(error.response.data.error, {
-                            position: toast.POSITION.TOP_RIGHT,
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            rtl: false,
-                            pauseOnFocusLoss: true,
-                            draggable: true,
-                            pauseOnHover: true,
-                            theme: "dark",
-                        });
+                        const errorMessage = error.response.data.error;
+                        showErrorToast(errorMessage);
                         return;
                     }
                 );
@@ -161,32 +110,15 @@ function History() {
                 console.log(res);
                 await getHistory();
                 if (res && res.data) {
-                    toast.success(res.data.message, {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-                    });
+                    const errorMessage = res.data.message;
+                    showErrorToast(errorMessage);
                     return res;
                 }
             }
         } catch (err) {
             console.log(err);
-            toast.error("Something went wrong", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                rtl: false,
-                pauseOnFocusLoss: true,
-                draggable: true,
-                pauseOnHover: true,
-                theme: "dark",
-            });
+            const errorMessage = 'Something went wrong';
+            showErrorToast(errorMessage);
         }
     }
 
@@ -249,7 +181,6 @@ console.log(history.length)
                                     {history.length == 0 ? "" : <div className="clear-history">
                                         <button onClick={deleteHistory}>Clear all</button>
                                     </div>}
-                                    {/* <h1><i class="fa-solid fa-clock-rotate-left lastwatch-icon continue-icon"></i> Continue Watching</h1> */}
                                     {history.length == 0 ? <h1>No History</h1> : ""}
                                     <div className="movies-grid">
                                         {animeData?.slice(0, count).map((animeDataHis, index) => {

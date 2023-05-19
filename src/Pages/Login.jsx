@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ServerApi } from "../Components/constants";
+import { showErrorToast } from '../utils/toast';
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,17 +16,8 @@ function Login() {
       axios.interceptors.response.use(response => {
         return response;
       }, error => {
-        toast.error(error.response.data.error, {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          rtl: false,
-          pauseOnFocusLoss: true,
-          draggable: true,
-          pauseOnHover: true,
-          theme: "dark",
-        });
+        const errorMessage = error.response.data.error;
+        showErrorToast(errorMessage);
         return;
       });
       const res = await axios.post(`${ServerApi}/user/login`, {
@@ -35,16 +27,8 @@ function Login() {
       return res;
     } catch (err) {
       console.log(err);
-      toast.error("Something went wrong", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Something went wrong!';
+      showErrorToast(errorMessage);
     }
   }
 
@@ -72,17 +56,8 @@ function Login() {
     e.preventDefault();
     const res = await userLogin();
     if (res) {
-      toast.success("Welcome to AnimeTrix", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Welcome to AnimeTrix!';
+      showErrorToast(errorMessage);
       if (rememberMe) {
         Cookies.set("id", res.data._id, { expires: 7 });
         Cookies.set("category", res.data.category, { expires: 7 });
@@ -96,7 +71,8 @@ function Login() {
       }
     }
     else {
-      console.log("Error")
+      const errorMessage = 'Error!';
+      showErrorToast(errorMessage);
     }
   }
   return (

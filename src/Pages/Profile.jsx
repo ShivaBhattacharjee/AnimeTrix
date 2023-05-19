@@ -7,6 +7,8 @@ import { Footer } from '../Components'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ServerApi } from '../Components/constants'
+import { showErrorToast } from '../utils/toast'
+import ProfileLoader from '../Loading/ProfileLoader'
 const Profile = () => {
   const [userId, setUserId] = useState("");
   const [userName, setUserName] = useState("");
@@ -52,16 +54,8 @@ const Profile = () => {
       axios.interceptors.response.use(response => {
         return response;
       }, error => {
-        toast.error("Something went wrong", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        const errorMessage = 'Something went wrong';
+        showErrorToast(errorMessage);
         return;
       });
       if (userId) {
@@ -76,7 +70,8 @@ const Profile = () => {
           setDetails({});
       }
     } catch (err) {
-      console.log(err);
+      const errorMessage = 'Error getting userId';
+      showErrorToast(errorMessage);
     }
   }
 
@@ -85,16 +80,8 @@ const Profile = () => {
       axios.interceptors.response.use(response => {
         return response;
       }, error => {
-        toast.error(error.response.data.error, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        const errorMessage = error.response.data.error;
+        showErrorToast(errorMessage);
         return;
       });
       const res = await axios.post(`${ServerApi}/user/change/name`, {
@@ -104,16 +91,8 @@ const Profile = () => {
       return res;
     } catch (err) {
       console.log(err);
-      toast.error("Something went wrong", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Something went wrong';
+      showErrorToast(errorMessage);
     }
   }
 
@@ -122,27 +101,11 @@ const Profile = () => {
     if (isUpdating) {
       if (details.name != userName) {
         const res = await changeName();
-        toast.success(res.data.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        const errorMessage = res.data.message;
+        showErrorToast(errorMessage);
       } else {
-        toast.error("Username already exists try another", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        const errorMessage = 'Username already exists try another';
+      showErrorToast(errorMessage);
       }
     }
     setIsUpdating(!isUpdating);
@@ -185,16 +148,10 @@ const Profile = () => {
   return (
     <>
       {loading ? (
-        <div className="spinner-box">
-          <div className="configure-border-1">
-            <div className="configure-core"></div>
-          </div>
-          <div className="configure-border-2">
-            <div className="configure-core"></div>
-          </div>
-        </div>
+        <ProfileLoader/>
       ) : (
         <>
+        <ToastContainer/>
           <section className='profile-wrapper'>
             <div className="profile-greeting">
               <h1> Hello, {details ? details.name : "User"}</h1>
@@ -221,7 +178,7 @@ const Profile = () => {
                         key={profileImg.id}
                         onClick={() => setImageHandler(profileImg.imgUrl)}
                       >
-                        <img src={profileImg.imgUrl} alt="" />
+                        <img src={profileImg.imgUrl} alt="profile" />
                       </div>
                     );
                   })}

@@ -1,21 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link,  useParams } from "react-router-dom";
 import { Footer } from "../Components/";
 import LoadingBar from "react-top-loading-bar";
-// import ReplyIcon from '@mui/icons-material/Reply';
-// import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-// import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-// import Cookie from "js-cookie"
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi, ServerApi } from "../Components/constants";
-// import Hls from 'hls.js';
-// import Artplayer from "../Components/ArtPlayer";
-// import VideoPlayer from "../Components/VideoPlayer";
 import StreamLoader from "../Loading/StreamLoader";
 import { Helmet } from "react-helmet";
-
+import { showErrorToast } from '../utils/toast';
 export default function Stream(props) {
   const { episodeId } = useParams()
   const [data, setData] = useState([]);
@@ -28,7 +21,6 @@ export default function Stream(props) {
   const [comment, setComment] = useState("");
   const [nspl, setnspl] = useState([])
   const [displayPlyr, setDisplayPlyr] = useState(false)
-  const navigate = useNavigate();
   const containerRef = useRef(null);
   let isMouseDown = false;
   let startX;
@@ -69,16 +61,8 @@ export default function Stream(props) {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong ", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Something went wrong';
+      showErrorToast(errorMessage);
     }
   };
 
@@ -88,16 +72,8 @@ export default function Stream(props) {
       axios.interceptors.response.use(response => {
         return response;
       }, error => {
-        toast.error(error.response.data.error, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        const errorMessage = error.response.data.error;
+        showErrorToast(errorMessage);
         return;
       });
       const res = await axios.get(`${ServerApi}/discussion/comments/${episodeId}`)
@@ -106,17 +82,8 @@ export default function Stream(props) {
       else
         setComments([]);
     } catch (err) {
-      console.log(err);
-      toast.error("Error loading comments", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading comments';
+      showErrorToast(errorMessage);
     }
   }
   const getStream = async () => {
@@ -132,16 +99,8 @@ export default function Stream(props) {
       setLoading(false)
     }
     catch (err) {
-      toast.error("Error loading streaming data", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading streaming data';
+      showErrorToast(errorMessage);
     }
   }
   const handlePlyr = () => {
@@ -198,16 +157,8 @@ export default function Stream(props) {
         axios.interceptors.response.use(response => {
           return response;
         }, error => {
-          toast.error(error.response.data.error, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
+          const errorMessage = error.response.data.error;
+          showErrorToast(errorMessage);
           return;
         });
         const res = await axios.post(`${ServerApi}/discussion/comment`, {
@@ -219,28 +170,11 @@ export default function Stream(props) {
         setComment("");
         return res;
       }
-      toast.error("Login first", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Login first';
+      showErrorToast(errorMessage);
     } catch (err) {
-      console.log(err);
-      toast.error("Something went wrong please try again later", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Something went wrong';
+      showErrorToast(errorMessage);
     }
   }
 
@@ -250,16 +184,8 @@ export default function Stream(props) {
         axios.interceptors.response.use(response => {
           return response;
         }, error => {
-          toast.error(error.response.data.error, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
+          const errorMessage = error.response.data.error;
+          showErrorToast(errorMessage);
           return;
         });
         const res = await axios.post(`${ServerApi}/discussion/report`, {
@@ -267,40 +193,15 @@ export default function Stream(props) {
           commentId: comment._id
         })
         getComments();
-        toast.error(res.data.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        const errorMessage = res.data.message;
+        showErrorToast(errorMessage);
         return res;
       }
-      toast.error("Login first", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Login First';
+      showErrorToast(errorMessage);
     } catch (err) {
-      console.log(err);
-      toast.error("Something went wrong please try again later", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Something went wrong please try again later';
+      showErrorToast(errorMessage);
     }
   }
 
@@ -312,55 +213,22 @@ export default function Stream(props) {
           axios.interceptors.response.use(response => {
             return response;
           }, error => {
-            toast.error(error.response.data.error, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-            });
+            const errorMessage = error.response.data.error;
+            showErrorToast(errorMessage);
             return;
           });
           const res = await axios.delete(`${ServerApi}/discussion/comment/${comment._id}/${userId}`);
           getComments();
-          toast.success(res.data.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
+          const errorMessage = res.data.message;
+          showErrorToast(errorMessage);
           return res;
         }
       }
-      toast.error("Login first", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Login First';
+      showErrorToast(errorMessage);
     } catch (err) {
-      console.log(err);
-      toast.error("Something went wrong please try again later", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      const errorMessage = 'Something went wrong please try again later';
+      showErrorToast(errorMessage);
     }
   }
 
@@ -427,7 +295,10 @@ export default function Stream(props) {
                   Note :- Refresh the page if player doesnt load or change to nspl player
                 </p>
               </div>
-              <br />
+              <div className="playerchange-div">
+                <i class="fa-solid fa-location-arrow" onClick={handlePlyr}></i>
+                <i class="fa-solid fa-server" onClick={handleNspl}></i>
+              </div>
               <div className="video-player-list">
                 {/* Video Player */}
                 <div className="video-player">
@@ -471,11 +342,6 @@ export default function Stream(props) {
                   </div>
                 </div>
               </div>
-            </div>
-            <br /><br />
-            <div className="player-change">
-              <button onClick={handlePlyr}>Plyr Player</button>
-              <button onClick={handleNspl}>Nspl Player</button>
             </div>
             {extraDetail && extraDetail?.map((extra) => {
               return (

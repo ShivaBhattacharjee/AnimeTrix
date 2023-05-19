@@ -1,19 +1,19 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { React, useDebugValue, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
+import { React, useEffect, useState } from 'react';
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Card from './Card';
 import { ServerApi } from './constants';
 import OtherPagesCard from '../Loading/OtherPagesCard';
-
+import { showErrorToast } from '../utils/toast';
 const Bookmark = () => {
     const [animeData, setAnimeData] = useState([])
     const [userId, setUserId] = useState("");
     const [loading, setLoading] = useState(true);
     const [bookmark, setBookmark] = useState([]);
     const [count, setCount] = useState(18);
-    
+
     function getCookie(name) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
@@ -26,7 +26,7 @@ const Bookmark = () => {
     }
     const handleViewMoreClick = () => {
         setCount(count + 18);
-        if(count>=40){
+        if (count >= 40) {
 
         }
     };
@@ -54,45 +54,28 @@ const Bookmark = () => {
                 axios.interceptors.response.use(response => {
                     return response;
                 }, error => {
-                    toast.error(error.response.data.error, {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-                    });
+                    const errorMessage = error.response.data.error;
+                    showErrorToast(errorMessage);
                     return;
-                });  
+                });
                 const res = await axios.get(`${ServerApi}/user/bookmark/${userId}`);
                 const bookmark = res.data;
                 setBookmark(bookmark);
-                
+
                 const animeDataArray = await Promise.all(bookmark.map(async (bookmarkItem) => {
-                  const animeRes = await axios.get(`https://animetrix-api.vercel.app/meta/anilist/info/${bookmarkItem}`);
-                  return animeRes.data;
+                    const animeRes = await axios.get(`https://animetrix-api.vercel.app/meta/anilist/info/${bookmarkItem}`);
+                    return animeRes.data;
                 }));
-                
+
                 setAnimeData(animeDataArray);
                 setLoading(false);
             }
         } catch (err) {
             console.log(err);
-            toast.error('Error loading bookmark!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
+            const errorMessage = 'Error loading Bookmark!';
+            showErrorToast(errorMessage);
         }
     }
-console.log(count)
     return (
         <>
             <ToastContainer />

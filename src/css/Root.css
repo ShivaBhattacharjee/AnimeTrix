@@ -1,7 +1,0 @@
-:root{
-    --background-color: hsl(225, 25%, 7%);
-    --text-color: #fff;
-    --button-color: rgb(33, 150, 243);
-    --scroll-bar-color:var(--button-color);
-    --episode-btn-color: rgb(51, 51, 154);
-}

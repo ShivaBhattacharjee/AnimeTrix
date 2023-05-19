@@ -9,7 +9,7 @@ const OtherPagesCard = (props) => {
             <h3>{title}</h3>
         </div>
     </div>
-    <div className="seasons-grid">
+    <div className="movies-grid">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]?.map(() => {
             return (
                 <div

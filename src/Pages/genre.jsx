@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi } from '../Components/constants';
 import GenreLoading from '../Loading/GenreLoading';
+import { showErrorToast } from '../utils/toast';
 function OptionFetcher() {
 
   const [selectedOption, setSelectedOption] = useState('Action');
@@ -39,17 +40,8 @@ function OptionFetcher() {
       setIsLoading(false);
     } catch (error) {
       console.error(error);
-      toast.error("Error loading genre", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading genre';
+      showErrorToast(errorMessage);
 
     }
   }

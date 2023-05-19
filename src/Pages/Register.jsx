@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Cookies from "js-cookie";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ServerApi } from '../Components/constants';
+import { showErrorToast } from '../utils/toast';
 function Register() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -48,17 +48,8 @@ function Register() {
       return res;
     } catch (err) {
       console.log(err);
-      toast.error("Something went wrong!", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Something went wrong!';
+      showErrorToast(errorMessage);
     }
   }
 
@@ -77,7 +68,8 @@ function Register() {
       return res;
     } catch (err) {
       console.log(err);
-      alert("Something went wrong please try again later.")
+      const errorMessage = 'Something went wrong please try again later';
+      showErrorToast(errorMessage);
     }
   }
 
@@ -91,32 +83,14 @@ function Register() {
           alert(res.data.message);
         }
       } else {
-        toast.error("Password should be 8-12 characters long!", {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          rtl: false,
-          pauseOnFocusLoss: true,
-          draggable: true,
-          pauseOnHover: true,
-          theme: "dark",
-        });
+        const errorMessage = 'Password should be 8-12 characters long!';
+        showErrorToast(errorMessage);
         setPassword("");
         setConPassword("");
       }
     } else {
-      toast.error("Passwords don't match!", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Password dont match';
+      showErrorToast(errorMessage);
       setPassword("");
       setConPassword("");
     }
@@ -128,46 +102,19 @@ function Register() {
       if (!(password.length < 8 && password.length >= 12)) {
         const res = await userVerification(email, otp);
         if (res) {
-          toast.success("Registration successful", {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            rtl: false,
-            pauseOnFocusLoss: true,
-            draggable: true,
-            pauseOnHover: true,
-            theme: "dark",
-          });
+          const errorMessage = 'Registration successfull';
+          showErrorToast(errorMessage);
           navigate("/login");
         }
       } else {
-        toast.error("Password should be 8 to 12 characters long!", {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          rtl: false,
-          pauseOnFocusLoss: true,
-          draggable: true,
-          pauseOnHover: true,
-          theme: "dark",
-        });
+        const errorMessage = 'Password should be 8-12 character long';
+        showErrorToast(errorMessage);
         setPassword("");
         setConPassword("");
       }
     } else {
-      toast.error("Passwords don't match!", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Password dont match';
+      showErrorToast(errorMessage);
       setPassword("");
       setConPassword("");
     }

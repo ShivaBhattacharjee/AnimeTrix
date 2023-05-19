@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import { Card, Lastwatch, Slider, AiringSchedule, ForYou, Footer, UpcomingSeason } from "../Components"
-import { NewSeason } from "../Pages"
+import { Card,  AiringSchedule, ForYou, Footer, UpcomingSeason } from "../Components"
 import { Link } from "react-router-dom";
 import { useFetchInitialData } from "../utils/hooks";
 import { HomeApi } from "../Components/constants";
@@ -14,7 +13,6 @@ import "swiper/css/navigation"
 
 import "../css/slider.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import HomePageLoader from "../Loading/HomePageLoader";
 // import History from "../Components/History";
 const RecentAnime = (props) => {

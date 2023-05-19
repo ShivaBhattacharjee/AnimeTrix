@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ServerApi } from "./constants";
 import {  LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
+import { showErrorToast } from "../utils/toast";
 export default function Card(props) {
   const { rec } = props;
   const [isBookmark, setIsBookmark] = useState(false);
@@ -56,16 +56,8 @@ export default function Card(props) {
         axios.interceptors.response.use(response => {
           return response;
         }, error => {
-          toast.error(error.response.data.error, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
+          const errorMessage = error.response.data.error;
+          showErrorToast(errorMessage);
           return;
         });
         const res = await axios.get(`${ServerApi}/user/bookmark/${userId}`)
@@ -95,22 +87,13 @@ export default function Card(props) {
         setIsBookmark(!isBookmark);
         setIsLoading(false);
       } else {
-        toast.error("Login first", {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          rtl: false,
-          pauseOnFocusLoss: true,
-          draggable: true,
-          pauseOnHover: true,
-          theme: "dark",
-        });
+        const errorMessage = 'Login first!';
+        showErrorToast(errorMessage);
       }
     } catch (error) {
       setIsLoading(false);
-      alert("Something went wrong please try again later");
-      console.log(error);
+      const errorMessage = 'Something went wrong';
+      showErrorToast(errorMessage);
     }
   };
 
