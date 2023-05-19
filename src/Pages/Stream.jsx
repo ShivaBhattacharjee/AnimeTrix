@@ -56,13 +56,12 @@ export default function Stream(props) {
           }
         );
 
-        console.log(response.data);
         return response.data;
       }
     } catch (error) {
-      console.log(error);
       const errorMessage = 'Something went wrong';
       showErrorToast(errorMessage);
+      console.log(error);
     }
   };
 
@@ -118,7 +117,8 @@ export default function Stream(props) {
       setextraDetail(responseArray)
     }
     catch (err) {
-      console.log("Error loading details")
+      const errorMessage = 'Error loading details';
+      showErrorToast(errorMessage);
     }
   }
 

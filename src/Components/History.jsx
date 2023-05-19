@@ -39,7 +39,6 @@ function History() {
                 });
                 const res = await axios.get(`${ServerApi}/user/history/${userId}`)
                 const history = res.data.history;
-                console.log(history)
                 setHistory(history);
 
                 const animeDataPromises = history.map(async (historyItem) => {
@@ -75,7 +74,6 @@ function History() {
                 const res = await axios.delete(
                     `${ServerApi}/user/history/${userId}`
                 );
-                console.log(res);
                 await getHistory();
                 if (res && res.data) {
                     const errorMessage = res.data.message;
@@ -107,7 +105,6 @@ function History() {
                 const res = await axios.delete(
                     `${ServerApi}/user/single/history/${userId}/${animeId}`
                 );
-                console.log(res);
                 await getHistory();
                 if (res && res.data) {
                     const errorMessage = res.data.message;
@@ -131,7 +128,6 @@ function History() {
         window.scrollTo(0, 0);
         getHistory();
     }, [userId]);
-console.log(history.length)
     return (
         <>
             <ToastContainer />

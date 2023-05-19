@@ -33,7 +33,6 @@ export default function Details(props) {
       } else {
         setWatch("");
       }
-      console.log(responseArray)
       setLoading(false);
     }
     catch (error) {

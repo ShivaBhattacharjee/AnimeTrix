@@ -16,7 +16,6 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 			)
 			const response = await url.json();
 			const responseArray = [response]
-			console.log(url)
 			setView(responseArray)
 		}
 		prevAnilist.current = searchResult.result[number].anilist.id

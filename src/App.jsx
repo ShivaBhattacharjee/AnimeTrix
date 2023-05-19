@@ -115,7 +115,6 @@ function App() {
         `${HomeApi}/meta/anilist/advanced-search?format=MOVIE&page=${id}`
       );
       const data = await response.json();
-      console.log(data)
       if (Array.isArray(data.results)) {
         setMovie((movie) => [...movie, ...data.results]);
       } else {
@@ -181,13 +180,12 @@ function App() {
         setSearchResult(null);
       } else {
         setSearchResult(searchRes.data);
-        console.log(searchRes.data)
       }
     }
     catch (err) {
-      console.log("Search failed")
       const errorMessage = 'Search Failed!';
       showErrorToast(errorMessage);
+      console.log("Search failed")
     }
   };
 

@@ -11,25 +11,21 @@ const UpcomingSeason = () => {
     const getSummer = async () => {
         const api = await fetch(`${HomeApi}/meta/anilist/advanced-search?season=SUMMER&&year=2023`, { timeout: 10000 });
         const response = await api.json();
-        console.log(response)
         setSummer(response.results);
     }
     const getFall = async () => {
         const api = await fetch(`${HomeApi}/meta/anilist/advanced-search?season=FALL&&year=2023`, { timeout: 10000 });
         const response = await api.json();
-        console.log(response)
         setFall(response.results);
     }
     const getSpring = async () => {
         const api = await fetch(`${HomeApi}/meta/anilist/advanced-search?season=SPRING&&year=2023`, { timeout: 1000 });
         const response = await api.json();
-        console.log(response)
         setSpring(response.results);
     }
     const getWinter = async () => {
         const api = await fetch(`${HomeApi}/meta/anilist/advanced-search?season=WINTER&&year=2023`, { timeout: 1000 });
         const response = await api.json();
-        console.log(response)
         setWinter(response.results);
     }
     useEffect(() => {

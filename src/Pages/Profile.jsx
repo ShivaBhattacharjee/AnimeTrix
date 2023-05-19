@@ -44,7 +44,6 @@ const Profile = () => {
 
   useEffect(() => {
     getDetails();
-    console.log(details);
   }, [userId]);
 
   const getDetails = async () => {
