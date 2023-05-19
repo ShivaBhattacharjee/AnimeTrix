@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { HomeApi } from "./constants"
+import { showErrorToast } from "../utils/toast"
 function AnimeImageSearchLayout({ searchResult, setToggle }) {
 	const [loading, setLoading] = useState(true)
 	const [view, setView] = useState([])
@@ -21,7 +22,8 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 		prevAnilist.current = searchResult.result[number].anilist.id
 		setLoading(false)
 	}catch(error){
-		console.log("Error loading image search")
+		const errorMessage = 'Cant find image!';
+		showErrorToast(errorMessage);
 	}
 	}
 

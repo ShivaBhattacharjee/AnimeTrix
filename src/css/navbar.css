@@ -10,6 +10,7 @@
   backdrop-filter: blur(50px);
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.15);
 }
+
 .login-tab ion-icon{
   font-size: 40px;
   color:  rgb(33, 150, 243);
@@ -90,7 +91,8 @@
   cursor: pointer;
 }
 .account-login img{
-  width: 37px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   z-index: 9999;
 }

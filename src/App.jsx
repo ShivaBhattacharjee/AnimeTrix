@@ -3,14 +3,11 @@ import "./css/navbar.css";
 import "./css/Details.css";
 import "./css/stream.css";
 import "./css/Footer.css";
-import "./css/lastwatch.css";
 import './css/card.css';
 import './css/error404.css';
 import './css/titleandfilterbar.css';
 import './css/slider.css';
-import './css/loading.css';
 import './css/topScroll.css'
-import './css/NewSeason.css'
 import './css/Login.css'
 import './css/Search.css'
 import './css/Chatbot.css'
@@ -35,7 +32,7 @@ import axios from "axios";
 
 
 import { HomeApi } from "./Components/constants";
-
+import { showErrorToast } from "./utils/toast";
 function App() {
   const childRef = useRef();
   const [slider,setSlider]= useState([]);
@@ -65,17 +62,8 @@ function App() {
       setSlider((slider) => [...slider, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
-      toast.error("Error loading slider", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading Slider';
+      showErrorToast(errorMessage);
       setLoading(false);
     }
   };
@@ -88,17 +76,8 @@ function App() {
       setRecent((recent) => [...recent, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
-      toast.error("Error loading recentanime", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading Recent Anime!';
+      showErrorToast(errorMessage);
       setLoading(false);
     }
   };
@@ -111,17 +90,8 @@ function App() {
       setPopular((popular) => [...popular, ...propu.data.results]);
       setLoading(false);
     } catch (err) {
-      toast.error("Error loading popular anime", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading Popular Anime!';
+      showErrorToast(errorMessage);
       setLoading(false);
     }
   };
@@ -149,32 +119,14 @@ function App() {
       if (Array.isArray(data.results)) {
         setMovie((movie) => [...movie, ...data.results]);
       } else {
-        toast.error("Error loading movies", {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          rtl: false,
-          pauseOnFocusLoss: true,
-          draggable: true,
-          pauseOnHover: true,
-          theme: "dark",
-        });
+        const errorMessage = 'Error loading Movies!';
+        showErrorToast(errorMessage);
         console.log("Api down for movies")
       }
       setLoading(false);
     } catch (err) {
-      toast.error("Error loading movies", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading Movies!';
+      showErrorToast(errorMessage);
       setLoading(false);
     }
   };
@@ -187,17 +139,8 @@ function App() {
       setTop((topAiring) => [...topAiring, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
-      toast.error("Error loading top airing", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading Top Airing!';
+      showErrorToast(errorMessage);
       setLoading(false);
     }
   };
@@ -209,17 +152,8 @@ function App() {
       setNewUpload((newUpload) => [...newUpload, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
-      toast.error("Error loading recent upload", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Error loading Recent Upload!';
+      showErrorToast(errorMessage);
       setLoading(false);
     }
   };
@@ -252,17 +186,8 @@ function App() {
     }
     catch (err) {
       console.log("Search failed")
-      toast.error("Search Failed", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        rtl: false,
-        pauseOnFocusLoss: true,
-        draggable: true,
-        pauseOnHover: true,
-        theme: "dark",
-      });
+      const errorMessage = 'Search Failed!';
+      showErrorToast(errorMessage);
     }
   };
 
@@ -424,7 +349,6 @@ function App() {
         <Route exact path="/forgot-password" element={<ForgotPassword />} />
         <Route exact path="/history" element={<History />} />
         <Route exact path="/bookmark" element={<Bookmark />} />
-        {/* <Route exact path="/loader-home" element={<DetailsLoader />} /> */}
         <Route path="/*" element={<Error404 />} />
       </Routes>
     </Router>

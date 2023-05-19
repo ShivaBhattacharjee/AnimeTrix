@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "js-cookie";
 import { ServerApi } from '../Components/constants';
-
+import { showErrorToast } from '../utils/toast';
 function ForgotPassword() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -34,7 +34,8 @@ function ForgotPassword() {
             return res;
         } catch(err) {
             console.log(err);
-            alert("Something went wrong please try again later.")
+            const errorMessage = 'Something went wrong!';
+            showErrorToast(errorMessage);
     }   
   }
 
@@ -64,7 +65,8 @@ function ForgotPassword() {
             return res;
         } catch(err) {
             console.log(err);
-            alert("Something went wrong please try again later.")
+            const errorMessage = 'Something went wrong!';
+            showErrorToast(errorMessage);
     }   
 }
 
@@ -78,12 +80,14 @@ function ForgotPassword() {
           alert(res.data.message);
         }
       } else {
-        alert("Password should be 8 to 12 characters long");
+        const errorMessage = 'Password should be 8 to 12 characters long!';
+        showErrorToast(errorMessage);
       setPassword("");
       setConPassword("");
       }
     } else {
-      alert("Password doesnt match");
+      const errorMessage = 'Password doesnt match!';
+      showErrorToast(errorMessage);
       setPassword("");
       setConPassword("");
     }
@@ -95,16 +99,19 @@ function ForgotPassword() {
       if(!(password.length < 8 && password.length >= 12)) {
         const res = await userVerification(email, otp);
         if(res) {
-          alert("Registration Successfull");
+          const errorMessage = 'Registration Successfull!';
+          showErrorToast(errorMessage);
           navigate("/login");
         }
       } else {
-        alert("Password should be 8 to 12 characters long");
+        const errorMessage = 'Password should be 8-12 characters long!';
+        showErrorToast(errorMessage);
       setPassword("");
       setConPassword("");
       }
     } else {
-      alert("Password doesnt match");
+      const errorMessage = 'Password doesnt match!';
+      showErrorToast(errorMessage);
       setPassword("");
       setConPassword("");
     }

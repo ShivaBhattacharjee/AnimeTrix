@@ -41,11 +41,6 @@
   border-top-right-radius: 8px;
 }
 
-.lastwatch-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 10fr));
-  gap: 15px;
-}
 .continue-icon{
   font-size: 35px;
   color: rgb(33,150,243);

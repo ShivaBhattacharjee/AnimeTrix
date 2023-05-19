@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom";
 import Card from './Card';
 import { HomeApi } from './constants';
-import { useFetchInitialData } from "../utils/hooks";
+import { showErrorToast } from '../utils/toast';
 const ForYou = () => {
   const [forYou, setforYou] = useState([])
-  const [isBookmark, setIsBookmark] = useState(false);
-
-  //bookmark
-  function handleIconClick() {
-    setIsBookmark(!isBookmark);
-  }
   const getRandom = async () => {
     try {
       const api = await fetch(`${HomeApi}/meta/anilist/random-anime`)
@@ -18,7 +11,8 @@ const ForYou = () => {
       setforYou(response)
     }
     catch (error) {
-      console.log("Error loading recommended for you")
+      const errorMessage = 'Error loading You Might Like';
+      showErrorToast(errorMessage);
     }
   }
   useEffect(() => {
