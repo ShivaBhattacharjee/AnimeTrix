@@ -48,6 +48,7 @@ export default function Slider() {
           return (
             <div className="banner-card" key={uqley}>
               <SwiperSlide key={swipe.id}>
+                <div className="banner-data">
                 <img src={data.cover} alt={data.title.english} />
                 <div className="banner-text">
                   <Link to={`/anime-details/${data.id}`}>
@@ -55,6 +56,7 @@ export default function Slider() {
 
                     <button className="watch">Watch Now</button>
                   </Link>
+                </div>
                 </div>
               </SwiperSlide>
             </div>

@@ -1,19 +1,20 @@
 import axios from "axios";
-import React, { useEffect, useState, useRef, useId } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Footer } from "../Components/";
 import LoadingBar from "react-top-loading-bar";
-import ReplyIcon from '@mui/icons-material/Reply';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import Cookie from "js-cookie"
+// import ReplyIcon from '@mui/icons-material/Reply';
+// import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+// import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+// import Cookie from "js-cookie"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { HomeApi, ServerApi, StreamApi } from "../Components/constants";
-import Hls from 'hls.js';
-import Artplayer from "../Components/ArtPlayer";
-import VideoPlayer from "../Components/VideoPlayer";
+import { HomeApi, ServerApi } from "../Components/constants";
+// import Hls from 'hls.js';
+// import Artplayer from "../Components/ArtPlayer";
+// import VideoPlayer from "../Components/VideoPlayer";
 import StreamLoader from "../Loading/StreamLoader";
+import { Helmet } from "react-helmet";
 
 export default function Stream(props) {
   const { episodeId } = useParams()
@@ -25,6 +26,8 @@ export default function Stream(props) {
   const [extraDetail, setextraDetail] = useState([]);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
+  const [nspl, setnspl] = useState([])
+  const [displayPlyr, setDisplayPlyr] = useState(false)
   const navigate = useNavigate();
   const containerRef = useRef(null);
   let isMouseDown = false;
@@ -124,8 +127,9 @@ export default function Stream(props) {
       if (Video.length == 0) {
         setLoading(true)
       }
+      setnspl(Video?.data?.data?.nspl?.main)
+      setData(Video?.data?.data?.plyr?.backup);
       setLoading(false)
-      setData(Video?.data?.data?.plyr?.main);
     }
     catch (err) {
       toast.error("Error loading streaming data", {
@@ -140,7 +144,12 @@ export default function Stream(props) {
       });
     }
   }
-
+  const handlePlyr = () => {
+    setDisplayPlyr(false)
+  }
+  const handleNspl = () => {
+    setDisplayPlyr(true)
+  }
   const getDetails = async () => {
     try {
       const api = await fetch(`${HomeApi}/meta/anilist/info/${animeId}`)
@@ -415,20 +424,30 @@ export default function Stream(props) {
               <div className="video-title">
                 <span>{detail.title?.romaji}</span>
                 <p>
-                  Note :- For ad-free experience, please use the internal player. If it's not working, external player with adblocker recommended to block ads.
+                  Note :- Refresh the page if player doesnt load or change to nspl player
                 </p>
               </div>
               <br />
               <div className="video-player-list">
                 {/* Video Player */}
                 <div className="video-player">
-                  <iframe 
-                    src={data}
-                    scrolling="no"
-                    frameBorder="0"
-                    allowFullScreen="allowfullscreen"
-                    webkitallowfullscreen="true"
-                    title={episodeId}></iframe>
+                  {displayPlyr ? (
+                    <iframe
+                      src={nspl}
+                      scrolling="no"
+                      frameBorder="0"
+                      allowFullScreen="allowfullscreen"
+                      webkitallowfullscreen="true"
+                      title={episodeId}></iframe>
+                  ) : (
+                    <iframe
+                      src={data}
+                      scrolling="no"
+                      frameBorder="0"
+                      allowFullScreen="allowfullscreen"
+                      webkitallowfullscreen="true"
+                      title={episodeId}></iframe>
+                  )}
                 </div>
 
                 {/* Episode List */}
@@ -455,8 +474,8 @@ export default function Stream(props) {
             </div>
             <br /><br />
             <div className="player-change">
-              <button >Internel Player</button>
-              <button >External Player</button>
+              <button onClick={handlePlyr}>Plyr Player</button>
+              <button onClick={handleNspl}>Nspl Player</button>
             </div>
             {extraDetail && extraDetail?.map((extra) => {
               return (
