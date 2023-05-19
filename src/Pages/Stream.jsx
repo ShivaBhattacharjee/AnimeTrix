@@ -422,7 +422,13 @@ export default function Stream(props) {
               <div className="video-player-list">
                 {/* Video Player */}
                 <div className="video-player">
-                  <iframe src={data} frameborder="0"></iframe>
+                  <iframe 
+                    src={data}
+                    scrolling="no"
+                    frameBorder="0"
+                    allowFullScreen="allowfullscreen"
+                    webkitallowfullscreen="true"
+                    title={episodeId}></iframe>
                 </div>
 
                 {/* Episode List */}
