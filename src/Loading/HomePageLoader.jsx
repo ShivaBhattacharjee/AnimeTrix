@@ -58,6 +58,7 @@ const HomePageLoader = () => {
                     })}
                 </div>
             </section>
+            <br /><br /><br />
             <Footer />
         </>
 
