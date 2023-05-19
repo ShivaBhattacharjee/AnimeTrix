@@ -31,11 +31,6 @@ const StreamLoader = () => {
                         </div>
                     </div>
                 </div>
-                <br /><br />
-                <div className="player-change">
-                    <button >Internel Player</button>
-                    <button >External Player</button>
-                </div>
                 <>
                     <div className="characters-container">
                         <div className="characters-heading">
