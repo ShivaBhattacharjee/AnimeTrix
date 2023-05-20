@@ -1,7 +1,7 @@
 
 import React from "react";
 import { useState } from "react";
-import loader from '../assests/loader.gif'
+import loader from '../img/loader.gif'
 import { AiOutlineSend } from "react-icons/ai"
 const ChatInput = ({ sendMessage, loading }) => {
   const [value, setValue] = useState("Hi, Can you help me?");
@@ -16,7 +16,7 @@ const ChatInput = ({ sendMessage, loading }) => {
       className="input-main"
     >
       {loading ? (
-        <img src={loader} className="loader-input" />
+        <img src={loader} className="loader-input" alt="loading" />
       ) : (
         <>
           <textarea

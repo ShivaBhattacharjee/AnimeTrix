@@ -7,7 +7,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi, ServerApi } from "../Components/constants";
 import StreamLoader from "../Loading/StreamLoader";
-import { Helmet } from "react-helmet";
 import { showErrorToast, showSuccessToast } from '../utils/toast';
 export default function Stream(props) {
   const { episodeId } = useParams()
@@ -293,7 +292,8 @@ export default function Stream(props) {
                       frameBorder="0"
                       allowFullScreen="allowfullscreen"
                       webkitallowfullscreen="true"
-                      title={episodeId}></iframe>
+                      title={episodeId}
+                      allow="picture-in-picture"></iframe>
                   ) : (
                     <iframe
                       src={data}
@@ -301,7 +301,8 @@ export default function Stream(props) {
                       frameBorder="0"
                       allowFullScreen="allowfullscreen"
                       webkitallowfullscreen="true"
-                      title={episodeId}></iframe>
+                      title={episodeId}
+                      allow="picture-in-picture"></iframe>
                   )}
                 </div>
 

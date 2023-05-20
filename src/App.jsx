@@ -75,8 +75,7 @@ function App() {
       setRecent((recent) => [...recent, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
-      const errorMessage = 'Error loading Recent Anime!';
-      showErrorToast(errorMessage);
+      showErrorToast('Error loading Recent Anime!');
       setLoading(false);
     }
   };
