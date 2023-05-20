@@ -54,8 +54,7 @@ const Bookmark = () => {
                 axios.interceptors.response.use(response => {
                     return response;
                 }, error => {
-                    const errorMessage = error.response.data.error;
-                    showErrorToast(errorMessage);
+                    showErrorToast(error.response.data.error);
                     return;
                 });
                 const res = await axios.get(`${ServerApi}/user/bookmark/${userId}`);
@@ -72,8 +71,7 @@ const Bookmark = () => {
             }
         } catch (err) {
             console.log(err);
-            const errorMessage = 'Error loading Bookmark!';
-            showErrorToast(errorMessage);
+            showErrorToast('Error loading Bookmark!');
         }
     }
     return (

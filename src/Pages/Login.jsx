@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ServerApi } from "../Components/constants";
-import { showErrorToast } from '../utils/toast';
+import { showErrorToast, showSuccessToast } from '../utils/toast';
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,8 +16,7 @@ function Login() {
       axios.interceptors.response.use(response => {
         return response;
       }, error => {
-        const errorMessage = error.response.data.error;
-        showErrorToast(errorMessage);
+        showErrorToast( error.response.data.error);
         return;
       });
       const res = await axios.post(`${ServerApi}/user/login`, {
@@ -27,8 +26,7 @@ function Login() {
       return res;
     } catch (err) {
       console.log(err);
-      const errorMessage = 'Something went wrong!';
-      showErrorToast(errorMessage);
+      showErrorToast('Something went wrong!');
     }
   }
 
@@ -56,8 +54,7 @@ function Login() {
     e.preventDefault();
     const res = await userLogin();
     if (res) {
-      const errorMessage = 'Welcome to AnimeTrix!';
-      showErrorToast(errorMessage);
+      showSuccessToast('Welcome to Animetrix');
       if (rememberMe) {
         Cookies.set("id", res.data._id, { expires: 7 });
         Cookies.set("category", res.data.category, { expires: 7 });
@@ -71,8 +68,7 @@ function Login() {
       }
     }
     else {
-      const errorMessage = 'Error!';
-      showErrorToast(errorMessage);
+      showErrorToast("Error");
     }
   }
   return (

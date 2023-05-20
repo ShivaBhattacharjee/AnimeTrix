@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi, ServerApi } from "../Components/constants";
 import StreamLoader from "../Loading/StreamLoader";
 import { Helmet } from "react-helmet";
-import { showErrorToast } from '../utils/toast';
+import { showErrorToast, showSuccessToast } from '../utils/toast';
 export default function Stream(props) {
   const { episodeId } = useParams()
   const [data, setData] = useState([]);
@@ -59,8 +59,7 @@ export default function Stream(props) {
         return response.data;
       }
     } catch (error) {
-      const errorMessage = 'Something went wrong';
-      showErrorToast(errorMessage);
+      showErrorToast( 'Something went wrong');
       console.log(error);
     }
   };
@@ -71,8 +70,7 @@ export default function Stream(props) {
       axios.interceptors.response.use(response => {
         return response;
       }, error => {
-        const errorMessage = error.response.data.error;
-        showErrorToast(errorMessage);
+        showErrorToast( error.response.data.error);
         return;
       });
       const res = await axios.get(`${ServerApi}/discussion/comments/${episodeId}`)
@@ -81,8 +79,7 @@ export default function Stream(props) {
       else
         setComments([]);
     } catch (err) {
-      const errorMessage = 'Error loading comments';
-      showErrorToast(errorMessage);
+      showErrorToast('Error loading comments');
     }
   }
   const getStream = async () => {
@@ -98,8 +95,7 @@ export default function Stream(props) {
       setLoading(false)
     }
     catch (err) {
-      const errorMessage = 'Error loading streaming data';
-      showErrorToast(errorMessage);
+      showErrorToast('Error loading streaming data');
     }
   }
   const handlePlyr = () => {
@@ -117,8 +113,7 @@ export default function Stream(props) {
       setextraDetail(responseArray)
     }
     catch (err) {
-      const errorMessage = 'Error loading details';
-      showErrorToast(errorMessage);
+      showErrorToast( 'Error loading details');
     }
   }
 
@@ -157,8 +152,7 @@ export default function Stream(props) {
         axios.interceptors.response.use(response => {
           return response;
         }, error => {
-          const errorMessage = error.response.data.error;
-          showErrorToast(errorMessage);
+          showErrorToast( error.response.data.error);
           return;
         });
         const res = await axios.post(`${ServerApi}/discussion/comment`, {
@@ -170,11 +164,9 @@ export default function Stream(props) {
         setComment("");
         return res;
       }
-      const errorMessage = 'Login first';
-      showErrorToast(errorMessage);
+      showErrorToast('Login first');
     } catch (err) {
-      const errorMessage = 'Something went wrong';
-      showErrorToast(errorMessage);
+      showErrorToast( 'Something went wrong');
     }
   }
 
@@ -184,8 +176,7 @@ export default function Stream(props) {
         axios.interceptors.response.use(response => {
           return response;
         }, error => {
-          const errorMessage = error.response.data.error;
-          showErrorToast(errorMessage);
+          showErrorToast(error.response.data.error);
           return;
         });
         const res = await axios.post(`${ServerApi}/discussion/report`, {
@@ -193,15 +184,12 @@ export default function Stream(props) {
           commentId: comment._id
         })
         getComments();
-        const errorMessage = res.data.message;
-        showErrorToast(errorMessage);
+        showSuccessToast(res.data.message);
         return res;
       }
-      const errorMessage = 'Login First';
-      showErrorToast(errorMessage);
+      showErrorToast('Login First');
     } catch (err) {
-      const errorMessage = 'Something went wrong please try again later';
-      showErrorToast(errorMessage);
+      showErrorToast('Something went wrong please try again later');
     }
   }
 
@@ -213,22 +201,18 @@ export default function Stream(props) {
           axios.interceptors.response.use(response => {
             return response;
           }, error => {
-            const errorMessage = error.response.data.error;
-            showErrorToast(errorMessage);
+            showErrorToast(error.response.data.error);
             return;
           });
           const res = await axios.delete(`${ServerApi}/discussion/comment/${comment._id}/${userId}`);
           getComments();
-          const errorMessage = res.data.message;
-          showErrorToast(errorMessage);
+          showSuccessToast( res.data.message);
           return res;
         }
       }
-      const errorMessage = 'Login First';
-      showErrorToast(errorMessage);
+      showErrorToast( 'Login First');
     } catch (err) {
-      const errorMessage = 'Something went wrong please try again later';
-      showErrorToast(errorMessage);
+      showErrorToast('Something went wrong please try again later');
     }
   }
 

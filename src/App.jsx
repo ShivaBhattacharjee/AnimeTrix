@@ -9,6 +9,7 @@ import './css/titleandfilterbar.css';
 import './css/slider.css';
 import './css/topScroll.css'
 import './css/Login.css'
+import './css/lastwatch.css'
 import './css/Search.css'
 import './css/Chatbot.css'
 import './css/AiringSchedule.css'
@@ -18,8 +19,7 @@ import "./css/UpcomingSeason.css"
 
 import { Error404, Header, ScrollToTop, SearchJSX, History, Bookmark } from "./Components/";
 import {  RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason } from "./Pages"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 
 import {
@@ -62,8 +62,7 @@ function App() {
       setSlider((slider) => [...slider, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
-      const errorMessage = 'Error loading Slider';
-      showErrorToast(errorMessage);
+      showErrorToast("Error loading slider");
       setLoading(false);
     }
   };
@@ -90,8 +89,7 @@ function App() {
       setPopular((popular) => [...popular, ...propu.data.results]);
       setLoading(false);
     } catch (err) {
-      const errorMessage = 'Error loading Popular Anime!';
-      showErrorToast(errorMessage);
+      showErrorToast('Error loading Popular Anime!');
       setLoading(false);
     }
   };
@@ -118,14 +116,12 @@ function App() {
       if (Array.isArray(data.results)) {
         setMovie((movie) => [...movie, ...data.results]);
       } else {
-        const errorMessage = 'Error loading Movies!';
-        showErrorToast(errorMessage);
-        console.log("Api down for movies")
+        showErrorToast("Error loading Movies!");
+        console.log("Error loading Movies!")
       }
       setLoading(false);
     } catch (err) {
-      const errorMessage = 'Error loading Movies!';
-      showErrorToast(errorMessage);
+      showErrorToast("Error loading Movies");
       setLoading(false);
     }
   };
@@ -138,8 +134,7 @@ function App() {
       setTop((topAiring) => [...topAiring, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
-      const errorMessage = 'Error loading Top Airing!';
-      showErrorToast(errorMessage);
+      showErrorToast("Error loading Top Airing!");
       setLoading(false);
     }
   };
@@ -151,8 +146,7 @@ function App() {
       setNewUpload((newUpload) => [...newUpload, ...Data.data.results]);
       setLoading(false);
     } catch (err) {
-      const errorMessage = 'Error loading Recent Upload!';
-      showErrorToast(errorMessage);
+      showErrorToast("Error loading Recent Upload!");
       setLoading(false);
     }
   };
@@ -183,8 +177,7 @@ function App() {
       }
     }
     catch (err) {
-      const errorMessage = 'Search Failed!';
-      showErrorToast(errorMessage);
+      showErrorToast("Search Failed!");
       console.log("Search failed")
     }
   };

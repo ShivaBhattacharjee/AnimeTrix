@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "js-cookie";
 import { ServerApi } from '../Components/constants';
-import { showErrorToast } from '../utils/toast';
+import { showErrorToast, showSuccessToast } from '../utils/toast';
 function ForgotPassword() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ function ForgotPassword() {
             axios.interceptors.response.use(response => {
                 return response;
             }, error => {
-                    alert(error.response.data.error);
+                    showErrorToast(error.response.data.error)
             return ;
             });
             const res = await axios.post(`${ServerApi}/user/change/password`, {
@@ -34,8 +34,7 @@ function ForgotPassword() {
             return res;
         } catch(err) {
             console.log(err);
-            const errorMessage = 'Something went wrong!';
-            showErrorToast(errorMessage);
+            showErrorToast( 'Something went wrong!');
     }   
   }
 
@@ -55,7 +54,7 @@ function ForgotPassword() {
             axios.interceptors.response.use(response => {
                 return response;
             }, error => {
-                    alert(error.response.data.error);
+                    showErrorToast(error.response.data.error);
             return ;
             });
             const res = await axios.post(`${ServerApi}/user/verify`, {
@@ -65,8 +64,7 @@ function ForgotPassword() {
             return res;
         } catch(err) {
             console.log(err);
-            const errorMessage = 'Something went wrong!';
-            showErrorToast(errorMessage);
+            showErrorToast( 'Something went wrong!');
     }   
 }
 
@@ -80,14 +78,12 @@ function ForgotPassword() {
           alert(res.data.message);
         }
       } else {
-        const errorMessage = 'Password should be 8 to 12 characters long!';
-        showErrorToast(errorMessage);
+        showErrorToast('Password should be 8 to 12 characters long!');
       setPassword("");
       setConPassword("");
       }
     } else {
-      const errorMessage = 'Password doesnt match!';
-      showErrorToast(errorMessage);
+      showErrorToast( 'Password doesnt match!');
       setPassword("");
       setConPassword("");
     }
@@ -99,19 +95,16 @@ function ForgotPassword() {
       if(!(password.length < 8 && password.length >= 12)) {
         const res = await userVerification(email, otp);
         if(res) {
-          const errorMessage = 'Registration Successfull!';
-          showErrorToast(errorMessage);
+          showSuccessToast("Registration Successfull!");
           navigate("/login");
         }
       } else {
-        const errorMessage = 'Password should be 8-12 characters long!';
-        showErrorToast(errorMessage);
+        showErrorToast('Password should be 8-12 characters long!');
       setPassword("");
       setConPassword("");
       }
     } else {
-      const errorMessage = 'Password doesnt match!';
-      showErrorToast(errorMessage);
+      showErrorToast('Password doesnt match!');
       setPassword("");
       setConPassword("");
     }

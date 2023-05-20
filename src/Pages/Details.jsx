@@ -36,8 +36,7 @@ export default function Details(props) {
       setLoading(false);
     }
     catch (error) {
-      const errorMessage = 'Error loading details!';
-      showErrorToast(errorMessage);
+      showErrorToast( 'Error loading details!');
     }
   }
 
