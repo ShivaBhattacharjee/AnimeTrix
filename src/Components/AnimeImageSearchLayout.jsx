@@ -84,10 +84,10 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 								setSelect(i)
 							}}
 						>
-							<div className="season-card">
-								<div className="season-head">
+							<div className="movie-card">
+								<div className="card-head">
 									<img
-										className="season-img"
+										className="card-img"
 										src={item.image || ""}
 										alt={
 											item.anilist.title.english ||
@@ -95,8 +95,8 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 											item.anilist.title.native
 										}
 									/>
-									<div className="season-details">
-										<h5 className="season-title">{item.anilist.title.english ||
+									<div className="card-details">
+										<h5 className="card-title">{item.anilist.title.english ||
 											item.anilist.title.romaji ||
 											item.anilist.title.native}</h5>
 										<h5 className="season-title">Episode - {item.episode}</h5>
