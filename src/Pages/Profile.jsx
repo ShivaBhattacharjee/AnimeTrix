@@ -53,8 +53,7 @@ const Profile = () => {
       axios.interceptors.response.use(response => {
         return response;
       }, error => {
-        const errorMessage = 'Something went wrong';
-        showErrorToast(errorMessage);
+        showErrorToast( 'Something went wrong');
         return;
       });
       if (userId) {
@@ -69,8 +68,7 @@ const Profile = () => {
           setDetails({});
       }
     } catch (err) {
-      const errorMessage = 'Error getting userId';
-      showErrorToast(errorMessage);
+      showErrorToast('Error getting userId');
     }
   }
 
@@ -79,8 +77,7 @@ const Profile = () => {
       axios.interceptors.response.use(response => {
         return response;
       }, error => {
-        const errorMessage = error.response.data.error;
-        showErrorToast(errorMessage);
+        showErrorToast(error.response.data.error);
         return;
       });
       const res = await axios.post(`${ServerApi}/user/change/name`, {
@@ -90,8 +87,7 @@ const Profile = () => {
       return res;
     } catch (err) {
       console.log(err);
-      const errorMessage = 'Something went wrong';
-      showErrorToast(errorMessage);
+      showErrorToast('Something went wrong');
     }
   }
 

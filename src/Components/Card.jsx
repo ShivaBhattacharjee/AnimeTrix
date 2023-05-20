@@ -56,8 +56,7 @@ export default function Card(props) {
         axios.interceptors.response.use(response => {
           return response;
         }, error => {
-          const errorMessage = error.response.data.error;
-          showErrorToast(errorMessage);
+          showErrorToast(error.response.data.error);
           return;
         });
         const res = await axios.get(`${ServerApi}/user/bookmark/${userId}`)
@@ -86,13 +85,11 @@ export default function Card(props) {
         setIsBookmark(!isBookmark);
         setIsLoading(false);
       } else {
-        const errorMessage = 'Login first!';
-        showErrorToast(errorMessage);
+        showErrorToast('Login first!');
       }
     } catch (error) {
       setIsLoading(false);
-      const errorMessage = 'Something went wrong';
-      showErrorToast(errorMessage);
+      showErrorToast('Something went wrong');
     }
   };
 

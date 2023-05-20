@@ -21,8 +21,7 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 		prevAnilist.current = searchResult.result[number].anilist.id
 		setLoading(false)
 	}catch(error){
-		const errorMessage = 'Cant find image!';
-		showErrorToast(errorMessage);
+		showErrorToast('Cant find image!');
 	}
 	}
 

@@ -11,8 +11,7 @@ const ForYou = () => {
       setforYou(response)
     }
     catch (error) {
-      const errorMessage = 'Error loading You Might Like';
-      showErrorToast(errorMessage);
+      showErrorToast('Error loading You Might Like');
     }
   }
   useEffect(() => {

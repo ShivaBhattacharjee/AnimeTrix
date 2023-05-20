@@ -40,8 +40,7 @@ function OptionFetcher() {
       setIsLoading(false);
     } catch (error) {
       console.error(error);
-      const errorMessage = 'Error loading genre';
-      showErrorToast(errorMessage);
+      showErrorToast('Error loading genre');
 
     }
   }

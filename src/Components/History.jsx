@@ -1,11 +1,11 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { React, useDebugValue, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
+import { React,  useEffect, useState } from 'react';
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi, ServerApi } from './constants';
 import OtherPagesCard from '../Loading/OtherPagesCard';
-import { showErrorToast } from '../utils/toast';
+import { showErrorToast, showSuccessToast } from '../utils/toast';
 // const user = "Shiva";
 function History() {
     const [animeData, setAnimeData] = useState([])
@@ -33,8 +33,7 @@ function History() {
                 axios.interceptors.response.use(response => {
                     return response;
                 }, error => {
-                    const errorMessage = error.response.data.error;
-                    showErrorToast(errorMessage);
+                    showErrorToast( error.response.data.error);
                     return;
                 });
                 const res = await axios.get(`${ServerApi}/user/history/${userId}`)
@@ -52,8 +51,7 @@ function History() {
                 setLoading(false);
             }
         } catch (err) {
-            const errorMessage = 'Error loading History!';
-            showErrorToast(errorMessage);
+            showErrorToast('Error loading History!');
         }
     }
 
@@ -66,8 +64,7 @@ function History() {
                         return response;
                     },
                     (error) => {
-                        const errorMessage = error.response.data.error;
-                        showErrorToast(errorMessage);
+                        showErrorToast(error.response.data.error);
                         return;
                     }
                 );
@@ -76,15 +73,13 @@ function History() {
                 );
                 await getHistory();
                 if (res && res.data) {
-                    const errorMessage = res.data.message;
-                    showErrorToast(errorMessage);
+                    showSuccessToast(res.data.message);
                     return res;
                 }
             }
         } catch (err) {
             console.log(err);
-            const errorMessage = 'Something went wrong';
-            showErrorToast(errorMessage);
+            showErrorToast('Something went wrong');
         }
     };
 
@@ -97,8 +92,7 @@ function History() {
                         return response;
                     },
                     (error) => {
-                        const errorMessage = error.response.data.error;
-                        showErrorToast(errorMessage);
+                        showErrorToast(error.response.data.error);
                         return;
                     }
                 );
@@ -107,15 +101,13 @@ function History() {
                 );
                 await getHistory();
                 if (res && res.data) {
-                    const errorMessage = res.data.message;
-                    showErrorToast(errorMessage);
+                    showSuccessToast(res.data.message);
                     return res;
                 }
             }
         } catch (err) {
             console.log(err);
-            const errorMessage = 'Something went wrong';
-            showErrorToast(errorMessage);
+            showErrorToast('Something went wrong');
         }
     }
 
