@@ -378,7 +378,7 @@
 @media only screen and (max-width: 500px) {
   .video-player iframe,
   .skeleton-loader-video {
-    height: 200px;
+    height: 290px;
   }
 }
 @media(max-width:800px){
@@ -499,7 +499,7 @@
   }
   .video-player iframe,
   .skeleton-loader-video{
-    height: 200px;
+    height: 220px;
   }
   @media(max-width:800px){
     .skeleton-loader-video{
