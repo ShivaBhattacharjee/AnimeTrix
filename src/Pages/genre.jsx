@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import spinner from "../img/spinner.svg";
 import { Card } from '../Components';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi } from '../Components/constants';
 import GenreLoading from '../Loading/GenreLoading';

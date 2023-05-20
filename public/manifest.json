@@ -1,0 +1,33 @@
+{
+    "name": "AnimeTrix",
+    "short_name": "AnimeTrix",
+    "theme_color": "#296dea",
+    "background_color": "#100d16",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "description": "Anime Trix is an anime streaming / downloading site that offers a vast collection of anime shows for streaming and downloading. With a user-friendly interface, you can easily find your favorite anime shows and watch them in high-definition quality. Our platform is updated regularly with the latest anime episodes, so you can stay up-to-date with your favorite shows. Anime Trix is the go-to destination for anime lovers who want to watch their favorite shows anytime, anywhere.",
+    "icons": [
+        {
+            "src":"images/maskableicon.png",
+            "sizes":" 192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/animetrix192x192.png",
+            "sizes": " 192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/animetrix256.png",
+            "sizes": " 256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "images/animetrix512x512.png",
+            "sizes": " 512x512",
+            "type": "image/png"
+        }
+    ]
+}
