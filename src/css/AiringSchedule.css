@@ -9,6 +9,10 @@
     margin: 20px 0;
     font-size: 50px;
   }
+  .airing-schedule-heading h5{
+    margin-top: 2%;
+    font-size: 40%;
+  }
   .anime-airing {
     background-color: #162032;
     padding: 20px;
@@ -79,6 +83,10 @@
   @media screen and (max-width: 600px){
     .airing-schedule-heading h3{
       font-size: 30px;
+    }
+    .airing-schedule-heading h5{
+      margin-top: 3%;
+      font-size: 35%;
     }
   }
   @media screen and (max-width: 350px){
