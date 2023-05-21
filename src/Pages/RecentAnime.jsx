@@ -87,26 +87,6 @@ const RecentAnime = (props) => {
               ))}
           </Swiper>
           {/* <History/> */}
-          <br /><br />
-          <section className="movies">
-            <div className="filter-bar">
-              <div className="heading">
-                <h3>Recent Anime</h3>
-              </div>
-            </div>
-            <div className="movies-grid">
-              {props.recent &&
-                props.recent.map((rec) => (
-                  <Card rec={rec} key={rec.id} handelClick={handelClick} />
-                ))}
-            </div>
-            <div className="loadmore-recent">
-              <Link to="/recent-anime" onClick={scroll}>
-                <button className="loadmore">View More</button>
-              </Link>
-            </div>
-          </section>
-
           <section className="movies">
             <div className="filter-bar">
               <div className="heading">
@@ -127,6 +107,25 @@ const RecentAnime = (props) => {
               </Link>
             </div>
           </section>
+          <section className="movies">
+            <div className="filter-bar">
+              <div className="heading">
+                <h3>Recent Anime</h3>
+              </div>
+            </div>
+            <div className="movies-grid">
+              {props.recent &&
+                props.recent.map((rec) => (
+                  <Card rec={rec} key={rec.id} handelClick={handelClick} />
+                ))}
+            </div>
+            <div className="loadmore-recent">
+              <Link to="/recent-anime" onClick={scroll}>
+                <button className="loadmore">View More</button>
+              </Link>
+            </div>
+          </section>
+
           <ForYou />
           <br /><br />
           <UpcomingSeason />
