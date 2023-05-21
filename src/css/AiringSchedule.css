@@ -10,8 +10,14 @@
     font-size: 50px;
   }
   .airing-schedule-heading h5{
-    margin-top: 2%;
+     margin-top: 2%;
     font-size: 40%;
+    text-align: center;
+    background: #162032;
+    padding: 14px;
+    max-width:480px ;
+    border-radius: 8px;
+    margin: auto;
   }
   .anime-airing {
     background-color: #162032;
