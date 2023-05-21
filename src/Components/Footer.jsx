@@ -11,7 +11,9 @@ function Footer() {
   const instagramUrl = () => {
     window.open('https://www.instagram.com/animetrix.200/')
   }
-  
+  const discordUrl = () => {
+    window.open('https://discord.gg/t7xSMNr7zN')
+  }
   return (
     <div className="footer">
       <h1>
@@ -27,6 +29,7 @@ function Footer() {
         DMCA compliant.
       </p>
       <div className="footer-social">
+      <button onClick={()=>discordUrl()}><i class="fa-brands fa-discord"></i></button>
         <button onClick={() => instagramUrl()}>
           <InstagramIcon />
         </button>
