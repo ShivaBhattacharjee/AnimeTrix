@@ -39,6 +39,10 @@
 .footer-social button:hover{
   transform: scale(1.2);
 }
+.terms{
+  border-bottom: 2px solid  rgb(33, 150, 243);
+  color: #ffff;
+}
 @media (max-width: 600px) {
   .footer .footer-about {
     width: 90%;
