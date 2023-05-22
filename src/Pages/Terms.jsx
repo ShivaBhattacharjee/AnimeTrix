@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { Footer } from '../Components'
 import {Link} from "react-router-dom"
 const Terms = () => {
+useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
     return (
         <>
             <div className="terms-div">
