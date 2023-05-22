@@ -392,9 +392,9 @@
     left: 6px;
   }
 }
-@media(max-width:410px){
+@media(max-width:415px){
   .account-login{
-    left: 4%;
+    left: 3%;
   }
 }
 @media(max-width:385px){

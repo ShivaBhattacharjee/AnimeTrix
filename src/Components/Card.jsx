@@ -6,7 +6,6 @@ import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import { ServerApi } from "./constants";
 import {  LazyLoadImage } from "react-lazy-load-image-component";
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import { showErrorToast } from "../utils/toast";
 export default function Card(props) {
   const { rec } = props;

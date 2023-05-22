@@ -1,5 +1,5 @@
 # Base image
-FROM node:14-alpine
+FROM node:18.14.1-alpine
 
 # Set the working directory
 WORKDIR /app
@@ -13,7 +13,7 @@ RUN npm install
 # Copy the app files
 COPY . .
 
-# Start the React app
+# Start the Node.js app
 CMD npm start
 
 # Expose the port
