@@ -94,7 +94,7 @@ export default function Details(props) {
                       </Link>
                     )}
                     <div className="anime-storyline">
-                      <div className="summary">Summary:-</div>
+                      <div className="summary">About:-</div>
                       <p>{ReactHtmlParser(animeDetails.description)}</p>
                     </div>
 

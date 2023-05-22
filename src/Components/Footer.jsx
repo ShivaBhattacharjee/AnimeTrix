@@ -5,20 +5,21 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 function Footer() {
 
   const githubUrl = () => {
-    window.open('https://github.com/ShivaBhattacharjee/AnimeTrix')
+    window.open('https://github.com/')
   }
 
   const instagramUrl = () => {
-    window.open('https://www.instagram.com/animetrix.200/')
+    window.open('https://www.instagram.com/')
   }
   const discordUrl = () => {
-    window.open('https://discord.gg/t7xSMNr7zN')
+    window.open('https://discord.gg/')
   }
   return (
     <div className="footer">
       <h1>
         <span className="white">Anime</span>Trix
       </h1>
+        <h3><b>Developed by GYANAM</b></h3>
       <p className="footer-about">
         AnimeTrix is not affiliated with or endorsed by any of the anime studios
         behind the creation of the anime presented on this site. This website is
@@ -29,7 +30,7 @@ function Footer() {
         DMCA compliant.
       </p>
       <div className="footer-social">
-      <button onClick={()=>discordUrl()}><i class="fa-brands fa-discord"></i></button>
+        <button onClick={() => discordUrl()}><i class="fa-brands fa-discord"></i></button>
         <button onClick={() => instagramUrl()}>
           <InstagramIcon />
         </button>
