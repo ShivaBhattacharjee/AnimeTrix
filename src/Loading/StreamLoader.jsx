@@ -9,7 +9,7 @@ const StreamLoader = () => {
                     <div className="video-title">
                         <span><Skeleton /></span>
                         <p>
-                            Note :- For ad-free experience, please use the internal player. If it's not working, external player with adblocker recommended to block ads.
+                        Note :- Refresh the page if player doesnt load or change to nspl player
                         </p>
                     </div>
                     <br />
