@@ -27,7 +27,7 @@ const ScrollToTop = () => {
                 isVisible && (
                     <div className='top-scroll' onClick={goToBtn}>
                         <div className="top-scroll-icon">
-                        <ion-icon name="chevron-up-outline"></ion-icon>
+                        <i class="fa-solid fa-angles-up"></i>
                         </div>
                     </div>
                 )
