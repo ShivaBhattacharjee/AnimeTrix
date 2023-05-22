@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { HomeApi } from './constants';
 import { useFetchInitialData } from "../utils/hooks";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import UpcomingSeasonCard from './UpcomingSeasonCard';
 const UpcomingSeason = () => {
     const [summer, setSummer] = useState([])
     const [fall, setFall] = useState([]);
@@ -35,7 +36,7 @@ const UpcomingSeason = () => {
         getWinter();
     }, []);
 
-    useFetchInitialData(summer,winter,fall,spring)
+    useFetchInitialData(summer, winter, fall, spring)
     return (
         <div className='upcoming-season'>
             <div className="airing-schedule-heading">
@@ -49,24 +50,9 @@ const UpcomingSeason = () => {
                     {fall?.map((fallData) => {
                         return (
                             <>
-                                <div className="content">
-                                    <Link to={`/anime-details/${fallData?.id}`}>
-                                        <LazyLoadImage src={fallData?.image} alt="img" />
-                                    </Link>
-                                    <div className="text">
-                                        <h4>{fallData?.title?.userPreferred}</h4>
-                                        <div className="details-seasons">
-                                            <span>{fallData.type}</span>
-                                            <span>{fallData.countryOfOrigin}</span>
-                                        </div>
-                                        <span>{fallData?.releaseDate}</span>
-                                        <div className="genre-upcoming">
-                                            {fallData?.genres?.map((genrData) => (
-                                                <small>{genrData} </small>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
+                                <UpcomingSeasonCard
+                                    fallData={fallData}
+                                />
                             </>
                         )
                     })}
@@ -79,24 +65,8 @@ const UpcomingSeason = () => {
                     {summer?.map((fallData) => {
                         return (
                             <>
-                                <div className="content">
-                                    <Link to={`/anime-details/${fallData?.id}`}>
-                                        <LazyLoadImage src={fallData?.image} alt="img" loading='lazy'/>
-                                    </Link>
-                                    <div className="text">
-                                        <h4>{fallData?.title?.userPreferred}</h4>
-                                        <div className="details-seasons">
-                                            <span>{fallData.type}</span>
-                                            <span>{fallData.countryOfOrigin}</span>
-                                        </div>
-                                        <span>{fallData?.releaseDate}</span>
-                                        <div className="genre-upcoming">
-                                            {fallData?.genres?.map((genrData) => (
-                                                <small>{genrData} </small>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
+                                <UpcomingSeasonCard
+                                    fallData={fallData} />
                             </>
                         )
                     })}
@@ -106,27 +76,12 @@ const UpcomingSeason = () => {
 
                 <div className="season-box">
                     <h2>Winter</h2>
-                    {winter?.map((winterData) => {
+                    {winter?.map((fallData) => {
                         return (
                             <>
-                                <div className="content">
-                                    <Link to={`/anime-details/${winterData.id}`}>
-                                        <LazyLoadImage src={winterData.image} alt="img"  loading='lazy' />
-                                    </Link>
-                                    <div className="text">
-                                        <h4>{winterData?.title?.userPreferred}</h4>
-                                        <div className="details-seasons">
-                                            <span>{winterData.type}</span>
-                                            <span>{winterData.countryOfOrigin}</span>
-                                        </div>
-                                        <span>{winterData?.releaseDate}</span>
-                                        <div className="genre-upcoming">
-                                            {winterData?.genres?.map((winterData) => (
-                                                <small>{winterData} </small>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
+                                <UpcomingSeasonCard
+                                    fallData={fallData}
+                                />
                             </>
                         )
                     })}
@@ -136,27 +91,10 @@ const UpcomingSeason = () => {
 
                 <div className="season-box">
                     <h2>Spring</h2>
-                    {spring?.map((sprinData) => {
+                    {spring?.map((fallData) => {
                         return (
                             <>
-                                <div className="content">
-                                    <Link to={`/anime-details/${sprinData.id}`}>
-                                        <LazyLoadImage src={sprinData.image} alt="img" />
-                                    </Link>
-                                    <div className="text">
-                                        <h4>{sprinData?.title?.userPreferred}</h4>
-                                        <div className="details-seasons">
-                                            <span>{sprinData.type}</span>
-                                            <span>{sprinData.countryOfOrigin}</span>
-                                        </div>
-                                        <span>{sprinData?.releaseDate}</span>
-                                        <div className="genre-upcoming">
-                                            {sprinData?.genres?.map((genrData) => (
-                                                <small>{genrData} </small>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
+              <UpcomingSeasonCard fallData={fallData}/>
                             </>
                         )
                     })}

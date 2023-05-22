@@ -191,7 +191,7 @@
     margin: 15px 19px;
   }
 }
-@media(max-width:1350px){
+@media(max-width:1360px){
   .account-login{
     position: relative;
     right: 5%;
@@ -326,21 +326,25 @@
     font-size: 35px;
     left: 130px;
   }
+  .account-login{
+    position: relative;
+    left: 22%;
+  }
 }
 @media only screen and (max-width: 650px) {
   .account-login{
     position: relative;
-    left: 19%;
+    left: 20%;
   }
   .login-tab ion-icon{
     font-size: 35px;
-    left: 110px;
+    left: 21%;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 610px) {
   .account-login{
     position: relative;
-    left: 17%;
+    left: 18%;
   }
   .login-tab ion-icon{
     font-size: 35px;
@@ -379,25 +383,40 @@
     font-size: 30px;
   }
 }
-@media(max-width:440px){
+@media(max-width:450px){
   .account-login{
     position: relative;
-    left: 5%;
+    left: 9%;
   }
   .login-tab ion-icon{
     left: 6px;
   }
 }
-@media(max-width:400px){
+@media(max-width:410px){
   .account-login{
-    left: 2%;
+    left: 4%;
   }
 }
-@media(max-width:355px){
+@media(max-width:385px){
   .account-login{
-    left: 0%;
+    left: 9%;
   }
   .logo>a{
     font-size: 20px;
+  }
+}
+@media(max-width:360px){
+  .account-login{
+    left:4%;
+  }
+}
+@media(max-width:340px){
+  .account-login{
+    left:2%;
+  }
+}
+@media(max-width:308px){
+  .account-login{
+    left:-2%;
   }
 }
