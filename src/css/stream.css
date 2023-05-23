@@ -53,9 +53,18 @@
   padding: 10px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 10px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+}
+.playerchange-div button{
+  font-size: 15px;
+  padding: 0px 10px;
+  border-radius: 5px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #ffff;
 }
 .playerchange-div i{
   cursor: pointer;

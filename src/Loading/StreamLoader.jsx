@@ -9,7 +9,9 @@ const StreamLoader = () => {
                     <div className="video-title">
                         <span><Skeleton /></span>
                         <p>
-                        Note :- Refresh the page if player doesnt load or change to nspl player
+                        Note :- Refresh the page if player doesnt load or change to nspl player.
+                  <br />
+                 To play the dubbed version, change the episode to the next available dub episode.
                         </p>
                     </div>
                     <br />
