@@ -1,7 +1,10 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import { Footer } from '../Components'
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 const Terms = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className="terms-div">
@@ -35,10 +38,10 @@ const Terms = () => {
                     </li>
                 </ul>
                 <br /><br /><br />
-           <div className="wrap-terms">
-           <span>By using Animetrix, you acknowledge that you have read, understood, and agreed to these terms and conditions. If you do not agree to any of these terms, please refrain from using the website.</span>
-            <Link to="/">Home</Link> 
-           </div>
+                <div className="wrap-terms">
+                    <span>By using Animetrix, you acknowledge that you have read, understood, and agreed to these terms and conditions. If you do not agree to any of these terms, please refrain from using the website.</span>
+                    <Link to="/">Home</Link>
+                </div>
             </div>
             <br /><br /><br />
             <Footer />
