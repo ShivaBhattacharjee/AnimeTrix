@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { HomeApi, ServerApi } from "../Components/constants";
 import StreamLoader from "../Loading/StreamLoader";
 import { showErrorToast, showSuccessToast } from "../utils/toast";
-import { ConstructionOutlined, Refresh } from "@mui/icons-material";
+
 export default function Stream(props) {
   const { episodeId } = useParams();
   const [data, setData] = useState([]);
@@ -25,24 +25,24 @@ export default function Stream(props) {
   const [videoDub, setVideoDub] = useState([]);
   const [dubList, setDubList] = useState(false);
 
-    // Dub Api data
-    const dubStream = async () => {
-      setLoading(true);
-      try {
-        const dubVideo = await axios.get(
-          `https://api.amvstr.ml/api/v2/episode/${animeId}?dub=true`
-        );
-        setVideoDub(dubVideo?.data);
-      } catch (err) {
-        showErrorToast("Error loading streaming data");
-      }
-      setLoading(false);
-    };
-  
-    const dubSwitchClick = () => {
-      setDubList(!dubList);
-    };
-  
+  // Dub Api data
+  const dubStream = async () => {
+    setLoading(true);
+    try {
+      const dubVideo = await axios.get(
+        `https://api.amvstr.ml/api/v2/episode/${animeId}?dub=true`
+      );
+      setVideoDub(dubVideo?.data);
+    } catch (err) {
+      showErrorToast("Error loading streaming data");
+    }
+    setLoading(false);
+  };
+
+  const dubSwitchClick = () => {
+    setDubList(!dubList);
+  };
+
 
   let isMouseDown = false;
   let startX;
@@ -104,7 +104,7 @@ export default function Stream(props) {
     }
   };
   const getStream = async () => {
-    
+
     try {
       console.log(episodeId)
       const Video = await axios.get(
@@ -332,12 +332,13 @@ export default function Stream(props) {
               <div className="video-title">
                 <span>{detail.title?.romaji}</span>
                 <p>
-                  Note :- Refresh the page if player doesnt load or change to
-                  nspl player
+                  Note :- Refresh the page if player doesnt load or change to nspl player.
+                  <br />
+                  To play the dubbed version, change the episode to the next available dub episode.
                 </p>
               </div>
               <div className="playerchange-div">
-                {videoDub.length > 0 && <button onClick={() => dubSwitchClick() }>{dubList ? "Sub" : "Dub"}</button>}
+                {videoDub.length > 0 && <button onClick={() => dubSwitchClick()}>{dubList ? "Sub" : "Dub"}</button>}
                 <i class="fa-solid fa-location-arrow" onClick={handlePlyr}></i>
                 <i class="fa-solid fa-server" onClick={handleNspl}></i>
               </div>
@@ -372,24 +373,30 @@ export default function Stream(props) {
                   <div className="episode-list">
                     {dubList
                       ? videoDub.map((dublist) => {
-                          const { id, number } = dublist;
-                         return  <Link to={`/watch/${id}/${animeId}`}>
-                           <button key={id}>{number}</button> 
-                       </Link>
-                        })
+                        const { id, number } = dublist;
+                        return <Link to={`/watch/${id}/${animeId}`} key={id}>
+                          {id === episodeId ? (
+                            <button className="active">{number}</button>
+                          ) : number % 2 === 0 ? (
+                            <button>{number}</button>
+                          ) : (
+                            <button>{number}</button>
+                          )}
+                        </Link>
+                      })
                       : detail?.episodes?.map((ep) => (
-                          <>
-                            <Link to={`/watch/${ep.id}/${animeId}`}>
-                              {ep.id === episodeId ? (
-                                <button className="active">{ep.number}</button>
-                              ) : ep.number % 2 === 0 ? (
-                                <button>{ep.number}</button>
-                              ) : (
-                                <button>{ep.number}</button>
-                              )}
-                            </Link>
-                          </>
-                        ))}
+                        <>
+                          <Link to={`/watch/${ep.id}/${animeId}`}>
+                            {ep.id === episodeId ? (
+                              <button className="active">{ep.number}</button>
+                            ) : ep.number % 2 === 0 ? (
+                              <button>{ep.number}</button>
+                            ) : (
+                              <button>{ep.number}</button>
+                            )}
+                          </Link>
+                        </>
+                      ))}
                   </div>
                 </div>
               </div>
