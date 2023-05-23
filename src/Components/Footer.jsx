@@ -1,6 +1,7 @@
 import React from "react";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { Link } from "react-router-dom";
 
 function Footer() {
 
@@ -11,7 +12,9 @@ function Footer() {
   const instagramUrl = () => {
     window.open('https://www.instagram.com/animetrix.200/')
   }
-  
+  const discordUrl = () => {
+    window.open('https://discord.gg/t7xSMNr7zN')
+  }
   return (
     <div className="footer">
       <h1>
@@ -26,7 +29,9 @@ function Footer() {
         be returned from the response hence it is completely not subjected to
         DMCA compliant.
       </p>
+      <Link to="/terms" className="terms">Terms and conditon</Link>
       <div className="footer-social">
+      <button onClick={()=>discordUrl()}><i class="fa-brands fa-discord"></i></button>
         <button onClick={() => instagramUrl()}>
           <InstagramIcon />
         </button>

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Footer } from '../Components'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ServerApi } from '../Components/constants'
-import { showErrorToast } from '../utils/toast'
+import { showErrorToast, showSuccessToast } from '../utils/toast'
 import ProfileLoader from '../Loading/ProfileLoader'
 const Profile = () => {
   const [userId, setUserId] = useState("");
@@ -15,9 +15,9 @@ const Profile = () => {
   const [details, setDetails] = useState({});
   const [img, setImg] = useState("https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg");
   const [isUpdating, setIsUpdating] = useState(false);
-  const [changeAvatar, setChangeAvatar] = useState(false);
-  const [userImg, setUserImg] = useState("");
-  const [comp, setComp] = useState(1);
+  // const [changeAvatar, setChangeAvatar] = useState(false);
+  // const [userImg, setUserImg] = useState("");
+  // const [comp, setComp] = useState(1);
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
 
@@ -39,7 +39,7 @@ const Profile = () => {
     } else {
       navigate("/");
     }
-  });
+  },[navigate]);
 
 
   useEffect(() => {
@@ -94,10 +94,9 @@ const Profile = () => {
   const sumbitHandler = async (e) => {
     e.preventDefault();
     if (isUpdating) {
-      if (details.name != userName) {
+      if (details.name !== userName) {
         const res = await changeName();
-        const errorMessage = res.data.message;
-        showErrorToast(errorMessage);
+        showSuccessToast( res.data.message);
       } else {
         const errorMessage = 'Username already exists try another';
       showErrorToast(errorMessage);
@@ -106,40 +105,40 @@ const Profile = () => {
     setIsUpdating(!isUpdating);
   }
 
-  const profileImages = [
-    {
-      id: 1,
-      imgUrl:
-        "https://i.ibb.co/56w2WWV/images-q-tbn-ANd9-Gc-Qo-Wng-A9o-rk-TEZWKg-T3zgh-QCmh-DR-Q2-KFm-Q3dt-Pw-W0-Co-Hio-B-m-VFQ44rdxd9-FQM4.jpg",
-    },
+  // const profileImages = [
+  //   {
+  //     id: 1,
+  //     imgUrl:
+  //       "https://i.ibb.co/56w2WWV/images-q-tbn-ANd9-Gc-Qo-Wng-A9o-rk-TEZWKg-T3zgh-QCmh-DR-Q2-KFm-Q3dt-Pw-W0-Co-Hio-B-m-VFQ44rdxd9-FQM4.jpg",
+  //   },
 
-    {
-      id: 2,
-      imgUrl:
-        "https://i.ibb.co/HG41T5g/images-q-tbn-ANd9-Gc-SIZBPpit-WVw-Vv-OWR3yn-Ki-Kg-HEYEm-Q2-Zm487w-usqp-CAU.jpg",
-    },
+  //   {
+  //     id: 2,
+  //     imgUrl:
+  //       "https://i.ibb.co/HG41T5g/images-q-tbn-ANd9-Gc-SIZBPpit-WVw-Vv-OWR3yn-Ki-Kg-HEYEm-Q2-Zm487w-usqp-CAU.jpg",
+  //   },
 
-    {
-      id: 3,
-      imgUrl:
-        "https://i.ibb.co/Lg0Wv8y/images-q-tbn-ANd9-Gc-Sspe4-Sy-j-XWf-Fw-QIp-Qpr-FPav-DGK5-SKArfhrw-usqp-CAU.jpg",
-    },
+  //   {
+  //     id: 3,
+  //     imgUrl:
+  //       "https://i.ibb.co/Lg0Wv8y/images-q-tbn-ANd9-Gc-Sspe4-Sy-j-XWf-Fw-QIp-Qpr-FPav-DGK5-SKArfhrw-usqp-CAU.jpg",
+  //   },
 
-    {
-      id: 4,
-      imgUrl: "https://i.ibb.co/sJPVdF8/2wPVNZ.jpg",
-    },
+  //   {
+  //     id: 4,
+  //     imgUrl: "https://i.ibb.co/sJPVdF8/2wPVNZ.jpg",
+  //   },
 
-    {
-      id: 5,
-      imgUrl: "https://i.ibb.co/QH8H6g5/wp10142858.jpg",
-    },
-  ];
+  //   {
+  //     id: 5,
+  //     imgUrl: "https://i.ibb.co/QH8H6g5/wp10142858.jpg",
+  //   },
+  // ];
 
-  const setImageHandler = (url) => {
-    setUserImg(url);
-    setChangeAvatar(!changeAvatar)
-  };
+  // const setImageHandler = (url) => {
+  //   setUserImg(url);
+  //   setChangeAvatar(!changeAvatar)
+  // };
   return (
     <>
       {loading ? (
@@ -164,20 +163,19 @@ const Profile = () => {
           <section className='profile-user-info'>
             <div className="login-container">
               <div className="user-picture">
-                <img src={img} alt="user-image" className='user-img' />
-                <div className={changeAvatar ? "image-list" : "hide-image-list"}>
+                <img src={img} alt="user" className='user-img' />
+                {/* <div className={changeAvatar ? "image-list" : "hide-image-list"}>
                   {profileImages.map((profileImg) => {
                     return (
                       <div
                         className="single-img"
                         key={profileImg.id}
-                        onClick={() => setImageHandler(profileImg.imgUrl)}
                       >
                         <img src={profileImg.imgUrl} alt="profile" />
                       </div>
                     );
                   })}
-                </div>
+                </div> */}
               </div>
               <form action="" autoComplete='false' onSubmit={e => sumbitHandler(e)}>
                 <label htmlFor="text">Your Name</label>

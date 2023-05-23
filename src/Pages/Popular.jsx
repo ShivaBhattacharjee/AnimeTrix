@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { Helmet } from "react-helmet";
 import InfiniteScroll from "react-infinite-scroll-component";
 import spinner from "../img/spinner.svg";
 import Card from "../Components/Card";

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Cookies from "js-cookie";
 import { ServerApi } from '../Components/constants';
 import { showErrorToast, showSuccessToast } from '../utils/toast';
 function ForgotPassword() {
@@ -71,7 +70,7 @@ function ForgotPassword() {
 
   const getOTP = async(e) => {
     e.preventDefault();
-    if(conPassword == password) {
+    if(conPassword === password) {
       if(password.length >= 8 && password.length <= 12) {
         const res = await changePassword(email, password);
         if(res) {
@@ -91,7 +90,7 @@ function ForgotPassword() {
 
   const submitHandler = async(e) => {
     e.preventDefault();
-    if(conPassword == password) {
+    if(conPassword === password) {
       if(!(password.length < 8 && password.length >= 12)) {
         const res = await userVerification(email, otp);
         if(res) {

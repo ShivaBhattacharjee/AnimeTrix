@@ -74,7 +74,7 @@ function Register() {
 
   const getOTP = async (e) => {
     e.preventDefault();
-    if (conPassword == password) {
+    if (conPassword === password) {
       if (password.length >= 8 && password.length <= 12) {
         const res = await userSignup(name, email, password);
         if (res) {
@@ -94,7 +94,7 @@ function Register() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (conPassword == password) {
+    if (conPassword === password) {
       if (!(password.length < 8 && password.length >= 12)) {
         const res = await userVerification(email, otp);
         if (res) {

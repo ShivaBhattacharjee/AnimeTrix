@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import { Card,  AiringSchedule, ForYou, Footer, UpcomingSeason } from "../Components"
+import { Card, AiringSchedule, ForYou, Footer, UpcomingSeason } from "../Components"
 import { Link } from "react-router-dom";
 import { useFetchInitialData } from "../utils/hooks";
 import { HomeApi } from "../Components/constants";
@@ -32,6 +32,7 @@ const RecentAnime = (props) => {
 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!renderAfterCalled.current) {
       getAiring()
     }
@@ -53,7 +54,7 @@ const RecentAnime = (props) => {
   return (
     <>
       {Object.keys(props.recent).length === 0 ? (
-        <HomePageLoader/>
+        <HomePageLoader />
       ) : (
         <>
           <Swiper
@@ -87,7 +88,6 @@ const RecentAnime = (props) => {
               ))}
           </Swiper>
           {/* <History/> */}
-          <br /><br />
           <section className="movies">
             <div className="filter-bar">
               <div className="heading">
@@ -106,7 +106,6 @@ const RecentAnime = (props) => {
               </Link>
             </div>
           </section>
-
           <section className="movies">
             <div className="filter-bar">
               <div className="heading">

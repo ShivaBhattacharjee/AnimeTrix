@@ -16,9 +16,9 @@ import './css/AiringSchedule.css'
 import './css/ForYou.css'
 import "./css/ImageSearch.css"
 import "./css/UpcomingSeason.css"
-
+import './css/terms.css'
 import { Error404, Header, ScrollToTop, SearchJSX, History, Bookmark } from "./Components/";
-import {  RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason } from "./Pages"
+import {  RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason, Terms } from "./Pages"
 import { ToastContainer } from 'react-toastify';
 
 
@@ -332,6 +332,7 @@ function App() {
           path="/watch/:episodeId/:animeId"
           element={<Stream />}
         />
+<Route exact path="/terms" element={<Terms />} />
         <Route exact path="/image-search" element={<AnimeImageSearch />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
