@@ -57,6 +57,13 @@
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
+.playerchange-div button{
+  font-size: 15px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: blue;
+  background-color: #fff;
+}
 .playerchange-div i{
   cursor: pointer;
 }
