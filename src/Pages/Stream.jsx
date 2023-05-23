@@ -5,7 +5,7 @@ import { Footer } from "../Components/";
 import LoadingBar from "react-top-loading-bar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { HomeApi, ServerApi } from "../Components/constants";
+import { HomeApi, ServerApi, StreamApi } from "../Components/constants";
 import StreamLoader from "../Loading/StreamLoader";
 import { showErrorToast, showSuccessToast } from "../utils/toast";
 
@@ -30,7 +30,7 @@ export default function Stream(props) {
     setLoading(true);
     try {
       const dubVideo = await axios.get(
-        `https://api.amvstr.ml/api/v2/episode/${animeId}?dub=true`
+        `${StreamApi}/api/v2/episode/${animeId}?dub=true`
       );
       setVideoDub(dubVideo?.data);
     } catch (err) {
@@ -108,7 +108,7 @@ export default function Stream(props) {
     try {
       console.log(episodeId)
       const Video = await axios.get(
-        `https://api.amvstr.ml/api/v2/stream/${episodeId}`
+        `${StreamApi}/api/v2/stream/${episodeId}`
       );
       if (Video.length == 0) {
         setLoading(true);
