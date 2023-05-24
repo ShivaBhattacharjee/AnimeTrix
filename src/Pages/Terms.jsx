@@ -8,7 +8,7 @@ const Terms = () => {
     return (
         <>
             <div className="terms-div">
-                <h1>Terms and Conditions for Animetrix :</h1>
+                <h1>⚠️Terms and Conditions for Animetrix :</h1>
                 <ul>
                     <li><h2>Content Disclaimer:</h2>
                         Animetrix does not store any data on its servers. The website simply provides links to data and content available on the internet. Animetrix does not guarantee the accuracy, completeness, or legality of any content provided through the links. Users are responsible for their own use of the linked content and should abide by the respective terms and conditions of the sources.</li>

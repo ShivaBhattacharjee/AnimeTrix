@@ -338,10 +338,10 @@
   }
   .login-tab ion-icon{
     font-size: 35px;
-    left: 21%;
+    right: 0;
   }
 }
-@media only screen and (max-width: 610px) {
+@media only screen and (max-width: 623px) {
   .account-login{
     position: relative;
     left: 18%;
@@ -357,7 +357,7 @@
     left: 80px;
   }
 }
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 555px) {
   .account-login{
     position: relative;
     left: 13%;
@@ -392,17 +392,21 @@
     left: 6px;
   }
 }
-@media(max-width:420px){
+@media(max-width:430px){
   .account-login{
-    left: 3%;
+    left: 7%;
   }
 }
-@media(max-width:385px){
+@media(max-width:405px){
   .account-login{
     left: 9%;
   }
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: 20px;
+  }
   .logo>a{
-    font-size: 20px;
+    font-size: 21px;
   }
 }
 @media(max-width:360px){
@@ -414,8 +418,11 @@
   .account-login{
     left:2%;
   }
+  .login-tab ion-icon{
+    left: 0px;
+  }
 }
-@media(max-width:308px){
+@media(max-width:312px){
   .account-login{
     left:-2%;
   }
