@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import axios from "axios";
 // import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,16 +28,7 @@ export default function Card(props) {
 
   const [bookmark, setBookmark] = useState([]);
 
-  function getCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim();
-      if (cookie.startsWith(name + '=')) {
-        return cookie.substring(name.length + 1);
-      }
-    }
-    return undefined;
-  }
+
 
   useEffect(() => {
     const id = getCookie("id");
