@@ -315,7 +315,7 @@
 @media only screen and (max-width: 750px) {
   .login-tab ion-icon{
     font-size: 35px;
-    left: 150px;
+    left: calc(25vw - 15px);
   }
   .logo > a {
     font-size: 35px;
@@ -377,7 +377,7 @@
     left: 11%;
   }
   .login-tab ion-icon{
-    left: 40px;
+    left: calc(14vw - 10px);
   }
   .logo >a{
     font-size: 30px;
@@ -389,24 +389,40 @@
     left: 9%;
   }
   .login-tab ion-icon{
-    left: 6px;
+    left: calc(10vw - 10px);
   }
 }
-@media(max-width:430px){
+@media(max-width:432px){
   .account-login{
     left: 7%;
+  }
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: calc(10vw - 10px);
   }
 }
 @media(max-width:405px){
   .account-login{
-    left: 9%;
+    left: calc(6vw - 10px);
   }
   .login-tab ion-icon{
     font-size: 35px;
-    left: 20px;
+    left: calc(6vw - 10px);
   }
   .logo>a{
-    font-size: 21px;
+    font-size: 30px;
+  }
+}
+@media(max-width:377px){
+  .account-login{
+    left:calc(6vw - 10px);
+  }
+  .login-tab ion-icon{
+    font-size: 35px;
+    left: calc(6vw - 10px);
+  }
+  .logo>a{
+    font-size: 23px;
   }
 }
 @media(max-width:360px){
@@ -422,8 +438,8 @@
     left: 0px;
   }
 }
-@media(max-width:312px){
+@media(max-width:321px){
   .account-login{
-    left:-2%;
+    left:calc(10vh - 62px);
   }
 }
