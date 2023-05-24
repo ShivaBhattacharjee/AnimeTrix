@@ -19,7 +19,6 @@ export function register(config) {
       if (isLocalhost) {
         checkValidServiceWorker(swUrl, config);
 
-ion.
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
