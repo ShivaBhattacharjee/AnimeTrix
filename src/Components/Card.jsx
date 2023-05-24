@@ -8,7 +8,6 @@ import { ServerApi } from "./constants";
 import {  LazyLoadImage } from "react-lazy-load-image-component";
 import { showErrorToast } from "../utils/toast";
 export default function Card(props) {
-  const { rec } = props;
   const [isBookmark, setIsBookmark] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [userId, setUserId] = useState("");
