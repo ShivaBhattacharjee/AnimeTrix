@@ -19,7 +19,7 @@
   flex-direction: column;
 }
 .error-text-field>h1{
-  color: #ccc;
+  color: var(--text-color);
   font-size: 10rem;
   font-weight: 600;
 }
@@ -30,9 +30,10 @@
 .error-text-field>a{
   margin-top: 30px;
   font-size: 20px;
-  background-color: rgb(33,150,243);
+  background-color: var(--button-color);
   padding: 12px 20px;
   border-radius: 10px;
+  color: var(--text-color);
 }
 @media only screen and (max-width: 900px){
   .error-container{

@@ -1,3 +1,4 @@
+import  "./css/Root.css"
 import "./App.css";
 import "./css/navbar.css";
 import "./css/Details.css";

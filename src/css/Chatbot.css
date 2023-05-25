@@ -2,7 +2,7 @@
     height: 85vh;
     width: 100%;
     position: relative;
-    color: #fff;
+    color: var(--text-color);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -54,7 +54,7 @@
 }
 
 .chat-aiandhuman {
-    background: rgb(33,150,243, 70%);
+    background: var(--chatbot-chat);
     border-radius: 8px;
     max-width: 80%;
     place-self: end;
@@ -78,7 +78,7 @@
 
 .input-main {
     width: 100%;
-    background:  rgb(33,150,243, 70%);
+    background: var(--chatbot-chat);
     max-height: 10rem;
     border-radius: 8px;
     padding-left: 1rem;
@@ -94,7 +94,7 @@
     border: none;
     background: transparent;
     width: 90%;
-    color: #fff;
+    color: var(--text-color);
     font-size: 18px;
     font-weight: 500;
 }

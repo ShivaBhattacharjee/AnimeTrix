@@ -1,5 +1,5 @@
 .card-head{
-  background: #162032;
+  background: var(--card-background);
   width: 100%;
   padding-bottom: 30px;
   border-radius: 8px;
@@ -44,11 +44,11 @@
   margin-top: 10px;
 }
 .episode-total span{
-  background-color:rgb(33,150,243);
+  background-color: var(--button-color);
   padding: 0px 7px;
   position: relative;
   border-radius: 3px;
-  color: #ffff;
+  color: var(--text-color);
 }
 .loadmore-recent {
   display: flex;
@@ -60,8 +60,8 @@
 
 .loadmore-recent .loadmore {
   padding: 10px 20px;
-  background-color: rgb(33, 150, 243);
-  color: #ffff;
+  background-color: var(--button-color);
+  color: var(--text-color);
   font-size: 18px;
   border-radius: 9px;
   font-weight: 500;
@@ -70,8 +70,8 @@
 
 .loadmore-recent .loadmore:hover {
   background: transparent;
-  border: 2px solid rgb(33, 150, 243);
-  box-shadow: 2px 10px 90px rgb(33, 150, 243);
+  border: 2px solid var(--button-color);
+  box-shadow: 2px 10px 90px var(--button-color);
 }
 .bookmark-icon{
   cursor: pointer;
@@ -81,36 +81,15 @@
 .bookmark-icon i{
   font-size: 25px;
   display: flex;
-  color: rgb(33,150,243);
-  background-color: black;
+  color: var(--button-color);
+  background-color: var(--bookmark-bg);
   padding: 20px 20px; 
   -webkit-clip-path: circle(34.7% at 50% 50%);
   clip-path: circle(34.7% at 50% 50%); 
 }
 
-.loadmore-recent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 50px;
-  padding-bottom: 40px;
-}
 
-.loadmore-recent .loadmore {
-  padding: 10px 20px;
-  background-color: rgb(33, 150, 243);
-  color: #ffff;
-  font-size: 18px;
-  border-radius: 9px;
-  font-weight: 500;
-  transition: .3s all ease-in-out;
-}
 
-.loadmore-recent .loadmore:hover {
-  background: transparent;
-  border: 2px solid rgb(33, 150, 243);
-  box-shadow: 2px 10px 90px rgb(33, 150, 243);
-}
 @media(max-width:950px){
   .card-img{
     height: 220px;

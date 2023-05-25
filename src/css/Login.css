@@ -12,7 +12,7 @@
 .login-container {
     position: relative;
     padding:30px;
-    background-color:hsl(220, 47%, 20%);;
+    background-color:var(--login-bg);
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -28,14 +28,14 @@
   padding: 10px 20px;
   margin-bottom: 10px;
   background:transparent;
-  border: 2px solid  rgb(33,150,243);
-  color: #ffff;
+  border: 2px solid  var(--button-color);
+  color: var(--text-color);
   border-radius: 8px;
   background: transparent;
   margin-bottom: 10px;
 }
 .login-container .login-group-input::placeholder{
-  color: #fff;
+  color: var(--text-color);
 }
 
 .login-group-input-otp{
@@ -44,15 +44,15 @@
   padding: 10px 20px;
   margin-bottom: 10px;
   background:transparent;
-  border: 2px solid  rgb(33,150,243);
-  color: #ffff;
+  border: 2px solid var(--button-color);
+  color: var(--text-color);
   border-radius: 8px;
 }
 .otp-btn{
   padding: 10px 20px;
   border: 2px solid  rgb(33,150,243);
   background: transparent;
-  color: #ffff;
+  color: var(--text-color);
   font-weight: 600;
   letter-spacing: .1px;
   border-radius: 4px;
@@ -60,7 +60,7 @@
   right: 30px;
 }
 .login-group-input-otp::placeholder{
-  color: #fff;
+  color: var(--text-color);
 }
 
 .login-container h1{
@@ -76,7 +76,7 @@
 }
 .login-register{
   padding: 10px 20px;
-  background-color:  rgb(33,150,243);
+  background-color:  var(--button-color);
   color: #000;
   font-weight: 600;
   letter-spacing: 2px;
@@ -89,7 +89,7 @@
 }
 .login-sign-in{
   padding: 10px 20px;
-  background-color:  rgb(33,150,243);
+  background-color: var(--button-color);
   color: #000;
   font-weight: 600;
   letter-spacing: 2px;
@@ -99,19 +99,19 @@
 }
 .login-sign-in:hover{
   background: transparent;
-  border: 2px solid rgb(33,150,243);
+  border: 2px solid var(--button-color);
   color: #fff;
 }
 .login-sign-reg{
   padding: 10px 20px;
-  background-color:  rgb(33,150,243);
+  background-color:  var(--button-color);
   color: #000;
   font-weight: 600;
   letter-spacing: 2px;
   border-radius: 4px;
 }
 .forgot-password{
-  color:rgb(33,150,243);
+  color:var(--button-color);
 }
 .remember-me-forget-pass{
   display: flex;
@@ -124,7 +124,7 @@
 }
 .register{
   font-size: 20px;
-  color: rgb(33,150,243) ;
+  color: var(--button-color) ;
 }
 .forgot{padding-bottom: 40px;}
 
@@ -134,7 +134,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgb(33, 150, 243);
+  border: 2px solid var(--button-color);
   max-width: 300px;
   border-radius: 9px;
   margin: auto;
@@ -146,10 +146,10 @@
 }
 
 .check-remember input[type="checkbox"]{
-  background: rgb(33,150,243);
+  background: var(--button-color);
 }
 .check-remember input[type=checkbox] {
-  accent-color: rgb(33,150,243);
+  accent-color:  var(--button-color);
 }
 @media(max-width:420px){
   .remember-me-forget-pass{
