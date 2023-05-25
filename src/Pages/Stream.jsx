@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { HomeApi, ServerApi, StreamApi } from "../Components/constants";
 import StreamLoader from "../Loading/StreamLoader";
 import { showErrorToast, showSuccessToast } from "../utils/toast";
-
+import { Helmet } from 'react-helmet';
 export default function Stream(props) {
   const { episodeId } = useParams();
   const [data, setData] = useState([]);
@@ -23,6 +23,7 @@ export default function Stream(props) {
   const [displayPlyr, setDisplayPlyr] = useState(false);
   const containerRef = useRef(null);
   const [videoDub, setVideoDub] = useState([]);
+  const [download , setDownload] = useState("")
   const [dubList, setDubList] = useState(false);
 
   // Dub Api data
@@ -106,19 +107,28 @@ export default function Stream(props) {
   const getStream = async () => {
 
     try {
-      console.log(episodeId)
       const Video = await axios.get(
         `${StreamApi}/api/v2/stream/${episodeId}`
       );
       if (Video.length == 0) {
         setLoading(true);
       }
-      console.log(Video?.data?.data?.nspl?.main)
       setnspl(Video?.data?.data?.nspl?.main);
       setData(Video?.data?.data?.plyr?.backup);
       setLoading(false);
     } catch (err) {
       showErrorToast("Error loading streaming data");
+    }
+  };
+  const getDownload = async () => {
+
+    try {
+      const Api = await axios.get(
+        `${HomeApi}/anime/gogoanime/watch/${episodeId}`
+      );
+      setDownload(Api?.data?.download)
+    } catch (err) {
+      showErrorToast("Error loading download");
     }
   };
 
@@ -163,6 +173,7 @@ export default function Stream(props) {
     addHistory();
     getDetails();
     getStream();
+    getDownload()
     getComments();
   }, [animeId, episodeId, userId]);
 
@@ -321,6 +332,9 @@ export default function Stream(props) {
 
   return (
     <>
+         <Helmet>
+            <title>You are watching {episodeId} on animetrix</title>
+         </Helmet>
       <ToastContainer />
       <LoadingBar color="#0000FF" progress={100} height={5} shadow="true" />
       {loading ? (
@@ -339,6 +353,7 @@ export default function Stream(props) {
               </div>
               <div className="playerchange-div">
                 {videoDub.length > 0 && <button onClick={() => dubSwitchClick()}>{dubList ? "Sub" : "Dub"}</button>}
+                <i class="fa fa-download" aria-hidden="true" onClick={()=> window.open(download)}></i>
                 <i class="fa-solid fa-location-arrow" onClick={handlePlyr}></i>
                 <i class="fa-solid fa-server" onClick={handleNspl}></i>
               </div>
@@ -384,7 +399,7 @@ export default function Stream(props) {
                           )}
                         </Link>
                       })
-                      : detail?.episodes?.map((ep) => (
+                      : detail?.episodes?.slice().reverse().map((ep) => (
                         <>
                           <Link to={`/watch/${ep.id}/${animeId}`}>
                             {ep.id === episodeId ? (

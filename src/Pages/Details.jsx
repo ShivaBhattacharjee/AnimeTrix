@@ -102,7 +102,7 @@ export default function Details(props) {
 
                       <div className="anime-episodes">
                         <div className="episodes-list">
-                          {animeDetails.episodes.map((episodeWatch) => {
+                          {animeDetails.episodes.slice().reverse().map((episodeWatch) => {
                             return (
                               <Link to={`/watch/${episodeWatch.id}/${animeId}`}>
                                 <button>{episodeWatch.number}</button>

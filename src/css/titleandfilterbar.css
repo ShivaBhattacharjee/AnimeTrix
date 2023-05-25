@@ -7,7 +7,7 @@
   
   .genres {
     font-weight: 200;
-    color: #fff;
+    color: var(--text-color);
     font-size: 12px;
     letter-spacing: 2px;
   }
@@ -27,7 +27,7 @@
     margin-bottom: 30px;
   }
   .filter-bar.genre{
-    background-color: hsl(218, 39%, 14%);
+    background-color: var(--genre-filer-bar);
     padding: 20px 50px 20px;
     width: 90%;
     margin: auto;
@@ -48,8 +48,8 @@
   }
   option {
     border-radius: 15px;
-    background-color: #162032;
-    color: #fff;
+    background-color: var(--genre-background);
+    color: var(--text-color);
   }
   @media(max-width:1000px){
     .filter-bar .heading h3{

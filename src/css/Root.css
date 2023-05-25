@@ -21,6 +21,10 @@
     --image-search-delete : #000;
     --image-search-another-image : #000;
     --footer-bg: #000;
-
-    --login-bg:hsl(220, 47%, 20%);;
+    --comment-bg:rgb(22, 32, 50);
+    --login-bg:hsl(220, 47%, 20%);
+    --genre-filer-bar:hsl(218, 39%, 14%);
+    --genre-background : #162032;
+    --top-scroll-btn : hsl(219, 38%, 15%);
+    --upcoming-season-bg: #162032;
 }

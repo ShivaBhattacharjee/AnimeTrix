@@ -219,13 +219,13 @@ const Header = forwardRef((props, ref) => {
           }}
         >
           {togglemenu ? (
-            <button className="navbar-menu-btn">
+            <button className="navbar-menu-btn" aria-label="navbar open button">
               <span className="one"></span>
               <span className="two"></span>
               <span className="three"></span>
             </button>
           ) : (
-            <div className="navbar-menu-btn active">
+            <div className="navbar-menu-btn active" aria-label="navbar close button">
               <span className="one"></span>
               <span className="two"></span>
               <span className="three"></span>

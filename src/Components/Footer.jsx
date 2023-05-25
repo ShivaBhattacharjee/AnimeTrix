@@ -31,11 +31,11 @@ function Footer() {
       </p>
       <Link to="/terms" className="terms">Terms and conditon</Link>
       <div className="footer-social">
-      <button onClick={()=>discordUrl()}><i class="fa-brands fa-discord"></i></button>
-        <button onClick={() => instagramUrl()}>
-          <InstagramIcon />
+      <button onClick={()=>discordUrl()} aria-label="discord icon"><i class="fa-brands fa-discord"></i></button>
+        <button onClick={() => instagramUrl()} aria-label="instagram icon">
+          <InstagramIcon/>
         </button>
-        <button onClick={() => githubUrl()}>
+        <button onClick={() => githubUrl()} aria-label="github icon">
           <GitHubIcon />
         </button>
       </div>
