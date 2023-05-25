@@ -13,7 +13,7 @@
 
 .login-tab ion-icon{
   font-size: 40px;
-  color:  rgb(33, 150, 243);
+  color:  var(--button-color);
   position: relative;
   right: 40px;
 }
@@ -26,11 +26,11 @@
 }
 
 .logo .white {
-  color: #fff !important;
+  color: var(--text-color) !important;
 }
 
 .logo .blue {
-  color: rgb(33, 150, 243);
+  color: var(--button-color);
 }
 
 .toggle {
@@ -56,20 +56,20 @@
 }
 
 .active {
-  color: rgb(33, 150, 243);
+  color: var(--button-color);
 }
 
 .login-btn{
   font-size: 40px;
   padding: 0px;
-  color: rgb(33, 150, 243);
+  color: var(--button-color);
   cursor: pointer;
 }
 .search > input {
   padding: 12px 20px;
   border-radius: 10px;
-  background-color: #162032;
-  color: #fff;
+  background-color: var(--search-background);
+  color: var(--text-color);
   width: 300px;
 }
 
@@ -99,7 +99,7 @@
 .account-login .extra-options{
   display: inline;
   position: absolute;
-  background: #162032;
+  background:var(--account-login-background);
   padding: 30px;
   border-radius: 18px;
   right: 5%;
@@ -108,7 +108,7 @@
   z-index: 99999;
 }
 .account-login .extra-options li{
-  color: #fff;
+  color: var(--text-color);
   font-size: 16px;
   margin-bottom: 10px;
 }
@@ -134,7 +134,7 @@
 
   .navbar-menu-btn span {
     display: block;
-    background: rgb(33, 150, 243);
+    background: var(--button-color);
     width: 35px;
     height: 3px;
     margin: 8px;
@@ -231,7 +231,6 @@
   }
   .login-tab ion-icon{
     font-size: 40px;
-    color:  rgb(33, 150, 243);
     position: relative;
   }
   .logo > a {
@@ -252,7 +251,7 @@
   .mobile-search .field-icon-search{
     width: 50px;
     font-size: 30px;
-    color: rgb(33,150,243);
+    color: var(--button-color);
     font-weight: 800;
   }
   .active-search-mobile{
@@ -273,7 +272,7 @@
     margin: auto;
     z-index: 9999;
     border-radius: 14px;
-    background-color: #162032;
+    background-color: var(--search-background);
     color: #fff;
   }
 
@@ -296,16 +295,7 @@
     border-radius: 14px;
   }
 
-  .toggle-search > input {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: hsl(220, 47%, 20%);
-    color: #fff;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-  }
+
 
   .toggle-links {
     height: 280px;

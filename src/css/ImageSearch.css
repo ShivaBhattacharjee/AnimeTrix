@@ -1,4 +1,3 @@
-
 .search-image {
     display: flex;
     justify-content: center;
@@ -43,10 +42,10 @@
 }
 
 .image-search i {
-    color: #000;
+    color: var(--image-search-delete);
     font-size: 20px;
     position: absolute;
-    background: rgb(33, 150, 243);
+    background: var(--button-color);
     padding: 6px;
     border-radius: 50%;
     right: 10px;
@@ -68,7 +67,7 @@
 
 .other-image-label {
     cursor: pointer;
-    background: #000;
+    background: var (--image-search-another-image );
     padding: 15px;
     border-radius: 6px;
     transition: .5s all ease-in-out;
@@ -82,8 +81,8 @@
     padding: 10px;
     border-radius: 8px;
     margin-top: 20px;
-    background-color: rgb(33, 150, 243);
-    color: #FFFF;
+    background-color: var(--button-color);
+    color: var(--text-color);
 }
 
 .image-upload-else-container {
@@ -117,9 +116,9 @@
     margin-top: 20px;
     padding: 15px 30px;
     margin-bottom: 20px;
-    background: #162032;
+    background: var(--image-search-url);
     border-radius: 8px;
-    color: #FFFF;
+    color: var(--text-color);
     width: 400px;
     max-width: 700px;
 }
@@ -140,26 +139,31 @@
     padding-top: 80px;
     margin-left: 3%;
 }
-.expected-scene .heading h1{
+
+.expected-scene .heading h1 {
     font-size: 40px;
     padding-bottom: 40px;
 }
-.expected-scene video{
+
+.expected-scene video {
     width: 100%;
     object-fit: contain;
     border-radius: 14px;
     outline: none;
 }
-@media(max-width:1000px){
-    .image-upload-else-container{
+
+@media(max-width:1000px) {
+    .image-upload-else-container {
         padding-bottom: 45%;
     }
-    .movies.image-search{
+
+    .movies.image-search {
         margin-bottom: 15%;
     }
 }
-@media(max-width:550px){
-    .expected-scene{
+
+@media(max-width:550px) {
+    .expected-scene {
         max-width: 100%;
         display: flex;
         flex-direction: column;
@@ -168,42 +172,49 @@
         margin-left: 0%;
         padding: 30px;
     }
-    .expected-scene .heading h1{
+
+    .expected-scene .heading h1 {
         font-size: 30px;
     }
-    .preview-image-container{
+
+    .preview-image-container {
         padding: 20px;
     }
-    .image-search-container .search-image{
+
+    .image-search-container .search-image {
         font-size: 25px;
     }
+
     .image-search-note {
         padding-bottom: 7%;
     }
+
     .upload-section {
         margin-right: 0px;
     }
+
     .url-enter-search {
         margin-top: 20px;
         padding: 15px 30px;
         margin-bottom: 20px;
-        background: #162032;
         border-radius: 8px;
-        color: #FFFF;
         width: 350px;
         max-width: 400px;
     }
 }
-@media(max-width:450px){
-    .expected-scene .heading h1{
+
+@media(max-width:450px) {
+    .expected-scene .heading h1 {
         font-size: 25px;
     }
 }
-@media(max-width:320px){
-    .upload-section{
+
+@media(max-width:320px) {
+    .upload-section {
         width: 120px
     }
-    .url-enter-search{
+
+    .url-enter-search {
         width: 290px;
     }
 }
@@ -213,26 +224,28 @@
 
 @keyframes spin {
     from {
-      transform: rotate(0);
+        transform: rotate(0);
     }
-    to{
-      transform: rotate(359deg);
-    }
-  }
-  
-  @keyframes spin3D {
-    from {
-      transform: rotate3d(.5,.5,.5, 360deg);
-    }
-    to{
-      transform: rotate3d(0deg);
-    }
-  }
-  
-  /* GRID STYLING */
 
-  
-  .spinner-box {
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes spin3D {
+    from {
+        transform: rotate3d(.5, .5, .5, 360deg);
+    }
+
+    to {
+        transform: rotate3d(0deg);
+    }
+}
+
+/* GRID STYLING */
+
+
+.spinner-box {
     width: 300px;
     height: 300px;
     display: flex;
@@ -245,13 +258,13 @@
     left: 0;
     right: 0;
     margin: auto;
-    background-color: hsl(225, 25%, 7%);
+    background-color: var(--background-color);
     width: 100%;
     height: 100%;
     z-index: 999;
-  }
+}
 
-  .text-message{
+.text-message {
     font-size: 10px;
     position: absolute;
     bottom: 20%;
@@ -260,113 +273,114 @@
     justify-content: center;
     align-items: center;
     padding: 0px 20px;
-  }
-  
-  /* SOLAR SYSTEM */
-  
-  .solar-system {
+}
+
+/* SOLAR SYSTEM */
+
+.solar-system {
     width: 250px;
     height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .orbit {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid #fafbfC;
-      border-radius: 50%;
-  } 
-  
-  .earth-orbit {
-      width: 165px;
-      height: 165px;
+}
+
+.orbit {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fafbfC;
+    border-radius: 50%;
+}
+
+.earth-orbit {
+    width: 165px;
+    height: 165px;
     -webkit-animation: spin 12s linear 0s infinite;
-  }
-  
-  .venus-orbit {
-      width: 120px;
-      height: 120px;
+}
+
+.venus-orbit {
+    width: 120px;
+    height: 120px;
     -webkit-animation: spin 7.4s linear 0s infinite;
-  }
-  
-  .mercury-orbit {
-      width: 90px;
-      height: 90px;
+}
+
+.mercury-orbit {
+    width: 90px;
+    height: 90px;
     -webkit-animation: spin 3s linear 0s infinite;
-  }
-  
-  .planet {
-      position: absolute;
-      top: -5px;
+}
+
+.planet {
+    position: absolute;
+    top: -5px;
     width: 10px;
     height: 10px;
-      border-radius: 50%;
+    border-radius: 50%;
     background-color: #3ff9dc;
-  }
-  
-  .sun {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      background-color: #ffab91;
-  }
-  
-  .leo {
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-  }
-  
-  .blue-orbit {
-      width: 165px;
-      height: 165px;
+}
+
+.sun {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #ffab91;
+}
+
+.leo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.blue-orbit {
+    width: 165px;
+    height: 165px;
     border: 1px solid #91daffa5;
     -webkit-animation: spin3D 3s linear .2s infinite;
-  }
-  
-  .green-orbit {
-      width: 120px;
-      height: 120px;
+}
+
+.green-orbit {
+    width: 120px;
+    height: 120px;
     border: 1px solid #91ffbfa5;
     -webkit-animation: spin3D 2s linear 0s infinite;
-  }
-  
-  .red-orbit {
-      width: 90px;
-      height: 90px;
+}
+
+.red-orbit {
+    width: 90px;
+    height: 90px;
     border: 1px solid #ffca91a5;
     -webkit-animation: spin3D 1s linear 0s infinite;
-  }
-  
-  .white-orbit {
-      width: 60px;
-      height: 60px;
+}
+
+.white-orbit {
+    width: 60px;
+    height: 60px;
     border: 2px solid #ffffff;
     -webkit-animation: spin3D 10s linear 0s infinite;
-  }
-  
-  .w1 {
+}
+
+.w1 {
     transform: rotate3D(1, 1, 1, 90deg);
-  }
-  
-  .w2 {
+}
+
+.w2 {
     transform: rotate3D(1, 2, .5, 90deg);
-  }
-  
-  .w3 {
+}
+
+.w3 {
     transform: rotate3D(.5, 1, 2, 90deg);
-  }
-  
-  .three-quarter-spinner {
+}
+
+.three-quarter-spinner {
     width: 50px;
     height: 50px;
     border: 3px solid #fb5b53;
     border-top: 3px solid transparent;
     border-radius: 50%;
     animation: spin .5s linear 0s infinite;
-  }
+}

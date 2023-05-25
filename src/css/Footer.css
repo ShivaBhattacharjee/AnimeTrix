@@ -6,10 +6,10 @@
   align-items: center;
   gap: 10px;
   padding: 15px 0;
-  background-color: #000;
+  background-color: var(--footer-bg );
 }
 .footer h1 {
-  color: rgb(33, 150, 243);
+  color: var(--footer-heading);
   display: flex;
   gap: 10px;
 }
@@ -33,15 +33,15 @@
   align-items: center;
   padding: 10px;
   border-radius: 50%;
-  background-color: #162032;
+  background-color: var(--footer-social-btn);
   transition: .1s all ease-in;
 }
 .footer-social button:hover{
   transform: scale(1.2);
 }
 .terms{
-  border-bottom: 2px solid  rgb(33, 150, 243);
-  color: #ffff;
+  border-bottom: 2px solid var(--button-color);
+  color: var(--text-color);
 }
 @media (max-width: 600px) {
   .footer .footer-about {
