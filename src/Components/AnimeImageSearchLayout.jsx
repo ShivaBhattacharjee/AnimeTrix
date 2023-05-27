@@ -90,17 +90,18 @@ function AnimeImageSearchLayout({ searchResult, setToggle }) {
 										className="card-img"
 										src={item.image || ""}
 										alt={
-											item.anilist.title.english ||
-											item.anilist.title.romaji ||
-											item.anilist.title.native
+											item?.anilist?.title?.english ||
+											item?.anilist?.title?.romaji ||
+											item?.anilist?.title?.native
 										}
 									/>
 									<div className="card-details">
-										<h5 className="card-title">{item.anilist.title.english ||
-											item.anilist.title.romaji ||
-											item.anilist.title.native}</h5>
-										<h5 className="season-title">Episode - {item.episode}</h5>
-										<h5 className="season-title">{Math.round(item.similarity * 10000) / 100}% similarity</h5>
+										<br />
+										<h5 className="card-title">{item?.anilist?.title?.english ||
+											item?.anilist?.title?.romaji ||
+											item?.anilist?.title?.native}</h5>
+										<h5 className="card-title">Episode - {item?.episode}</h5>
+										<h5 className="card-title">{Math.round(item?.similarity * 10000) / 100}% similarity</h5>
 									</div>
 								</div>
 							</div>
