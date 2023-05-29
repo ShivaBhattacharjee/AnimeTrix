@@ -43,7 +43,7 @@ Anime Trix is an anime streaming / downloading site that offers a vast collectio
 
 AnimeTrix is built using ReactJs and vanilla Css
 
-* [ReactJs](https://reactjs.org/docs/getting-started.html)
+* [ReactJs](https://reactjs.org/docs/getting-started.html) (CRA)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [Express Js](http://expressjs.com/)
 * [Mongo DB](https://www.mongodb.com/)
