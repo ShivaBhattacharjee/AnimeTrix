@@ -43,7 +43,7 @@ Anime Trix is an anime streaming / downloading site that offers a vast collectio
 
 AnimeTrix is built using ReactJs and vanilla Css
 
-* [ReactJs](https://reactjs.org/docs/getting-started.html)
+* [ReactJs](https://reactjs.org/docs/getting-started.html) (CRA i.e Create React App)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [Express Js](http://expressjs.com/)
 * [Mongo DB](https://www.mongodb.com/)
@@ -78,6 +78,13 @@ Disclaimer: Please note that the backend logic for comment, login, and validatio
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FShivaBhattacharjee%2FAnimeTrix)
 <br/>
 <br/>
+
+* ## Netlify
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ShivaBhattacharjee/AnimeTrix)
+<br/>
+<br/>
+
 * ## Render
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ShivaBhattacharjee/AnimeTrix)

@@ -13,7 +13,7 @@
     font-size: 12px;
     flex-direction: column;
 }
-.terms-div .wrap-terms  a {
+.terms-div .wrap-terms a {
     padding: 15px 30px;
     background: var(--button-color);
     margin-top: 40px;
@@ -22,7 +22,7 @@
     font-size: 15px;
 }
 .terms-div li{
-    list-style-type:decimal-leading-zero;
+    list-style-type: decimal-leading-zero;
     margin-left: 50px;
 }
 .terms-div h2{
@@ -41,8 +41,10 @@
     }
     .terms-div li{
         font-size: 12px;
-    }
-    .terms-div li{
         margin-left: 20px;
+    }
+    .terms-div .wrap-terms a {
+        background: rgb(33, 150, 243);
+        color: #fff;
     }
 }
