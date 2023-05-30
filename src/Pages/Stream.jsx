@@ -23,7 +23,7 @@ export default function Stream(props) {
   const [displayPlyr, setDisplayPlyr] = useState(false);
   const containerRef = useRef(null);
   const [videoDub, setVideoDub] = useState([]);
-  const [download , setDownload] = useState("")
+  const [download, setDownload] = useState("")
   const [dubList, setDubList] = useState(false);
 
   // Dub Api data
@@ -110,7 +110,7 @@ export default function Stream(props) {
       const Video = await axios.get(
         `${StreamApi}/api/v2/stream/${episodeId}`
       );
-      if (Video.length == 0) {
+      if (Video.length === 0) {
         setLoading(true);
       }
       setnspl(Video?.data?.data?.nspl?.main);
@@ -267,7 +267,7 @@ export default function Stream(props) {
   };
 
   const printComments = () => {
-    if (comments.length != 0) {
+    if (comments.length !== 0) {
       return (
         <>
           {comments.map((comment) => {
@@ -305,7 +305,7 @@ export default function Stream(props) {
                       <i className="fa-solid fa-flag"></i>
                       &nbsp;&nbsp;&nbsp;Report
                     </button>
-                    {comment.sender && comment.sender._id == userId ? (
+                    {comment.sender && comment.sender._id === userId ? (
                       <button
                         onClick={(e) => {
                           deleteComment(comment);
@@ -332,9 +332,19 @@ export default function Stream(props) {
 
   return (
     <>
-         <Helmet>
-            <title>You are watching {episodeId} on animetrix</title>
-         </Helmet>
+      <Helmet>
+        <title>You are now watching {episodeId} on AnimeTrix</title>
+        <meta property="og:title" content="AnimeTrix" />
+        <meta property="og:description" content={`Watch or download ${episodeId} for free on Animetrix `} />
+        <meta property="og:image" content="https://user-images.githubusercontent.com/95211406/234815538-17642467-574a-42ec-96d1-75c2a67bebd3.png" />
+        <meta property="og:url" content="https://animetrix.vercel.app/" />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="https://user-images.githubusercontent.com/95211406/234815538-17642467-574a-42ec-96d1-75c2a67bebd3.png" />
+        <meta name="twitter:title" content="Animetrix" />
+        <meta name="twitter:description" content={`Watch or download ${episodeId} for free on Animetrix `}/>
+        <meta name="twitter:image" content="https://user-images.githubusercontent.com/95211406/234815538-17642467-574a-42ec-96d1-75c2a67bebd3.png" />
+      </Helmet>
       <ToastContainer />
       <LoadingBar color="#0000FF" progress={100} height={5} shadow="true" />
       {loading ? (
@@ -353,7 +363,7 @@ export default function Stream(props) {
               </div>
               <div className="playerchange-div">
                 {videoDub.length > 0 && <button onClick={() => dubSwitchClick()}>{dubList ? "Sub" : "Dub"}</button>}
-                <i class="fa fa-download" aria-hidden="true" onClick={()=> window.open(download)}></i>
+                <i class="fa fa-download" aria-hidden="true" onClick={() => window.open(download)}></i>
                 <i class="fa-solid fa-location-arrow" onClick={handlePlyr}></i>
                 <i class="fa-solid fa-server" onClick={handleNspl}></i>
               </div>
@@ -421,7 +431,7 @@ export default function Stream(props) {
                 return (
                   <>
                     <div className="airing-extra-info">
-                      {extra.nextAiringEpisode == undefined ? null : (
+                      {extra.nextAiringEpisode === undefined ? null : (
                         <h2>
                           Episode {extra?.nextAiringEpisode?.episode} will air
                           at{" "}

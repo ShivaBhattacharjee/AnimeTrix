@@ -393,7 +393,7 @@
 }
 @media(max-width:405px){
   .account-login{
-    left: calc(6vw - 10px);
+    left: calc(6vw - 15px);
   }
   .login-tab ion-icon{
     font-size: 35px;
