@@ -72,7 +72,28 @@
   color: var(--text-color);
   width: 300px;
 }
-
+.search-submit{
+  background: transparent;
+  padding: 2px;
+  color: var(--button-color);
+  position: absolute;
+  left: 86%;
+  font-size: 20px;
+  top: calc(35% - 10px);;
+  bottom: 20px;
+}
+.search-submit-mobile{
+  display: none;
+}
+.search-submit-mobile.active{
+  display: block;
+  position: absolute;
+  bottom: calc(90% - 139px);
+  right: 16%;
+  font-size: 25px;
+  background: transparent;
+  z-index: 999;
+}
 .search-btn {
   background: none;
   border: none;
@@ -270,7 +291,6 @@
     left: 0;
     right: 0;
     margin: auto;
-    z-index: 9999;
     border-radius: 14px;
     background-color: var(--search-background);
     color: #fff;

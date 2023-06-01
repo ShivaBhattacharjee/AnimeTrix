@@ -41,7 +41,7 @@ const Movie = (props) => {
           <section className="movies">
             <div className="filter-bar">
               <div className="heading">
-                <h3>Anime Movies</h3>
+                <h3>Movies</h3>
               </div>
             </div>
             <div className="movies-grid" ref={ref}>

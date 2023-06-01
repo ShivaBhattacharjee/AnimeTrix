@@ -98,8 +98,12 @@ const Header = forwardRef((props, ref) => {
   const handelChange = (e) => {
     const val = e.target.value;
     setInputVal(val);
-    props.handelChanges(val);
   };
+
+
+  const handleSearchSubmit = () => {
+    props.handelChanges(inputVal);
+  }
 
   useImperativeHandle(ref, () => ({
     emptySearch() {
@@ -177,7 +181,11 @@ const Header = forwardRef((props, ref) => {
             placeholder="I am looking for...."
             value={inputVal}
             onChange={handelChange}
+            required
           />
+          <button className="search-submit" onClick={handleSearchSubmit} type="submit">
+            <i class="fa-solid fa-magnifying-glass">
+            </i></button>
         </div>
         {!isLoggedIn ?
           <li className="login-tab">
@@ -207,6 +215,9 @@ const Header = forwardRef((props, ref) => {
         <div className="mobile-search" ref={menuRef}>
           <div className="search-field">
             <input type="text" className={`active-search-mobile ${searchActive ? 'active' : ''}`} placeholder="I am looking for" value={inputVal} onChange={handelChange} />
+            <button className={`search-submit-mobile ${searchActive ? 'active' : ''}`} onClick={handleSearchSubmit} type="submit">
+              <i class="fa-solid fa-magnifying-glass">
+              </i></button>
             <div className="field-icon-search" onClick={MobileView}>
               <ion-icon name="search-outline"></ion-icon>
             </div>

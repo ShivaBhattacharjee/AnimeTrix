@@ -21,7 +21,7 @@ const TopAnimeAiring = (props) => {
 
   return (
     <>
-          <Helmet>
+      <Helmet>
         <meta property="og:title" content="AnimeTrix" />
         <meta property="og:description" content="AnimeTrix is a Free Anime streaming website which you can watch English Subbed and Dubbed Anime online without creating any Account" />
         <meta property="og:image" content="https://user-images.githubusercontent.com/95211406/234815538-17642467-574a-42ec-96d1-75c2a67bebd3.png" />
@@ -36,13 +36,13 @@ const TopAnimeAiring = (props) => {
         <title>Watch Download Anime For Free On AnimeTrix</title>
       </Helmet>
       {Object.keys(props.recent).length === 0 ? (
-   <OtherPagesCard title="Top-Airing"/>
+        <OtherPagesCard title="Top-Airing" />
       ) : (
         <>
           <section className="movies">
             <div className="filter-bar">
               <div className="heading">
-                <h3>Top-Airing</h3>
+                <h3>Trending</h3>
               </div>
             </div>
 
