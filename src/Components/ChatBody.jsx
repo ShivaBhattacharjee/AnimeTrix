@@ -29,7 +29,7 @@ const ChatBody = ({ chat }) => {
     if (copy) {
       copiedTimeout = setTimeout(() => {
         setCopy(false);
-      }, 2000);
+      }, 3500);
     }
 
     return () => {

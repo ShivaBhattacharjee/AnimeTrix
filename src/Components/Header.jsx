@@ -102,9 +102,13 @@ const Header = forwardRef((props, ref) => {
 
 
   const handleSearchSubmit = () => {
-    props.handelChanges(inputVal);
+    props.handelChanges(inputVal); // Corrected function name to handelChanges
   }
-
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearchSubmit();
+    }
+  }
   useImperativeHandle(ref, () => ({
     emptySearch() {
       setInputVal("");
@@ -181,7 +185,9 @@ const Header = forwardRef((props, ref) => {
             placeholder="I am looking for...."
             value={inputVal}
             onChange={handelChange}
+            onKeyDown={handleKeyDown}
             required
+
           />
           <button className="search-submit" onClick={handleSearchSubmit} type="submit">
             <i class="fa-solid fa-magnifying-glass">
@@ -214,7 +220,7 @@ const Header = forwardRef((props, ref) => {
           </div>}
         <div className="mobile-search" ref={menuRef}>
           <div className="search-field">
-            <input type="text" className={`active-search-mobile ${searchActive ? 'active' : ''}`} placeholder="I am looking for" value={inputVal} onChange={handelChange} />
+            <input type="text" className={`active-search-mobile ${searchActive ? 'active' : ''}`} placeholder="I am looking for" value={inputVal} onChange={handelChange} onKeyDown={handleKeyDown} />
             <button className={`search-submit-mobile ${searchActive ? 'active' : ''}`} onClick={handleSearchSubmit} type="submit">
               <i class="fa-solid fa-magnifying-glass">
               </i></button>

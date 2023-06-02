@@ -3,7 +3,7 @@ import Error404 from "./error404";
 import Footer from "./Footer";
 import Header from "./Header";
 import ScrollToTop from "./ScrollToTop"
-import SearchJSX from "./SearchJSX"
+import SearchJSX from "./Search"
 import ChatBody from "./ChatBody";
 import ChatInput from "./ChatInput";
 import AiringSchedule from "./AiringSchedule";
