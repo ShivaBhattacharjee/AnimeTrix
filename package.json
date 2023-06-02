@@ -35,7 +35,7 @@
     "react-toastify": "^9.1.2",
     "react-top-loading-bar": "^2.3.1",
     "swiper": "^9.0.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
