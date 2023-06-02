@@ -69,7 +69,7 @@ Disclaimer: Please note that the backend logic for comment, login, and validatio
   
   npm install
   
-  npm start
+  npm start //server will run at localhost:3000
 ```
 
 ## Host your own 
