@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChatBody, ChatInput } from "../Components";
 import { useMutation } from "react-query";
-import { fetchResponse } from "../Components/api.js";
+import { fetchResponse } from "../Components/ChatBotapi.js";
 function AIChat() {
   const [chat, setChat] = useState([]);
 

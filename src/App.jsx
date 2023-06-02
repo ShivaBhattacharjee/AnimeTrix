@@ -1,6 +1,6 @@
 import  "./css/Root.css"
 import "./App.css";
-import "./css/navbar.css";
+import "./css/Header.css";
 import "./css/Details.css";
 import "./css/stream.css";
 import "./css/Footer.css";
@@ -19,7 +19,7 @@ import "./css/ImageSearch.css"
 import "./css/UpcomingSeason.css"
 import './css/terms.css'
 import { Error404, Header, ScrollToTop, SearchJSX, History, Bookmark } from "./Components/";
-import {  RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, OptionFetcher, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason, Terms } from "./Pages"
+import {  RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, Genre, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason, Terms } from "./Pages"
 import { ToastContainer } from 'react-toastify';
 
 
@@ -310,7 +310,7 @@ function App() {
           exact
           path="/genre"
           element={
-            <OptionFetcher
+            <Genre
             />
           }
         />

@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { HomeApi } from '../Components/constants';
 import GenreLoading from '../Loading/GenreLoading';
 import { showErrorToast } from '../utils/toast';
-function OptionFetcher() {
+function Genre() {
 
   const [selectedOption, setSelectedOption] = useState('Action');
 
@@ -115,4 +115,4 @@ function OptionFetcher() {
 }
 
 
-export default OptionFetcher;
+export default Genre;

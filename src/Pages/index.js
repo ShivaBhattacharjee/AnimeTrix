@@ -1,6 +1,6 @@
 import Details from "./Details";
 import DubAnime from "./DubAnime"
-import OptionFetcher from "./genre";
+import Genre from "./genre";
 import Movie from "./movie"
 import Popular from "./Popular"
 import RecentAnime from "./RecentAnime"
@@ -17,7 +17,7 @@ import Terms from "./Terms";
 export{
     Details,
     DubAnime,
-    OptionFetcher,
+    Genre,
     Movie,
     Popular,
     RecentAnime,
