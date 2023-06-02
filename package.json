@@ -25,7 +25,7 @@
     "react-dom": "^18.2.0",
     "react-drag-drop-files": "^2.3.9",
     "react-helmet": "^6.1.0",
-    "react-icons": "^4.8.0",
+    "react-icons": "^4.9.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-lazy-load-image-component": "^1.5.6",
     "react-loading-skeleton": "^3.3.1",
