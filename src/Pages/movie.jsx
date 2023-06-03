@@ -35,7 +35,7 @@ const Movie = (props) => {
         <title>Watch Download Anime For Free On AnimeTrix</title>
       </Helmet>
       {Object.keys(props.recent).length === 0 ? (
-        <OtherPagesCard title="Anime Movies" />
+        <OtherPagesCard title="Movies" />
       ) : (
         <>
           <section className="movies">
