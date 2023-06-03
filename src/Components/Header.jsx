@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 // import LogoutIcon from '@mui/icons-material/Logout';
 // import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -14,6 +14,7 @@ const Header = forwardRef((props, ref) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [img, setImg] = useState("https://i.pinimg.com/originals/b8/bf/ac/b8bfac2f45bdc9bfd3ac5d08be6e7de8.jpg");
 
+  const navigate = useNavigate();
   let menuRef = useRef();
 
   useEffect(() => {
@@ -102,7 +103,9 @@ const Header = forwardRef((props, ref) => {
 
 
   const handleSearchSubmit = () => {
-    props.handelChanges(inputVal); // Corrected function name to handelChanges
+    props.handelChanges(inputVal); 
+    navigate("/search")
+    setSearchActive(false)
   }
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {

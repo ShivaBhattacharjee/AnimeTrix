@@ -393,7 +393,7 @@
     font-size: 30px;
   }
 }
-@media(max-width:450px){
+@media(max-width:457px){
   .account-login{
     position: relative;
     left: 9%;
@@ -417,7 +417,7 @@
   }
   .login-tab ion-icon{
     font-size: 35px;
-    left: calc(6vw - 5px);
+    left: calc(10vw - 25px);
   }
   .logo>a{
     font-size: 30px;
