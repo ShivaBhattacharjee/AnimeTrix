@@ -1,4 +1,4 @@
-import  "./css/Root.css"
+import "./css/Root.css"
 import "./App.css";
 import "./css/Header.css";
 import "./css/Details.css";
@@ -19,7 +19,7 @@ import "./css/ImageSearch.css"
 import "./css/UpcomingSeason.css"
 import './css/terms.css'
 import { Error404, Header, ScrollToTop, SearchJSX, History, Bookmark } from "./Components/";
-import {  RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, Genre, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason, Terms } from "./Pages"
+import { RecentAnime, Details, Stream, Popular, TopAnimeAiring, Movie, Genre, Login, Register, AIChat, Profile, ForgotPassword, AnimeImageSearch, NewSeason, Terms } from "./Pages"
 import { ToastContainer } from 'react-toastify';
 
 
@@ -36,7 +36,7 @@ import { HomeApi } from "./Components/constants";
 import { showErrorToast } from "./utils/toast";
 function App() {
   const childRef = useRef();
-  const [slider,setSlider]= useState([]);
+  const [slider, setSlider] = useState([]);
   const [recent, setRecent] = useState([]);
   const [popular, setPopular] = useState([]);
   const [movie, setMovie] = useState([]);
@@ -223,9 +223,6 @@ function App() {
       <ToastContainer />
       <ScrollToTop />
       <Header handelChanges={handelChanges} ref={childRef} />
-      {searchResult ? (
-        <SearchJSX searchResult={searchResult} handelClick={handelClick} />
-      ) : null}
       <Routes>
         <Route
           exact
@@ -240,6 +237,13 @@ function App() {
               loading={loading}
               slider={slider}
             />
+          }
+        />
+        <Route
+          exact
+          path="/search"
+          element={
+            <SearchJSX searchResult={searchResult} handelClick={handelClick} />
           }
         />
         <Route
@@ -326,14 +330,14 @@ function App() {
 
           exact
           path="/anime-details/:animeId"
-          element={<Details handelClick={handelClick}/>}
+          element={<Details handelClick={handelClick} />}
         />
         <Route
           exact
           path="/watch/:episodeId/:animeId"
           element={<Stream />}
         />
-<Route exact path="/terms" element={<Terms />} />
+        <Route exact path="/terms" element={<Terms />} />
         <Route exact path="/image-search" element={<AnimeImageSearch />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
