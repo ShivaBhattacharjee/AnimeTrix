@@ -12,7 +12,7 @@ import "swiper/css/navigation"
 import "../css/slider.css";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Mousewheel } from "swiper";
 
 export default function Slider() {
   const renderAfterCalled = useRef(false);
@@ -31,7 +31,10 @@ export default function Slider() {
   return (
     <>
     <Swiper
+    direction={"vertical"}
+    slidesPerView={1}
       spaceBetween={30}
+      mousewheel={true}
       centeredSlides={true}
       autoplay={{
         delay: 3500,
@@ -41,7 +44,7 @@ export default function Slider() {
         clickable: true,
       }}
       navigation={true}
-      modules={[Autoplay, Pagination, Navigation]}
+      modules={[Autoplay, Pagination]}
       className="mySwiper"
     >{
         sliderinfo.map((data, uqley , swipe) => {
