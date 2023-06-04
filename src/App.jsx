@@ -168,6 +168,7 @@ function App() {
   // Search Bar function
   const handelChanges = async (val) => {
     try {
+      setLoading(false)
       const searchRes = await axios
         .get(`${HomeApi}/meta/anilist/${val}`)
       if (val === "") {
@@ -243,7 +244,7 @@ function App() {
           exact
           path="/search"
           element={
-            <SearchJSX searchResult={searchResult} handelClick={handelClick} />
+            <SearchJSX searchResult={searchResult} handelClick={handelClick} loading={loading}/>
           }
         />
         <Route

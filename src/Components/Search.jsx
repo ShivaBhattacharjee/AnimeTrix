@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Card from "./Card";
+import OtherPagesCard from "../Loading/OtherPagesCard";
 
 export default function SearchJSX(props) {
   const handelClick = () => {
@@ -9,17 +10,10 @@ export default function SearchJSX(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   if (!props.searchResult || Object.keys(props.searchResult).length === 0) {
     return (
       <div align="center">
-        <h4
-          className="no-results"
-          style={{ fontSize: "35px", paddingTop: "20px" }}
-        >
-          No Results Found 😔
-        </h4>
-        <br />
+        <OtherPagesCard/>
         <br />
       </div>
     );
