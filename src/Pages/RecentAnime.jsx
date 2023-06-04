@@ -9,10 +9,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation"
 
 import "../css/slider.css";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Mousewheel } from "swiper";
 import HomePageLoader from "../Loading/HomePageLoader";
 import { Helmet } from 'react-helmet';
 // import History from "../Components/History";
@@ -73,6 +72,8 @@ const RecentAnime = (props) => {
       ) : (
         <>
           <Swiper
+          direction={"vertical"}
+          slidesPerView={1}
             spaceBetween={30}
             centeredSlides={true}
             autoplay={{
@@ -82,8 +83,8 @@ const RecentAnime = (props) => {
             pagination={{
               clickable: true,
             }}
-            navigation={true}
-            modules={[Autoplay, Pagination, Navigation]}
+            navigation={false}
+            modules={[Mousewheel, Pagination, Autoplay]}
             className="mySwiper"
           >
             {props.slider &&
