@@ -70,16 +70,16 @@
   border-radius: 10px;
   background-color: var(--search-background);
   color: var(--text-color);
-  width: 300px;
+  width: 350px;
 }
 .search-submit{
   background: transparent;
   padding: 2px;
   color: var(--button-color);
-  position: absolute;
-  left: 86%;
+  position: relative;
+  left: calc(20% - 120px);
   font-size: 20px;
-  top: calc(35% - 10px);;
+  transform: translateY(calc(90% - 12px));
   bottom: 20px;
 }
 .search-submit-mobile{

@@ -17,14 +17,13 @@ export default function SearchJSX(props) {
           className="no-results"
           style={{ fontSize: "35px", paddingTop: "20px" }}
         >
-          No Results found
+          No Results Found 😔
         </h4>
         <br />
         <br />
       </div>
     );
   }
-
   return (
     <div align="center">
       <h1>Search Results</h1>

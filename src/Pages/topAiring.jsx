@@ -36,7 +36,7 @@ const TopAnimeAiring = (props) => {
         <title>Watch Download Anime For Free On AnimeTrix</title>
       </Helmet>
       {Object.keys(props.recent).length === 0 ? (
-        <OtherPagesCard title="Top-Airing" />
+        <OtherPagesCard title="Trending" />
       ) : (
         <>
           <section className="movies">
