@@ -342,7 +342,7 @@ export default function Stream(props) {
 
         <meta name="twitter:card" content="https://user-images.githubusercontent.com/95211406/234815538-17642467-574a-42ec-96d1-75c2a67bebd3.png" />
         <meta name="twitter:title" content="Animetrix" />
-        <meta name="twitter:description" content={`Watch or download ${episodeId} for free on Animetrix `} />
+        <meta name="twitter:description" content={`Watch or download ${episodeId} for free on Animetrix `}/>
         <meta name="twitter:image" content="https://user-images.githubusercontent.com/95211406/234815538-17642467-574a-42ec-96d1-75c2a67bebd3.png" />
       </Helmet>
       <ToastContainer />
@@ -394,130 +394,129 @@ export default function Stream(props) {
                 </div>
 
                 {/* Episode List */}
-                {/* Episode List */}
-                <div className="list-box">
-                  <div className="episode-list">
-                    {dubList ? (
-                      videoDub.map((dublist) => {
-                        const { id, number } = dublist;
-                        return (
-                          <Link to={`/watch/${id}/${animeId}`} key={id}>
-                            {id === episodeId ? (
-                              <button className="active">{number}</button>
-                            ) : (
-                              <button>{number}</button>
-                            )}
-                          </Link>
-                        );
-                      })
-                    ) : (
-                      detail?.episodes?.slice().sort((a, b) => a.number - b.number).map((ep) => (
-                        <Link to={`/watch/${ep.id}/${animeId}`} key={ep.id}>
-                          {ep.id === episodeId ? (
-                            <button className="active">{ep.number}</button>
-                          ) : (
-                            <button>{ep.number}</button>
-                          )}
-                        </Link>
-                      ))
-                    )}
-                  </div>
-                </div>
+<div className="list-box">
+  <div className="episode-list">
+    {dubList ? (
+      videoDub.map((dublist) => {
+        const { id, number } = dublist;
+        return (
+          <Link to={`/watch/${id}/${animeId}`} key={id}>
+            {id === episodeId ? (
+              <button className="active">{number}</button>
+            ) : (
+              <button>{number}</button>
+            )}
+          </Link>
+        );
+      })
+    ) : (
+      detail?.episodes?.slice().sort((a, b) => a.number - b.number).map((ep) => (
+        <Link to={`/watch/${ep.id}/${animeId}`} key={ep.id}>
+          {ep.id === episodeId ? (
+            <button className="active">{ep.number}</button>
+          ) : (
+            <button>{ep.number}</button>
+          )}
+        </Link>
+      ))
+    )}
+  </div>
+</div>
+
+
               </div>
             </div>
-          </div>
-          {extraDetail &&
-            extraDetail?.map((extra) => {
-              return (
-                <>
-                  <div className="airing-extra-info">
-                    {extra.nextAiringEpisode === undefined ? null : (
-                      <h2>
-                        Episode {extra?.nextAiringEpisode?.episode} will air
-                        at{" "}
-                        {new Date(
-                          extra?.nextAiringEpisode?.airingTime * 1000
-                        ).toLocaleString()}
-                      </h2>
-                    )}
-                  </div>
-                  <div className="previous-seasons">
-                    {detail?.relations?.map((relatedSeason) => {
-                      return (
-                        <div className="related-seasons">
-                          <Link to={`/anime-details/${relatedSeason?.id}`}>
-                            <img
-                              src={relatedSeason.image}
-                              alt=""
-                              className="image-related"
-                            />
-                          </Link>
-                          <div className="title-and-type">
-                            <h1>{relatedSeason?.title?.userPreferred}...</h1>
-                            <span>{relatedSeason?.type}</span>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <div className="characters-container">
-                    <div className="characters-heading">
-                      <h2>Characters</h2>
+            {extraDetail &&
+              extraDetail?.map((extra) => {
+                return (
+                  <>
+                    <div className="airing-extra-info">
+                      {extra.nextAiringEpisode === undefined ? null : (
+                        <h2>
+                          Episode {extra?.nextAiringEpisode?.episode} will air
+                          at{" "}
+                          {new Date(
+                            extra?.nextAiringEpisode?.airingTime * 1000
+                          ).toLocaleString()}
+                        </h2>
+                      )}
                     </div>
-                    <div
-                      className="characters"
-                      onMouseDown={handleMouseDown}
-                      onMouseMove={handleMouseMove}
-                      onMouseUp={handleMouseUp}
-                      ref={containerRef}
-                    >
-                      {extra.characters.map((character) => {
+                    <div className="previous-seasons">
+                      {detail?.relations?.map((relatedSeason) => {
                         return (
-                          <div className="character">
-                            <img src={character.image} alt="" />
-                            <p>{character.name.full}</p>
+                          <div className="related-seasons">
+                            <Link to={`/anime-details/${relatedSeason?.id}`}>
+                              <img
+                                src={relatedSeason.image}
+                                alt=""
+                                className="image-related"
+                              />
+                            </Link>
+                            <div className="title-and-type">
+                              <h1>{relatedSeason?.title?.userPreferred}...</h1>
+                              <span>{relatedSeason?.type}</span>
+                            </div>
                           </div>
                         );
                       })}
                     </div>
-                  </div>
-                </>
-              );
-            })
-          }
-          {/* discussion */}
-          <div className="comments">
-            <div className="comments-header">
-              <h3>Comments</h3>
-            </div>
-
-            <div className="comment-section">
-              <div className="send-comment">
-                <textarea
-                  name=""
-                  id=""
-                  placeholder="Leave a comment"
-                  value={comment}
-                  onChange={(e) => {
-                    setComment(e.target.value);
-                  }}
-                ></textarea>
-                <button
-                  onClick={(e) => {
-                    addComment(e);
-                  }}
-                >
-                  Comment
-                </button>
+                    <div className="characters-container">
+                      <div className="characters-heading">
+                        <h2>Characters</h2>
+                      </div>
+                      <div
+                        className="characters"
+                        onMouseDown={handleMouseDown}
+                        onMouseMove={handleMouseMove}
+                        onMouseUp={handleMouseUp}
+                        ref={containerRef}
+                      >
+                        {extra.characters.map((character) => {
+                          return (
+                            <div className="character">
+                              <img src={character.image} alt="" />
+                              <p>{character.name.full}</p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            {/* discussion */}
+            <div className="comments">
+              <div className="comments-header">
+                <h3>Comments</h3>
               </div>
 
-              <div className="comment-field">{printComments()}</div>
+              <div className="comment-section">
+                <div className="send-comment">
+                  <textarea
+                    name=""
+                    id=""
+                    placeholder="Leave a comment"
+                    value={comment}
+                    onChange={(e) => {
+                      setComment(e.target.value);
+                    }}
+                  ></textarea>
+                  <button
+                    onClick={(e) => {
+                      addComment(e);
+                    }}
+                  >
+                    Comment
+                  </button>
+                </div>
+
+                <div className="comment-field">{printComments()}</div>
+              </div>
             </div>
           </div>
           <Footer />
         </>
-      )
-      }
+      )}
     </>
   );
 }
