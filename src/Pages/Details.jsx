@@ -119,13 +119,14 @@ export default function Details(props) {
 
                   <div className="anime-episodes">
                     <div className="episodes-list">
-                      {animeDetails.episodes.slice().reverse().map((episodeWatch) => {
+                      {animeDetails.episodes.slice().sort((a, b) => a.number - b.number).map((episodeWatch) => {
                         return (
-                          <Link to={`/watch/${episodeWatch.id}/${animeId}`}>
+                          <Link to={`/watch/${episodeWatch.id}/${animeId}`} key={episodeWatch.id}>
                             <button>{episodeWatch.number}</button>
                           </Link>
-                        )
+                        );
                       })}
+
                     </div>
                   </div>
                 </section>
