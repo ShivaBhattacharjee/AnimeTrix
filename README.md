@@ -30,6 +30,7 @@
   * [Hosting](#host-your-own)
 * [Contributing](#contributing)
 * [Issue Template](#raising-an-issue)
+* [Code of conduct](#code-of-conduct)
 * [License](#license)
 * [Authors](#authors)
 
@@ -119,6 +120,9 @@ We kindly ask that you provide as much detail as possible when submitting an iss
 
 Thank you for your cooperation, and we look forward to hearing from you!
 
+## Code of conduct
+
+Developers are requested to go through our <a href="https://github.com/ShivaBhattacharjee/AnimeTrix/blob/main/CODE_OF_CONDUCT.md">code of conduct</a> thoroughly to maintain a peaceful environment within our project.
 
 ## License
 
