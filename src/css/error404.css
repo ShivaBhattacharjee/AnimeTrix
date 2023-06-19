@@ -70,6 +70,9 @@
   }
 }
 @media(max-width:480px){
+  .error-page{
+    height: 90vh;
+  }
   .error-page .error-background h1{
     font-size: 180px;
   }
