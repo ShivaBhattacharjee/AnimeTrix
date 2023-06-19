@@ -1,66 +1,124 @@
-.error{
-  width: 100%;
+.error-page{
   display: flex;
   justify-content: center;
   align-items: center;
+  height: calc(100vh - 90px);
+  background: rgba(0, 0, 0, 0.8);
+  flex-direction: column;
+  padding: 6px;
 }
-.error-container{
+.error-page .error-background h1{
+  font-size: 450px;
+  opacity: .1;
+}
+.error-texts{
   display: flex;
-  margin: 50px 0;
-}
-
-.error-img>img{
-  width: 500px;
-}
-.error-text-field{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  position: absolute;
   flex-direction: column;
 }
-.error-text-field>h1{
-  color: var(--text-color);
-  font-size: 10rem;
+.error-texts .top-error-heading{
+  font-size: 20px;
   font-weight: 600;
 }
-.error-text-field>span{
-  font-size: 22px;
-  margin: 8px;
+.error-texts .top-error-heading span{
+  color: var(--button-color);
 }
-.error-text-field>a{
-  margin-top: 30px;
-  font-size: 20px;
-  background-color: var(--button-color);
-  padding: 12px 20px;
-  border-radius: 10px;
-  color: var(--text-color);
+.error-texts .error-description{
+  font-size: 30px;
+  font-weight: 600;
 }
-@media only screen and (max-width: 900px){
-  .error-container{
-    margin: 150px 0;
+.error-texts .bottom-error-heading{
+  font-size: 17px;
+  font-weight: 600;
+}
+.error-texts button{
+  background: transparent;
+  outline: none;
+  border:2px solid var(--button-color);
+  padding: 17px;
+  width: 60%;
+  margin: 1.3rem auto;
+  border-radius: 8px;
+  transition: .3s all ease-in-out;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.error-texts button:hover{
+  background: var(--button-color);
+}
+
+@media(max-width:940px){
+  .error-page .error-background h1{
+    font-size: 300px;
   }
-  .error-img>img{
-    width: 250px;
+  
+}
+@media(max-width:650px){
+  .error-page .error-background h1{
+    font-size: 250px;
   }
-  .error-text-field>h1{
-    font-size: 8rem;
+  .error-texts .top-error-heading{
+    font-size: 20px;
   }
-  .error-text-field>span{
-    text-align: center;
+  .error-texts .error-description{
+    font-size: 25px;
   }
-  .error-text-field>a{
-    margin: 10px 0;
+  .error-texts .bottom-error-heading{
+    font-size: 13px;
   }
 }
-@media only screen and (max-width: 500px){
-  .error-container{
-    flex-direction: column;
-    margin: 50px 0;
+@media(max-width:480px){
+  .error-page .error-background h1{
+    font-size: 180px;
   }
-  .error-img>img{
-    margin: auto;
+  .error-texts .top-error-heading{
+    font-size: 14px;
   }
-  .error-text-field>h1{
-    font-size: 5rem;
+  .error-texts .error-description{
+    font-size: 20px;
+  }
+  .error-texts .bottom-error-heading{
+    font-size: 13px;
+  }
+  .error-texts button{
+    font-size: 12px;
+  }
+}
+
+@media(max-width:400px){
+  .error-page .error-background h1{
+    font-size: 130px;
+  }
+  .error-texts .top-error-heading{
+    font-size: 12px;
+  }
+  .error-texts .error-description{
+    font-size: 16px;
+  }
+  .error-texts .bottom-error-heading{
+    font-size: 11px;
+  }
+  .error-texts button{
+    font-size: 10px;
+  }
+}
+@media(max-width:350px){
+  .error-page .error-background h1{
+    font-size: 130px;
+  }
+  .error-texts .top-error-heading{
+    font-size: 13px;
+  }
+  .error-texts .error-description{
+    font-size: 15px;
+  }
+  .error-texts .bottom-error-heading{
+    font-size: 10px;
+  }
+  .error-texts button{
+    font-size: 10px;
+    width: 90%;
   }
 }
