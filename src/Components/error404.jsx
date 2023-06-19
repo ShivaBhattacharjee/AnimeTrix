@@ -16,7 +16,9 @@ function Error404() {
                     <span className="top-error-heading">Welcome to <span>the 404 dimension</span></span>
                     <h1 className="error-description">You have discovered a new dimension</h1>
                     <span className="bottom-error-heading">But unfortunately, this dimension has nothing at all</span>
+                    <Link to="/">
                     <button>Go back to the old dimension</button>
+                    </Link>
                 </div>
             </section>
         </>
