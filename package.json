@@ -12,12 +12,12 @@
     "anime downloading"
   ],
   "dependencies": {
-    "@emotion/react": "^11.11.0",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@formkit/auto-animate": "^1.0.0-beta.6",
+    "@formkit/auto-animate": "^1.0.0-pre-alpha.3",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.13.3",
-    "axios": "^0.27.2",
+    "@mui/material": "^5.13.5",
+    "axios": "^1.4.0",
     "buffer": "^6.0.3",
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",
@@ -30,13 +30,12 @@
     "react-lazy-load-image-component": "^1.6.0",
     "react-loading-skeleton": "^3.3.1",
     "react-query": "^3.39.3",
-    "react-router-dom": "^6.11.2",
+    "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.3",
     "react-top-loading-bar": "^2.3.1",
-    "swiper": "^9.3.2",
-    "web-vitals": "^3.3.2",
-    "yarn": "^1.22.19"
+    "swiper": "^9.4.1",
+    "web-vitals": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
