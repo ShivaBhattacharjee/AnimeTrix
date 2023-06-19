@@ -440,7 +440,7 @@
     left:4%;
   }
 }
-@media(max-width:340px){
+@media(max-width:350px){
   .account-login{
     left:2%;
   }
