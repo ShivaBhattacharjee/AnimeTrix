@@ -16,7 +16,7 @@
     "@emotion/styled": "^11.11.0",
     "@formkit/auto-animate": "^1.0.0-pre-alpha.3",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.13.4",
+    "@mui/material": "^5.13.5",
     "axios": "^1.4.0",
     "buffer": "^6.0.3",
     "js-cookie": "^3.0.5",
