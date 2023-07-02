@@ -36,7 +36,8 @@
 
 ## About The Project
 
-![Screenshot (675)](https://user-images.githubusercontent.com/95211406/234815538-17642467-574a-42ec-96d1-75c2a67bebd3.png)
+![Screenshot from 2023-07-02 13-09-50](https://github.com/ShivaBhattacharjee/AnimeTrix/assets/95211406/86784c0d-96d6-41cb-87f2-81722f7172de)
+
 
 Anime Trix is an anime streaming / downloading site that offers a vast collection of anime shows for streaming and downloading. With a user-friendly interface, you can easily find your favorite anime shows and watch them in high-definition quality. Our platform is updated regularly with the latest anime episodes, so you can stay up-to-date with your favorite shows. Anime Trix is the go-to destination for anime lovers who want to watch their favorite shows anytime, anywhere.
 
