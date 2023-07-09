@@ -113,8 +113,9 @@ export default function Stream(props) {
       if (Video.length === 0) {
         setLoading(true);
       }
-      setnspl(Video?.data?.data?.nspl?.main);
-      setData(Video?.data?.data?.plyr?.backup);
+      setnspl(Video?.data?.nspl?.main);
+      setData(Video?.data?.plyr?.main);
+      console.log(data)
       setLoading(false);
     } catch (err) {
       showErrorToast("Error loading streaming data");

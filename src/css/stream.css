@@ -389,9 +389,12 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .video-player iframe,
-  .skeleton-loader-video {
+  .video-player iframe {
+    width: 100%;
     height: 290px;
+  }
+  .skeleton-loader-video{
+    width: 400px;
   }
 }
 @media(max-width:800px){
