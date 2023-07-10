@@ -33,7 +33,7 @@ export default function Stream(props) {
       const dubVideo = await axios.get(
         `${StreamApi}/api/v2/episode/${animeId}?dub=true`
       );
-      setVideoDub(dubVideo?.data);
+      setVideoDub(dubVideo?.data?.episode);
     } catch (err) {
       showErrorToast("Error loading streaming data");
     }
