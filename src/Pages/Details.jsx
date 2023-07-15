@@ -28,7 +28,15 @@ export default function Details(props) {
       const response = await api.json()
       const responseArray = [response];
       setDetail(responseArray);
-      const [firstEpisode] = response.episodes;
+      const firstEpisode = response.episodes.reduce(
+        (smallestEpisode, currentEpisode) => {
+          if (currentEpisode.number < smallestEpisode.number) {
+            return currentEpisode;
+          } else {
+            return smallestEpisode;
+          }
+        }
+      );
       if (firstEpisode) {
         setWatch(firstEpisode.id);
       } else {
