@@ -113,8 +113,8 @@ export default function Stream(props) {
       if (Video.length === 0) {
         setLoading(true);
       }
-      setnspl(Video?.data?.nspl?.main);
-      setData(Video?.data?.plyr?.main);
+      setnspl(Video?.data?.nspl?.backup);
+      setData(Video?.data?.plyr?.backup);
       console.log(data)
       setLoading(false);
     } catch (err) {
